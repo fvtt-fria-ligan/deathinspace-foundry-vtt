@@ -1,12 +1,56 @@
-.deathinspace.sheet {
+:root {
+  --background-color: #000000;
+  --foreground-color: #ffffff;
+  --foreground-alt-color: #eb1c26;
+  --highlight-background-color: #eb1c26;
+  --highlight-foreground-color: #ffffff;
+  --chat-font: "Helvetica";
+  --chat-info-font: "Helvetica";
+  --h1-font: "Helvetica";
+  --h2-font: "Helvetica";
+  --h3-font: "Helvetica";
+  --item-font: "Helvetica";
 }
-.deathinspace.sheet .sheet-tabs {
-
-}
-.deathinspace.sheet.actor.character form {
+/* ====================== */
+.deathinspace.sheet form {
   border: 4px solid #eb1c26;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  border: 1px solid green;
+  justify-content: flex-start;
 }
+/* ====================== */
+/* Sheet Tabs */
+/* ====================== */
+.deathinspace.sheet .sheet-tabs {
+  flex: 0 0 30px;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.deathinspace .sheet-tabs .item {
+  font-family: var(--h2-font);
+  font-size: 22px;
+  height: 30px;
+  line-height: 32px;
+  margin: 0 5px;
+  width: 120px;
+  text-transform: uppercase;
+}
+.deathinspace.sheet .sheet-tabs .item:hover {
+  color: var(--highlight-foreground-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);
+}
+.deathinspace.sheet .sheet-tabs .item.active {
+  text-shadow: none;
+  background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
+}
+/* ====================== */
+/* ====================== */
+
 .deathinspace.sheet.actor.character .sheet-header {
   height: 80px;
 }
