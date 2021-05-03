@@ -8,8 +8,7 @@
   "scripts": [],
   "esmodules": ["module/deathinspace.js"],
   "styles": ["style/css/deathinspace.css"],
-  "packs": [
-  ],
+  "packs": [],
   "languages": [
     {
       "lang": "en",
