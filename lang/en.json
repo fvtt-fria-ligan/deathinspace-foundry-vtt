@@ -1,5 +1,8 @@
 {
 "DIS.AbilityBody": "Body",
 "DIS.SheetClassCharacter": "Death in Space Character Sheet",
+"DIS.TabPersonal": "Personal",
+"DIS.TabSituation": "Situation",
+"DIS.TabBelongings": "Belongings",
 "DIS.TabNotes": "Notes"
 }
