@@ -1,0 +1,83 @@
+{
+  "Actor": {
+    "types": ["character"],
+    "templates": {
+    },
+    "character": {
+      "templates": [],
+      "abilities": {
+        "body": {
+          "value": 0
+        },
+        "dexterity": {
+          "value": 0
+        },
+        "savvy": {
+          "value": 0
+        },
+        "tech": {
+          "value": 0
+        }
+      },
+      "nickname": "",
+      "xp": 0,
+      "background": "",
+      "pastAllegiance": "",
+      "trait": "",
+      "drive": "",
+      "looks": "",
+      "hitpoints": {
+        "max": 1,
+        "value": 1
+      },
+      "voidPoints": {
+        "max": 5,
+        "value": 0
+      },
+      "lifeSupport": {
+        "max": 100,
+        "value": 0
+      },
+      "notes": "",
+      "holos": "",
+      "debt": ""
+    }
+  },
+  "Item": {
+    "types": ["origin", "originBenefit", "cosmicMutation", "voidCorruption", "addiction", "personalBelonging", "smallItem", "weapon", "armor"],
+    "templates": {
+    },
+    "origin": {
+
+    },
+    "originBenefit": {
+
+    },
+    "cosmicMutation": {
+
+    },
+    "voidCorruption": {
+
+    },
+    "addiction": {
+      "substance": "",
+      "daysWithout": 0
+    },
+    "personalBelonging": {
+
+    },
+    "smallItem": {
+
+    },
+    "weapon": {
+      "damage": "1d4",
+      "units": 1,
+      "condition": ""
+    },
+    "armor": {
+      "protectsAgainst": "",
+      "drBonus": 0,
+      "condition": ""
+    }
+  }
+}
