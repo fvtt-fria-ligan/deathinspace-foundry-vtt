@@ -233,6 +233,9 @@ div.origin {
 .ability-value {
   flex: 0 0 50px;
 }
+.ability-value input[type="number"]{
+  text-align: center;
+}
 .portrait-block {
   border-bottom: 2px solid black;
   grid-column-start: 3;
