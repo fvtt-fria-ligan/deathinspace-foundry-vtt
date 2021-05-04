@@ -132,6 +132,7 @@
   padding: 2px;
 }
 .stat-block label {
+  display: block;
   float: left;
   font-size: 12px;
 }
@@ -238,16 +239,54 @@ div.origin {
   grid-row-start: 6;
   grid-row-end: 11;
 }
-.defense-rating-block {
+.portrait-col {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  justify-content: center;
+}
+.portrait {
+
+}
+.portrait-image {
+
+}
+.defense-row {
   border-bottom: 2px solid black;
   border-right: 2px solid black;
+  display: flex;
   grid-column-start: 2;
   grid-row-start: 8;
+  width: 100%;
 }
-.hit-points-block {
+.defense-text {
+  border-right: 1px dotted black;
+  flex: 1;
+}
+.defense-value {
+  flex: 0 0 100px;
+}
+.hit-points-row {
   border-bottom: 2px solid black;
   border-right: 2px solid black;
+  display: flex;
   grid-column-start: 2;
   grid-row-start: 9;
   grid-row-end: 11;
+}
+.hit-points-text {
+  flex: 1;
+}
+.hit-points-current-col {
+  border-right: 1px dotted black;
+  display: flex;
+  flex: 0 0 100px;
+  flex-direction: column;
+  text-align: center;
+}
+.hit-points-max-col {
+  display: flex;
+  flex: 0 0 100px;
+  flex-direction: column;
+  text-align: center;
 }
