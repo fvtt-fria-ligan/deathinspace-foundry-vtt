@@ -14,6 +14,8 @@
   src: url("../../fonts/AndroclesOpti-Heavy.ttf") format("truetype");
 }
 /* ====================== */
+/* Sheet */
+/* ====================== */
 .deathinspace.sheet .window-content {
   /* inherited background is parchment img bg */  
   background: var(--background-color);
@@ -29,6 +31,24 @@
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
+}
+.deathinspace.sheet input[type="text"],
+.deathinspace.sheet input[type="number"] {
+  border: none;
+  border-bottom: 1px dotted #000;
+  border-radius: 0;
+  font-family: var(--input-font);
+  font-size: 20px;
+  text-decoration: none;
+}
+.deathinspace.sheet textarea {
+  border: none;
+  border-bottom: 1px dotted #000;
+  border-radius: 0;
+  height: 90%;
+  font-family: var(--input-font);
+  font-size: 20px;
+  resize: none;
 }
 /* ====================== */
 /* Sheet Tabs */
@@ -62,28 +82,9 @@
   color: var(--highlight-background-color);
   text-shadow: none;
 }
-.deathinspace.sheet input[type="text"],
-.deathinspace.sheet input[type="number"] {
-  border: none;
-  border-bottom: 1px dotted #000;
-  border-radius: 0;
-  font-family: var(--input-font);
-  font-size: 20px;
-  text-decoration: none;
-}
-.deathinspace.sheet textarea {
-  border: none;
-  border-bottom: 1px dotted #000;
-  border-radius: 0;
-  height: 90%;
-  font-family: var(--input-font);
-  font-size: 20px;
-  resize: none;
-}
-
 /* ====================== */
+/* Character sheet */
 /* ====================== */
-
 .deathinspace.sheet.actor.character .sheet-header {
   height: 80px;
 }
@@ -114,14 +115,19 @@
 .deathinspace.sheet.actor.character .header-row .col1 .sheet-title {
   color: #eb1c26;
 }
-.deathinspace.sheet.actor.character div.player-name {
+.deathinspace.sheet.actor.character .stat-block {
+  padding: 2px;
 }
-/*.deathinspace.sheet.actor.character input[type="text"].player-name {
-  font-family: 'Varta', sans-serif;
-  font-size: 24px;
-  font-weight: 300;
+.deathinspace.sheet.actor.character .stat-block label {
+  display: block;
+  float: left;
+  font-size: 12px;
+  text-transform: uppercase;
 }
-*/.deathinspace.sheet.actor.character .personal-tab {
+/* ====================== */
+/* Character sheet - Personal tab */
+/* ====================== */
+.deathinspace.sheet.actor.character .personal-tab {
   display: inline-grid;
   /*grid-gap: 10;*/
   grid-template-columns: 25% 50% 25%;
@@ -130,16 +136,7 @@
   height: 500px;
   width: 100%;
 }
-.stat-block {
-  padding: 2px;
-}
-.stat-block label {
-  display: block;
-  float: left;
-  font-size: 12px;
-  text-transform: uppercase;
-}
-.origin-row {
+.deathinspace.sheet.actor.character .personal-tab .origin-row {
   border-bottom: 2px solid black;
   display: flex;
   grid-column-start: 1;
@@ -147,15 +144,15 @@
   grid-row-start: 1;
   padding: 0px;
 }
-div.origin-label {
+.deathinspace.sheet.actor.character .personal-tab div.origin-label {
   border-right: 1px dotted #000;
   flex: 0 0 80px;
   text-align: center;
 }
-div.origin {
+.deathinspace.sheet.actor.character .personal-tab div.origin {
   padding-left: 10px;
 }
-.name-row {
+.deathinspace.sheet.actor.character .personal-tab .name-row {
   border-bottom: 2px solid black;
   border-right: 2px solid black;
   display: flex;
@@ -163,100 +160,100 @@ div.origin {
   grid-column-end: 3;
   grid-row-start: 2;
 }
-.name-block {
+.deathinspace.sheet.actor.character .personal-tab .name-block {
 
 }
-.nickname-block {
+.deathinspace.sheet.actor.character .personal-tab .nickname-block {
 
 }
-.origin-benefit-block {
+.deathinspace.sheet.actor.character .personal-tab .origin-benefit-block {
   border-bottom: 2px solid black;
   grid-column-start: 3;
   grid-row-start: 2;
   grid-row-end: 6;
 }
-.xp-block {
+.deathinspace.sheet.actor.character .personal-tab .xp-block {
   border-bottom: 2px solid black;
   border-right: 2px solid black;
   grid-column-start: 1;
   grid-row-start: 3;
 }
-.background-block {
+.deathinspace.sheet.actor.character .personal-tab .background-block {
   border-bottom: 2px solid black;
   border-right: 2px solid black;
   grid-column-start: 2;
   grid-row-start: 3;
 }
-.past-allegiance-block {
+.deathinspace.sheet.actor.character .personal-tab .past-allegiance-block {
   border-bottom: 2px solid black;
   border-right: 2px solid black;
   grid-column-start: 1;
   grid-row-start: 4;
 }
-.trait-block {
+.deathinspace.sheet.actor.character .personal-tab .trait-block {
   border-bottom: 2px solid black;
   border-right: 2px solid black;
   grid-column-start: 2;
   grid-row-start: 4;
 }
-.drive-block {
+.deathinspace.sheet.actor.character .personal-tab .drive-block {
   border-bottom: 2px solid black;
   border-right: 2px solid black;
   grid-column-start: 1;
   grid-row-start: 5;
 }
-.looks-block {
+.deathinspace.sheet.actor.character .personal-tab .looks-block {
   border-bottom: 2px solid black;
   border-right: 2px solid black;
   grid-column-start: 2;
   grid-row-start: 5;
   grid-row-end: 8;
 }
-.ability-block {
+.deathinspace.sheet.actor.character .personal-tab .ability-block {
   border-right: 2px solid black;
   grid-column-start: 1;
   grid-row-start: 6;
   grid-row-end: 11;
 }
-.ability-col {
+.deathinspace.sheet.actor.character .personal-tab .ability-col {
   display: flex;
   flex-direction: column;
   height: 80%;
   justify-content: space-around;
   padding: 5px;
 }
-.ability-row {
+.deathinspace.sheet.actor.character .personal-tab .ability-row {
   display: flex;
 }
-.ability-name {
+.deathinspace.sheet.actor.character .personal-tab .ability-name {
   flex: 1;
   font-weight: bold;
 }
-.ability-value {
+.deathinspace.sheet.actor.character .personal-tab .ability-value {
   flex: 0 0 50px;
 }
-.ability-value input[type="number"], 
-input[type="number"].stat-input  {
+.deathinspace.sheet.actor.character .personal-tab .ability-value input[type="number"], 
+.deathinspace.sheet.actor.character .personal-tab input[type="number"].stat-input  {
   text-align: center;
 }
-.portrait-block {
+.deathinspace.sheet.actor.character .personal-tab .portrait-block {
   grid-column-start: 3;
   grid-row-start: 6;
   grid-row-end: 11;
 }
-.portrait-col {
+.deathinspace.sheet.actor.character .personal-tab .portrait-col {
   display: flex;
   flex-direction: column;
   height: 90%;
   justify-content: center;
 }
-.portrait {
+.deathinspace.sheet.actor.character .personal-tab .portrait {
 
 }
-.portrait-image {
+.deathinspace.sheet.actor.character .personal-tab .portrait-image {
 
 }
-.defense-row {
+.deathinspace.sheet.actor.character .personal-tab .defense-row {
   border-bottom: 2px solid black;
   border-right: 2px solid black;
   display: flex;
@@ -265,14 +262,14 @@ input[type="number"].stat-input  {
   padding: 2px;
   width: 100%;
 }
-.defense-text {
+.deathinspace.sheet.actor.character .personal-tab .defense-text {
   border-right: 1px dotted black;
   flex: 1;
 }
-.defense-value {
+.deathinspace.sheet.actor.character .personal-tab .defense-value {
   flex: 0 0 100px;
 }
-.hit-points-row {
+.deathinspace.sheet.actor.character .personal-tab .hit-points-row {
   border-right: 2px solid black;
   display: flex;
   grid-column-start: 2;
@@ -280,17 +277,17 @@ input[type="number"].stat-input  {
   grid-row-end: 11;
   padding: 2px;
 }
-.hit-points-text {
+.deathinspace.sheet.actor.character .personal-tab .hit-points-text {
   flex: 1;
 }
-.hit-points-current-col {
+.deathinspace.sheet.actor.character .personal-tab .hit-points-current-col {
   border-right: 1px dotted black;
   display: flex;
   flex: 0 0 100px;
   flex-direction: column;
   text-align: center;
 }
-.hit-points-max-col {
+.deathinspace.sheet.actor.character .personal-tab .hit-points-max-col {
   display: flex;
   flex: 0 0 100px;
   flex-direction: column;
