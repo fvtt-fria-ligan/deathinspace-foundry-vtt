@@ -6,15 +6,22 @@
   --highlight-foreground-color: #ffffff;
   --chat-font: "Helvetica";
   --chat-info-font: "Helvetica";
-  --h1-font: "Helvetica";
+  --h1-font: "AndroclesOpti-Heavy";
   --h2-font: "Helvetica";
   --h3-font: "Helvetica";
   --item-font: "Helvetica";
 }
+@import url('https://fonts.googleapis.com/css2?family=Varta:wght@300;400;700&display=swap');
+@font-face {
+  font-family: "AndroclesOpti-Heavy";
+  src: url("../../fonts/AndroclesOpti-Heavy.ttf") format("truetype");
+}
+
 /* ====================== */
 .deathinspace.sheet .window-content {
   /* inherited background is parchment img bg */  
   background: white;
+  font-family: 'Varta', sans-serif;
 }
 .deathinspace.sheet form {
   border: 4px solid #eb1c26;
@@ -38,11 +45,12 @@
   font-weight: 700;
 }
 .deathinspace .sheet-tabs .item {
-  font-family: var(--h2-font);
-  font-size: 22px;
+  font-family: 'Varta', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
   height: 30px;
   line-height: 32px;
-  margin: 0 5px;
+  /*margin: 0 5px;*/
   width: 120px;
   text-transform: uppercase;
 }
@@ -51,10 +59,26 @@
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
 .deathinspace.sheet .sheet-tabs .item.active {
-  text-shadow: none;
   background-color: var(--highlight-foreground-color);
   color: var(--highlight-background-color);
+  text-shadow: none;
 }
+.deathinspace.sheet input[type="text"],
+.deathinspace.sheet input[type="number"] {
+  border: none;
+  border-bottom: 1px dotted #000;
+  border-radius: 0;
+  font-size: 20px;
+  text-decoration: none;  
+}
+.deathinspace.sheet textarea {
+  border: none;
+  border-bottom: 1px dotted #000;
+  border-radius: 0;
+  height: 90%;
+  resize: none;
+}
+
 /* ====================== */
 /* ====================== */
 
@@ -72,14 +96,158 @@
 }
 .deathinspace.sheet.actor.character .header-row .col2 {
   border-left: 2px solid black;
+  display: flex;
   flex: 1;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
   margin: 0;
   padding: 10px;
 }
 .deathinspace.sheet.actor.character .header-row .col1 .game-title {
   color: #eb1c26;
+  font-family: "AndroclesOpti-Heavy";
   font-size: 36px;
 }
 .deathinspace.sheet.actor.character .header-row .col1 .sheet-title {
   color: #eb1c26;
+}
+.deathinspace.sheet.actor.character div.player-name {
+}
+/*.deathinspace.sheet.actor.character input[type="text"].player-name {
+  font-family: 'Varta', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+}
+*/.deathinspace.sheet.actor.character .personal-tab {
+  display: inline-grid;
+  /*grid-gap: 10;*/
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: 30px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+  /*grid-template-columns: 100px 1fr 100px;*/
+  height: 500px;
+  width: 100%;
+}
+.stat-block {
+  padding: 2px;
+}
+.stat-block label {
+  float: left;
+  font-size: 12px;
+}
+.origin-row {
+  border-bottom: 2px solid black;
+  display: flex;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  padding: 0px;
+}
+div.origin-label {
+  border-right: 1px dotted #000;
+  flex: 0 0 80px;
+  text-align: center;
+}
+div.origin {
+  padding-left: 10px;
+}
+.name-row {
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  display: flex;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+}
+.name-block {
+
+}
+.nickname-block {
+
+}
+.origin-benefit-block {
+  border-bottom: 2px solid black;
+  grid-column-start: 3;
+  grid-row-start: 2;
+  grid-row-end: 6;
+}
+.xp-block {
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+.background-block {
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  grid-column-start: 2;
+  grid-row-start: 3;
+}
+.past-allegiance-block {
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  grid-column-start: 1;
+  grid-row-start: 4;
+}
+.trait-block {
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  grid-column-start: 2;
+  grid-row-start: 4;
+}
+.drive-block {
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  grid-column-start: 1;
+  grid-row-start: 5;
+}
+.looks-block {
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  grid-column-start: 2;
+  grid-row-start: 5;
+  grid-row-end: 8;
+}
+.ability-block {
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  grid-column-start: 1;
+  grid-row-start: 6;
+  grid-row-end: 11;
+}
+.ability-col {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  justify-content: space-around;
+  padding: 5px;
+}
+.ability-row {
+  display: flex;
+}
+.ability-name {
+  flex: 1;
+  font-weight: bold;
+}
+.ability-value {
+  flex: 0 0 50px;
+}
+.portrait-block {
+  border-bottom: 2px solid black;
+  grid-column-start: 3;
+  grid-row-start: 6;
+  grid-row-end: 11;
+}
+.defense-rating-block {
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  grid-column-start: 2;
+  grid-row-start: 8;
+}
+.hit-points-block {
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  grid-column-start: 2;
+  grid-row-start: 9;
+  grid-row-end: 11;
 }

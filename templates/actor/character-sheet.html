@@ -14,11 +14,8 @@
                 <div>
                     SECTION 0. PLAYER INFORMATION
                 </div>
-                <div>
-                    PLAYER NAME
-                </div>
-                <div>
-                    <input type="text">
+                <div class="player-name">
+                    <input class="player-name" name="data.playerName" type="text" value="{{actor.data.playerName}}" placeholder="{{ localize 'DIS.PlayerName' }}" spellcheck="false"/>                    
                 </div>
             </div>
         </div>
@@ -26,28 +23,120 @@
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="personal">{{ localize 'DIS.TabPersonal' }}</a>
-        <a class="item" data-tab="situation">{{ localize 'DIS.TabSituation' }}</a>
-        <a class="item" data-tab="belongings">{{ localize 'DIS.TabBelongings' }}</a>
-        <a class="item" data-tab="notes">{{ localize 'DIS.TabNotes' }}</a>
+        <a class="item" data-tab="personal">1: {{ localize 'DIS.TabPersonal' }}</a>
+        <a class="item" data-tab="situation">2: {{ localize 'DIS.TabSituation' }}</a>
+        <a class="item" data-tab="belongings">3: {{ localize 'DIS.TabBelongings' }}</a>
+        <a class="item" data-tab="notes">4: {{ localize 'DIS.TabNotes' }}</a>
     </nav>
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
         {{!-- Personal Tab --}}
-        <div class="tab class-tab" data-group="primary" data-tab="personal">
+        <div class="tab personal-tab" data-group="primary" data-tab="personal">
+            <div class="origin-row">
+                <div class="origin-label">ORIGIN</div>
+                <div class="origin">
+                    <!-- TODO: origin item -->
+                    velocity cursed
+                </div>
+            </div>
+
+            <div class="name-row">
+                <div class="stat-block">
+                    <label>NAME</label>
+                    <input type="text" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'DIS.Name' }}" spellcheck="false" />
+                </div>
+                <div class="stat-block">
+                    <label>NICKNAME</label>
+                    <input type="text" name="data.nickName" type="text" value="{{actor.data.nickName}}" placeholder="{{ localize 'DIS.NickName' }}" spellcheck="false" />
+                </div>
+            </div>
+            <div class="stat-block origin-benefit-block">
+                <label>ORIGIN BENEFIT</label>
+            </div>
+            <div class="stat-block xp-block">
+                <label>XP</label>
+                <input class="stat-input" name="data.xp.value" type="number" value="{{data.xp.value}}" data-dtype="Number"/>
+            </div>
+            <div class="stat-block background-block">
+                <label>BACKGROUND</label>
+                <input class="stat-input" name="data.background" type="text" value="{{data.background}}" data-dtype="String"/>
+            </div>
+            <div class="stat-block past-allegiance-block">
+                <label>PAST ALLEGIANCE</label>
+                <input class="stat-input" name="data.pastAllegiance" type="text" value="{{data.pastAllegiance}}" data-dtype="String"/>
+            </div>
+            <div class="stat-block trait-block">
+                <label>TRAIT</label>
+                <input class="stat-input" name="data.trait" type="text" value="{{data.trait}}" data-dtype="String"/>
+            </div>
+            <div class="stat-block drive-block">
+                <label>DRIVE</label>
+                <input class="stat-input" name="data.drive" type="text" value="{{data.drive}}" data-dtype="String"/>
+            </div>
+            <div class="stat-block looks-block">
+                <label>LOOKS</label>
+                <textarea name="data.looks">{{data.looks}}</textarea>
+            </div>
+            <div class="stat-block ability-block">
+                <label>ABILITY</label>
+                <br>
+                <div class="ability-col">
+                    <div class="ability-row">
+                        <div class="ability-name">
+                            BODY
+                        </div>
+                        <div class="ability-value">
+                            <input class="stat-input" name="data.abilities.body.value" type="number" value="{{data.abilities.body.value}}" data-dtype="Number"/>
+                        </div>
+                    </div>
+                    <div class="ability-row">
+                        <div class="ability-name">
+                            DEXTERITY
+                        </div>
+                        <div class="ability-value">
+                            <input class="stat-input" name="data.abilities.dexterity.value" type="number" value="{{data.abilities.dexterity.value}}" data-dtype="Number"/>
+                        </div>
+                    </div>
+                    <div class="ability-row">
+                        <div class="ability-name">
+                            SAVVY
+                        </div>
+                        <div class="ability-value">
+                            <input class="stat-input" name="data.abilities.savvy.value" type="number" value="{{data.abilities.savvy.value}}" data-dtype="Number"/>
+                        </div>
+                    </div>
+                    <div class="ability-row">
+                        <div class="ability-name">
+                            TECH
+                        </div>
+                        <div class="ability-value">
+                            <input class="stat-input" name="data.abilities.tech.value" type="number" value="{{data.abilities.tech.value}}" data-dtype="Number"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-block defense-rating-block">
+                <label>DEFENSE RATING</label>
+            </div>
+            <div class="stat-block hit-points-block">
+                <label>HIT POINTS</label>
+            </div>
+            <div class="stat-block portrait-block">
+                <label>PORTRAIT</label>
+            </div>
         </div>
 
         {{!-- Situation Tab --}}
-        <div class="tab class-tab" data-group="primary" data-tab="situation">
+        <div class="tab class-tab situation" data-group="primary" data-tab="situation">
         </div>
 
         {{!-- Belongings Tab --}}
-        <div class="tab class-tab" data-group="primary" data-tab="belongings">
+        <div class="tab class-tab belongings" data-group="primary" data-tab="belongings">
         </div>
 
         {{!-- Notes Tab --}}
-        <div class="tab class-tab" data-group="primary" data-tab="notes">
+        <div class="tab class-tab notes" data-group="primary" data-tab="notes">
             {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
         </div>
 
