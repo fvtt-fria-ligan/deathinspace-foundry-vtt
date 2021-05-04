@@ -22,3 +22,9 @@ https://www.kickstarter.com/projects/cnibl/death-in-space
 ## License
 
   * Code: [MIT](https://en.wikipedia.org/wiki/MIT_License)
+
+
+## Developer Installation
+
+  * Git clone the repo.
+  * Rename the directory to "deathinspace" under your Foundry *Data/systems* directory.
