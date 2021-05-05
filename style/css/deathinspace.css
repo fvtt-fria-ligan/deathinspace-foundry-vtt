@@ -462,10 +462,75 @@
 /* ====================== */
 /* Character sheet - Weaponry tab */
 /* ====================== */
+.deathinspace.sheet.actor.character .weaponry-wrapper {
+  padding: 10px;
+}
+.weaponry-wrapper table {
+  background: none;
+}
+.weaponry-wrapper table thead {
+  background: none;
+}
+.weaponry-wrapper table tr {
+  height: 40px;
+}
+.weaponry-wrapper table.weapons th.name {
+  padding-left: 20px;
+  text-align: left;
+  width: 55%;
+}
+.weaponry-wrapper th {
+  background: none;
+  border: none;
+  border-bottom: none;
+  color: black;
+  text-shadow: none;
+}
+.weaponry-wrapper th.damage {
+  width: 15%;
+}
+.weaponry-wrapper th.units {
+  width: 15%;
+}
+.weaponry-wrapper th.condition {
+  width: 15%;
+}
+.weaponry-wrapper table.armor {
+  margin-top: 30px;
+}
+.weaponry-wrapper table.armor th.name {
+  padding-left: 20px;
+  text-align: left;
+  width: 40%;  
+}
+.weaponry-wrapper table.armor th.protects-against {
+  width: 30%;
+}
+.weaponry-wrapper th.dr-bonus {
+  width: 15%;
+}
+.weaponry-wrapper td.condition,
+.weaponry-wrapper td.damage,
+.weaponry-wrapper td.units,
+.weaponry-wrapper td.dr-bonus {
+  border-left: 1px dotted black;
+}
+
 /* ====================== */
 /* Character sheet - Notes tab */
 /* ====================== */
+.deathinspace.sheet.actor.character .notes-tab {
+  /*height: 100%;*/
+}
 .deathinspace.sheet.actor.character .notes-wrapper {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* TODO: figure out how to get 100% height working */;
+  height: 500px;
+  justify-content: center;
+  width: 100%;
+}
+.notes-wrapper div.editor {
+  flex: 1;
   width: 100%;
 }
