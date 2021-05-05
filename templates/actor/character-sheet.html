@@ -166,24 +166,32 @@
             <div class="situation-wrapper">
                 <div class="void-points-block">
                     <div class="void-col-1">
-                        <div>
+                        <div class="void-points-title">
                             VOID POINTS
                         </div>
-                        <div>
-                            radio circles
+                        <div class="void-points-radios">
+                            <ul class="void-points">
+                                <li><label><input type="radio" name="data.voidPoints.value" value="0" data-dtype="Number" {{#ifEq data.voidPoints.value 0}}checked{{/ifEq}}/><span>0</span></label></li>                  
+                                <li><label><input type="radio" name="data.voidPoints.value" value="1" data-dtype="Number" {{#ifEq data.voidPoints.value 1}}checked{{/ifEq}}/><span>1</span></label></li>                  
+                                <li><label><input type="radio" name="data.voidPoints.value" value="2" data-dtype="Number" {{#ifEq data.voidPoints.value 2}}checked{{/ifEq}}/><span>2</span></label></li>                  
+                                <li><label><input type="radio" name="data.voidPoints.value" value="3" data-dtype="Number" {{#ifEq data.voidPoints.value 3}}checked{{/ifEq}}/><span>3</span></label></li>                  
+                                <li><label><input type="radio" name="data.voidPoints.value" value="4" data-dtype="Number" {{#ifEq data.voidPoints.value 4}}checked{{/ifEq}}/><span>4</span></label></li>                  
+                                <li><label><input type="radio" name="data.voidPoints.value" value="5" data-dtype="Number" {{#ifEq data.voidPoints.value 5}}checked{{/ifEq}}/><span>5</span></label></li>                  
+                            </ul>   
                         </div>
-                        <div>
-                            Roll corruption effects
+                        <div class="void-points-roll">
+                            Roll corruption effects <span class="void-points-up-arrow">↑</span>
                         </div>
                     </div>
                     <div class="void-col-2">
-                        <div>
-                            The player can use 1 void point to:
+                        <div class="void-points-text-top">
+                            Use 1 void point to:
                         </div>
-                        <div>
-                            Get advantage on an ability check
-                            <br>
-                            Activate a cosmic mutation
+                        <div class="void-points-text-bottom">
+                            <ul>
+                                <li>Get advantage on an ability check</li>
+                                <li>Activate a cosmic mutation</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
