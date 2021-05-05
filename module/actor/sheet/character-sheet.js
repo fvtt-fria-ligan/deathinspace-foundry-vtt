@@ -18,7 +18,6 @@ export class DISCharacterSheet extends ActorSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    console.log("***********************");
   }
 
 }
