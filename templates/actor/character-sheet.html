@@ -31,143 +31,260 @@
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
+
         {{!-- Personal Tab --}}
         <div class="tab personal-tab" data-group="primary" data-tab="personal">
-            <div class="origin-row">
-                <div class="origin-label">ORIGIN</div>
-                <div class="origin">
-                    <!-- TODO: origin item -->
-                    velocity cursed
-                </div>
-            </div>
-            <div class="name-row">
-                <div class="stat-block">
-                    <label>NAME</label>
-                    <input type="text" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'DIS.Name' }}" spellcheck="false" />
-                </div>
-                <div class="stat-block">
-                    <label>NICKNAME</label>
-                    <input type="text" name="data.nickName" type="text" value="{{actor.data.nickName}}" placeholder="{{ localize 'DIS.NickName' }}" spellcheck="false" />
-                </div>
-            </div>
-            <div class="stat-block origin-benefit-block">
-                <label>ORIGIN BENEFIT</label>
-            </div>
-            <div class="stat-block xp-block">
-                <label>XP</label>
-                <input class="stat-input" name="data.xp.value" type="number" value="{{data.xp.value}}" data-dtype="Number"/>
-            </div>
-            <div class="stat-block background-block">
-                <label>BACKGROUND</label>
-                <input class="stat-input" name="data.background" type="text" value="{{data.background}}" data-dtype="String"/>
-            </div>
-            <div class="stat-block past-allegiance-block">
-                <label>PAST ALLEGIANCE</label>
-                <input class="stat-input" name="data.pastAllegiance" type="text" value="{{data.pastAllegiance}}" data-dtype="String"/>
-            </div>
-            <div class="stat-block trait-block">
-                <label>TRAIT</label>
-                <input class="stat-input" name="data.trait" type="text" value="{{data.trait}}" data-dtype="String"/>
-            </div>
-            <div class="stat-block drive-block">
-                <label>DRIVE</label>
-                <input class="stat-input" name="data.drive" type="text" value="{{data.drive}}" data-dtype="String"/>
-            </div>
-            <div class="stat-block looks-block">
-                <label>LOOKS</label>
-                <textarea name="data.looks">{{data.looks}}</textarea>
-            </div>
-            <div class="stat-block ability-block">
-                <label>ABILITY</label>
-                <br>
-                <div class="ability-col">
-                    <div class="ability-row">
-                        <div class="ability-name">
-                            BODY
-                        </div>
-                        <div class="ability-value">
-                            <input class="stat-input" name="data.abilities.body.value" type="number" value="{{data.abilities.body.value}}" data-dtype="Number"/>
-                        </div>
-                    </div>
-                    <div class="ability-row">
-                        <div class="ability-name">
-                            DEXTERITY
-                        </div>
-                        <div class="ability-value">
-                            <input class="stat-input" name="data.abilities.dexterity.value" type="number" value="{{data.abilities.dexterity.value}}" data-dtype="Number"/>
-                        </div>
-                    </div>
-                    <div class="ability-row">
-                        <div class="ability-name">
-                            SAVVY
-                        </div>
-                        <div class="ability-value">
-                            <input class="stat-input" name="data.abilities.savvy.value" type="number" value="{{data.abilities.savvy.value}}" data-dtype="Number"/>
-                        </div>
-                    </div>
-                    <div class="ability-row">
-                        <div class="ability-name">
-                            TECH
-                        </div>
-                        <div class="ability-value">
-                            <input class="stat-input" name="data.abilities.tech.value" type="number" value="{{data.abilities.tech.value}}" data-dtype="Number"/>
-                        </div>
+            <div class="personal-wrapper">
+                <div class="origin-row">
+                    <div class="origin-label">ORIGIN</div>
+                    <div class="origin">
+                        <!-- TODO: origin item -->
+                        velocity cursed
                     </div>
                 </div>
-            </div>
-            <div class="defense-row">
-                <div class="defense-text">
-                    <label>DEFENSE RATING</label>
-                    <br>
-                    12+DEX Unarmored
+                <div class="name-row">
+                    <div class="stat-block">
+                        <label>NAME</label>
+                        <input type="text" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'DIS.Name' }}" spellcheck="false" />
+                    </div>
+                    <div class="stat-block">
+                        <label>NICKNAME</label>
+                        <input type="text" name="data.nickName" type="text" value="{{actor.data.nickName}}" placeholder="{{ localize 'DIS.NickName' }}" spellcheck="false" />
+                    </div>
                 </div>
-                <div class="defense-value">
-                    <label>&nbsp;</label>
-                    <br>
-                    <input class="stat-input" name="data.defenseRating" type="number" value="{{data.defenseRating}}" data-dtype="Number"/>
+                <div class="stat-block origin-benefit-block">
+                    <label>ORIGIN BENEFIT</label>
                 </div>
-            </div>
-            <div class="hit-points-row">
-                <div class="hit-points-text">                    
-                    <label>HIT POINTS</label>
-                    <br>
-                    Start with 1d8
-                    <br>
-                    Recover 1d4+BODY
+                <div class="stat-block xp-block">
+                    <label>XP</label>
+                    <input class="stat-input" name="data.xp.value" type="number" value="{{data.xp.value}}" data-dtype="Number"/>
                 </div>
-                <div class="hit-points-current-col">
-                    <label>CURRENT</label>
-                    <br>
-                    <input class="stat-input" name="data.hitPoints.value" type="number" value="{{data.hitPoints.value}}" data-dtype="Number"/>
+                <div class="stat-block background-block">
+                    <label>BACKGROUND</label>
+                    <input class="stat-input" name="data.background" type="text" value="{{data.background}}" data-dtype="String"/>
                 </div>
-                <div class="hit-points-max-col">
-                    <label>MAX</label>                    
-                    <br>
-                    <input class="stat-input" name="data.hitPoints.max" type="number" value="{{data.hitPoints.max}}" data-dtype="Number"/>
+                <div class="stat-block past-allegiance-block">
+                    <label>PAST ALLEGIANCE</label>
+                    <input class="stat-input" name="data.pastAllegiance" type="text" value="{{data.pastAllegiance}}" data-dtype="String"/>
                 </div>
-            </div>
-            <div class="stat-block portrait-block">
-                <label>PORTRAIT</label>
-                <br>
-                <div class="portrait-col">
-                    <div class="portrait">
-                        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+                <div class="stat-block trait-block">
+                    <label>TRAIT</label>
+                    <input class="stat-input" name="data.trait" type="text" value="{{data.trait}}" data-dtype="String"/>
+                </div>
+                <div class="stat-block drive-block">
+                    <label>DRIVE</label>
+                    <input class="stat-input" name="data.drive" type="text" value="{{data.drive}}" data-dtype="String"/>
+                </div>
+                <div class="stat-block looks-block">
+                    <label>LOOKS</label>
+                    <textarea name="data.looks">{{data.looks}}</textarea>
+                </div>
+                <div class="stat-block ability-block">
+                    <label>ABILITY</label>
+                    <br>
+                    <div class="ability-col">
+                        <div class="ability-row">
+                            <div class="ability-name">
+                                BODY
+                            </div>
+                            <div class="ability-value">
+                                <input class="stat-input" name="data.abilities.body.value" type="number" value="{{data.abilities.body.value}}" data-dtype="Number"/>
+                            </div>
+                        </div>
+                        <div class="ability-row">
+                            <div class="ability-name">
+                                DEXTERITY
+                            </div>
+                            <div class="ability-value">
+                                <input class="stat-input" name="data.abilities.dexterity.value" type="number" value="{{data.abilities.dexterity.value}}" data-dtype="Number"/>
+                            </div>
+                        </div>
+                        <div class="ability-row">
+                            <div class="ability-name">
+                                SAVVY
+                            </div>
+                            <div class="ability-value">
+                                <input class="stat-input" name="data.abilities.savvy.value" type="number" value="{{data.abilities.savvy.value}}" data-dtype="Number"/>
+                            </div>
+                        </div>
+                        <div class="ability-row">
+                            <div class="ability-name">
+                                TECH
+                            </div>
+                            <div class="ability-value">
+                                <input class="stat-input" name="data.abilities.tech.value" type="number" value="{{data.abilities.tech.value}}" data-dtype="Number"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="defense-row">
+                    <div class="defense-text">
+                        <label>DEFENSE RATING</label>
+                        <br>
+                        12+DEX Unarmored
+                    </div>
+                    <div class="defense-value">
+                        <label>&nbsp;</label>
+                        <br>
+                        <input class="stat-input" name="data.defenseRating" type="number" value="{{data.defenseRating}}" data-dtype="Number"/>
+                    </div>
+                </div>
+                <div class="hit-points-row">
+                    <div class="hit-points-text">                    
+                        <label>HIT POINTS</label>
+                        <br>
+                        Start with 1d8
+                        <br>
+                        Recover 1d4+BODY
+                    </div>
+                    <div class="hit-points-current-col">
+                        <label>CURRENT</label>
+                        <br>
+                        <input class="stat-input" name="data.hitPoints.value" type="number" value="{{data.hitPoints.value}}" data-dtype="Number"/>
+                    </div>
+                    <div class="hit-points-max-col">
+                        <label>MAX</label>                    
+                        <br>
+                        <input class="stat-input" name="data.hitPoints.max" type="number" value="{{data.hitPoints.max}}" data-dtype="Number"/>
+                    </div>
+                </div>
+                <div class="stat-block portrait-block">
+                    <label>PORTRAIT</label>
+                    <br>
+                    <div class="portrait-col">
+                        <div class="portrait">
+                            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         {{!-- Situation Tab --}}
-        <div class="tab class-tab situation" data-group="primary" data-tab="situation">
+        <div class="tab situation-tab" data-group="primary" data-tab="situation">
+            <div class="situation-wrapper">
+                <div class="void-points-block">
+                    <div class="void-col-1">
+                        <div>
+                            VOID POINTS
+                        </div>
+                        <div>
+                            radio circles
+                        </div>
+                        <div>
+                            Roll corruption effects
+                        </div>
+                    </div>
+                    <div class="void-col-2">
+                        <div>
+                            The player can use 1 void point to:
+                        </div>
+                        <div>
+                            Get advantage on an ability check
+                            <br>
+                            Activate a cosmic mutation
+                        </div>
+                    </div>
+                </div>
+                <div class="addiction-block">
+                    <div class="stat-block addiction-title">
+                        <label>ADDICTION</label>
+                    </div>
+                    <div class="days-without">
+                        DAYS WITHOUT SUBSTANCE
+                    </div>
+                    <div class="days-checkboxes">
+                        <div class="day-check">
+                            <div><input type="checkbox" /></div>
+                            <div>-1</div>
+                        </div>
+                        <div class="day-check">
+                            <div><input type="checkbox" /></div>
+                            <div>-2</div>
+                        </div>
+                        <div class="day-check">
+                            <div><input type="checkbox" /></div>
+                            <div>-3</div>
+                        </div>
+                        <div class="day-check">
+                            <div><input type="checkbox" /></div>
+                            <div>-4</div>
+                        </div>
+                        <div class="day-check">
+                            <div><input type="checkbox" /></div>
+                            <div>-5</div>
+                        </div>
+                        <div class="day-check">
+                            <div><input type="checkbox" /></div>
+                            <div>-6</div>
+                        </div>
+                        <div class="day-check">
+                            <div><input type="checkbox" /></div>
+                            <div>-7</div>
+                        </div>
+                    </div>
+                    <div class="substance-title">
+                        SUBSTANCE
+                    </div>
+                    <div class="substance-row">
+                    </div>
+                    <div class="substance-title">
+                        SUBSTANCE
+                    </div>
+                    <div class="substance-row">
+                    </div>
+                    <div class="addiction-text">
+                        When using an addictive substance, such as virtual reality stimulants, medical drugs, or similar, roll a BODY ability check.
+                    </div>
+                </div>
+                <div class="cosmic-mutations-block">
+                    <div class="stat-block mutations-title">
+                        <label>COSMIC MUTATIONS</label>
+                    </div>
+                    <div class="mutations-row">
+                    </div>
+                    <div class="mutations-row">
+                    </div>
+                    <div class="mutations-row">
+                    </div>
+                    <div class="mutations-row">
+                    </div>                
+                </div>
+                <div class="void-corruption-block">
+                    <div class="stat-block corruption-title">
+                        <label>VOID CORRUPTION</label>
+                    </div>
+                    <div class="corruption-row">
+                    </div>
+                    <div class="corruption-row">
+                    </div>
+                    <div class="corruption-row">
+                    </div>                   
+                    <div class="corruption-row">
+                    </div>                   
+                </div>
+                <div class="life-support-block">
+                    <div class="stat-block">
+                        <label>LIFE SUPPORT</label>
+                    </div>
+                    <div class="oxygen-tank">
+                    </div>
+                </div>
+            </div>
         </div>
 
         {{!-- Belongings Tab --}}
-        <div class="tab class-tab belongings" data-group="primary" data-tab="belongings">
+        <div class="tab belongings-tab" data-group="primary" data-tab="belongings">
+            <div class="belongings-wrapper">
+                Belongings
+            </div>
         </div>
 
         {{!-- Notes Tab --}}
-        <div class="tab class-tab notes" data-group="primary" data-tab="notes">
-            {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
+        <div class="tab notes-tab" data-group="primary" data-tab="notes">
+            <div class="notes-wrapper">
+                {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
+            </div>
         </div>
 
     </section>

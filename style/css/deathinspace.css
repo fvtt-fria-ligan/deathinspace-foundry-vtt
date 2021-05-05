@@ -69,7 +69,6 @@
   font-size: 20px;
   height: 30px;
   line-height: 32px;
-  /*margin: 0 5px;*/
   width: 120px;
   text-transform: uppercase;
 }
@@ -127,12 +126,10 @@
 /* ====================== */
 /* Character sheet - Personal tab */
 /* ====================== */
-.deathinspace.sheet.actor.character .personal-tab {
+.deathinspace.sheet.actor.character .personal-wrapper {
   display: inline-grid;
-  /*grid-gap: 10;*/
   grid-template-columns: 25% 50% 25%;
   grid-template-rows: 30px 60px 50px 50px 50px 50px 50px 55px 55px 55px;
-  /*grid-template-columns: 100px 1fr 100px;*/
   height: 500px;
   width: 100%;
 }
@@ -292,4 +289,120 @@
   flex: 0 0 100px;
   flex-direction: column;
   text-align: center;
+}
+/* ====================== */
+/* Character sheet - Situation tab */
+/* ====================== */
+.deathinspace.sheet.actor.character .situation-wrapper {
+  display: inline-grid;
+  grid-template-columns: 65% 35%;
+  grid-template-rows: 90px 50px 50px 50px 50px 50px 50px 50px 50px;
+  height: 500px;
+  width: 100%;
+}
+.deathinspace.sheet.actor.character .situation-tab .void-points-block {
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  display: flex;
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+.void-points-block .void-col-1 {
+  display: flex;
+  flex: 0 0 200;
+  flex-direction: column;
+}
+.void-points-block .void-col-2 {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.deathinspace.sheet.actor.character .situation-tab .addiction-block {
+  border-bottom: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: 6;
+}
+.addiction-block .addiction-title {
+
+}
+.addiction-block .days-without {
+}
+.addiction-block div.days-checkboxes {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.addiction-block .days-checkboxes .day-check {
+  text-align: center;
+}
+.addiction-block .days-checkboxes .day-check input[type="checkbox"] {
+  height: 14px;
+  width: 14px;
+}
+.addiction-block .substance-title {
+  flex: 0 0 10px;
+}
+.addiction-block .substance-row {
+  border-bottom: 1px dotted black;
+  flex: 0 0 30px;
+}
+.addiction-block div.addiction-text {
+
+}
+.deathinspace.sheet.actor.character .situation-tab .cosmic-mutations-block {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  grid-column-start: 1;
+  grid-row-start: 2;
+  grid-row-end: 6;
+}
+.cosmic-mutations-block .mutations-title {
+  flex: 0 0 10px;
+}
+.cosmic-mutations-block .mutations-row {
+  border-bottom: 1px dotted black;
+  flex: 0 0 44px;
+}
+.cosmic-mutations-block div.mutations-row:nth-last-child(1) {
+  border-bottom: none;
+}
+.deathinspace.sheet.actor.character .situation-tab .void-corruption-block {
+  border-right: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  grid-column-start: 1;
+  grid-row-start: 6;
+  grid-row-end: 10;
+}
+.void-corruption-block .corruption-title {
+  flex: 0 0 10px;
+}
+.void-corruption-block .corruption-row {
+  border-bottom: 1px dotted black;
+  flex: 0 0 44px;
+}
+/*.void-corruption-block div.corruption-row:nth-last-child(1) {
+  border-bottom: none;
+}*/
+.deathinspace.sheet.actor.character .situation-tab .life-support-block {
+  grid-column-start: 2;
+  grid-row-start: 6;
+  grid-row-end: 10;
+}
+/* ====================== */
+/* Character sheet - Situation tab */
+/* ====================== */
+.deathinspace.sheet.actor.character .belongings-tab {
+  height: 500px;
+  width: 100%;
+}
+.deathinspace.sheet.actor.character .notes-tab {
+  height: 500px;
+  width: 100%;
 }
