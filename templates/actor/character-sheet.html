@@ -23,10 +23,11 @@
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="personal">1: {{ localize 'DIS.TabPersonal' }}</a>
-        <a class="item" data-tab="situation">2: {{ localize 'DIS.TabSituation' }}</a>
-        <a class="item" data-tab="belongings">3: {{ localize 'DIS.TabBelongings' }}</a>
-        <a class="item" data-tab="notes">4: {{ localize 'DIS.TabNotes' }}</a>
+        <a class="item" data-tab="personal">{{ localize 'DIS.TabPersonal' }}</a>
+        <a class="item" data-tab="situation">{{ localize 'DIS.TabSituation' }}</a>
+        <a class="item" data-tab="belongings">{{ localize 'DIS.TabBelongings' }}</a>
+        <a class="item" data-tab="weaponry">{{ localize 'DIS.TabWeaponry' }}</a>
+        <a class="item" data-tab="notes">{{ localize 'DIS.TabNotes' }}</a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -276,7 +277,97 @@
         {{!-- Belongings Tab --}}
         <div class="tab belongings-tab" data-group="primary" data-tab="belongings">
             <div class="belongings-wrapper">
-                Belongings
+                <div class="big-items">                    
+                    <div class="col-1">
+                        <div class="item-row">
+                            <div class="num">1.</div>
+                            <div class="item">&nbsp;</div>
+                        </div>
+                        <div class="item-row">
+                            <div class="num">2.</div>
+                            <div class="item">&nbsp;</div>
+                        </div>
+                        <div class="item-row">
+                            <div class="num">3.</div>
+                            <div class="item">&nbsp;</div>
+                        </div>
+                        <div class="item-row">
+                            <div class="num">4.</div>
+                            <div class="item">&nbsp;</div>
+                        </div>
+                        <div class="item-row">
+                            <div class="num">5.</div>
+                            <div class="item">&nbsp;</div>
+                        </div>
+                        <div class="item-row">
+                            <div class="num">6.</div>
+                            <div class="item">&nbsp;</div>
+                        </div>
+                        <div class="item-row">
+                            <div class="num">7.</div>
+                            <div class="item">&nbsp;</div>
+                        </div>
+                        <div class="item-row">
+                            <div class="num">8.</div>
+                            <div class="item">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-spacer">
+                    </div>
+                    <div class="col-2">
+                        <div class="item-row">
+                            <div class="num">9.</div>
+                            <div class="item">&nbsp;</div>
+                        </div>
+                        <div class="item-row">
+                            <div class="num">10.</div>
+                            <div class="item">&nbsp;</div>
+                        </div>
+                        <div class="item-row">
+                            <div class="num">11.</div>
+                            <div class="item">&nbsp;</div>
+                        </div>
+                        <div class="item-row">
+                            <div class="num">12.</div>
+                            <div class="item">&nbsp;</div>
+                        </div>
+                        <div class="item-row">
+                            <div class="num">13.</div>
+                            <div class="item">&nbsp;</div>
+                        </div>
+                        <div class="item-row">
+                            <div class="num">14.</div>
+                            <div class="item">&nbsp;</div>
+                        </div>
+                        <div class="item-row">
+                            <div class="num">15.</div>
+                            <div class="item">&nbsp;</div>
+                        </div>
+                        <div class="item-row total-slots">
+                            Item slots: 12 + BODY
+                        </div>
+                    </div>
+                </div>
+                <div class="small-items">
+                    <div class="small-items-title">SMALL ITEMS</div>
+                    <div>
+                        <textarea></textarea>
+                    </div>
+                </div>
+                <div class="holo-row">
+                    <div class="stat-block holos">
+                        <label>HOLOS</label>
+                    </div>
+                    <div class="stat-block debt">
+                        <label>DEBT</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{!-- Weaponry Tab --}}
+        <div class="tab weaponry-tab" data-group="primary" data-tab="weaponry">
+            <div class="weaponry-wrapper">
             </div>
         </div>
 

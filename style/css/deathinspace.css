@@ -50,6 +50,13 @@
   font-size: 20px;
   resize: none;
 }
+.deathinspace .sheet-body {
+  overflow: hidden;
+}
+.deathinspace .sheet-body .tab {
+  height: 100%;
+  overflow-y: auto;
+}
 /* ====================== */
 /* Sheet Tabs */
 /* ====================== */
@@ -59,14 +66,12 @@
   border-top: 1px solid #eb1c26;
   color: var(--highlight-foreground-color);
   flex: 0 0 30px;
-  margin-bottom: 5px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
 }
 .deathinspace .sheet-tabs .item {
   font-family: var(--tab-font);
   font-weight: 400;
-  font-size: 20px;
   height: 30px;
   line-height: 32px;
   width: 120px;
@@ -396,13 +401,71 @@
   grid-row-end: 10;
 }
 /* ====================== */
-/* Character sheet - Situation tab */
+/* Character sheet - Belongings tab */
 /* ====================== */
-.deathinspace.sheet.actor.character .belongings-tab {
-  height: 500px;
+.deathinspace.sheet.actor.character .belongings-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.belongings-tab .big-items {
+  display: flex;
+  padding: 8px;
+}
+.belongings-tab .col-1 {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.belongings-tab .col-spacer {
+  flex: 0 0 20px;
+}
+.belongings-tab .col-2 {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.big-items .item-row {
+  display: flex;
+  flex: 0 0 24px;
+  margin-top: 4px;
+}
+.big-items .item-row.total-slots {
+  display: block;
+  padding-top: 4px;
+  text-align: center;
   width: 100%;
 }
-.deathinspace.sheet.actor.character .notes-tab {
-  height: 500px;
+.big-items .item-row .num {
+  flex: 0 0 30px;
+}
+.big-items .item-row .item {
+  border-bottom: 1px dotted black;
+  flex: 1;
+}
+.belongings-tab .small-items {
+  border-bottom: 2px solid black;
+  flex: 0 0 100px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.belongings-tab .holo-row {
+  border-bottom: 2px solid black;
+  display: flex;
+  flex: 0 0 50px;
+}
+.belongings-tab .holo-row .holos {
+  flex: 1;
+}
+.belongings-tab .holo-row .debt {
+  flex: 1;
+}
+/* ====================== */
+/* Character sheet - Weaponry tab */
+/* ====================== */
+/* ====================== */
+/* Character sheet - Notes tab */
+/* ====================== */
+.deathinspace.sheet.actor.character .notes-wrapper {
+  height: 100%;
   width: 100%;
 }

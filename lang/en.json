@@ -3,8 +3,9 @@
 "DIS.NickName": "NickName",
 "DIS.PlayerName": "Player Name",
 "DIS.SheetClassCharacter": "Death in Space Character Sheet",
+"DIS.TabBelongings": "Belongings",
+"DIS.TabNotes": "Notes",
 "DIS.TabPersonal": "Personal",
 "DIS.TabSituation": "Situation",
-"DIS.TabBelongings": "Belongings",
-"DIS.TabNotes": "Notes"
+"DIS.TabWeaponry": "Weaponry"
 }
