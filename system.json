@@ -7,7 +7,7 @@
   "author": "mcglincy",
   "scripts": [],
   "esmodules": ["module/deathinspace.js"],
-  "styles": ["style/css/deathinspace.css"],
+  "styles": ["css/deathinspace.css"],
   "packs": [],
   "languages": [
     {

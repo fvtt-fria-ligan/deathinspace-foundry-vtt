@@ -11,14 +11,16 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Roboto&Varta:wght@700display=swap');
 @font-face {
   font-family: "AndroclesOpti-Heavy";
-  src: url("../../fonts/AndroclesOpti-Heavy.ttf") format("truetype");
+  src: url("../fonts/AndroclesOpti-Heavy.ttf") format("truetype");
 }
+
 /* ====================== */
 /* Sheet */
 /* ====================== */
 .deathinspace.sheet .window-content {
   /* inherited background is parchment img bg */  
-  background: var(--background-color);
+  /* background: var(--background-color); */
+  background: url(../images/seamless_paper_texture.png) repeat;
   color: var(--foreground-color);
   /* TODO: what is busted, that requires that extra trailing var to work? */
   /*font-family: var(--text-font)var;*/
@@ -509,7 +511,7 @@
   padding-right: 70px;
 }
 .oxygen-tank-row .oxygen-tank {
-  background-image: url("../../images/oxygen_tank.png");
+  background-image: url("../images/oxygen_tank.png");
   background-repeat: no-repeat;
   background-size: contain;
   flex: 0 0 58px;

@@ -1,52 +1,27 @@
-// gulpfile copy-pasted from pwatson100
-// https://github.com/pwatson100/alienrpg/blob/master/gulpfile.js
+const concat = require('gulp-concat');
 const gulp = require('gulp');
 const prefix = require('gulp-autoprefixer');
+const pug = require('gulp-pug');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
+
 
 /* ----------------------------------------- */
 /*  Compile Sass
 /* ----------------------------------------- */
 
-// Small error handler helper function.
-function handleError(err) {
-  console.log(err.toString());
-  this.emit('end');
-}
-
-const SYSTEM_SCSS = ["style/scss/**/*.scss"];
-function compileScss() {
-  // Configure options for sass output. For example, 'expanded' or 'nested'
-  let options = {
-    outputStyle: 'expanded'
-  };
-  return gulp.src(SYSTEM_SCSS)
-    .pipe(
-      sass(options)
-        .on('error', handleError)
-    )
+gulp.task('sass', function () {
+  return gulp.src('source/**/*.scss')
+    .pipe(sass({
+      outputStyle: 'expanded'
+    }).on('error', sass.logError))
     .pipe(prefix({
-      cascade: false
+      cascade: true
     }))
-    .pipe(gulp.dest("./style/css"))
-}
-const css = gulp.series(compileScss);
+    .pipe(concat('deathinspace.css'))
+    .pipe(gulp.dest('./css'))
+})
 
-/* ----------------------------------------- */
-/*  Watch Updates
-/* ----------------------------------------- */
-
-function watchUpdates() {
-  gulp.watch(SYSTEM_SCSS, css);
-}
-
-/* ----------------------------------------- */
-/*  Export Tasks
-/* ----------------------------------------- */
-
-exports.default = gulp.series(
-  compileScss,
-  watchUpdates
-);
-exports.css = css;
+gulp.task('watch', gulp.series(['sass'], () => {
+  gulp.watch('source/**/*.scss', gulp.series(['sass']))
+}))
