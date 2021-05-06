@@ -32,16 +32,18 @@
         "value": 1
       },
       "voidPoints": {
+        "min": 0,
         "max": 5,
         "value": 0
       },
       "lifeSupport": {
+        "min": 0,
         "max": 100,
         "value": 0
       },
       "notes": "",
-      "holos": "",
-      "debt": ""
+      "holos": 0,
+      "debt": 0
     }
   },
   "Item": {

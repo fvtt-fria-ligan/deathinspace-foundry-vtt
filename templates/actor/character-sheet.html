@@ -55,6 +55,7 @@
                 </div>
                 <div class="stat-block origin-benefit-block">
                     <label>ORIGIN BENEFIT</label>
+                    <!-- TODO: origin benefit items -->
                 </div>
                 <div class="stat-block xp-block">
                     <label>XP</label>
@@ -273,11 +274,37 @@
                     </div>                   
                 </div>
                 <div class="life-support-block">
-                    <div class="stat-block">
+                    <div class="stat-block life-support-title">
                         <label>LIFE SUPPORT</label>
                     </div>
-                    <div class="oxygen-tank">
+                    <div class="tank-space">
                     </div>
+                    <div class="oxygen-tank-row">
+                        <div class="oxygen-numbers">
+                            <div>0%</div>
+                            <div>100%</div>
+                        </div>
+                        <div class="oxygen-tank">
+                            <div class="oxygen-increments">
+                                <div class="increment">
+                                </div>
+                                <div class="increment">
+                                </div>
+                                <div class="increment">
+                                </div>
+                                <div class="increment">
+                                </div>
+                                <div class="increment">
+                                </div>
+                                <div class="increment">
+                                </div>
+                                <div class="increment">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tank-space">
+                    </div>                    
                 </div>
             </div>
         </div>
@@ -365,9 +392,11 @@
                 <div class="holo-row">
                     <div class="stat-block holos">
                         <label>HOLOS</label>
+                        <input class="stat-input" name="data.holos" type="number" value="{{data.holos}}" data-dtype="Number"/>
                     </div>
                     <div class="stat-block debt">
                         <label>DEBT</label>
+                        <input class="stat-input" name="data.xp.debt" type="number" value="{{data.debt}}" data-dtype="Number"/>
                     </div>
                 </div>
             </div>

@@ -486,9 +486,50 @@
   border-bottom: none;
 }*/
 .deathinspace.sheet.actor.character .situation-tab .life-support-block {
+  display: flex;
+  flex-direction: column;
   grid-column-start: 2;
   grid-row-start: 6;
   grid-row-end: 10;
+}
+.life-support-block .oxygen-tank-row {
+  display: flex;
+  flex: 0 0 100px;
+  flex-direction: column;
+}
+.oxygen-tank-row .oxygen-numbers {
+  display: flex;
+  flex: 0 0 20px;
+  font-size: 11px;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 70px;
+}
+.oxygen-tank-row .oxygen-tank {
+  background-image: url("../../images/oxygen_tank.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  flex: 0 0 58px;
+  height: 58px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 220px;
+}
+.oxygen-tank-row .oxygen-tank .oxygen-increments {
+  display: flex;
+  padding-left: 17px;
+  padding-top: 6px;
+}
+.oxygen-tank-row .oxygen-tank .oxygen-increments .increment {
+  border-right: 1px dotted black;
+  height: 45px;
+  width: 21px;
+} 
+.oxygen-tank-row .oxygen-tank .oxygen-increments .increment:nth-last-child(1) {
+  border-right: none;
+}
+.life-support-block .tank-space {
+  flex: 1;
 }
 /* ====================== */
 /* Character sheet - Belongings tab */
