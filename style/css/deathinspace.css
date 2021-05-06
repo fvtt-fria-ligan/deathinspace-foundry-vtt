@@ -52,10 +52,7 @@
 }
 .deathinspace .sheet-body {
   overflow: hidden;
-}
-.deathinspace .sheet-body .tab {
   height: 100%;
-  overflow-y: auto;
 }
 /* ====================== */
 /* Sheet Tabs */
@@ -68,6 +65,7 @@
   flex: 0 0 30px;
   font-size: 16px;
   font-weight: 700;
+  margin: 0px;
 }
 .deathinspace .sheet-tabs .item {
   font-family: var(--tab-font);
@@ -85,6 +83,13 @@
   background-color: var(--highlight-foreground-color);
   color: var(--highlight-background-color);
   text-shadow: none;
+}
+.deathinspace.sheet .sheet-body .tab {
+  height: 100%;
+  margin: 0px;
+  overflow-y: auto;
+  padding: 0px;
+  width: 100%;
 }
 /* ====================== */
 /* Character sheet */
@@ -134,9 +139,8 @@
 .deathinspace.sheet.actor.character .personal-wrapper {
   display: inline-grid;
   grid-template-columns: 25% 50% 25%;
-  grid-template-rows: 30px 60px 50px 50px 50px 50px 50px 55px 55px 55px;
-  height: 500px;
-  width: 100%;
+  /* TODO: figure out expandable rows */
+  grid-template-rows: 37px 60px 50px 50px 50px 50px 50px 55px 55px 55px;
 }
 .deathinspace.sheet.actor.character .personal-tab .origin-row {
   border-bottom: 2px solid black;
@@ -144,7 +148,7 @@
   grid-column-start: 1;
   grid-column-end: 4;
   grid-row-start: 1;
-  padding: 0px;
+  padding-top: 6px;
 }
 .deathinspace.sheet.actor.character .personal-tab div.origin-label {
   border-right: 1px dotted #000;
@@ -301,9 +305,8 @@
 .deathinspace.sheet.actor.character .situation-wrapper {
   display: inline-grid;
   grid-template-columns: 65% 35%;
-  grid-template-rows: 90px 50px 50px 50px 50px 50px 50px 50px 50px;
-  height: 500px;
-  width: 100%;
+  /* TODO: figure out expandable rows */
+  grid-template-rows: 90px 50px 50px 50px 50px 50px 50px 50px 74px;
 }
 .deathinspace.sheet.actor.character .situation-tab .void-points-block {
   border-bottom: 2px solid black;
@@ -580,7 +583,6 @@
   padding-right: 15px;
 }
 .belongings-tab .holo-row {
-  border-bottom: 2px solid black;
   display: flex;
   flex: 0 0 50px;
 }
@@ -650,17 +652,15 @@
 /* Character sheet - Notes tab */
 /* ====================== */
 .deathinspace.sheet.actor.character .notes-tab {
-  /*height: 100%;*/
 }
 .deathinspace.sheet.actor.character .notes-wrapper {
-  display: flex;
-  flex-direction: column;
   /* TODO: figure out how to get 100% height working */;
-  height: 500px;
-  justify-content: center;
-  width: 100%;
+  height: 520px;
 }
-.notes-wrapper div.editor {
-  flex: 1;
-  width: 100%;
+.deathinspace .editor,
+.deathinspace .editor-content {
+  height: 100%;
+}
+.deathinspace.sheet .editor {
+  padding: 0 8px;
 }

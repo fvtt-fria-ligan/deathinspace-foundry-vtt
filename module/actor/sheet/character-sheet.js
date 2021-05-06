@@ -8,7 +8,7 @@ export class DISCharacterSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["deathinspace", "sheet", "actor", "character"],
       template: "systems/deathinspace/templates/actor/character-sheet.html",
-      width: 720,
+      width: 730,
       height: 680,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "situation"}],
       dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
