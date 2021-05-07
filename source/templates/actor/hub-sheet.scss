@@ -1,0 +1,23 @@
+.deathinspace.sheet.hub form {
+    border: 4px solid #32a6d2;
+}
+.deathinspace.sheet.actor.hub .header-row .col1 .game-title {
+    color: #32a6d2;
+}
+.deathinspace.sheet.actor.hub .header-row .col1 .sheet-title {
+  color: #32a6d2;
+}
+.deathinspace.sheet.hub .sheet-tabs {
+    background: #32a6d2;
+    border-bottom: 1px solid #32a6d2;
+    border-top: 1px solid #32a6d2;
+    color: white;
+  }
+  .deathinspace.sheet.hub .sheet-tabs .item:hover {
+    color: white;
+    text-shadow: 0 0 10px #32a6d2;
+  }
+  .deathinspace.sheet.hub .sheet-tabs .item.active {
+    background-color: white;
+    color: #32a6d2;
+  }

@@ -1,6 +1,7 @@
 {
 "DIS.AbilityBody": "Body",
-"DIS.NickName": "NickName",
+"DIS.NickName": "Nickname",
+"DIS.OwnerName": "Owner Name",
 "DIS.PlayerName": "Player Name",
 "DIS.SheetClassCharacter": "Death in Space Character Sheet",
 "DIS.SheetClassHub": "Death in Space Hub Sheet",
@@ -8,7 +9,7 @@
 "DIS.TabNotes": "Notes",
 "DIS.TabPersonal": "Personal",
 "DIS.TabSpecifics": "Specifics",
-"DIS.TabHubData": "HubData",
+"DIS.TabHubData": "Hub Data",
 "DIS.TabLayout": "Layout",
 "DIS.TabCargo": "Cargo",
 "DIS.TabSituation": "Situation",

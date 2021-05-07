@@ -29,7 +29,6 @@
 }
 
 .deathinspace.sheet form {
-  border: 4px solid #eb1c26;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -65,11 +64,7 @@
 /* ====================== */
 /* Sheet Tabs */
 /* ====================== */
-.deathinspace.sheet .sheet-tabs {
-  background: var(--highlight-background-color);
-  border-bottom: 1px solid #eb1c26;
-  border-top: 1px solid #eb1c26;
-  color: var(--highlight-foreground-color);
+.deathinspace.sheet.hub .sheet-tabs {
   flex: 0 0 30px;
   font-size: 16px;
   font-weight: 700;
@@ -85,14 +80,7 @@
   text-transform: uppercase;
 }
 
-.deathinspace.sheet .sheet-tabs .item:hover {
-  color: var(--highlight-foreground-color);
-  text-shadow: 0 0 10px var(--highlight-background-color);
-}
-
 .deathinspace.sheet .sheet-tabs .item.active {
-  background-color: var(--highlight-foreground-color);
-  color: var(--highlight-background-color);
   text-shadow: none;
 }
 
@@ -105,24 +93,24 @@
 }
 
 /* ====================== */
-/* Character sheet */
+/* Actor sheet */
 /* ====================== */
-.deathinspace.sheet.actor.character .sheet-header {
+.deathinspace.sheet.actor .sheet-header {
   height: 80px;
 }
 
-.deathinspace.sheet.actor.character .header-row {
+.deathinspace.sheet.actor .header-row {
   display: flex;
   height: 80px;
 }
 
-.deathinspace.sheet.actor.character .header-row .col1 {
+.deathinspace.sheet.actor .header-row .col1 {
   flex: 1;
   margin: 0;
   padding: 10px;
 }
 
-.deathinspace.sheet.actor.character .header-row .col2 {
+.deathinspace.sheet.actor .header-row .col2 {
   border-left: 2px solid black;
   display: flex;
   flex: 1;
@@ -133,25 +121,54 @@
   padding: 10px;
 }
 
-.deathinspace.sheet.actor.character .header-row .col1 .game-title {
-  color: #eb1c26;
+.deathinspace.sheet.actor .header-row .col1 .game-title {
   font-family: var(--title-font);
   font-size: 36px;
+}
+
+.deathinspace.sheet.actor .stat-block {
+  padding: 2px;
+}
+
+.deathinspace.sheet.actor .stat-block label {
+  display: block;
+  float: left;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.deathinspace.sheet.character form {
+  border: 4px solid #eb1c26;
+}
+
+.deathinspace.sheet.actor.character .header-row .col1 .game-title {
+  color: #eb1c26;
 }
 
 .deathinspace.sheet.actor.character .header-row .col1 .sheet-title {
   color: #eb1c26;
 }
 
-.deathinspace.sheet.actor.character .stat-block {
-  padding: 2px;
+.deathinspace.sheet.actor.character .sheet-tabs {
+  background: #eb1c26;
+  border-bottom: 1px solid #eb1c26;
+  border-top: 1px solid #eb1c26;
+  color: white;
 }
 
-.deathinspace.sheet.actor.character .stat-block label {
-  display: block;
-  float: left;
-  font-size: 12px;
-  text-transform: uppercase;
+.deathinspace.sheet.actor.character .sheet-tabs .item:hover {
+  color: white;
+  text-shadow: 0 0 10px #eb1c26;
+}
+
+.deathinspace.sheet.actor.character .sheet-tabs .item.active {
+  background-color: white;
+  color: #eb1c26;
+}
+
+.deathinspace.sheet.actor.character .sheet-tabs .item:hover {
+  color: white;
+  text-shadow: 0 0 10px #eb1c26;
 }
 
 /* ====================== */
@@ -474,21 +491,21 @@
   height: 14px;
   width: 14px;
   /* TODO: style checkboxes? 
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-  border: 1px solid black;
-  border-radius: 0;
-  color: none;
-  outline: none;  
-  */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border: 1px solid black;
+    border-radius: 0;
+    color: none;
+    outline: none;  
+    */
 }
 
 .days-checkboxes .day-check input[type="checkbox"]:checked {
   /* TODO: background-color isn't showing for checked 
-  background-color: red;
-  */
+    background-color: red;
+    */
 }
 
 .days-checkboxes .day-check .day-plus {
@@ -552,8 +569,8 @@
 }
 
 /*.void-corruption-block div.corruption-row:nth-last-child(1) {
-  border-bottom: none;
-}*/
+    border-bottom: none;
+  }*/
 .deathinspace.sheet.actor.character .situation-tab .life-support-block {
   display: flex;
   flex-direction: column;
@@ -764,4 +781,33 @@
 
 .deathinspace.sheet .editor {
   padding: 0 8px;
+}
+
+.deathinspace.sheet.hub form {
+  border: 4px solid #32a6d2;
+}
+
+.deathinspace.sheet.actor.hub .header-row .col1 .game-title {
+  color: #32a6d2;
+}
+
+.deathinspace.sheet.actor.hub .header-row .col1 .sheet-title {
+  color: #32a6d2;
+}
+
+.deathinspace.sheet.hub .sheet-tabs {
+  background: #32a6d2;
+  border-bottom: 1px solid #32a6d2;
+  border-top: 1px solid #32a6d2;
+  color: white;
+}
+
+.deathinspace.sheet.hub .sheet-tabs .item:hover {
+  color: white;
+  text-shadow: 0 0 10px #32a6d2;
+}
+
+.deathinspace.sheet.hub .sheet-tabs .item.active {
+  background-color: white;
+  color: #32a6d2;
 }
