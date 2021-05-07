@@ -1,0 +1,47 @@
+form(class="{{cssClass}}")
+  header.sheet-header
+    .header-row
+      .col1
+        .game-title
+          | DEATH IN SPACE
+        .sheet-title
+          | HUB DATA SHEET
+      .col2
+        div 
+          | SECTION 0. OWNER INFORMATION 
+        div.owner-sig
+          input(class="owner-name" name="data.ownerName" type="text" value="{{actor.data.ownerName}}" placeholder="{{ localize 'DIS.OwnerName' }}" spellcheck="false")
+
+  nav(class="sheet-tabs tabs" data-group="primary")
+    a(class="item" data-tab="specifics")
+      | {{ localize 'DIS.TabSpecifics' }}
+    a(class="item" data-tab="hub-data")
+      | {{ localize 'DIS.TabHubData' }}
+    a(class="item" data-tab="layout")
+      | {{ localize 'DIS.TabLayout' }}
+    a(class="item" data-tab="cargo")
+      | {{ localize 'DIS.TabCargo' }}
+    a(class="item" data-tab="notes")
+      | {{ localize 'DIS.TabNotes' }}
+  
+  section.sheet-body 
+
+    div(class="tab personal-tab" data-group="primary" data-tab="specifics")
+      .specifics-wrapper
+        | Specifics
+
+    div(class="tab hub-data-tab" data-group="primary" data-tab="hub-data")
+      .hub-data-wrapper
+        | Hub Data
+
+    div(class="tab layout-tab" data-group="primary" data-tab="layout")
+      .layout-wrapper
+        | Layout
+
+    div(class="tab cargo-tab" data-group="primary" data-tab="cargo")
+      .cargo-wrapper
+        | Cargo
+
+    div(class="tab notes-tab" data-group="primary" data-tab="notes")
+      .notes-wrapper
+        | Notes

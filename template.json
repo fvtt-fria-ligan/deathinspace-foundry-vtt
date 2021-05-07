@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character"],
+    "types": ["character", "hub"],
     "templates": {
     },
     "character": {
@@ -44,10 +44,38 @@
       "notes": "",
       "holos": 0,
       "debt": 0
+    },
+    "hub": {
+      "templates": [],
+      "ownerName": "",
+      "nickname": "",
+      "background": "",
+      "hubType": "",
+      "frame": "",
+      "appearance": "",
+      "quirks": "",
+      "frameIntegrity": {
+        "min": 0,
+        "max": 100,
+        "value": 100
+      },
+      "defenseRating": {
+
+      },
+      "condition": {
+        "max": 1,
+        "value": 1
+      },
+      "fuel": {
+        "min": 0,
+        "max": 1,
+        "value": 1
+      },
+      "notes": ""
     }
   },
   "Item": {
-    "types": ["origin", "originBenefit", "cosmicMutation", "voidCorruption", "addiction", "personalBelonging", "smallItem", "weapon", "armor"],
+    "types": ["origin", "originBenefit", "cosmicMutation", "voidCorruption", "addiction", "personalBelonging", "smallItem", "weapon", "armor", "hubModule"],
     "templates": {
     },
     "origin": {
@@ -81,6 +109,9 @@
       "protectsAgainst": "",
       "drBonus": 0,
       "condition": ""
+    },
+    "hubModule": {
+      "powerCost": 0
     }
   }
 }

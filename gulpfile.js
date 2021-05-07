@@ -5,7 +5,6 @@ const pug = require('gulp-pug');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 
-
 /* ----------------------------------------- */
 /*  Compile Sass
 /* ----------------------------------------- */
@@ -22,6 +21,16 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./css'))
 })
 
-gulp.task('watch', gulp.series(['sass'], () => {
+gulp.task('html', function () {
+  return gulp.src('source/**/*.pug')
+    .pipe(pug({
+      pretty: true,
+      // locals: require('../translation.json')
+    }))
+    .pipe(gulp.dest('./'))
+})
+
+gulp.task('watch', gulp.series(['sass', 'html'], () => {
   gulp.watch('source/**/*.scss', gulp.series(['sass']))
+  gulp.watch(['source/**/*.pug','source/**/*.js'], gulp.series(['html']))
 }))

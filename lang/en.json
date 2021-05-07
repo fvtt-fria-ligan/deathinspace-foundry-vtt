@@ -6,6 +6,10 @@
 "DIS.TabBelongings": "Belongings",
 "DIS.TabNotes": "Notes",
 "DIS.TabPersonal": "Personal",
+"DIS.TabSpecifics": "Specifics",
+"DIS.TabHubData": "HubData",
+"DIS.TabLayout": "Layout",
+"DIS.TabCargo": "Cargo",
 "DIS.TabSituation": "Situation",
 "DIS.TabWeaponry": "Weaponry"
 }

@@ -5,6 +5,7 @@
   "scripts": {
     "build": "gulp dist",
     "compile": "gulp sass",
+    "html": "gulp html",
     "watch": "gulp watch",
     "gulp": "gulp",
     "lint": "eslint --fix --ext .js ./"
