@@ -36,11 +36,26 @@ form(class="{{cssClass}}")
 
     div(class="tab layout-tab" data-group="primary" data-tab="layout")
       .layout-wrapper
-        | Layout
+        .portait
+          .img(class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}")
 
     div(class="tab cargo-tab" data-group="primary" data-tab="cargo")
       .cargo-wrapper
-        | Cargo
+        ol.items-list.cargo-list
+          li.items-header.flexrow
+            h3.item-name.flexrow
+              | {{localize "DIS.Cargo"}}
+            div.item-controls.flexrow
+              a("item-control item-create" title="{{localize 'DIS.ItemCreate'}}")
+                i.fas.fa-plus
+                | {{localize "DIS.Add"}}
+          ol.item-list
+            | {{#each data.cargo as |item id|}} 
+            li(class="item flexrow" data-item-id="{{item._id}}")
+              img(src="{{item.img}}" title="{{item.name}}" width="24" height="24")
+              h4.item-name.item-edit.rollable
+                | {{item.name}}
+            | {{/each}}
 
     div(class="tab notes-tab" data-group="primary" data-tab="notes")
       .notes-wrapper
