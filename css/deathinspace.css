@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: "AndroclesOpti-Heavy";
-  src: url("../fonts/AndroclesOpti-Heavy.ttf") format("truetype");
+  src: url("../fonts/AndroclesOpti-Heavy.otf") format("opentype");
 }
 
 /* ====================== */
@@ -810,4 +810,9 @@
 .deathinspace.sheet.hub .sheet-tabs .item.active {
   background-color: white;
   color: #32a6d2;
+}
+
+.deathinspace.sheet.hub .portrait img {
+  height: 100%;
+  width: 100%;
 }
