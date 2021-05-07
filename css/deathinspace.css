@@ -491,21 +491,21 @@
   height: 14px;
   width: 14px;
   /* TODO: style checkboxes? 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -o-appearance: none;
-    appearance: none;
-    border: 1px solid black;
-    border-radius: 0;
-    color: none;
-    outline: none;  
-    */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: 1px solid black;
+  border-radius: 0;
+  color: none;
+  outline: none;  
+  */
 }
 
 .days-checkboxes .day-check input[type="checkbox"]:checked {
   /* TODO: background-color isn't showing for checked 
-    background-color: red;
-    */
+  background-color: red;
+  */
 }
 
 .days-checkboxes .day-check .day-plus {
@@ -569,8 +569,8 @@
 }
 
 /*.void-corruption-block div.corruption-row:nth-last-child(1) {
-    border-bottom: none;
-  }*/
+  border-bottom: none;
+}*/
 .deathinspace.sheet.actor.character .situation-tab .life-support-block {
   display: flex;
   flex-direction: column;
@@ -815,4 +815,49 @@
 .deathinspace.sheet.hub .portrait img {
   height: 100%;
   width: 100%;
+}
+
+/* ====================== */
+/* Character sheet - Specifics tab */
+/* ====================== */
+.deathinspace.sheet.actor.hub .specifics-wrapper {
+  display: inline-grid;
+  grid-template-columns: 50% 50%;
+  /* TODO: figure out expandable rows */
+  grid-template-rows: 40px 100px 40px;
+  width: 100%;
+}
+
+.deathinspace.sheet.actor.hub .specifics-tab .nickname-block {
+  border-bottom: 2px solid #32a6d2;
+  border-right: 2px solid black;
+  display: flex;
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.deathinspace.sheet.actor.hub .specifics-tab .hub-type-block {
+  border-bottom: 2px solid #32a6d2;
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+
+.deathinspace.sheet.actor.hub .specifics-tab .background-block {
+  border-bottom: 2px solid #32a6d2;
+  border-right: 2px solid black;
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.deathinspace.sheet.actor.hub .specifics-tab .appearance-block {
+  border-bottom: 2px solid #32a6d2;
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.deathinspace.sheet.actor.hub .specifics-tab .quirks-block {
+  border-bottom: 2px solid #32a6d2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
 }

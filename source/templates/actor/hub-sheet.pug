@@ -26,9 +26,23 @@ form(class="{{cssClass}}")
   
   section.sheet-body 
 
-    div(class="tab personal-tab" data-group="primary" data-tab="specifics")
+    div(class="tab specifics-tab" data-group="primary" data-tab="specifics")
       .specifics-wrapper
-        | Specifics
+        .nickname-block
+          .stat-block
+            label Nickname
+        .hub-type-block
+          .stat-block
+            label Hub type and frame
+        .background-block
+          .stat-block
+            label Background
+        .appearance-block
+          .stat-block
+            label Appearance
+        .quirks-block
+          .stat-block
+            label Quirks
 
     div(class="tab hub-data-tab" data-group="primary" data-tab="hub-data")
       .hub-data-wrapper
