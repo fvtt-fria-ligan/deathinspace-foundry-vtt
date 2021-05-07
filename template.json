@@ -59,9 +59,7 @@
         "max": 100,
         "value": 100
       },
-      "defenseRating": {
-
-      },
+      "defenseRating": 12,
       "condition": {
         "max": 1,
         "value": 1
