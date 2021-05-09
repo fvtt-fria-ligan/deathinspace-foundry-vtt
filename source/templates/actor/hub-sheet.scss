@@ -26,7 +26,7 @@
   width: 100%;
 }
 /* ====================== */
-/* Character sheet - Specifics tab */
+/* Hub sheet - Specifics tab */
 /* ====================== */
 .deathinspace.sheet.actor.hub .specifics-wrapper {
   display: inline-grid;
@@ -63,4 +63,70 @@
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 3;
+}
+/* ====================== */
+/* Hub sheet - Hub data tab */
+/* ====================== */
+.deathinspace.sheet.actor.hub .hub-data-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.hub-data-wrapper .frame-integrity-row {
+  border-bottom: 2px solid #32a6d2;
+  display: flex;
+  flex: 0 0 80px;
+}
+.hub-data-wrapper .frame-integrity-row .frame-integrity {
+  border-right: 1px dotted black;
+  flex: 0 0 90px;
+}
+.hub-data-wrapper .frame-integrity-row .integrity-percent {
+  border-right: 1px dotted black;
+  flex: 0 0 40px;
+}
+.hub-data-wrapper .frame-integrity-row div.integrity-percent:nth-child(12) {
+  border-right: 2px solid black;
+}
+.hub-data-wrapper .frame-integrity-row .defense-rating {
+  flex: 0 0 100px;
+}
+.hub-data-wrapper .roll-on-damage-row {
+  border-bottom: 2px solid #32a6d2;
+  display: flex;
+  flex: 0 0 50px;
+  font-size: 12px;
+}
+.hub-data-wrapper .roll-on-damage-row .roll-col-1 {
+  flex: 0 0 300px;
+}
+.hub-data-wrapper .roll-on-damage-row .roll-col-2 {
+  border-right: 1px dotted black;
+  flex: 0 0 150px;
+}
+.hub-data-wrapper .roll-on-damage-row .roll-col-3 {
+  flex: 0 0 250px;
+}
+.hub-data-wrapper .condition-row {
+  border-bottom: 2px solid #32a6d2;
+  display: flex;
+  flex: 0 0 80px;
+}
+.hub-data-wrapper .condition-row .condition {
+  border-right: 2px solid black;
+  flex: 0 0 250px;
+}
+.hub-data-wrapper .condition-row .fuel {
+  border-right: 2px solid black;
+  flex: 0 0 200px;
+}
+.hub-data-wrapper .condition-row .power-source {
+  border-right: 1px dotted black;
+  flex: 0 0 200px;
+}
+.hub-data-wrapper .condition-row .output-power {
+  flex: 0 0 100px;
+}
+.hub-data-wrapper .modules-row {
+  flex: 1;
 }
