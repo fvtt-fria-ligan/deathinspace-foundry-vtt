@@ -299,36 +299,17 @@
   font-size: 11px;
   text-align: center;
 }
-.addiction-block div.days-checkboxes {
+.addiction-block div.days-radios {
   display: flex;
   justify-content: space-around;
   margin-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
 }
-.days-checkboxes .day-check {
+.days-radios .day-radio {
   text-align: center;
 }
-.days-checkboxes .day-check input[type="checkbox"] {
-  height: 14px;
-  width: 14px;
-  /* TODO: style checkboxes? 
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-  border: 1px solid black;
-  border-radius: 0;
-  color: none;
-  outline: none;  
-  */
-}
-.days-checkboxes .day-check input[type="checkbox"]:checked {
-  /* TODO: background-color isn't showing for checked 
-  background-color: red;
-  */
-}
-.days-checkboxes .day-check .day-plus {
+.days-radios .day-radio .day-plus {
   font-size: 11px;
 }
 .addiction-block .substance-title {
@@ -418,7 +399,8 @@
 .oxygen-tank-row .oxygen-tank .oxygen-increments .increment {
   border-right: 1px dotted black;
   height: 45px;
-  width: 21px;
+  padding-top: 12px;
+  width: 24px;
 } 
 .oxygen-tank-row .oxygen-tank .oxygen-increments .increment:nth-last-child(1) {
   border-right: none;
