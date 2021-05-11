@@ -36,6 +36,11 @@
         "max": 5,
         "value": 0
       },
+      "daysWithoutSubstance": {
+        "min": 0,
+        "max": 7,
+        "value": 0
+      },
       "lifeSupport": {
         "min": 0,
         "max": 100,
