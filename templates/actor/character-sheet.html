@@ -15,7 +15,7 @@
                     SECTION 0. PLAYER INFORMATION
                 </div>
                 <div class="player-name">
-                    <input class="player-name" name="data.playerName" type="text" value="{{actor.data.playerName}}" placeholder="{{ localize 'DIS.PlayerName' }}" spellcheck="false"/>                    
+                    <input class="player-name" name="data.playerName" type="text" value="{{data.data.playerName}}" placeholder="{{ localize 'DIS.PlayerName' }}" spellcheck="false"/>                    
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="stat-block">
                         <label>NICKNAME</label>
-                        <input type="text" name="data.nickName" type="text" value="{{actor.data.nickName}}" placeholder="{{ localize 'DIS.NickName' }}" spellcheck="false" />
+                        <input type="text" name="data.nickName" type="text" value="{{data.data.nickName}}" placeholder="{{ localize 'DIS.NickName' }}" spellcheck="false" />
                     </div>
                 </div>
                 <div class="stat-block origin-benefit-block">
@@ -58,27 +58,27 @@
                 </div>
                 <div class="stat-block xp-block">
                     <label>XP</label>
-                    <input class="stat-input" name="data.xp.value" type="number" value="{{data.xp.value}}" data-dtype="Number"/>
+                    <input class="stat-input" name="data.xp.value" type="number" value="{{data.data.xp.value}}" data-dtype="Number"/>
                 </div>
                 <div class="stat-block background-block">
                     <label>BACKGROUND</label>
-                    <input class="stat-input" name="data.background" type="text" value="{{data.background}}" data-dtype="String"/>
+                    <input class="stat-input" name="data.background" type="text" value="{{data.data.background}}" data-dtype="String"/>
                 </div>
                 <div class="stat-block past-allegiance-block">
                     <label>PAST ALLEGIANCE</label>
-                    <input class="stat-input" name="data.pastAllegiance" type="text" value="{{data.pastAllegiance}}" data-dtype="String"/>
+                    <input class="stat-input" name="data.pastAllegiance" type="text" value="{{data.data.pastAllegiance}}" data-dtype="String"/>
                 </div>
                 <div class="stat-block trait-block">
                     <label>TRAIT</label>
-                    <input class="stat-input" name="data.trait" type="text" value="{{data.trait}}" data-dtype="String"/>
+                    <input class="stat-input" name="data.trait" type="text" value="{{data.data.trait}}" data-dtype="String"/>
                 </div>
                 <div class="stat-block drive-block">
                     <label>DRIVE</label>
-                    <input class="stat-input" name="data.drive" type="text" value="{{data.drive}}" data-dtype="String"/>
+                    <input class="stat-input" name="data.drive" type="text" value="{{data.data.drive}}" data-dtype="String"/>
                 </div>
                 <div class="stat-block looks-block">
                     <label>LOOKS</label>
-                    <textarea name="data.looks">{{data.looks}}</textarea>
+                    <textarea name="data.looks">{{data.data.looks}}</textarea>
                 </div>
                 <div class="stat-block ability-block">
                     <label>ABILITY</label>
@@ -89,7 +89,7 @@
                                 BODY
                             </div>
                             <div class="ability-value">
-                                <input class="stat-input" name="data.abilities.body.value" type="number" value="{{data.abilities.body.value}}" data-dtype="Number"/>
+                                <input class="stat-input" name="data.abilities.body.value" type="number" value="{{data.data.abilities.body.value}}" data-dtype="Number"/>
                             </div>
                         </div>
                         <div class="ability-row">
@@ -97,7 +97,7 @@
                                 DEXTERITY
                             </div>
                             <div class="ability-value">
-                                <input class="stat-input" name="data.abilities.dexterity.value" type="number" value="{{data.abilities.dexterity.value}}" data-dtype="Number"/>
+                                <input class="stat-input" name="data.abilities.dexterity.value" type="number" value="{{data.data.abilities.dexterity.value}}" data-dtype="Number"/>
                             </div>
                         </div>
                         <div class="ability-row">
@@ -105,7 +105,7 @@
                                 SAVVY
                             </div>
                             <div class="ability-value">
-                                <input class="stat-input" name="data.abilities.savvy.value" type="number" value="{{data.abilities.savvy.value}}" data-dtype="Number"/>
+                                <input class="stat-input" name="data.abilities.savvy.value" type="number" value="{{data.data.abilities.savvy.value}}" data-dtype="Number"/>
                             </div>
                         </div>
                         <div class="ability-row">
@@ -113,7 +113,7 @@
                                 TECH
                             </div>
                             <div class="ability-value">
-                                <input class="stat-input" name="data.abilities.tech.value" type="number" value="{{data.abilities.tech.value}}" data-dtype="Number"/>
+                                <input class="stat-input" name="data.abilities.tech.value" type="number" value="{{data.data.abilities.tech.value}}" data-dtype="Number"/>
                             </div>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
                     <div class="defense-value">
                         <label>&nbsp;</label>
                         <br>
-                        <input class="stat-input" name="data.defenseRating" type="number" value="{{data.defenseRating}}" data-dtype="Number"/>
+                        <input class="stat-input" name="data.defenseRating" type="number" value="{{data.data.defenseRating}}" data-dtype="Number"/>
                     </div>
                 </div>
                 <div class="hit-points-row">
@@ -141,12 +141,12 @@
                     <div class="hit-points-current-col">
                         <label>CURRENT</label>
                         <br>
-                        <input class="stat-input" name="data.hitPoints.value" type="number" value="{{data.hitPoints.value}}" data-dtype="Number"/>
+                        <input class="stat-input" name="data.hitPoints.value" type="number" value="{{data.data.hitPoints.value}}" data-dtype="Number"/>
                     </div>
                     <div class="hit-points-max-col">
                         <label>MAX</label>                    
                         <br>
-                        <input class="stat-input" name="data.hitPoints.max" type="number" value="{{data.hitPoints.max}}" data-dtype="Number"/>
+                        <input class="stat-input" name="data.hitPoints.max" type="number" value="{{data.data.hitPoints.max}}" data-dtype="Number"/>
                     </div>
                 </div>
                 <div class="stat-block portrait-block">
@@ -171,12 +171,12 @@
                         </div>
                         <div class="void-points-radios">
                             <ul class="void-points">
-                                <li><label><input type="radio" name="data.voidPoints.value" value="0" data-dtype="Number" {{#ifEq data.voidPoints.value 0}}checked{{/ifEq}}/><span>0</span></label></li>                  
-                                <li><label><input type="radio" name="data.voidPoints.value" value="1" data-dtype="Number" {{#ifEq data.voidPoints.value 1}}checked{{/ifEq}}/><span>1</span></label></li>                  
-                                <li><label><input type="radio" name="data.voidPoints.value" value="2" data-dtype="Number" {{#ifEq data.voidPoints.value 2}}checked{{/ifEq}}/><span>2</span></label></li>                  
-                                <li><label><input type="radio" name="data.voidPoints.value" value="3" data-dtype="Number" {{#ifEq data.voidPoints.value 3}}checked{{/ifEq}}/><span>3</span></label></li>                  
-                                <li><label><input type="radio" name="data.voidPoints.value" value="4" data-dtype="Number" {{#ifEq data.voidPoints.value 4}}checked{{/ifEq}}/><span>4</span></label></li>                  
-                                <li><label><input type="radio" name="data.voidPoints.value" value="5" data-dtype="Number" {{#ifEq data.voidPoints.value 5}}checked{{/ifEq}}/><span>5</span></label></li>                  
+                                <li><label><input type="radio" name="data.voidPoints.value" value="0" data-dtype="Number" {{#ifEq data.data.voidPoints.value 0}}checked{{/ifEq}}/><span>0</span></label></li>                  
+                                <li><label><input type="radio" name="data.voidPoints.value" value="1" data-dtype="Number" {{#ifEq data.data.voidPoints.value 1}}checked{{/ifEq}}/><span>1</span></label></li>                  
+                                <li><label><input type="radio" name="data.voidPoints.value" value="2" data-dtype="Number" {{#ifEq data.data.voidPoints.value 2}}checked{{/ifEq}}/><span>2</span></label></li>                  
+                                <li><label><input type="radio" name="data.voidPoints.value" value="3" data-dtype="Number" {{#ifEq data.data.voidPoints.value 3}}checked{{/ifEq}}/><span>3</span></label></li>                  
+                                <li><label><input type="radio" name="data.voidPoints.value" value="4" data-dtype="Number" {{#ifEq data.data.voidPoints.value 4}}checked{{/ifEq}}/><span>4</span></label></li>                  
+                                <li><label><input type="radio" name="data.voidPoints.value" value="5" data-dtype="Number" {{#ifEq data.data.voidPoints.value 5}}checked{{/ifEq}}/><span>5</span></label></li>                  
                             </ul>   
                         </div>
                         <div class="void-points-roll">
@@ -205,42 +205,42 @@
                     <div class="days-radios">
                         <div class="day-radio">
                             <div>
-                                <label><input type="radio" name="data.daysWithoutSubstance.value" value="0" data-dtype="Number" {{#ifEq data.daysWithoutSubstance.value 0}}checked{{/ifEq}}/><div class="day-plus">+0</div></label>
+                                <label><input type="radio" name="data.daysWithoutSubstance.value" value="0" data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value 0}}checked{{/ifEq}}/><div class="day-plus">+0</div></label>
                             </div>
                         </div>
                         <div class="day-radio">
                             <div>
-                                <label><input type="radio" name="data.daysWithoutSubstance.value" value="1" data-dtype="Number" {{#ifEq data.daysWithoutSubstance.value 1}}checked{{/ifEq}}/><div class="day-plus">+1</div></label>
+                                <label><input type="radio" name="data.daysWithoutSubstance.value" value="1" data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value 1}}checked{{/ifEq}}/><div class="day-plus">+1</div></label>
                             </div>
                         </div>
                         <div class="day-radio">
                             <div>
-                                <label><input type="radio" name="data.daysWithoutSubstance.value" value="2" data-dtype="Number" {{#ifEq data.daysWithoutSubstance.value 2}}checked{{/ifEq}}/><div class="day-plus">+2</div></label>
+                                <label><input type="radio" name="data.daysWithoutSubstance.value" value="2" data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value 2}}checked{{/ifEq}}/><div class="day-plus">+2</div></label>
                             </div>
                         </div>
                         <div class="day-radio">
                             <div>
-                                <label><input type="radio" name="data.daysWithoutSubstance.value" value="3" data-dtype="Number" {{#ifEq data.daysWithoutSubstance.value 3}}checked{{/ifEq}}/><div class="day-plus">+3</div></label>
+                                <label><input type="radio" name="data.daysWithoutSubstance.value" value="3" data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value 3}}checked{{/ifEq}}/><div class="day-plus">+3</div></label>
                             </div>
                         </div>
                         <div class="day-radio">
                             <div>
-                                <label><input type="radio" name="data.daysWithoutSubstance.value" value="4" data-dtype="Number" {{#ifEq data.daysWithoutSubstance.value 4}}checked{{/ifEq}}/><div class="day-plus">+4</div></label>
+                                <label><input type="radio" name="data.daysWithoutSubstance.value" value="4" data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value 4}}checked{{/ifEq}}/><div class="day-plus">+4</div></label>
                             </div>
                         </div>
                         <div class="day-radio">
                             <div>
-                                <label><input type="radio" name="data.daysWithoutSubstance.value" value="5" data-dtype="Number" {{#ifEq data.daysWithoutSubstance.value 5}}checked{{/ifEq}}/><div class="day-plus">+5</div></label>
+                                <label><input type="radio" name="data.daysWithoutSubstance.value" value="5" data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value 5}}checked{{/ifEq}}/><div class="day-plus">+5</div></label>
                             </div>
                         </div>
                         <div class="day-radio">
                             <div>
-                                <label><input type="radio" name="data.daysWithoutSubstance.value" value="6" data-dtype="Number" {{#ifEq data.daysWithoutSubstance.value 6}}checked{{/ifEq}}/><div class="day-plus">+6</div></label>
+                                <label><input type="radio" name="data.daysWithoutSubstance.value" value="6" data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value 6}}checked{{/ifEq}}/><div class="day-plus">+6</div></label>
                             </div>
                         </div>
                         <div class="day-radio">
                             <div>
-                                <label><input type="radio" name="data.daysWithoutSubstance.value" value="7" data-dtype="Number" {{#ifEq data.daysWithoutSubstance.value 7}}checked{{/ifEq}}/><div class="day-plus">+7</div></label>
+                                <label><input type="radio" name="data.daysWithoutSubstance.value" value="7" data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value 7}}checked{{/ifEq}}/><div class="day-plus">+7</div></label>
                             </div>
                         </div>
                     </div>
@@ -298,22 +298,22 @@
                         <div class="oxygen-tank">
                             <div class="oxygen-increments">
                                 <div class="increment">
-                                    <input type="radio" name="data.lifeSupport.value" value="0" data-dtype="Number" {{#ifEq data.lifeSupport.value 0}}checked{{/ifEq}}/>
+                                    <input type="radio" name="data.lifeSupport.value" value="0" data-dtype="Number" {{#ifEq data.data.lifeSupport.value 0}}checked{{/ifEq}}/>
                                 </div>
                                 <div class="increment">
-                                    <input type="radio" name="data.lifeSupport.value" value="20" data-dtype="Number" {{#ifEq data.lifeSupport.value 20}}checked{{/ifEq}}/>
+                                    <input type="radio" name="data.lifeSupport.value" value="20" data-dtype="Number" {{#ifEq data.data.lifeSupport.value 20}}checked{{/ifEq}}/>
                                 </div>
                                 <div class="increment">
-                                    <input type="radio" name="data.lifeSupport.value" value="40" data-dtype="Number" {{#ifEq data.lifeSupport.value 40}}checked{{/ifEq}}/>
+                                    <input type="radio" name="data.lifeSupport.value" value="40" data-dtype="Number" {{#ifEq data.data.lifeSupport.value 40}}checked{{/ifEq}}/>
                                 </div>
                                 <div class="increment">
-                                    <input type="radio" name="data.lifeSupport.value" value="60" data-dtype="Number" {{#ifEq data.lifeSupport.value 60}}checked{{/ifEq}}/>
+                                    <input type="radio" name="data.lifeSupport.value" value="60" data-dtype="Number" {{#ifEq data.data.lifeSupport.value 60}}checked{{/ifEq}}/>
                                 </div>
                                 <div class="increment">
-                                    <input type="radio" name="data.lifeSupport.value" value="80" data-dtype="Number" {{#ifEq data.lifeSupport.value 80}}checked{{/ifEq}}/>
+                                    <input type="radio" name="data.lifeSupport.value" value="80" data-dtype="Number" {{#ifEq data.data.lifeSupport.value 80}}checked{{/ifEq}}/>
                                 </div>
                                 <div class="increment">
-                                    <input type="radio" name="data.lifeSupport.value" value="100" data-dtype="Number" {{#ifEq data.lifeSupport.value 100}}checked{{/ifEq}}/>
+                                    <input type="radio" name="data.lifeSupport.value" value="100" data-dtype="Number" {{#ifEq data.data.lifeSupport.value 100}}checked{{/ifEq}}/>
                                 </div>
                             </div>
                         </div>
@@ -407,11 +407,11 @@
                 <div class="holo-row">
                     <div class="stat-block holos">
                         <label>HOLOS</label>
-                        <input class="stat-input" name="data.holos" type="number" value="{{data.holos}}" data-dtype="Number"/>
+                        <input class="stat-input" name="data.holos" type="number" value="{{data.data.holos}}" data-dtype="Number"/>
                     </div>
                     <div class="stat-block debt">
                         <label>DEBT</label>
-                        <input class="stat-input" name="data.xp.debt" type="number" value="{{data.debt}}" data-dtype="Number"/>
+                        <input class="stat-input" name="data.xp.debt" type="number" value="{{data.data.debt}}" data-dtype="Number"/>
                     </div>
                 </div>
             </div>
@@ -458,7 +458,7 @@
         {{!-- Notes Tab --}}
         <div class="tab notes-tab" data-group="primary" data-tab="notes">
             <div class="notes-wrapper">
-                {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
+                {{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}
             </div>
         </div>
 

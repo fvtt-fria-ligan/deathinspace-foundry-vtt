@@ -22,10 +22,10 @@ export class DISHubSheet extends ActorSheet {
 
   /** @override */
   getData() {
-    const data = super.getData();
+    const superData = super.getData();
     // TODO: filter items etc
-    data.actor.data.cargo = data.items;
-    return data;
+    //data.actor.data.cargo = data.items;
+    return superData;
   }  
 }
   
