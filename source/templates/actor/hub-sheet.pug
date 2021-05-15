@@ -56,17 +56,72 @@ form(class="{{cssClass}}")
         .frame-integrity-row
           .frame-integrity
             | FRAME INTEGRITY
-          .integrity-percent
-          .integrity-percent
-          .integrity-percent
-          .integrity-percent
-          .integrity-percent
-          .integrity-percent
-          .integrity-percent
-          .integrity-percent
-          .integrity-percent
-          .integrity-percent
-          .integrity-percent
+          .integrity-increment
+            label
+              .integrity-radio
+                input(type="radio" name="data.frameIntegrity.value" value="0" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 0}}true{{/ifEq}}")
+              .integrity-percent
+                | 0%
+          .integrity-increment
+            label
+              .integrity-radio
+                input(type="radio" name="data.frameIntegrity.value" value="10" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 10}}true{{/ifEq}}")
+              .integrity-percent
+                | 10%
+          .integrity-increment
+            label
+              .integrity-radio
+                input(type="radio" name="data.frameIntegrity.value" value="20" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 20}}true{{/ifEq}}")
+              .integrity-percent
+                | 20%
+          .integrity-increment
+            label
+              .integrity-radio
+                input(type="radio" name="data.frameIntegrity.value" value="30" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 30}}true{{/ifEq}}")
+              .integrity-percent
+                | 30%
+          .integrity-increment
+            label
+              .integrity-radio
+                input(type="radio" name="data.frameIntegrity.value" value="40" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 40}}true{{/ifEq}}")
+              .integrity-percent
+                | 40%
+          .integrity-increment
+            label
+              .integrity-radio
+                input(type="radio" name="data.frameIntegrity.value" value="50" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 50}}true{{/ifEq}}")
+              .integrity-percent
+                | 50%
+          .integrity-increment
+            label
+              .integrity-radio
+                input(type="radio" name="data.frameIntegrity.value" value="60" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 60}}true{{/ifEq}}")
+              .integrity-percent
+                | 60%
+          .integrity-increment
+            label
+              .integrity-radio
+                input(type="radio" name="data.frameIntegrity.value" value="70" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 70}}true{{/ifEq}}")
+              .integrity-percent
+                | 70%
+          .integrity-increment
+            label
+              .integrity-radio
+                input(type="radio" name="data.frameIntegrity.value" value="80" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 80}}true{{/ifEq}}")
+              .integrity-percent
+                | 80%
+          .integrity-increment
+            label
+              .integrity-radio
+                input(type="radio" name="data.frameIntegrity.value" value="90" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 90}}true{{/ifEq}}")
+              .integrity-percent
+                | 90%
+          .integrity-increment
+            label
+              .integrity-radio
+                input(type="radio" name="data.frameIntegrity.value" value="100" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 100}}true{{/ifEq}}")
+              .integrity-percent
+                | 100%
           .defense-rating
             | DEFENSE RATING
         .roll-on-damage-row 
