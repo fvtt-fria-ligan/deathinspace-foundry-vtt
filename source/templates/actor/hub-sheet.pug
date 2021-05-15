@@ -124,13 +124,21 @@ form(class="{{cssClass}}")
                 | 100%
           .defense-rating
             | DEFENSE RATING
+            input(class="defense-rating" name="data.defenseRating" type="number" value="{{data.data.defenseRating}}" data-dtype="Number")
         .roll-on-damage-row 
           .roll-col-1
-            | ROLL ON DAMAGE TABLE
+            | ROLL ON
+            br
+            | DAMAGE TABLE
           .roll-col-2 
-            | ROLL ON DAMAGE TABLE
+            | ROLL ON
+            br
+            | DAMAGE TABLE
           .roll-col-3
-            | WHEN ALL IS CALM THE HUB REGAINS 1d4+10% INTEGRITY ON A CALM RIGHT UP TO MAXIMUM
+          .roll-col-4
+            | WHEN ALL IS CALM
+            br
+            | THE HUB REGAINS 1d4+10% INTEGRITY
         .condition-row 
           .condition 
           .fuel 

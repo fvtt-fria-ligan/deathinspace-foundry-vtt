@@ -860,6 +860,8 @@
 .hub-data-wrapper .frame-integrity-row .frame-integrity {
   border-right: 1px dotted black;
   flex: 0 0 90px;
+  padding-left: 5px;
+  padding-top: 5px;
 }
 
 .hub-data-wrapper .frame-integrity-row .integrity-increment {
@@ -883,12 +885,12 @@
 .integrity-increment .integrity-radio {
   flex: 1;
   padding-right: 5px;
-  padding-top: 16px;
+  padding-top: 25px;
 }
 
 .integrity-increment .integrity-percent {
   display: none;
-  flex: 0 0 30px;
+  flex: 0 0 20px;
 }
 
 .integrity-increment:nth-child(2) .integrity-percent,
@@ -900,7 +902,14 @@
 }
 
 .hub-data-wrapper .frame-integrity-row .defense-rating {
-  flex: 0 0 100px;
+  flex: 0 0 150px;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.hub-data-wrapper .frame-integrity-row .defense-rating input.defense-rating {
+  text-align: center;
+  width: 118px;
 }
 
 .hub-data-wrapper .roll-on-damage-row {
@@ -911,16 +920,23 @@
 }
 
 .hub-data-wrapper .roll-on-damage-row .roll-col-1 {
-  flex: 0 0 300px;
+  flex: 0 0 130px;
+  text-align: right;
 }
 
 .hub-data-wrapper .roll-on-damage-row .roll-col-2 {
-  border-right: 1px dotted black;
-  flex: 0 0 150px;
+  flex: 0 0 200px;
+  text-align: right;
 }
 
 .hub-data-wrapper .roll-on-damage-row .roll-col-3 {
-  flex: 0 0 250px;
+  border-right: 1px dotted black;
+  flex: 0 0 160px;
+}
+
+.hub-data-wrapper .roll-on-damage-row .roll-col-4 {
+  flex: 1;
+  padding-left: 5px;
 }
 
 .hub-data-wrapper .condition-row {
