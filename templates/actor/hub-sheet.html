@@ -173,8 +173,24 @@
               </div>
             </div>
           </div>
-          <div class="fuel">
-             FUEL CURRENT MAX</div>
+          <div class="fuel"> 
+            <div class="label-row">
+              <div class="col1">FUEL</div>
+              <div class="col2">
+                 CURRENT</div>
+              <div class="col3">MAX</div>
+            </div>
+            <div class="field-row">
+              <div class="col1">
+                  </div>
+              <div class="col2">
+                <input class="fuel-current" name="data.fuel.value" type="number" value="{{data.data.fuel.value}}" data-dtype="Number"/>
+              </div>
+              <div class="col3">
+                <input class="fuel-max" name="data.fuel.max" type="number" value="{{data.data.fuel.max}}" data-dtype="Number"/>
+              </div>
+            </div>
+          </div>
           <div class="power-source">
              POWER SOURCE</div>
           <div class="output-power">OUTPUT POWER</div>

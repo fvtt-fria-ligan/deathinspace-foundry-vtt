@@ -156,7 +156,20 @@ form(class="{{cssClass}}")
               .col3
                 input(class="condition-max" name="data.condition.max" type="number" value="{{data.data.condition.max}}" data-dtype="Number")
           .fuel 
-            | FUEL CURRENT MAX
+            .label-row
+              .col1
+                | FUEL
+              .col2 
+                | CURRENT
+              .col3
+                | MAX
+            .field-row
+              .col1 
+                | 
+              .col2
+                input(class="fuel-current" name="data.fuel.value" type="number" value="{{data.data.fuel.value}}" data-dtype="Number")
+              .col3
+                input(class="fuel-max" name="data.fuel.max" type="number" value="{{data.data.fuel.max}}" data-dtype="Number")
           .power-source 
             | POWER SOURCE
           .output-power

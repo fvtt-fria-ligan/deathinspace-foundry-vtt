@@ -950,37 +950,41 @@
   display: flex;
   flex: 0 0 210px;
   flex-direction: column;
+  padding: 5px;
 }
 
-.hub-data-wrapper .condition-row .condition .label-row {
+.hub-data-wrapper .condition-row .label-row {
   display: flex;
   flex: 0 0 30px;
 }
 
-.hub-data-wrapper .condition-row .condition .field-row {
+.hub-data-wrapper .condition-row .field-row {
   display: flex;
   flex: 1;
 }
 
-.hub-data-wrapper .condition-row .condition .col1 {
+.hub-data-wrapper .condition-row .col1 {
   flex: 1;
 }
 
-.hub-data-wrapper .condition-row .condition .col2 {
-  flex: 0 0 60px;
+.hub-data-wrapper .condition-row .col2 {
+  flex: 0 0 55px;
   font-size: 12px;
   text-align: center;
 }
 
-.hub-data-wrapper .condition-row .condition .col3 {
-  flex: 0 0 60px;
+.hub-data-wrapper .condition-row .col3 {
+  flex: 0 0 55px;
   font-size: 12px;
   text-align: center;
 }
 
 .hub-data-wrapper .condition-row .fuel {
   border-right: 2px solid black;
+  display: flex;
   flex: 0 0 200px;
+  flex-direction: column;
+  padding: 5px;
 }
 
 .hub-data-wrapper .condition-row .power-source {
