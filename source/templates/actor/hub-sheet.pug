@@ -10,7 +10,7 @@ form(class="{{cssClass}}")
         div 
           | SECTION 0. OWNER INFORMATION 
         div.owner-sig
-          input(class="owner-name" name="data.ownerName" type="text" value="{{actor.data.ownerName}}" placeholder="{{ localize 'DIS.OwnerName' }}" spellcheck="false")
+          input(class="owner-name" name="data.ownerName" type="text" value="{{data.data.ownerName}}" placeholder="{{ localize 'DIS.OwnerName' }}" spellcheck="false")
 
   nav(class="sheet-tabs tabs" data-group="primary")
     a(class="item" data-tab="specifics")
@@ -31,18 +31,25 @@ form(class="{{cssClass}}")
         .nickname-block
           .stat-block
             label Nickname
+            input(type="text" name="data.nickName" value="{{data.data.nickName}}" placeholder="" spellcheck="false")
         .hub-type-block
           .stat-block
             label Hub type and frame
+            input(type="text" name="data.hubType" value="{{data.data.hubType}}" placeholder="" spellcheck="false")
         .background-block
           .stat-block
             label Background
+            textarea(name="data.background")
+              | {{data.data.background}}
         .appearance-block
           .stat-block
             label Appearance
+            textarea(name="data.appearance")
+              | {{data.data.appearance}}
         .quirks-block
           .stat-block
             label Quirks
+            input(type="text" name="data.quirks" value="{{data.data.quirks}}" placeholder="" spellcheck="false")
 
     div(class="tab hub-data-tab" data-group="primary" data-tab="hub-data")
       .hub-data-wrapper

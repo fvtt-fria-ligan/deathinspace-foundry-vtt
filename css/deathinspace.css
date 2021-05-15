@@ -804,7 +804,7 @@
   display: inline-grid;
   grid-template-columns: 50% 50%;
   /* TODO: figure out expandable rows */
-  grid-template-rows: 40px 100px 40px;
+  grid-template-rows: 50px 100px 50px;
   width: 100%;
 }
 
