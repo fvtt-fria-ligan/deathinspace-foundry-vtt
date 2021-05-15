@@ -982,18 +982,34 @@
 .hub-data-wrapper .condition-row .fuel {
   border-right: 2px solid black;
   display: flex;
-  flex: 0 0 200px;
+  flex: 0 0 180px;
   flex-direction: column;
   padding: 5px;
 }
 
 .hub-data-wrapper .condition-row .power-source {
   border-right: 1px dotted black;
+  display: flex;
   flex: 0 0 200px;
+  padding: 5px;
+}
+
+.hub-data-wrapper .condition-row .power-source .source-label {
+  flex: 1;
+}
+
+.hub-data-wrapper .condition-row .power-source .source-radios {
+  display: flex;
+  flex: 0 0 80px;
+  flex-direction: column;
+  font-size: 11px;
+  justify-content: space-around;
+  text-align: right;
 }
 
 .hub-data-wrapper .condition-row .output-power {
-  flex: 0 0 100px;
+  flex: 1;
+  padding: 5px;
 }
 
 .hub-data-wrapper .modules-row {

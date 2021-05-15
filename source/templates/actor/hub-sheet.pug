@@ -171,9 +171,25 @@ form(class="{{cssClass}}")
               .col3
                 input(class="fuel-max" name="data.fuel.max" type="number" value="{{data.data.fuel.max}}" data-dtype="Number")
           .power-source 
-            | POWER SOURCE
+            .source-label
+              | POWER SOURCE
+            .source-radios
+              .radio-row
+                label
+                  | Slow
+                  input(type="radio" name="data.powerSource" value="slow" data-dtype="String" checked="{{#ifEq data.data.powerSource 'slow'}}true{{/ifEq}}")
+              .radio-row
+                label
+                    | Fast
+                    input(type="radio" name="data.powerSource" value="fast" data-dtype="String" checked="{{#ifEq data.data.powerSource 'fast'}}true{{/ifEq}}")
+              .radio-row
+                label
+                    | Unknown
+                    input(type="radio" name="data.powerSource" value="unknown" data-dtype="String" checked="{{#ifEq data.data.powerSource 'unknown'}}true{{/ifEq}}")
           .output-power
             | OUTPUT POWER
+            input(class="output-power" name="data.outputPower" type="number" value="{{data.data.outputPower}}" data-dtype="Number")
+
         .modules-row
           | modules
 
