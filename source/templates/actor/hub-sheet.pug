@@ -126,24 +126,41 @@ form(class="{{cssClass}}")
             | DEFENSE RATING
             input(class="defense-rating" name="data.defenseRating" type="number" value="{{data.data.defenseRating}}" data-dtype="Number")
         .roll-on-damage-row 
-          .roll-col-1
+          .col1
             | ROLL ON
             br
             | DAMAGE TABLE
-          .roll-col-2 
+          .col2 
             | ROLL ON
             br
             | DAMAGE TABLE
-          .roll-col-3
-          .roll-col-4
-            | WHEN ALL IS CALM
+          .col3
+          .col4
+            | WHEN ALL IS CALM THE HUB
             br
-            | THE HUB REGAINS 1d4+10% INTEGRITY
+            | REGAINS 1d4+10% INTEGRITY
         .condition-row 
-          .condition 
+          .condition
+            .label-row
+              .col1
+                | CONDITION
+              .col2 
+                | CURRENT
+              .col3
+                | MAX
+            .field-row
+              .col1 
+                | 
+              .col2
+                input(class="condition-current" name="data.condition.value" type="number" value="{{data.data.condition.value}}" data-dtype="Number")
+              .col3
+                input(class="condition-max" name="data.condition.max" type="number" value="{{data.data.condition.max}}" data-dtype="Number")
           .fuel 
+            | FUEL CURRENT MAX
           .power-source 
+            | POWER SOURCE
           .output-power
+            | OUTPUT POWER
         .modules-row
           | modules
 

@@ -148,17 +148,36 @@
           </div>
         </div>
         <div class="roll-on-damage-row"> 
-          <div class="roll-col-1">ROLL ON<br/>DAMAGE TABLE</div>
-          <div class="roll-col-2">
+          <div class="col1">ROLL ON<br/>DAMAGE TABLE</div>
+          <div class="col2">
              ROLL ON<br/>DAMAGE TABLE</div>
-          <div class="roll-col-3"></div>
-          <div class="roll-col-4">WHEN ALL IS CALM<br/>THE HUB REGAINS 1d4+10% INTEGRITY</div>
+          <div class="col3"></div>
+          <div class="col4">WHEN ALL IS CALM THE HUB<br/>REGAINS 1d4+10% INTEGRITY</div>
         </div>
         <div class="condition-row"> 
-          <div class="condition"> </div>
-          <div class="fuel"> </div>
-          <div class="power-source"> </div>
-          <div class="output-power"></div>
+          <div class="condition">
+            <div class="label-row">
+              <div class="col1">CONDITION</div>
+              <div class="col2">
+                 CURRENT</div>
+              <div class="col3">MAX</div>
+            </div>
+            <div class="field-row">
+              <div class="col1">
+                  </div>
+              <div class="col2">
+                <input class="condition-current" name="data.condition.value" type="number" value="{{data.data.condition.value}}" data-dtype="Number"/>
+              </div>
+              <div class="col3">
+                <input class="condition-max" name="data.condition.max" type="number" value="{{data.data.condition.max}}" data-dtype="Number"/>
+              </div>
+            </div>
+          </div>
+          <div class="fuel">
+             FUEL CURRENT MAX</div>
+          <div class="power-source">
+             POWER SOURCE</div>
+          <div class="output-power">OUTPUT POWER</div>
         </div>
         <div class="modules-row">modules</div>
       </div>

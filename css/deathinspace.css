@@ -919,22 +919,22 @@
   font-size: 12px;
 }
 
-.hub-data-wrapper .roll-on-damage-row .roll-col-1 {
+.hub-data-wrapper .roll-on-damage-row .col1 {
   flex: 0 0 130px;
   text-align: right;
 }
 
-.hub-data-wrapper .roll-on-damage-row .roll-col-2 {
+.hub-data-wrapper .roll-on-damage-row .col2 {
   flex: 0 0 200px;
   text-align: right;
 }
 
-.hub-data-wrapper .roll-on-damage-row .roll-col-3 {
+.hub-data-wrapper .roll-on-damage-row .col3 {
   border-right: 1px dotted black;
   flex: 0 0 160px;
 }
 
-.hub-data-wrapper .roll-on-damage-row .roll-col-4 {
+.hub-data-wrapper .roll-on-damage-row .col4 {
   flex: 1;
   padding-left: 5px;
 }
@@ -947,7 +947,35 @@
 
 .hub-data-wrapper .condition-row .condition {
   border-right: 2px solid black;
-  flex: 0 0 250px;
+  display: flex;
+  flex: 0 0 210px;
+  flex-direction: column;
+}
+
+.hub-data-wrapper .condition-row .condition .label-row {
+  display: flex;
+  flex: 0 0 30px;
+}
+
+.hub-data-wrapper .condition-row .condition .field-row {
+  display: flex;
+  flex: 1;
+}
+
+.hub-data-wrapper .condition-row .condition .col1 {
+  flex: 1;
+}
+
+.hub-data-wrapper .condition-row .condition .col2 {
+  flex: 0 0 60px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.hub-data-wrapper .condition-row .condition .col3 {
+  flex: 0 0 60px;
+  font-size: 12px;
+  text-align: center;
 }
 
 .hub-data-wrapper .condition-row .fuel {
