@@ -378,7 +378,7 @@
   flex: 0 0 20px;
   font-size: 11px;
   justify-content: space-between;
-  padding-left: 30px;
+  padding-left: 20px;
   padding-right: 70px;
 }
 .oxygen-tank-row .oxygen-tank {
@@ -387,9 +387,9 @@
   background-size: contain;
   flex: 0 0 58px;
   height: 58px;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 220px;
+  margin-left: 12px;
+  margin-right: 0px;
+  width: 226px;
 }
 .oxygen-tank-row .oxygen-tank .oxygen-increments {
   display: flex;
@@ -400,8 +400,10 @@
   border-right: 1px dotted black;
   height: 45px;
   padding-top: 12px;
-  width: 24px;
+  width: 21.5px;
 } 
+.oxygen-tank-row .oxygen-tank .oxygen-increments .increment input[type="radio"] {
+}
 .oxygen-tank-row .oxygen-tank .oxygen-increments .increment:nth-last-child(1) {
   border-right: none;
 }
