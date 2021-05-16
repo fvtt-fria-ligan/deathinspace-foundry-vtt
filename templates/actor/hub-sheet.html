@@ -143,8 +143,12 @@
               <div class="integrity-percent">100%</div>
             </label>
           </div>
-          <div class="defense-rating">DEFENSE RATING
-            <input class="defense-rating" name="data.defenseRating" type="number" value="{{data.data.defenseRating}}" data-dtype="Number"/>
+          <div class="defense-rating">
+            <div class="title-row">
+               DEFENSE RATING</div>
+            <div class="input-row">
+              <input class="defense-rating" name="data.defenseRating" type="number" value="{{data.data.defenseRating}}" data-dtype="Number"/>
+            </div>
           </div>
         </div>
         <div class="roll-on-damage-row"> 
@@ -211,8 +215,11 @@
               </div>
             </div>
           </div>
-          <div class="output-power">OUTPUT POWER
-            <input class="output-power power" name="data.outputPower" type="number" value="{{data.data.outputPower}}" data-dtype="Number"/>
+          <div class="output-power">
+            <div class="title-row">OUTPUT POWER</div>
+            <div class="input-row">
+              <input class="output-power power" name="data.outputPower" type="number" value="{{data.data.outputPower}}" data-dtype="Number"/>
+            </div>
           </div>
         </div>
         <div class="modules-block">
@@ -230,7 +237,7 @@
             </div>{{/each}}
           </div>
           <div class="modules-total"> 
-            <div class="col1">The power cost sum should not exceed the output power.</div>
+            <div class="col1">The power cost sum should not exceed the output power.<br/>Power cost > power output = overheat.</div>
             <div class="col2"> 
               <input class="total-power-cost power" name="data.powerCostTotal" type="number" value="{{data.data.powerCostTotal}}" data-dtype="Number" readonly="readonly"/>
             </div>

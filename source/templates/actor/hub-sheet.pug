@@ -123,8 +123,10 @@ form(class="{{cssClass}}")
               .integrity-percent
                 | 100%
           .defense-rating
-            | DEFENSE RATING
-            input(class="defense-rating" name="data.defenseRating" type="number" value="{{data.data.defenseRating}}" data-dtype="Number")
+            .title-row 
+              | DEFENSE RATING
+            .input-row
+              input(class="defense-rating" name="data.defenseRating" type="number" value="{{data.data.defenseRating}}" data-dtype="Number")
         .roll-on-damage-row 
           .col1
             | ROLL ON
@@ -187,8 +189,10 @@ form(class="{{cssClass}}")
                   | Unknown
                   input(type="radio" name="data.powerSource" value="unknown" data-dtype="String" checked="{{#ifEq data.data.powerSource 'unknown'}}true{{/ifEq}}")
           .output-power
-            | OUTPUT POWER
-            input(class="output-power power" name="data.outputPower" type="number" value="{{data.data.outputPower}}" data-dtype="Number")
+            .title-row
+              | OUTPUT POWER
+            .input-row
+              input(class="output-power power" name="data.outputPower" type="number" value="{{data.data.outputPower}}" data-dtype="Number")
 
         .modules-block
           .title-row
@@ -207,6 +211,8 @@ form(class="{{cssClass}}")
           .modules-total 
             .col1
               | The power cost sum should not exceed the output power.
+              br
+              | Power cost > power output = overheat.
             .col2 
               input(class="total-power-cost power" name="data.powerCostTotal" type="number" value="{{data.data.powerCostTotal}}" data-dtype="Number" readonly=true)
 
