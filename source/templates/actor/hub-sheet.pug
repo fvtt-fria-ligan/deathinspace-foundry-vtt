@@ -188,7 +188,7 @@ form(class="{{cssClass}}")
                   input(type="radio" name="data.powerSource" value="unknown" data-dtype="String" checked="{{#ifEq data.data.powerSource 'unknown'}}true{{/ifEq}}")
           .output-power
             | OUTPUT POWER
-            input(class="output-power" name="data.outputPower" type="number" value="{{data.data.outputPower}}" data-dtype="Number")
+            input(class="output-power power" name="data.outputPower" type="number" value="{{data.data.outputPower}}" data-dtype="Number")
 
         .modules-block
           .title-row
@@ -202,13 +202,13 @@ form(class="{{cssClass}}")
               .col1
                 | {{add @index 1}}. {{item.name}}
               .col2 
-                input(class="hub-module-power-cost" name="item.powerCost" type="number" value="{{item.powerCost}}" data-dtype="Number" readonly=true)
+                input(class="hub-module-power-cost power" name="item.powerCost" type="number" value="{{item.powerCost}}" data-dtype="Number" readonly=true)
             | {{/each}}
           .modules-total 
             .col1
               | The power cost sum should not exceed the output power.
             .col2 
-              input(class="total-power-cost" name="data.powerCostTotal" type="number" value="{{data.data.powerCostTotal}}" data-dtype="Number" readonly=true)
+              input(class="total-power-cost power" name="data.powerCostTotal" type="number" value="{{data.data.powerCostTotal}}" data-dtype="Number" readonly=true)
 
     div(class="tab layout-tab" data-group="primary" data-tab="layout")
       .layout-wrapper
