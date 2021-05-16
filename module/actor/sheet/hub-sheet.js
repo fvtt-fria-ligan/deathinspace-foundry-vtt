@@ -23,8 +23,16 @@ export class DISHubSheet extends ActorSheet {
   /** @override */
   getData() {
     const superData = super.getData();
-    // TODO: filter items etc
-    //data.actor.data.cargo = data.items;
+    const data = superData.data;
+    const byName = (a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
+    data.data.cargo = data.items.filter(item => item.type === "cargo").sort(byName);
+    data.data.hubModules = data.items.filter(item => item.type === "hubModule").sort(byName);
+    data.data.totalPowerCost = data.data.hubModules.reduce((a, b) => a.powerCost + b.powerCost, 0);
+  
+    // TODO: calculate this somehow from power source?
+    data.data.outputPower = 33;
+  
+    console.log(superData);
     return superData;
   }  
 }

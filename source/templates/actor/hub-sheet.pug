@@ -180,23 +180,40 @@ form(class="{{cssClass}}")
                   input(type="radio" name="data.powerSource" value="slow" data-dtype="String" checked="{{#ifEq data.data.powerSource 'slow'}}true{{/ifEq}}")
               .radio-row
                 label
-                    | Fast
-                    input(type="radio" name="data.powerSource" value="fast" data-dtype="String" checked="{{#ifEq data.data.powerSource 'fast'}}true{{/ifEq}}")
+                  | Fast
+                  input(type="radio" name="data.powerSource" value="fast" data-dtype="String" checked="{{#ifEq data.data.powerSource 'fast'}}true{{/ifEq}}")
               .radio-row
                 label
-                    | Unknown
-                    input(type="radio" name="data.powerSource" value="unknown" data-dtype="String" checked="{{#ifEq data.data.powerSource 'unknown'}}true{{/ifEq}}")
+                  | Unknown
+                  input(type="radio" name="data.powerSource" value="unknown" data-dtype="String" checked="{{#ifEq data.data.powerSource 'unknown'}}true{{/ifEq}}")
           .output-power
             | OUTPUT POWER
             input(class="output-power" name="data.outputPower" type="number" value="{{data.data.outputPower}}" data-dtype="Number")
 
-        .modules-row
-          | modules
+        .modules-block
+          .title-row
+            .col1
+              | MODULES
+            .col2
+              | POWER COST
+          .modules-list 
+            | {{#each data.data.hubModules as |item id|}}
+            .module-item
+              .col1
+                | {{add @index 1}}. {{item.name}}
+              .col2 
+                input(class="hub-module-power-cost" name="item.powerCost" type="number" value="{{item.powerCost}}" data-dtype="Number" readonly=true)
+            | {{/each}}
+          .modules-total 
+            .col1
+              | The power cost sum should not exceed the output power.
+            .col2 
+              input(class="total-power-cost" name="data.powerCostTotal" type="number" value="{{data.data.powerCostTotal}}" data-dtype="Number" readonly=true)
 
     div(class="tab layout-tab" data-group="primary" data-tab="layout")
       .layout-wrapper
-        .portait
-          .img(class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}")
+        .layout-img
+          .img(class="layout-img" src="{{data.actor.img}}" data-edit="img" title="{{data.actor.name}}")
 
     div(class="tab cargo-tab" data-group="primary" data-tab="cargo")
       .cargo-wrapper
@@ -209,7 +226,7 @@ form(class="{{cssClass}}")
                 i.fas.fa-plus
                 | {{localize "DIS.Add"}}
           ol.item-list
-            | {{#each data.cargo as |item id|}} 
+            | {{#each data.data.cargo as |item id|}} 
             li(class="item flexrow" data-item-id="{{item._id}}")
               img(src="{{item.img}}" title="{{item.name}}" width="24" height="24")
               h4.item-name.item-edit.rollable

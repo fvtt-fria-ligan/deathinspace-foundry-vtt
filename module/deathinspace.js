@@ -39,3 +39,7 @@ Handlebars.registerHelper('ifEq', function(arg1, arg2, options) {
   // TODO: verify whether we want == or === for this equality check
   return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
+
+Handlebars.registerHelper("add", function (num1, num2){
+  return num1 + num2;
+});

@@ -206,6 +206,64 @@
   flex: 1;
   padding: 5px;
 }
-.hub-data-wrapper .modules-row {
+.hub-data-wrapper .modules-block {
+  display: flex;
   flex: 1;
+  flex-direction: column;
+  padding: 5px;
+  width: 100%;
+}
+.modules-block .col1 {
+  flex: 1;
+}
+.modules-block .col2 {
+  flex: 0 0 100px;
+}
+.modules-block .title-row {
+  display: flex;
+  flex: 0 0 30px;
+  width: 100%;
+}
+.modules-block .modules-list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.modules-list .module-item {
+  display: flex;
+  flex: 0 0 30px;
+  border-bottom: 1px dotted black;
+  margin-top: 10px;
+}
+.modules-block .modules-total {
+  display: flex;
+  flex: 0 0 50px;
+  font-size: 12px;
+  margin-top: 15px;
+}
+/* ====================== */
+/* Hub sheet - Layout tab */
+/* ====================== */
+.deathinspace.sheet.actor.hub .layout-wrapper {
+  display: flex;
+  height: 100%;
+  border: 1px solid green;
+  align-items: center;
+  justify-content: center;
+}
+.layout-wrapper div.layout-img {
+  height: 200px;
+  width: 200px;  
+  margin: 0;
+  padding: 0;
+  border: 1px solid blue;
+}
+/* ====================== */
+/* Hub sheet - Notes tab */
+/* ====================== */
+.deathinspace.sheet.actor.hub .notes-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid blue;
 }

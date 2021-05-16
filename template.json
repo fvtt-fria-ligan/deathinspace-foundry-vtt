@@ -19,102 +19,109 @@
           "value": 0
         }
       },
-      "playerName": "",
-      "nickname": "",
-      "xp": 0,
       "background": "",
-      "pastAllegiance": "",
-      "trait": "",
-      "drive": "",
-      "looks": "",
-      "hitpoints": {
-        "max": 1,
-        "value": 1
-      },
-      "voidPoints": {
-        "min": 0,
-        "max": 5,
-        "value": 0
-      },
       "daysWithoutSubstance": {
         "min": 0,
         "max": 7,
         "value": 0
       },
+      "debt": 0,
+      "drive": "",
+      "hitpoints": {
+        "max": 1,
+        "value": 1
+      },
+      "holos": 0,
       "lifeSupport": {
         "min": 0,
         "max": 100,
         "value": 0
       },
+      "looks": "",
+      "nickname": "",
       "notes": "",
-      "holos": 0,
-      "debt": 0
+      "pastAllegiance": "",
+      "playerName": "",
+      "trait": "",
+      "voidPoints": {
+        "min": 0,
+        "max": 5,
+        "value": 0
+      },
+      "xp": 0
     },
     "hub": {
       "templates": [],
-      "ownerName": "",
-      "nickname": "",
-      "background": "",
-      "hubType": "",
-      "frame": "",
       "appearance": "",
-      "quirks": "",
+      "background": "",
+      "condition": {
+        "min": 0,
+        "max": 1,
+        "value": 1
+      },
+      "defenseRating": 12,
+      "frame": "",
       "frameIntegrity": {
         "min": 0,
         "max": 100,
         "value": 100
       },
-      "defenseRating": 12,
-      "condition": {
-        "max": 1,
-        "value": 1
-      },
+      "hubType": "",
       "fuel": {
         "min": 0,
         "max": 1,
         "value": 1
       },
-      "notes": ""
+      "nickname": "",
+      "notes": "",
+      "ownerName": "",
+      "powerSource": "slow",
+      "quirks": ""
     }
   },
   "Item": {
-    "types": ["origin", "originBenefit", "cosmicMutation", "voidCorruption", "addiction", "personalBelonging", "smallItem", "weapon", "armor", "hubModule"],
+    "types": [
+      "addiction",
+      "armor",
+      "belonging",
+      "cargo",
+      "cosmicMutation",
+      "hubModule",
+      "origin",
+      "originBenefit",
+      "voidCorruption",
+      "weapon"
+    ],
     "templates": {
-    },
-    "origin": {
-
-    },
-    "originBenefit": {
-
-    },
-    "cosmicMutation": {
-
-    },
-    "voidCorruption": {
-
     },
     "addiction": {
       "substance": "",
       "daysWithout": 0
-    },
-    "personalBelonging": {
-
-    },
-    "smallItem": {
-
-    },
-    "weapon": {
-      "damage": "1d4",
-      "units": 1,
-      "condition": ""
     },
     "armor": {
       "protectsAgainst": "",
       "drBonus": 0,
       "condition": ""
     },
+    "belonging": {
+    },
+    "cargo": {
+    },
+    "cosmicMutation": {
+    },
     "hubModule": {
       "powerCost": 0
+    },
+    "origin": {
+    },
+    "originBenefit": {
+    },
+    "voidCorruption": {
+    },
+    "weapon": {
+      "damage": "1d4",
+      "units": 1,
+      "condition": ""
     }
   }
 }

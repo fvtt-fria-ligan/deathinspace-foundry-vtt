@@ -215,13 +215,33 @@
             <input class="output-power" name="data.outputPower" type="number" value="{{data.data.outputPower}}" data-dtype="Number"/>
           </div>
         </div>
-        <div class="modules-row">modules</div>
+        <div class="modules-block">
+          <div class="title-row">
+            <div class="col1">MODULES</div>
+            <div class="col2">POWER COST</div>
+          </div>
+          <div class="modules-list">
+             {{#each data.data.hubModules as |item id|}}
+            <div class="module-item">
+              <div class="col1">{{add @index 1}}. {{item.name}}</div>
+              <div class="col2"> 
+                <input class="hub-module-power-cost" name="item.powerCost" type="number" value="{{item.powerCost}}" data-dtype="Number" readonly="readonly"/>
+              </div>
+            </div>{{/each}}
+          </div>
+          <div class="modules-total"> 
+            <div class="col1">The power cost sum should not exceed the output power.</div>
+            <div class="col2"> 
+              <input class="total-power-cost" name="data.powerCostTotal" type="number" value="{{data.data.powerCostTotal}}" data-dtype="Number" readonly="readonly"/>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="tab layout-tab" data-group="primary" data-tab="layout">
       <div class="layout-wrapper">
-        <div class="portait">
-          <div class="img profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"></div>
+        <div class="layout-img">
+          <div class="img layout-img" src="{{data.actor.img}}" data-edit="img" title="{{data.actor.name}}"></div>
         </div>
       </div>
     </div>
@@ -232,7 +252,7 @@
             <h3 class="item-name flexrow">{{localize "DIS.Cargo"}}</h3>
             <div class="item-controls flexrow"><a item-control item-create="item-control item-create" title="{{localize 'DIS.ItemCreate'}}"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}</a></div>
           </li>
-          <ol class="item-list">{{#each data.cargo as |item id|}} 
+          <ol class="item-list">{{#each data.data.cargo as |item id|}} 
             <li class="item flexrow" data-item-id="{{item._id}}"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
               <h4 class="item-name item-edit rollable">{{item.name}}</h4>
             </li>{{/each}}
