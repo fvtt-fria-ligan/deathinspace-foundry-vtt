@@ -92,6 +92,15 @@
   width: 100%;
 }
 
+.deathinspace.sheet input[type="number"],
+.deathinspace.sheet input[type="text"],
+.deathinspace.sheet textarea {
+  border: 1px dotted #7a7971;
+  font-family: 'IBM Plex Mono';
+  font-size: 16px;
+}
+
+
 /* ====================== */
 /* Actor sheet */
 /* ====================== */
@@ -1108,12 +1117,6 @@
 .deathinspace.sheet.hub .portrait img {
   height: 100%;
   width: 100%;
-}
-
-.deathinspace.sheet.hub input[type="number"],
-.deathinspace.sheet.hub input[type="text"],
-.deathinspace.sheet.hub textarea {
-  border: 1px dotted #7a7971;
 }
 
 .deathinspace.sheet.hub input.power {

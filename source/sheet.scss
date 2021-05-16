@@ -66,4 +66,10 @@
     padding: 0px;
     width: 100%;
   }
-  
+.deathinspace.sheet input[type="number"],
+.deathinspace.sheet input[type="text"],
+.deathinspace.sheet textarea {
+  border: 1px dotted #7a7971;
+  font-family: 'IBM Plex Mono';
+  font-size: 16px;
+}
