@@ -1,0 +1,17 @@
+/* ====================== */
+/* Hub sheet - Layout tab */
+/* ====================== */
+.deathinspace.sheet.actor.hub .layout-wrapper {
+  display: flex;
+  height: 100%;
+  border: 1px solid green;
+  align-items: center;
+  justify-content: center;
+}
+.layout-wrapper div.layout-img {
+  height: 200px;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid blue;
+}
