@@ -257,17 +257,13 @@
     </div>
     <div class="tab cargo-tab" data-group="primary" data-tab="cargo">
       <div class="cargo-wrapper">
-        <ol class="items-list cargo-list">
-          <li class="items-header flexrow">
-            <h3 class="item-name flexrow">{{localize "DIS.Cargo"}}</h3>
-            <div class="item-controls flexrow"><a item-control item-create="item-control item-create" title="{{localize 'DIS.ItemCreate'}}"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}</a></div>
-          </li>
-          <ol class="item-list">{{#each data.data.cargo as |item id|}} 
-            <li class="item flexrow" data-item-id="{{item._id}}"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-              <h4 class="item-name item-edit rollable">{{item.name}}</h4>
-            </li>{{/each}}
-          </ol>
-        </ol>
+        <div class="title-row"><a item-control item-create="item-control item-create" title="{{localize 'DIS.ItemCreate'}}"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}</a></div>
+        <div class="cargo-list">{{#each data.data.cargo as |item id|}}
+          <div class="item cargo-item" data-item-id="{{item._id}}">
+            <div class="col1">{{add @index 1}}. {{item.name}}</div>
+            <div class="col2"><a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a><a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a></div>
+          </div>{{/each}}
+        </div>
       </div>
     </div>
     <div class="tab notes-tab" data-group="primary" data-tab="notes">

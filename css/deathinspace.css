@@ -109,110 +109,6 @@
   padding: 0 8px;
 }
 
-.deathinspace.sheet.item .sheet-header {
-  height: 80px;
-}
-
-.deathinspace.sheet.item .header-row {
-  display: flex;
-  height: 80px;
-}
-
-.deathinspace.sheet.item .header-row .col1 {
-  flex: 1;
-  margin: 0;
-  padding: 10px;
-}
-
-.deathinspace.sheet.item .header-row .col2 {
-  border-left: 2px solid black;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
-  margin: 0;
-  padding: 10px;
-}
-
-.deathinspace.sheet.item .header-row .col1 .game-title {
-  font-family: var(--title-font);
-  font-size: 36px;
-}
-
-.deathinspace.sheet.item .stat-block {
-  padding: 2px;
-}
-
-.deathinspace.sheet.item .stat-block label {
-  display: block;
-  float: left;
-  font-size: 12px;
-  text-transform: uppercase;
-}
-
-.deathinspace.sheet.item form {
-  border: 4px solid #7a7971;
-}
-
-.deathinspace.sheet.item.item .header-row .col1 .game-title {
-  color: #7a7971;
-}
-
-.deathinspace.sheet.item.item .header-row .col1 .sheet-title {
-  color: #7a7971;
-}
-
-.deathinspace.sheet.item .sheet-tabs {
-  background: #7a7971;
-  border-bottom: 1px solid #7a7971;
-  border-top: 1px solid #7a7971;
-  color: white;
-}
-
-.deathinspace.sheet.item .sheet-tabs .item:hover {
-  color: white;
-  text-shadow: 0 0 10px #7a7971;
-}
-
-.deathinspace.sheet.item .sheet-tabs .item.active {
-  background-color: white;
-  color: #7a7971;
-}
-
-.deathinspace.sheet.item .portrait img {
-  height: 100%;
-  width: 100%;
-}
-
-/* Notes tab */
-.deathinspace.sheet.item .notes-wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-}
-
-.deathinspace.sheet.item .data-wrapper .form-group {
-  border-bottom: 1px dotted black;
-  display: flex;
-  flex: 0 0 50px;
-  width: 100%;
-}
-
-.deathinspace.sheet.item .data-wrapper .form-group label {
-  flex: 1;
-  font-size: 16px;
-  padding-right: 10px;
-  text-align: right;
-}
-
-.deathinspace.sheet.item .data-wrapper .form-group input[type="number"],
-.deathinspace.sheet.item .data-wrapper .form-group input[type="text"] {
-  flex: 1;
-  text-align: center;
-}
-
 /* ====================== */
 /* Actor sheet */
 /* ====================== */
@@ -878,6 +774,44 @@
   border: 2px solid blue;
 }
 
+.deathinspace.sheet.actor.hub .cargo-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 5px;
+  width: 100%;
+}
+
+.cargo-wrapper .col1 {
+  flex: 1;
+}
+
+.cargo-wrapper .col2 {
+  display: flex;
+  flex: 0 0 40px;
+  justify-content: space-around;
+}
+
+.cargo-wrapper .title-row {
+  display: flex;
+  flex: 0 0 30px;
+  width: 100%;
+}
+
+.cargo-wrapper .cargo-list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.cargo-list .cargo-item {
+  align-items: center;
+  display: flex;
+  flex: 0 0 25px;
+  border-bottom: 1px dotted black;
+  margin-top: 10px;
+}
+
 /* ====================== */
 /* Hub sheet - Hub data tab */
 /* ====================== */
@@ -1241,4 +1175,108 @@
 .deathinspace.sheet.hub input.power {
   text-align: center;
   width: 100px;
+}
+
+.deathinspace.sheet.item .sheet-header {
+  height: 80px;
+}
+
+.deathinspace.sheet.item .header-row {
+  display: flex;
+  height: 80px;
+}
+
+.deathinspace.sheet.item .header-row .col1 {
+  flex: 1;
+  margin: 0;
+  padding: 10px;
+}
+
+.deathinspace.sheet.item .header-row .col2 {
+  border-left: 2px solid black;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  margin: 0;
+  padding: 10px;
+}
+
+.deathinspace.sheet.item .header-row .col1 .game-title {
+  font-family: var(--title-font);
+  font-size: 36px;
+}
+
+.deathinspace.sheet.item .stat-block {
+  padding: 2px;
+}
+
+.deathinspace.sheet.item .stat-block label {
+  display: block;
+  float: left;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.deathinspace.sheet.item form {
+  border: 4px solid #7a7971;
+}
+
+.deathinspace.sheet.item.item .header-row .col1 .game-title {
+  color: #7a7971;
+}
+
+.deathinspace.sheet.item.item .header-row .col1 .sheet-title {
+  color: #7a7971;
+}
+
+.deathinspace.sheet.item .sheet-tabs {
+  background: #7a7971;
+  border-bottom: 1px solid #7a7971;
+  border-top: 1px solid #7a7971;
+  color: white;
+}
+
+.deathinspace.sheet.item .sheet-tabs .item:hover {
+  color: white;
+  text-shadow: 0 0 10px #7a7971;
+}
+
+.deathinspace.sheet.item .sheet-tabs .item.active {
+  background-color: white;
+  color: #7a7971;
+}
+
+.deathinspace.sheet.item .portrait img {
+  height: 100%;
+  width: 100%;
+}
+
+/* Notes tab */
+.deathinspace.sheet.item .notes-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.deathinspace.sheet.item .data-wrapper .form-group {
+  border-bottom: 1px dotted black;
+  display: flex;
+  flex: 0 0 50px;
+  width: 100%;
+}
+
+.deathinspace.sheet.item .data-wrapper .form-group label {
+  flex: 1;
+  font-size: 16px;
+  padding-right: 10px;
+  text-align: right;
+}
+
+.deathinspace.sheet.item .data-wrapper .form-group input[type="number"],
+.deathinspace.sheet.item .data-wrapper .form-group input[type="text"] {
+  flex: 1;
+  text-align: center;
 }

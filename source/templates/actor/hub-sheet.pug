@@ -230,21 +230,21 @@ form(class="{{cssClass}}")
 
     div(class="tab cargo-tab" data-group="primary" data-tab="cargo")
       .cargo-wrapper
-        ol.items-list.cargo-list
-          li.items-header.flexrow
-            h3.item-name.flexrow
-              | {{localize "DIS.Cargo"}}
-            div.item-controls.flexrow
-              a("item-control item-create" title="{{localize 'DIS.ItemCreate'}}")
-                i.fas.fa-plus
-                | {{localize "DIS.Add"}}
-          ol.item-list
-            | {{#each data.data.cargo as |item id|}} 
-            li(class="item flexrow" data-item-id="{{item._id}}")
-              img(src="{{item.img}}" title="{{item.name}}" width="24" height="24")
-              h4.item-name.item-edit.rollable
-                | {{item.name}}
-            | {{/each}}
+        .title-row
+          a("item-control item-create" title="{{localize 'DIS.ItemCreate'}}")
+            i.fas.fa-plus
+            | {{localize "DIS.Add"}}
+        .cargo-list
+          | {{#each data.data.cargo as |item id|}}
+          div(class="item cargo-item" data-item-id="{{item._id}}")
+            .col1
+              | {{add @index 1}}. {{item.name}}
+            .col2
+              a(class="item-control item-edit" title="Edit Item")
+                i(class="fas fa-edit")
+              a(class="item-control item-delete" title="Delete Item")
+                i(class="fas fa-trash")
+          | {{/each}}
 
     div(class="tab notes-tab" data-group="primary" data-tab="notes")
       .notes-wrapper
