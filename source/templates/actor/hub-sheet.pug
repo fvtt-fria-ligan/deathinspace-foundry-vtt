@@ -198,7 +198,10 @@ form(class="{{cssClass}}")
           .title-row
             .col1
               | MODULES
-            .col2 
+            .col2
+              a(class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="hubModule")
+                i.fas.fa-plus
+                | {{localize "DIS.Add"}}
             .col3
               | POWER COST
           .modules-list 

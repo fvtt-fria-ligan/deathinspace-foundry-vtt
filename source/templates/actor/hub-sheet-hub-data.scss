@@ -172,18 +172,20 @@
   flex: 0 0 40px;
   justify-content: space-around;
 }
-.modules-block .col a {
-  padding-right: 10px
-}
 .modules-block .col3 {
   flex: 0 0 110px;
-  padding: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
 }
 .modules-block .title-row {
   display: flex;
   flex: 0 0 30px;
   width: 100%;
 }
+// .modules-block .title-row .col2 a i {
+//   font-family: "IBM Plex Mono";
+// }
 .modules-block .modules-list {
   display: flex;
   flex: 1;
