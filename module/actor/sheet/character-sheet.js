@@ -1,7 +1,9 @@
+import DISActorSheet from "./actor-sheet.js";
+
 /**
  * @extends {ActorSheet}
  */
-export class DISCharacterSheet extends ActorSheet {
+export class DISCharacterSheet extends DISActorSheet {
 
   /** @override */
   static get defaultOptions() {
@@ -19,5 +21,4 @@ export class DISCharacterSheet extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
   }
-
 }

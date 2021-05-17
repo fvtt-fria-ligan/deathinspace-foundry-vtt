@@ -198,23 +198,30 @@ form(class="{{cssClass}}")
           .title-row
             .col1
               | MODULES
-            .col2
+            .col2 
+            .col3
               | POWER COST
           .modules-list 
             | {{#each data.data.hubModules as |item id|}}
-            .module-item
+            div(class="item module-item" data-item-id="{{item._id}}")
               .col1
                 | {{add @index 1}}. {{item.name}}
-              .col2 
-                input(class="hub-module-power-cost power" name="item.powerCost" type="number" value="{{item.powerCost}}" data-dtype="Number" readonly=true)
+              .col2
+                a(class="item-control item-edit" title="Edit Item")
+                  i(class="fas fa-edit")
+                a(class="item-control item-delete" title="Delete Item")
+                  i(class="fas fa-trash")
+              .col3 
+                input(class="hub-module-power-cost power" name="item.powerCost" type="number" value="{{item.data.powerCost}}" data-dtype="Number" readonly=true)
             | {{/each}}
           .modules-total 
             .col1
               | The power cost sum should not exceed the output power.
               br
               | Power cost > power output = overheat.
-            .col2 
-              input(class="total-power-cost power" name="data.powerCostTotal" type="number" value="{{data.data.powerCostTotal}}" data-dtype="Number" readonly=true)
+            .col2
+            .col3 
+              input(class="total-power-cost power" name="data.totalPowerCost" type="number" value="{{data.data.totalPowerCost}}" data-dtype="Number" readonly=true)
 
     div(class="tab layout-tab" data-group="primary" data-tab="layout")
       .layout-wrapper
@@ -241,4 +248,4 @@ form(class="{{cssClass}}")
 
     div(class="tab notes-tab" data-group="primary" data-tab="notes")
       .notes-wrapper
-        | Notes
+        | {{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}

@@ -530,13 +530,10 @@
 .deathinspace.sheet.actor.character .notes-tab {
 }
 .deathinspace.sheet.actor.character .notes-wrapper {
-  /* TODO: figure out how to get 100% height working */;
-  height: 520px;
-}
-.deathinspace .editor,
-.deathinspace .editor-content {
-  height: 100%;
-}
-.deathinspace.sheet .editor {
-  padding: 0 8px;
+  display: flex;
+  flex-direction: column;
+  // height: 100%;
+  height: 500px;
+  width: 100%;
+  border: 2px solid blue;
 }

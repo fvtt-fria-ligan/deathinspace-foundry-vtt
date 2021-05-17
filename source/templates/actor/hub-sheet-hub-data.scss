@@ -168,6 +168,14 @@
   flex: 1;
 }
 .modules-block .col2 {
+  display: flex;
+  flex: 0 0 40px;
+  justify-content: space-around;
+}
+.modules-block .col a {
+  padding-right: 10px
+}
+.modules-block .col3 {
   flex: 0 0 110px;
   padding: 5px;
 }
@@ -182,9 +190,10 @@
   flex-direction: column;
 }
 .modules-list .module-item {
+  align-items: center;
   display: flex;
-  flex: 0 0 30px;
-  border-bottom: 1px solid black;
+  flex: 0 0 25px;
+  border-bottom: 1px dotted black;
   margin-top: 10px;
 }
 .modules-block .modules-total {
@@ -192,6 +201,7 @@
   flex: 0 0 50px;
   font-size: 12px;
   margin-top: 15px;
+  width: 100%;
 }
 .modules-block .modules-total .col1 {
   padding-right: 20px;

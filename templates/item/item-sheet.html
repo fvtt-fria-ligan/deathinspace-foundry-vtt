@@ -1,0 +1,32 @@
+
+<form class="{{cssClass}}">
+  <header class="sheet-header">
+    <div class="header-row">
+      <div class="col1">
+        <div class="game-title">DEATH IN SPACE</div>
+        <div class="sheet-title">ITEM SHEET</div>
+      </div>
+      <div class="col2">
+        <div>
+           SECTION 0. ITEM INFORMATION </div>
+        <div class="item-name">
+          <input class="item-name" name="data.name" type="text" value="{{data.name}}" placeholder="Item Name" spellcheck="false"/>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="notes">{{ localize 'DIS.TabNotes' }}</a><a class="item" data-tab="data">{{ localize 'DIS.TabData' }}</a></nav>
+  <section class="sheet-body"> 
+    <div class="tab notes-tab" data-group="primary" data-tab="notes">
+      <div class="notes-wrapper">{{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}</div>
+    </div>
+    <div class="tab data-tab" data-group="primary" data-tab="data">
+      <div class="data-wrapper">
+        <div class="form-group"> 
+          <label>Power Cost </label>
+          <input type="number" name="data.powerCost" value="{{data.data.powerCost}}" placeholder="1" data-dtype="Number"/>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>

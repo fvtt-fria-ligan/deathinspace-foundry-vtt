@@ -1,7 +1,9 @@
+import DISActorSheet from "./actor-sheet.js";
+
 /**
  * @extends {ActorSheet}
  */
-export class DISHubSheet extends ActorSheet {
+export class DISHubSheet extends DISActorSheet {
 
   /** @override */
   static get defaultOptions() {
@@ -27,12 +29,13 @@ export class DISHubSheet extends ActorSheet {
     const byName = (a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
     data.data.cargo = data.items.filter(item => item.type === "cargo").sort(byName);
     data.data.hubModules = data.items.filter(item => item.type === "hubModule").sort(byName);
-    data.data.totalPowerCost = data.data.hubModules.reduce((a, b) => a.powerCost + b.powerCost, 0);
+    console.log(data.data.hubModules);
+    data.data.totalPowerCost = data.data.hubModules.reduce((a, b) => a + parseInt(b.data.powerCost), 0);
+    console.log(`computerd ${data.data.totalPowerCost}`);
   
     // TODO: calculate this somehow from power source?
     data.data.outputPower = 33;
   
-    console.log(superData);
     return superData;
   }  
 }

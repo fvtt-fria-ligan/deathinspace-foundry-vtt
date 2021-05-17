@@ -110,6 +110,7 @@
     "cosmicMutation": {
     },
     "hubModule": {
+      "notes": "",
       "powerCost": 0
     },
     "origin": {

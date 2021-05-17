@@ -19,8 +19,8 @@ Hooks.once("init", async function() {
     DISActor,
     DISItem,
   };
-  CONFIG.Actor.entityClass = DISActor;
-  CONFIG.Item.entityClass = DISItem;
+  CONFIG.Actor.documentClass = DISActor;
+  CONFIG.Item.documentClass = DISItem;
   CONFIG.DIS = DIS;
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("deathinspace", DISCharacterSheet, {
@@ -33,6 +33,8 @@ Hooks.once("init", async function() {
     makeDefault: true,
     label: "DIS.SheetClassHub"
   });
+  Items.unregisterSheet("core", ItemSheet);
+  Items.registerSheet("deathinspace", DISItemSheet, { makeDefault: true });
 });
 
 Handlebars.registerHelper('ifEq', function(arg1, arg2, options) {

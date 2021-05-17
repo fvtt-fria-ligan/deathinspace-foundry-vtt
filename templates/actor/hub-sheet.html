@@ -225,21 +225,24 @@
         <div class="modules-block">
           <div class="title-row">
             <div class="col1">MODULES</div>
-            <div class="col2">POWER COST</div>
+            <div class="col2"> </div>
+            <div class="col3">POWER COST</div>
           </div>
           <div class="modules-list">
              {{#each data.data.hubModules as |item id|}}
-            <div class="module-item">
+            <div class="item module-item" data-item-id="{{item._id}}">
               <div class="col1">{{add @index 1}}. {{item.name}}</div>
-              <div class="col2"> 
-                <input class="hub-module-power-cost power" name="item.powerCost" type="number" value="{{item.powerCost}}" data-dtype="Number" readonly="readonly"/>
+              <div class="col2"><a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a><a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a></div>
+              <div class="col3"> 
+                <input class="hub-module-power-cost power" name="item.powerCost" type="number" value="{{item.data.powerCost}}" data-dtype="Number" readonly="readonly"/>
               </div>
             </div>{{/each}}
           </div>
           <div class="modules-total"> 
             <div class="col1">The power cost sum should not exceed the output power.<br/>Power cost > power output = overheat.</div>
-            <div class="col2"> 
-              <input class="total-power-cost power" name="data.powerCostTotal" type="number" value="{{data.data.powerCostTotal}}" data-dtype="Number" readonly="readonly"/>
+            <div class="col2"></div>
+            <div class="col3"> 
+              <input class="total-power-cost power" name="data.totalPowerCost" type="number" value="{{data.data.totalPowerCost}}" data-dtype="Number" readonly="readonly"/>
             </div>
           </div>
         </div>
@@ -268,7 +271,7 @@
       </div>
     </div>
     <div class="tab notes-tab" data-group="primary" data-tab="notes">
-      <div class="notes-wrapper">Notes</div>
+      <div class="notes-wrapper">{{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}</div>
     </div>
   </section>
 </form>
