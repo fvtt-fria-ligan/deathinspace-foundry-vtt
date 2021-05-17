@@ -106,6 +106,7 @@
     "belonging": {
     },
     "cargo": {
+      "tonnage": 0
     },
     "cosmicMutation": {
     },
