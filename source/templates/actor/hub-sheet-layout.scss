@@ -2,15 +2,14 @@
 /* Hub sheet - Layout tab */
 /* ====================== */
 .deathinspace.sheet.actor.hub .layout-wrapper {
+  align-items: center;
+  background: #fffffb;
+  background-image: radial-gradient(#7a7971 1px, transparent 0);
+  background-position: -14px -14px;
+  background-size: 30px 30px;
   display: flex;
   height: 100%;
-  border: 1px solid green;
-  align-items: center;
   justify-content: center;
-  background: white;
-  background-image: radial-gradient(black 1px, transparent 0);
-  background-size: 30px 30px;
-  background-position: -14px -14px;
 }
 .layout-wrapper .profile-img {
   border: none;
