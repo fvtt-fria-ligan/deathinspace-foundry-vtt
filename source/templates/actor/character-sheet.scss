@@ -145,12 +145,6 @@
   height: 90%;
   justify-content: center;
 }
-.deathinspace.sheet.actor.character .personal-tab .portrait {
-
-}
-.deathinspace.sheet.actor.character .personal-tab .portrait-image {
-
-}
 .deathinspace.sheet.actor.character .personal-tab .defense-row {
   border-bottom: 2px solid black;
   border-right: 2px solid black;
@@ -401,8 +395,6 @@
   height: 45px;
   padding-top: 12px;
   width: 21.5px;
-} 
-.oxygen-tank-row .oxygen-tank .oxygen-increments .increment input[type="radio"] {
 }
 .oxygen-tank-row .oxygen-tank .oxygen-increments .increment:nth-last-child(1) {
   border-right: none;
@@ -527,8 +519,6 @@
 /* ====================== */
 /* Character sheet - Notes tab */
 /* ====================== */
-.deathinspace.sheet.actor.character .notes-tab {
-}
 .deathinspace.sheet.actor.character .notes-wrapper {
   display: flex;
   flex-direction: column;
