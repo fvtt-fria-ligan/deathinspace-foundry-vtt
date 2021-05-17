@@ -29,11 +29,9 @@ export class DISHubSheet extends DISActorSheet {
     const byName = (a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
     data.data.cargo = data.items.filter(item => item.type === "cargo").sort(byName);
     data.data.hubModules = data.items.filter(item => item.type === "hubModule").sort(byName);
-    console.log(data.data.hubModules);
     data.data.totalPowerCost = data.data.hubModules.reduce((a, b) => a + parseInt(b.data.powerCost), 0);
-    console.log(`computerd ${data.data.totalPowerCost}`);
   
-    // TODO: calculate this somehow from power source?
+    // TODO: calculate this from power source? is PowerSource going to be a first-class Item type?
     data.data.outputPower = 33;
   
     return superData;

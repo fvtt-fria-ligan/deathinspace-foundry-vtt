@@ -231,7 +231,7 @@ form(class="{{cssClass}}")
     div(class="tab cargo-tab" data-group="primary" data-tab="cargo")
       .cargo-wrapper
         .title-row
-          a("item-control item-create" title="{{localize 'DIS.ItemCreate'}}")
+          a(class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="cargo")
             i.fas.fa-plus
             | {{localize "DIS.Add"}}
         .cargo-list

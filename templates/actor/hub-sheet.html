@@ -257,7 +257,7 @@
     </div>
     <div class="tab cargo-tab" data-group="primary" data-tab="cargo">
       <div class="cargo-wrapper">
-        <div class="title-row"><a item-control item-create="item-control item-create" title="{{localize 'DIS.ItemCreate'}}"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}</a></div>
+        <div class="title-row"><a class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="cargo"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}</a></div>
         <div class="cargo-list">{{#each data.data.cargo as |item id|}}
           <div class="item cargo-item" data-item-id="{{item._id}}">
             <div class="col1">{{add @index 1}}. {{item.name}}</div>
