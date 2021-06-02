@@ -14,7 +14,7 @@
   "author": "mcglincy",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^7.20.0",
+    "eslint": "^7.27.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-sass": "^4.1.0"
