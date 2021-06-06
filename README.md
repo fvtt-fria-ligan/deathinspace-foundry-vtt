@@ -4,7 +4,7 @@ An unoffical, community-supported system for playing [Death in Space](https://de
 
 DEATH IN SPACE is copyright Christian Plogfors, Carl Niblaeus, and Stockholm Kartell.
 
-NOTE: THIS SYSTEM DOES NOT WORK YET, AND DEATH IN SPACE IS NOT YET RELEASED.
+NOTE: DEATH IN SPACE IS NOT YET RELEASED. Work thus far is based on character sheet screenshots and rules overviews from Kickstarter updates.
 
 
 ## Follow the Kickstarter
