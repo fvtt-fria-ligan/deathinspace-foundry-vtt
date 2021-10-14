@@ -110,7 +110,8 @@ form(class="{{cssClass}}" autocomplete="off")
                 each val in [0, 1, 2, 3, 4, 5] 
                   li 
                     label
-                      input(type="radio" name="data.voidPoints.value" value=val data-dtype="Number" checked="{{#ifEq data.data.voidPoints.value " + val + "}}true{{/ifEq}}" )
+                      //- deal with Pug checked= not working right with Foundry state
+                      | <input type="radio" name="data.voidPoints.value" value=#{val} data-dtype="Number" {{#ifEq data.data.voidPoints.value #{val}}}checked{{/ifEq}}/>
                       span= val
             .void-points-roll 
               | Roll corruption effects 
@@ -133,7 +134,8 @@ form(class="{{cssClass}}" autocomplete="off")
               .day-radio 
                 div 
                   label
-                    input(type="radio" name="data.daysWithoutSubstance.value" value=val data-dtype="Number" checked="{{#ifEq data.data.daysWithoutSubstance.value " + val + "}}true{{/ifEq}}" )
+                    //- deal with pug checked= not working right with Foundry state
+                    <input type="radio" name="data.daysWithoutSubstance.value" value=#{val} data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value #{val}}}checked{{/ifEq}}/>
                     .day-plus= val
           .stat-block.substance-title 
             label SUBSTANCE 
@@ -150,8 +152,8 @@ form(class="{{cssClass}}" autocomplete="off")
           .mutations-row
           .mutations-row
           .mutations-row
-        .void-corruptions-block 
-          .stat-block.corruptions-title 
+        .void-corruption-block 
+          .stat-block.corruption-title 
             label VOID CORRUPTION 
           .corruption-row
           .corruption-row
@@ -162,10 +164,17 @@ form(class="{{cssClass}}" autocomplete="off")
             label LIFE SUPPORT 
           .tank-space 
           .oxygen-tank-row 
-            .oxygen-increments
-              each val in [1, 2, 3, 4, 5, 6, 7]
-                .increment 
-                  input(type="radio" name="data.lifeSupport.value" value=val data-dtype="Number" checked="{{#ifEq data.data.lifeSupport.value " + val + "}}true{{/ifEq}}" )
+            .oxygen-numbers 
+              div 
+                | 0%
+              div 
+                | 100%
+            .oxygen-tank
+              .oxygen-increments
+                each val in [1, 2, 3, 4, 5, 6, 7]
+                  .increment 
+                    //- deal with pug checked= not working right with Foundry state
+                    | <input type="radio" name="data.lifeSupport.value" value=#{val} data-dtype="Number" {{#ifEq data.data.lifeSupport.value #{val}}}checked{{/ifEq}}/>
           .tank-space
 
     div(class="tab belongings-tab" data-group="primary" data-tab="belongings")
