@@ -1,0 +1,245 @@
+form(class="{{cssClass}}" autocomplete="off")
+  header.sheet-header
+    .header-row
+      .col1
+        .game-title
+          | DEATH IN SPACE
+        .sheet-title
+          | PERSONAL DATA SHEET
+      .col2
+        div 
+          | SECTION 0. PLAYER INFORMATION 
+        .player-name
+          input(class="player-name" name="data.playerName" type="text" value="{{data.data.playerName}}" placeholder="{{ localize 'DIS.PlayerName' }}" spellcheck="false")
+
+  nav(class="sheet-tabs tabs" data-group="primary")
+    a(class="item" data-tab="personal")
+      | {{ localize 'DIS.TabPersonal' }}
+    a(class="item" data-tab="situation")
+      | {{ localize 'DIS.TabSituation' }}
+    a(class="item" data-tab="belongings")
+      | {{ localize 'DIS.TabBelongings' }}
+    a(class="item" data-tab="weaponry")
+      | {{ localize 'DIS.TabWeaponry' }}
+    a(class="item" data-tab="notes")
+      | {{ localize 'DIS.TabNotes' }}
+  
+  section.sheet-body 
+
+    div(class="tab personal-tab" data-group="primary" data-tab="personal")
+      .personal-wrapper 
+        .origin-row 
+          .origin-label ORIGIN 
+          .origin 
+        .name-row 
+          .stat-block
+            label NAME
+            input(type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'DIS.Name' }}" spellcheck="false")
+          .stat-block
+            label NICKNAME
+            input(type="text" name="data.nickName" value="{{data.data.nickName}}" placeholder="{{ localize 'DIS.NickName' }}" spellcheck="false")
+        .stat-block.origin-benefit-block
+          label ORIGIN BENEFITS
+        .stat-block.xp-block
+          label XP
+          input(type="number" class="stat-input" name="data.xp.value" value="{{data.data.xp.value}}" data-dtype="Number")
+        .stat-block.background-block
+          label BACKGROUND
+          input(type="text" class="stat-input" name="data.background" value="{{data.data.background}}" data-dtype="String")
+        .stat-block.allegiance-block
+          label PAST ALLEGIANCE
+          input(type="text" class="stat-input" name="data.pastAllegiance" value="{{data.data.pastAllegiance}}" data-dtype="String")
+        .stat-block.trait-block
+          label TRAIT
+          input(type="text" class="stat-input" name="data.trait" value="{{data.data.trait}}" data-dtype="String")
+        .stat-block.drive-block
+          label DRIVE
+          input(type="text" class="stat-input" name="data.drive" value="{{data.data.drive}}" data-dtype="String")
+        .stat-block.looks-block
+          label LOOKS
+          input(type="text" class="stat-input" name="data.looks" value="{{data.data.looks}}" data-dtype="String")
+        .stat-block.ability-block
+          label ABILITY
+          br
+          .ability-col 
+            each val in ["BODY", "DEXTERITY", "SAVVY", "TECH"]
+              .ability-row 
+                .ability-name=val
+                .ability-value 
+                  input(type="number" class="stat-input" name="data.abilities." + val + ".value" value="{{data.data.abilities." + val + ".value}}" data-dtype="Number")
+        .defense-row 
+          .defense-text 
+            label DEFENSE RATING
+            br
+            | 12+DEX Unarmored
+          .defense-value 
+            label &nbsp;
+            br
+            input(type="number" class="stat-input" name="data.defenseRating" value="{{data.data.defenseRating}}" data-dtype="Number")
+        .hit-points-row 
+          .hit-points-text 
+            label HIT POINTS
+            br
+            | Start with 1d8
+            br
+            | Recover 1d4+BODY
+          .hit-points-current-col 
+            label CURRENT
+            br
+            input(type="number" class="stat-input" name="data.hitPoints.value" value="{{data.data.hitPoints.value}}" data-dtype="Number")
+          .hit-points-max-col 
+            label MAX
+            br
+            input(type="number" class="stat-input" name="data.hitPoints.max" value="{{data.data.hitPoints.max}}" data-dtype="Number")
+        .stat-block.portrait-block 
+          label PORTRAIT
+          br
+          .portrait-col 
+            .portrait 
+              img(class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}")
+
+    div(class="tab situation-tab" data-group="primary" data-tab="situation")
+      .situation-wrapper 
+        .void-points-block
+          .void-col-1 
+            .stat-block 
+              label 
+                | VOID POINTS 
+            .void-points-radios 
+              ul.void-points
+                each val in [0, 1, 2, 3, 4, 5] 
+                  li 
+                    label
+                      input(type="radio" name="data.voidPoints.value" value=val data-dtype="Number" checked="{{#ifEq data.data.voidPoints.value " + val + "}}true{{/ifEq}}" )
+                      span= val
+            .void-points-roll 
+              | Roll corruption effects 
+              span.void-points-up-arrow 
+                | ↑
+          .void-col-2 
+            .void-points-text-top 
+              | Use 1 void point to: 
+            .void-points-text-bottom 
+              ul 
+                li Get advantage on an ability check
+                li Activate a cosmic mutation
+        .addiction-block 
+          .stat-block.addiction-title
+            label ADDICTION
+          .days-without   
+            | DAYS WITHOUT SUBSTANCE
+          .days-radios
+            each val in [0, 1, 2, 3, 4, 5, 6, 7]
+              .day-radio 
+                div 
+                  label
+                    input(type="radio" name="data.daysWithoutSubstance.value" value=val data-dtype="Number" checked="{{#ifEq data.data.daysWithoutSubstance.value " + val + "}}true{{/ifEq}}" )
+                    .day-plus= val
+          .stat-block.substance-title 
+            label SUBSTANCE 
+          .substance-row 
+          .stat-block.substance-title 
+            label SUBSTANCE 
+          .substance-row 
+          .addiction-text 
+            | When using an addictive substance, such as virtual reality stimulants, medical drugs, or similar, roll a BODY ability check.
+        .cosmic-mutations-block
+          .stat-block.mutations-title 
+            label COSMIC MUTATIONS 
+          .mutations-row
+          .mutations-row
+          .mutations-row
+          .mutations-row
+        .void-corruptions-block 
+          .stat-block.corruptions-title 
+            label VOID CORRUPTION 
+          .corruption-row
+          .corruption-row
+          .corruption-row
+          .corruption-row
+        .life-support-block
+          .stat-block.life-support-title 
+            label LIFE SUPPORT 
+          .tank-space 
+          .oxygen-tank-row 
+            .oxygen-increments
+              each val in [1, 2, 3, 4, 5, 6, 7]
+                .increment 
+                  input(type="radio" name="data.lifeSupport.value" value=val data-dtype="Number" checked="{{#ifEq data.data.lifeSupport.value " + val + "}}true{{/ifEq}}" )
+          .tank-space
+
+    div(class="tab belongings-tab" data-group="primary" data-tab="belongings")
+      .belongings-wrapper 
+        .big-items 
+          .col-1 
+            each val in [1,2,3,4,5,6,7,8]
+              .item-row 
+                .num=val + "."
+                .item &nbsp;
+          .col-spacer 
+          .col-2
+            each val in [9,10,11,12,13,14,15]
+              .item-row 
+                .num=val + "."
+                .item &nbsp;
+            .item-row.total-slots 
+              | Item slots: 12 + BODY
+        .small-items
+          .small-items-title 
+            | SMALL ITEMS 
+          div 
+            textarea
+        .holo-row 
+          .stat-block.holos 
+            label HOLOS
+            input(type="number" class="stat-input" name="data.holos" value="{{data.data.holos}}" data-dtype="Number")
+          .stat-block.debt 
+            label DEBT
+            input(type="number" class="stat-input" name="data.debt" value="{{data.data.debt}}" data-dtype="Number")
+
+    div(class="tab weaponry-tab" data-group="primary" data-tab="weaponry")
+      .weaponry-wrapper 
+        table.weapons 
+          thead 
+            th.name 
+              | WEAPON 
+            th.damage 
+              | DAMAGE 
+            th.units 
+              | UNITS 
+            th.condition 
+              | CONDITION 
+          tbody 
+            tr
+              td.name 
+                | &nbsp;
+              td.damage 
+                | &nbsp;
+              td.units 
+                | &nbsp;
+              td.condition 
+                | &nbsp;
+        table.armor 
+          thead 
+            th.name 
+              | ARMOR TYPE
+            th.protects-against 
+              | PROTECTS AGAINST 
+            th.dr-bonus 
+              | DR BONUS 
+            th.condition 
+              | CONDITION 
+          tbody 
+            tr
+              td.name 
+                | &nbsp;
+              td.protects-against 
+                | &nbsp;
+              td.dr-bonus 
+                | &nbsp;
+              td.condition 
+                | &nbsp;
+
+    div(class="tab notes-tab" data-group="primary" data-tab="notes")
+      .notes-wrapper 
+        | {{editor content=data.data.notes target="data.notes" button=true owner=owner editable=true}}
