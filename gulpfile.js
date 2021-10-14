@@ -2,7 +2,7 @@ const concat = require('gulp-concat');
 const gulp = require('gulp');
 const prefix = require('gulp-autoprefixer');
 const pug = require('gulp-pug-3');
-const sass = require('gulp-sass');
+const gsass = require('gulp-sass')(require('sass'));
 
 /* ----------------------------------------- */
 /*  Compile Sass
@@ -10,9 +10,9 @@ const sass = require('gulp-sass');
 
 gulp.task('sass', function () {
   return gulp.src('source/**/*.scss')
-    .pipe(sass({
+    .pipe(gsass({
       outputStyle: 'expanded'
-    }).on('error', sass.logError))
+    }).on('error', gsass.logError))
     .pipe(prefix({
       cascade: true
     }))
