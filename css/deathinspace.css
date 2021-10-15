@@ -372,7 +372,8 @@
   display: inline-grid;
   grid-template-columns: 65% 35%;
   /* TODO: figure out expandable rows */
-  grid-template-rows: 90px 50px 50px 50px 50px 50px 50px 50px 74px;
+  grid-template-rows: 90px 250px 174px;
+  width: 100%;
 }
 
 .deathinspace.sheet.actor.character .situation-tab .void-points-block {
@@ -380,6 +381,7 @@
   border-right: 2px solid black;
   display: flex;
   grid-column-start: 1;
+  grid-column-end: 3;
   grid-row-start: 1;
 }
 
@@ -445,7 +447,7 @@
   top: 50%;
 }
 
-.void-points-radios ul.miseries li:last-child label span {
+.void-points-radios ul.void-points li:last-child label span {
   background: var(--foreground-color);
   color: var(--background-color);
 }
@@ -474,68 +476,18 @@
   font-size: 12px;
 }
 
-.deathinspace.sheet.actor.character .situation-tab .addiction-block {
-  border-bottom: 2px solid black;
-  display: flex;
-  flex-direction: column;
-  grid-column-start: 2;
-  grid-row-start: 1;
-  grid-row-end: 6;
-}
-
-.addiction-block .days-without {
-  font-size: 11px;
-  text-align: center;
-}
-
-.addiction-block div.days-radios {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-.days-radios .day-radio {
-  text-align: center;
-}
-
-.days-radios .day-radio .day-plus {
-  font-size: 11px;
-}
-
-.addiction-block .substance-title {
-  flex: 0 0 10px;
-}
-
-.addiction-block .substance-row {
-  border-bottom: 1px dotted black;
-  flex: 0 0 25px;
-  margin-bottom: 4px;
-}
-
-.addiction-block div.addiction-text {
-  font-size: 12px;
-  padding: 10px;
-}
-
 .deathinspace.sheet.actor.character .situation-tab .cosmic-mutations-block {
   display: flex;
   flex-direction: column;
   border-bottom: 2px solid black;
   border-right: 2px solid black;
   grid-column-start: 1;
+  grid-column-end: 3;
   grid-row-start: 2;
-  grid-row-end: 6;
 }
 
 .cosmic-mutations-block .mutations-title {
   flex: 0 0 10px;
-}
-
-.cosmic-mutations-block .mutations-row {
-  border-bottom: 1px dotted black;
-  flex: 0 0 44px;
 }
 
 .cosmic-mutations-block div.mutations-row:nth-last-child(1) {
@@ -547,28 +499,18 @@
   display: flex;
   flex-direction: column;
   grid-column-start: 1;
-  grid-row-start: 6;
-  grid-row-end: 10;
+  grid-row-start: 3;
 }
 
 .void-corruption-block .corruption-title {
   flex: 0 0 10px;
 }
 
-.void-corruption-block .corruption-row {
-  border-bottom: 1px dotted black;
-  flex: 0 0 44px;
-}
-
-/*.void-corruption-block div.corruption-row:nth-last-child(1) {
-  border-bottom: none;
-}*/
 .deathinspace.sheet.actor.character .situation-tab .life-support-block {
   display: flex;
   flex-direction: column;
   grid-column-start: 2;
-  grid-row-start: 6;
-  grid-row-end: 10;
+  grid-row-start: 3;
 }
 
 .life-support-block .oxygen-tank-row {

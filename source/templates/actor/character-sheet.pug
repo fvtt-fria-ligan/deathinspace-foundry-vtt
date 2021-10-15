@@ -46,18 +46,19 @@ form(class="{{cssClass}}" autocomplete="off")
         .stat-block.background-block
           label BACKGROUND
           input(type="text" class="stat-input" name="data.background" value="{{data.data.background}}" data-dtype="String")
-        .stat-block.allegiance-block
+        .stat-block.past-allegiance-block
           label PAST ALLEGIANCE
           input(type="text" class="stat-input" name="data.pastAllegiance" value="{{data.data.pastAllegiance}}" data-dtype="String")
         .stat-block.trait-block
-          label TRAIT
+          label TRAITS
           input(type="text" class="stat-input" name="data.trait" value="{{data.data.trait}}" data-dtype="String")
         .stat-block.drive-block
           label DRIVE
           input(type="text" class="stat-input" name="data.drive" value="{{data.data.drive}}" data-dtype="String")
         .stat-block.looks-block
           label LOOKS
-          input(type="text" class="stat-input" name="data.looks" value="{{data.data.looks}}" data-dtype="String")
+          textarea(name="data.looks", rows="4") 
+            | {{data.data.looks}}
         .stat-block.ability-block
           label ABILITY
           br
@@ -119,46 +120,17 @@ form(class="{{cssClass}}" autocomplete="off")
                 | ↑
           .void-col-2 
             .void-points-text-top 
-              | Use 1 void point to: 
+              | VOID POINTS CAN BE USED TO: 
             .void-points-text-bottom 
               ul 
-                li Get advantage on an ability check
-                li Activate a cosmic mutation
-        .addiction-block 
-          .stat-block.addiction-title
-            label ADDICTION
-          .days-without   
-            | DAYS WITHOUT SUBSTANCE
-          .days-radios
-            each val in [0, 1, 2, 3, 4, 5, 6, 7]
-              .day-radio 
-                div 
-                  label
-                    //- deal with pug checked= not working right with Foundry state
-                    <input type="radio" name="data.daysWithoutSubstance.value" value=#{val} data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value #{val}}}checked{{/ifEq}}/>
-                    .day-plus= val
-          .stat-block.substance-title 
-            label SUBSTANCE 
-          .substance-row 
-          .stat-block.substance-title 
-            label SUBSTANCE 
-          .substance-row 
-          .addiction-text 
-            | When using an addictive substance, such as virtual reality stimulants, medical drugs, or similar, roll a BODY ability check.
+                li Get advantage on an ability check or attack roll.
+                li Activate a cosmic mutation.
         .cosmic-mutations-block
           .stat-block.mutations-title 
             label COSMIC MUTATIONS 
-          .mutations-row
-          .mutations-row
-          .mutations-row
-          .mutations-row
         .void-corruption-block 
           .stat-block.corruption-title 
             label VOID CORRUPTION 
-          .corruption-row
-          .corruption-row
-          .corruption-row
-          .corruption-row
         .life-support-block
           .stat-block.life-support-title 
             label LIFE SUPPORT 

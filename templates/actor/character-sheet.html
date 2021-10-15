@@ -44,12 +44,12 @@
           <label>BACKGROUND</label>
           <input class="stat-input" type="text" name="data.background" value="{{data.data.background}}" data-dtype="String"/>
         </div>
-        <div class="stat-block allegiance-block">
+        <div class="stat-block past-allegiance-block">
           <label>PAST ALLEGIANCE</label>
           <input class="stat-input" type="text" name="data.pastAllegiance" value="{{data.data.pastAllegiance}}" data-dtype="String"/>
         </div>
         <div class="stat-block trait-block">
-          <label>TRAIT</label>
+          <label>TRAITS</label>
           <input class="stat-input" type="text" name="data.trait" value="{{data.data.trait}}" data-dtype="String"/>
         </div>
         <div class="stat-block drive-block">
@@ -58,7 +58,7 @@
         </div>
         <div class="stat-block looks-block">
           <label>LOOKS</label>
-          <input class="stat-input" type="text" name="data.looks" value="{{data.data.looks}}" data-dtype="String"/>
+          <textarea name="data.looks" rows="4"> {{data.data.looks}}</textarea>
         </div>
         <div class="stat-block ability-block">
           <label>ABILITY</label><br/>
@@ -155,107 +155,24 @@
           </div>
           <div class="void-col-2"> 
             <div class="void-points-text-top">
-               Use 1 void point to: </div>
+               VOID POINTS CAN BE USED TO: </div>
             <div class="void-points-text-bottom"> 
               <ul> 
-                <li>Get advantage on an ability check</li>
-                <li>Activate a cosmic mutation</li>
+                <li>Get advantage on an ability check or attack roll.</li>
+                <li>Activate a cosmic mutation.</li>
               </ul>
             </div>
           </div>
-        </div>
-        <div class="addiction-block"> 
-          <div class="stat-block addiction-title">
-            <label>ADDICTION</label>
-          </div>
-          <div class="days-without">
-              DAYS WITHOUT SUBSTANCE</div>
-          <div class="days-radios">
-            <div class="day-radio"> 
-              <div> 
-                <label><input type="radio" name="data.daysWithoutSubstance.value" value=0 data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value 0}}checked{{/ifEq}}/>
-                  <div class="day-plus">0</div>
-                </label>
-              </div>
-            </div>
-            <div class="day-radio"> 
-              <div> 
-                <label><input type="radio" name="data.daysWithoutSubstance.value" value=1 data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value 1}}checked{{/ifEq}}/>
-                  <div class="day-plus">1</div>
-                </label>
-              </div>
-            </div>
-            <div class="day-radio"> 
-              <div> 
-                <label><input type="radio" name="data.daysWithoutSubstance.value" value=2 data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value 2}}checked{{/ifEq}}/>
-                  <div class="day-plus">2</div>
-                </label>
-              </div>
-            </div>
-            <div class="day-radio"> 
-              <div> 
-                <label><input type="radio" name="data.daysWithoutSubstance.value" value=3 data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value 3}}checked{{/ifEq}}/>
-                  <div class="day-plus">3</div>
-                </label>
-              </div>
-            </div>
-            <div class="day-radio"> 
-              <div> 
-                <label><input type="radio" name="data.daysWithoutSubstance.value" value=4 data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value 4}}checked{{/ifEq}}/>
-                  <div class="day-plus">4</div>
-                </label>
-              </div>
-            </div>
-            <div class="day-radio"> 
-              <div> 
-                <label><input type="radio" name="data.daysWithoutSubstance.value" value=5 data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value 5}}checked{{/ifEq}}/>
-                  <div class="day-plus">5</div>
-                </label>
-              </div>
-            </div>
-            <div class="day-radio"> 
-              <div> 
-                <label><input type="radio" name="data.daysWithoutSubstance.value" value=6 data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value 6}}checked{{/ifEq}}/>
-                  <div class="day-plus">6</div>
-                </label>
-              </div>
-            </div>
-            <div class="day-radio"> 
-              <div> 
-                <label><input type="radio" name="data.daysWithoutSubstance.value" value=7 data-dtype="Number" {{#ifEq data.data.daysWithoutSubstance.value 7}}checked{{/ifEq}}/>
-                  <div class="day-plus">7</div>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="stat-block substance-title"> 
-            <label>SUBSTANCE </label>
-          </div>
-          <div class="substance-row"> </div>
-          <div class="stat-block substance-title"> 
-            <label>SUBSTANCE </label>
-          </div>
-          <div class="substance-row"> </div>
-          <div class="addiction-text">
-             When using an addictive substance, such as virtual reality stimulants, medical drugs, or similar, roll a BODY ability check.</div>
         </div>
         <div class="cosmic-mutations-block">
           <div class="stat-block mutations-title"> 
             <label>COSMIC MUTATIONS </label>
           </div>
-          <div class="mutations-row"></div>
-          <div class="mutations-row"></div>
-          <div class="mutations-row"></div>
-          <div class="mutations-row"></div>
         </div>
         <div class="void-corruption-block"> 
           <div class="stat-block corruption-title"> 
             <label>VOID CORRUPTION </label>
           </div>
-          <div class="corruption-row"></div>
-          <div class="corruption-row"></div>
-          <div class="corruption-row"></div>
-          <div class="corruption-row"></div>
         </div>
         <div class="life-support-block">
           <div class="stat-block life-support-title"> 

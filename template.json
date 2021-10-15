@@ -21,7 +21,6 @@
       },
       "background": "",
       "daysWithoutSubstance": {
-        "min": 0,
         "max": 7,
         "value": 0
       },
@@ -32,11 +31,6 @@
         "value": 1
       },
       "holos": 0,
-      "lifeSupport": {
-        "min": 0,
-        "max": 100,
-        "value": 0
-      },
       "looks": "",
       "nickname": "",
       "notes": "",
@@ -44,7 +38,6 @@
       "playerName": "",
       "trait": "",
       "voidPoints": {
-        "min": 0,
         "max": 5,
         "value": 0
       },
@@ -55,37 +48,33 @@
       "appearance": "",
       "background": "",
       "condition": {
-        "min": 0,
-        "max": 1,
-        "value": 1
+        "max": 5,
+        "value": 5
       },
-      "defenseRating": 12,
-      "frame": "",
+      "defenseRating": 11,
+      "frame": "Scout ship",
       "frameIntegrity": {
-        "min": 0,
         "max": 100,
         "value": 100
       },
-      "hubType": "",
+      "hubType": "spacecraft",
       "fuel": {
-        "min": 0,
-        "max": 1,
-        "value": 1
+        "max": 4,
+        "value": 0
       },
       "nickname": "",
       "notes": "",
       "ownerName": "",
-      "powerSource": "slow",
-      "quirks": ""
+      "quirks": "",
+      "size": 5
     }
   },
   "Item": {
     "types": [
-      "addiction",
       "armor",
-      "belonging",
       "cargo",
       "cosmicMutation",
+      "equipment",
       "hubModule",
       "origin",
       "originBenefit",
@@ -93,37 +82,64 @@
       "weapon"
     ],
     "templates": {
-    },
-    "addiction": {
-      "substance": "",
-      "daysWithout": 0
+      "baseEquipment": {
+        "condition": {
+          "max": 0,
+          "value": 0
+        },
+        "cost": 0,
+        "notes": "",
+        "slots": 0,
+        "units": 1
+      }
     },
     "armor": {
-      "protectsAgainst": "",
-      "drBonus": 0,
-      "condition": ""
-    },
-    "belonging": {
+      "templates": ["baseEquipment"],
+      "defenseRatingBonus": 0,
+      "lifeSupport": {
+        "max": 0,
+        "value": 0
+      },
+      "protectsAgainst": ""
     },
     "cargo": {
-      "tonnage": 0
+      "tonnage": 0,
+      "units": 1
+    },
+    "equipment": {
+      "addictive": false,
+      "templates": ["baseEquipment"]
     },
     "cosmicMutation": {
+      "notes": ""
     },
     "hubModule": {
       "notes": "",
       "powerCost": 0
     },
     "origin": {
+      "notes": ""
     },
     "originBenefit": {
+      "notes": ""
+    },
+    "powerSystem": {
+      "hubType": "spacecraft",
+      "notes": "",
+      "outputPower": 3,
+      "requirement": "",
+      "speed": ""
     },
     "voidCorruption": {
+      "notes": ""
     },
     "weapon": {
+      "templates": ["baseEquipment"],
       "damage": "1d4",
-      "units": 1,
-      "condition": ""
+      "usesBeforeReload": {
+        "max": 0,
+        "value": 0
+      }
     }
   }
 }
