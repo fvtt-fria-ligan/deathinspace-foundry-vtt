@@ -592,30 +592,25 @@
   padding: 5px;
   width: 100%;
 }
-
-.cargo-wrapper .col1 {
+.deathinspace.sheet.actor.hub .cargo-wrapper .col1 {
   flex: 1;
 }
-
-.cargo-wrapper .col2 {
+.deathinspace.sheet.actor.hub .cargo-wrapper .col2 {
   display: flex;
   flex: 0 0 40px;
   justify-content: space-around;
 }
-
-.cargo-wrapper .title-row {
+.deathinspace.sheet.actor.hub .cargo-wrapper .title-row {
   flex: 0 0 30px;
   text-align: right;
   width: 100%;
 }
-
-.cargo-wrapper .cargo-list {
+.deathinspace.sheet.actor.hub .cargo-wrapper .cargo-list {
   display: flex;
   flex: 1;
   flex-direction: column;
 }
-
-.cargo-list .cargo-item {
+.deathinspace.sheet.actor.hub .cargo-wrapper .cargo-list .cargo-item {
   align-items: center;
   display: flex;
   flex: 0 0 25px;
