@@ -625,165 +625,137 @@
   flex-direction: column;
   width: 100%;
 }
-
-.hub-data-wrapper .frame-integrity-row {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row {
   border-bottom: 2px solid #32a6d2;
   display: flex;
   flex: 0 0 80px;
 }
-
-.hub-data-wrapper .frame-integrity-row .frame-integrity {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .frame-integrity {
   border-right: 1px dotted black;
   flex: 0 0 90px;
   padding-left: 5px;
   padding-top: 5px;
 }
-
-.hub-data-wrapper .frame-integrity-row .integrity-increment {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment {
   border-right: 1px dotted black;
   flex: 0 0 40px;
   display: flex;
   flex-direction: column;
 }
-
-.hub-data-wrapper .frame-integrity-row div.integrity-increment:nth-child(12) {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row div.integrity-increment:nth-child(12) {
   border-right: 2px solid black;
 }
-
-.integrity-increment label {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment label {
   display: flex;
   flex-direction: column;
   height: 100%;
   text-align: center;
 }
-
-.integrity-increment .integrity-radio {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment .integrity-radio {
   flex: 1;
   padding-right: 5px;
   padding-top: 25px;
 }
-
-.integrity-increment .integrity-percent {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment .integrity-percent {
   display: none;
   flex: 0 0 20px;
 }
-
-.integrity-increment:nth-child(2) .integrity-percent,
-.integrity-increment:nth-child(7) .integrity-percent,
-.integrity-increment:nth-child(12) .integrity-percent {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment:nth-child(2) .integrity-percent,
+.deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment:nth-child(7) .integrity-percent,
+.deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment:nth-child(12) .integrity-percent {
   background-color: #32a6d2;
   color: white;
   display: block;
 }
-
-.frame-integrity-row .defense-rating {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .defense-rating {
   align-items: center;
   display: flex;
   flex: 0 0 150px;
   flex-direction: column;
   padding: 5px;
 }
-
-.defense-rating .title-row {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .defense-rating .title-row {
   flex: 0 0 30px;
 }
-
-.defense-rating .input-row {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .defense-rating .input-row {
   flex: 1;
 }
-
-.hub-data-wrapper .frame-integrity-row .defense-rating input.defense-rating {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .defense-rating input.defense-rating {
   text-align: center;
   width: 118px;
 }
-
-.hub-data-wrapper .roll-on-damage-row {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row {
   border-bottom: 2px solid #32a6d2;
   display: flex;
   flex: 0 0 35px;
   font-size: 12px;
 }
-
-.hub-data-wrapper .roll-on-damage-row .col1 {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col1 {
   flex: 0 0 130px;
   text-align: right;
 }
-
-.hub-data-wrapper .roll-on-damage-row .col2 {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col2 {
   flex: 0 0 200px;
   text-align: right;
 }
-
-.hub-data-wrapper .roll-on-damage-row .col3 {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col3 {
   border-right: 1px dotted black;
   flex: 0 0 160px;
 }
-
-.hub-data-wrapper .roll-on-damage-row .col4 {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col4 {
   flex: 1;
   padding-left: 5px;
 }
-
-.hub-data-wrapper .condition-row {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row {
   border-bottom: 2px solid #32a6d2;
   display: flex;
   flex: 0 0 80px;
 }
-
-.hub-data-wrapper .condition-row .condition {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .condition {
   border-right: 2px solid black;
   display: flex;
   flex: 0 0 210px;
   flex-direction: column;
   padding: 5px;
 }
-
-.hub-data-wrapper .condition-row .label-row {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .label-row {
   display: flex;
   flex: 0 0 30px;
 }
-
-.hub-data-wrapper .condition-row .field-row {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .field-row {
   display: flex;
   flex: 1;
 }
-
-.hub-data-wrapper .condition-row .col1 {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .col1 {
   flex: 1;
 }
-
-.hub-data-wrapper .condition-row .col2 {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .col2 {
   flex: 0 0 55px;
   font-size: 12px;
   text-align: center;
 }
-
-.hub-data-wrapper .condition-row .col3 {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .col3 {
   flex: 0 0 55px;
   font-size: 12px;
   text-align: center;
 }
-
-.hub-data-wrapper .condition-row .fuel {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .fuel {
   border-right: 2px solid black;
   display: flex;
   flex: 0 0 180px;
   flex-direction: column;
   padding: 5px;
 }
-
-.hub-data-wrapper .condition-row .power-source {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .power-source {
   border-right: 1px dotted black;
   display: flex;
   flex: 0 0 200px;
   padding: 5px;
 }
-
-.hub-data-wrapper .condition-row .power-source .source-label {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .power-source .source-label {
   flex: 1;
 }
-
-.hub-data-wrapper .condition-row .power-source .source-radios {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .power-source .source-radios {
   display: flex;
   flex: 0 0 80px;
   flex-direction: column;
@@ -791,77 +763,65 @@
   justify-content: space-around;
   text-align: right;
 }
-
-.hub-data-wrapper .condition-row .output-power {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .output-power {
   align-items: right;
   display: flex;
   flex: 1;
   flex-direction: column;
   padding: 5px;
 }
-
-.output-power .title-row {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .output-power .title-row {
   flex: 0 0 30px;
 }
-
-.output-power .input-row {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .output-power .input-row {
   flex: 1;
 }
-
-.hub-data-wrapper .modules-block {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .modules-block {
   display: flex;
   flex: 1;
   flex-direction: column;
   padding: 5px;
   width: 100%;
 }
-
-.modules-block .col1 {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .modules-block .col1 {
   flex: 1;
 }
-
-.modules-block .col2 {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .modules-block .col2 {
   display: flex;
   flex: 0 0 40px;
   justify-content: space-around;
 }
-
-.modules-block .col3 {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .modules-block .col3 {
   flex: 0 0 110px;
   padding-left: 5px;
   padding-right: 5px;
   text-align: center;
 }
-
-.modules-block .title-row {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .modules-block .title-row {
   display: flex;
   flex: 0 0 30px;
   width: 100%;
 }
-
-.modules-block .modules-list {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .modules-block .modules-list {
   display: flex;
   flex: 1;
   flex-direction: column;
 }
-
-.modules-list .module-item {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .modules-block .modules-list .module-item {
   align-items: center;
   display: flex;
   flex: 0 0 25px;
   border-bottom: 1px dotted black;
   margin-top: 10px;
 }
-
-.modules-block .modules-total {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .modules-block .modules-total {
   display: flex;
   flex: 0 0 50px;
   font-size: 12px;
   margin-top: 15px;
   width: 100%;
 }
-
-.modules-block .modules-total .col1 {
+.deathinspace.sheet.actor.hub .hub-data-wrapper .modules-block .modules-total .col1 {
   padding-right: 20px;
   text-align: right;
 }
