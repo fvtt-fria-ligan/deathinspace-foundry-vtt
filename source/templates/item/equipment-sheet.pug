@@ -1,0 +1,49 @@
+form(class="{{cssClass}}")
+  header.sheet-header
+    .header-row
+      .col1
+        .game-title
+          | DEATH IN SPACE
+        .sheet-title
+          | EQUIPMENT SHEET
+      .col2
+        div 
+          | SECTION 0. ITEM INFORMATION 
+        div.item-name
+          input(class="item-name" name="data.name" type="text" value="{{data.name}}" placeholder="Item Name" spellcheck="false")
+
+  nav(class="sheet-tabs tabs" data-group="primary")
+    a(class="item" data-tab="notes")
+      | {{ localize 'DIS.TabNotes' }}
+    a(class="item" data-tab="data")
+      | {{ localize 'DIS.TabData' }}
+  
+  section.sheet-body 
+
+    div(class="tab notes-tab" data-group="primary" data-tab="notes")
+      .notes-wrapper
+        | {{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}
+
+    div(class="tab data-tab" data-group="primary" data-tab="data")
+      .data-wrapper
+        .form-group 
+          label
+            | Cost
+          input(type="number" name="data.cost" value="{{data.data.cost}}" placeholder="0" data-dtype="Number")
+        .form-group 
+          label
+            | Slots 
+          input(type="number" name="data.slots" value="{{data.data.slots}}" placeholder="0" data-dtype="Number")
+        .form-group 
+          label
+            | Condition
+          input(type="number" name="data.condition" value="{{data.data.condition}}" placeholder="0" data-dtype="Number")
+        .form-group 
+          label
+            | Units
+          input(type="number" name="data.units" value="{{data.data.units}}" placeholder="1" data-dtype="Number")
+        .form-group 
+          label
+            | Addictive
+          | <input type="checkbox" name="data.addictive" {{checked data.data.addictive}}/> 
+
