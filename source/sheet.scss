@@ -1,8 +1,14 @@
 /* ====================== */
 /* Sheet */
 /* ====================== */
-.deathinspace.sheet .window-content {
-    /* inherited background is parchment img bg */  
+.deathinspace .sheet-body {
+  overflow: hidden;
+  height: 100%;
+}
+
+.deathinspace.sheet {
+  .window-content {
+    /* inherited background is parchment img bg */
     /* background: var(--background-color); */
     background: url(../images/seamless_paper_texture.png) repeat;
     color: var(--foreground-color);
@@ -10,15 +16,15 @@
     /*font-family: var(--text-font)var;*/
     font-family: var(--text-font);
   }
-  .deathinspace.sheet form {
+  form {
     padding: 0;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
-  .deathinspace.sheet input[type="text"],
-  .deathinspace.sheet input[type="number"] {
+  input[type="text"],
+  input[type="number"] {
     border: none;
     border-bottom: 1px dotted #000;
     border-radius: 0;
@@ -26,7 +32,7 @@
     font-size: 20px;
     text-decoration: none;
   }
-  .deathinspace.sheet textarea {
+  textarea {
     border: none;
     border-bottom: 1px dotted #000;
     border-radius: 0;
@@ -35,14 +41,12 @@
     font-size: 20px;
     resize: none;
   }
-  .deathinspace .sheet-body {
-    overflow: hidden;
-    height: 100%;
-  }
+
   /* ====================== */
   /* Sheet Tabs */
   /* ====================== */
-  .deathinspace.sheet.hub .sheet-tabs {
+  // TODO: move this
+  .hub .sheet-tabs {
     flex: 0 0 30px;
     font-size: 16px;
     font-weight: 700;
@@ -56,23 +60,24 @@
     width: 120px;
     text-transform: uppercase;
   }
-  .deathinspace.sheet .sheet-tabs .item.active {
+  .sheet-tabs .item.active {
     text-shadow: none;
   }
-  .deathinspace.sheet .sheet-body .tab {
+  .sheet-body .tab {
     height: 100%;
     margin: 0px;
     overflow-y: auto;
     padding: 0px;
     width: 100%;
   }
-.deathinspace.sheet input[type="number"],
-.deathinspace.sheet input[type="text"],
-.deathinspace.sheet textarea {
-  border: 1px dotted #7a7971;
-  font-family: 'IBM Plex Mono';
-  font-size: 16px;
-}
-.deathinspace.sheet .editor {
-  padding: 0 8px;
+  input[type="number"],
+  input[type="text"],
+  textarea {
+    border: 1px dotted #7a7971;
+    font-family: "IBM Plex Mono";
+    font-size: 16px;
+  }
+  .editor {
+    padding: 0 8px;
+  }
 }

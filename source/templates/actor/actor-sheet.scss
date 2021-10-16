@@ -1,40 +1,40 @@
 /* ====================== */
 /* Actor sheet */
 /* ====================== */
-.deathinspace.sheet.actor .sheet-header {
+.deathinspace.sheet.actor {
+  .sheet-header {
     height: 80px;
   }
-  .deathinspace.sheet.actor .header-row {
+  .header-row {
     display: flex;
-    height: 80px
-  }
-  .deathinspace.sheet.actor .header-row .col1 {
-    flex: 1;
-    margin: 0;
-    padding: 10px;
-  }
-  .deathinspace.sheet.actor .header-row .col2 {
-    border-left: 2px solid black;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
-    margin: 0;
-    padding: 10px;
-  }
-  .deathinspace.sheet.actor .header-row .col1 .game-title {
-    font-family: var(--title-font);
-    font-size: 36px;
-  }
-  .deathinspace.sheet.actor .header-row .col1 .sheet-title {
-  }
-  .deathinspace.sheet.actor .stat-block {
+    height: 80px;
+    .col1 {
+      flex: 1;
+      margin: 0;
+      padding: 10px;
+      .game-title {
+        font-family: var(--title-font);
+        font-size: 36px;
+      }  
+    }
+    .col2 {
+      border-left: 2px solid black;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+      margin: 0;
+      padding: 10px;
+    }  
+  }  
+  .stat-block {
     padding: 2px;
+    label {
+      display: block;
+      float: left;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
   }
-  .deathinspace.sheet.actor .stat-block label {
-    display: block;
-    float: left;
-    font-size: 12px;
-    text-transform: uppercase;
-  }
+}

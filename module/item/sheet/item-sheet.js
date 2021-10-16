@@ -19,7 +19,8 @@ export class DISItemSheet extends ItemSheet {
     /** @override */
     get template() {
       const path = "systems/deathinspace/templates/item";
-      if (["cargo", "hubModule", "origin"].includes(this.item.data.type)) {
+      // TODO: change this to check filesystem for file
+      if (["cargo", "equipment", "hubModule", "origin"].includes(this.item.data.type)) {
         // specific item-type sheet
         return `${path}/${this.item.data.type}-sheet.html`;
       } else {

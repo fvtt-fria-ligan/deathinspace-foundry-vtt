@@ -21,6 +21,16 @@
 /* ====================== */
 /* Sheet */
 /* ====================== */
+.deathinspace .sheet-body {
+  overflow: hidden;
+  height: 100%;
+}
+
+.deathinspace.sheet {
+  /* ====================== */
+  /* Sheet Tabs */
+  /* ====================== */
+}
 .deathinspace.sheet .window-content {
   /* inherited background is parchment img bg */
   /* background: var(--background-color); */
@@ -30,7 +40,6 @@
   /*font-family: var(--text-font)var;*/
   font-family: var(--text-font);
 }
-
 .deathinspace.sheet form {
   padding: 0;
   display: flex;
@@ -38,7 +47,6 @@
   flex-wrap: nowrap;
   justify-content: flex-start;
 }
-
 .deathinspace.sheet input[type=text],
 .deathinspace.sheet input[type=number] {
   border: none;
@@ -48,7 +56,6 @@
   font-size: 20px;
   text-decoration: none;
 }
-
 .deathinspace.sheet textarea {
   border: none;
   border-bottom: 1px dotted #000;
@@ -58,23 +65,13 @@
   font-size: 20px;
   resize: none;
 }
-
-.deathinspace .sheet-body {
-  overflow: hidden;
-  height: 100%;
-}
-
-/* ====================== */
-/* Sheet Tabs */
-/* ====================== */
-.deathinspace.sheet.hub .sheet-tabs {
+.deathinspace.sheet .hub .sheet-tabs {
   flex: 0 0 30px;
   font-size: 16px;
   font-weight: 700;
   margin: 0px;
 }
-
-.deathinspace .sheet-tabs .item {
+.deathinspace.sheet .deathinspace .sheet-tabs .item {
   font-family: var(--tab-font);
   font-weight: 400;
   height: 30px;
@@ -82,11 +79,9 @@
   width: 120px;
   text-transform: uppercase;
 }
-
 .deathinspace.sheet .sheet-tabs .item.active {
   text-shadow: none;
 }
-
 .deathinspace.sheet .sheet-body .tab {
   height: 100%;
   margin: 0px;
@@ -94,7 +89,6 @@
   padding: 0px;
   width: 100%;
 }
-
 .deathinspace.sheet input[type=number],
 .deathinspace.sheet input[type=text],
 .deathinspace.sheet textarea {
@@ -102,7 +96,6 @@
   font-family: "IBM Plex Mono";
   font-size: 16px;
 }
-
 .deathinspace.sheet .editor {
   padding: 0 8px;
 }
@@ -112,18 +105,19 @@
 .deathinspace.sheet.actor .sheet-header {
   height: 80px;
 }
-
 .deathinspace.sheet.actor .header-row {
   display: flex;
   height: 80px;
 }
-
 .deathinspace.sheet.actor .header-row .col1 {
   flex: 1;
   margin: 0;
   padding: 10px;
 }
-
+.deathinspace.sheet.actor .header-row .col1 .game-title {
+  font-family: var(--title-font);
+  font-size: 36px;
+}
 .deathinspace.sheet.actor .header-row .col2 {
   border-left: 2px solid black;
   display: flex;
@@ -134,16 +128,9 @@
   margin: 0;
   padding: 10px;
 }
-
-.deathinspace.sheet.actor .header-row .col1 .game-title {
-  font-family: var(--title-font);
-  font-size: 36px;
-}
-
 .deathinspace.sheet.actor .stat-block {
   padding: 2px;
 }
-
 .deathinspace.sheet.actor .stat-block label {
   display: block;
   float: left;
@@ -1072,40 +1059,34 @@
 .deathinspace.sheet.hub form {
   border: 4px solid #32a6d2;
 }
-
-.deathinspace.sheet.actor.hub .header-row .col1 .game-title {
-  color: #32a6d2;
-}
-
-.deathinspace.sheet.actor.hub .header-row .col1 .sheet-title {
-  color: #32a6d2;
-}
-
 .deathinspace.sheet.hub .sheet-tabs {
   background: #32a6d2;
   border-bottom: 1px solid #32a6d2;
   border-top: 1px solid #32a6d2;
   color: white;
 }
-
 .deathinspace.sheet.hub .sheet-tabs .item:hover {
   color: white;
   text-shadow: 0 0 10px #32a6d2;
 }
-
 .deathinspace.sheet.hub .sheet-tabs .item.active {
   background-color: white;
   color: #32a6d2;
 }
-
 .deathinspace.sheet.hub .portrait img {
   height: 100%;
   width: 100%;
 }
-
 .deathinspace.sheet.hub input.power {
   text-align: center;
   width: 100px;
+}
+
+.deathinspace.sheet.actor.hub .header-row .col1 .game-title {
+  color: #32a6d2;
+}
+.deathinspace.sheet.actor.hub .header-row .col1 .sheet-title {
+  color: #32a6d2;
 }
 .deathinspace.sheet.item .sheet-header {
   height: 80px;

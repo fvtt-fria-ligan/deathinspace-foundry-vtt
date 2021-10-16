@@ -108,16 +108,12 @@ form(class="{{cssClass}}" autocomplete="off")
                 | VOID POINTS 
             .void-points-radios 
               ul.void-points
-                each val in [0, 1, 2, 3, 4, 5] 
+                each val in [0, 1, 2, 3, 4] 
                   li 
                     label
                       //- deal with Pug checked= not working right with Foundry state
                       | <input type="radio" name="data.voidPoints.value" value=#{val} data-dtype="Number" {{#ifEq data.data.voidPoints.value #{val}}}checked{{/ifEq}}/>
                       span= val
-            .void-points-roll 
-              | Roll corruption effects 
-              span.void-points-up-arrow 
-                | ↑
           .void-col-2 
             .void-points-text-top 
               | VOID POINTS CAN BE USED TO: 
@@ -151,25 +147,6 @@ form(class="{{cssClass}}" autocomplete="off")
 
     div(class="tab belongings-tab" data-group="primary" data-tab="belongings")
       .belongings-wrapper 
-        .big-items 
-          .col-1 
-            each val in [1,2,3,4,5,6,7,8]
-              .item-row 
-                .num=val + "."
-                .item &nbsp;
-          .col-spacer 
-          .col-2
-            each val in [9,10,11,12,13,14,15]
-              .item-row 
-                .num=val + "."
-                .item &nbsp;
-            .item-row.total-slots 
-              | Item slots: 12 + BODY
-        .small-items
-          .small-items-title 
-            | SMALL ITEMS 
-          div 
-            textarea
         .holo-row 
           .stat-block.holos 
             label HOLOS
@@ -177,6 +154,7 @@ form(class="{{cssClass}}" autocomplete="off")
           .stat-block.debt 
             label DEBT
             input(type="number" class="stat-input" name="data.debt" value="{{data.data.debt}}" data-dtype="Number")
+        .big-items 
 
     div(class="tab weaponry-tab" data-group="primary" data-tab="weaponry")
       .weaponry-wrapper 
