@@ -14,7 +14,7 @@
     .item.active {
       background-color: white;
       color: #32a6d2;
-    }    
+    }
   }
   .portrait img {
     height: 100%;
@@ -23,13 +23,17 @@
   input.power {
     text-align: center;
     width: 100px;
-  }  
+  }
 }
 .deathinspace.sheet.actor.hub {
-  .header-row .col1 .game-title {
-      color: #32a6d2;
-  }
-  .header-row .col1 .sheet-title {
-  color: #32a6d2;
+  .header-row {
+    .col1 {
+      .game-title {
+        color: #32a6d2;
+      }
+      .sheet-title {
+        color: #32a6d2;
+      }
+    }
   }
 }
