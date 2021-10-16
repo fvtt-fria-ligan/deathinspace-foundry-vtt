@@ -30,14 +30,13 @@
   /* ====================== */
   /* Character sheet - Personal tab */
   /* ====================== */
-  .personal-wrapper {
-    display: inline-grid;
-    grid-template-columns: 25% 50% 25%;
-    /* TODO: figure out expandable rows */
-    grid-template-rows: 37px 60px 50px 50px 50px 50px 50px 55px 55px 55px;
-  }
-
   .personal-tab {
+    .personal-wrapper {
+      display: inline-grid;
+      grid-template-columns: 25% 50% 25%;
+      /* TODO: figure out expandable rows */
+      grid-template-rows: 37px 60px 50px 50px 50px 50px 50px 55px 55px 55px;
+    }   
     .origin-row {
       border-bottom: 2px solid black;
       display: flex;
@@ -184,295 +183,303 @@
       flex-direction: column;
       text-align: center;
     }
-  }
+  } // personal-tab
+
   /* ====================== */
   /* Character sheet - Situation tab */
   /* ====================== */
-  .situation-wrapper {
-    display: inline-grid;
-    grid-template-columns: 65% 35%;
-    /* TODO: figure out expandable rows */
-    grid-template-rows: 90px 250px 174px;
-    width: 100%;
+  .situation-tab {
+    .situation-wrapper {
+      display: inline-grid;
+      grid-template-columns: 65% 35%;
+      /* TODO: figure out expandable rows */
+      grid-template-rows: 90px 250px 174px;
+      width: 100%;
+    }  
+    .void-points-block {
+      border-bottom: 2px solid black;
+      border-right: 2px solid black;
+      display: flex;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 1;
+
+      .void-col-1 {
+      display: flex;
+      flex: 0 0 200;
+      flex-direction: column;
+    }
+    .void-col-2 {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 5px;
+    }
+    .void-points-radios {
+      flex: 0 0 30px;
+      padding-left: 5px;
+    }
+    .void-points-radios ul.void-points {
+      list-style-type: none;
+      margin: 0;
+      margin-top: 3px;
+      padding: 0;
+      float: left;
+    }
+    .void-points-radios ul.void-points li {
+      float: left;
+    }
+    .void-points-radios ul.void-points label {
+      display: block;
+      padding: 4px;
+      position: relative;
+      padding-left: 27px;
+    }
+    .void-points-radios ul.void-points label input[type="radio"] {
+      display: none;
+    }
+    .void-points-radios ul.void-points input[type="radio"]:checked + span {
+      background: var(--highlight-background-color);
+      color: var(--highlight-foreground-color);
+      border: none;
+    }
+    .void-points-radios ul.void-points label span {
+      border: 1px solid #7a7971;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      overflow: hidden;
+      line-height: 1.5;
+      text-align: center;
+      border-radius: 100%;
+      font-size: 10pt;
+      /*font-family: var(--item-font);*/
+      left: 0;
+      top: 50%;
+    }
+    .void-points-roll {
+      flex: 0 0 50px;
+      padding-right: 14px;
+      text-align: right;
+      width: 100%;
+      font-size: 11px;
+    }
+    .void-points-block span.void-points-up-arrow {
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .void-points-block .void-points-text-top {
+      /* TODO: get IBM Plex Mono to work with font-weight */
+      font-family: monospace;
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .void-points-block .void-points-text-bottom {
+      font-size: 12px;
+    }
   }
-  .situation-tab .void-points-block {
-    border-bottom: 2px solid black;
-    border-right: 2px solid black;
-    display: flex;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 1;
-  }
-  .void-points-block .void-col-1 {
-    display: flex;
-    flex: 0 0 200;
-    flex-direction: column;
-  }
-  .void-points-block .void-col-2 {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding: 5px;
-  }
-  .void-points-block .void-points-radios {
-    flex: 0 0 30px;
-    padding-left: 5px;
-  }
-  .void-points-radios ul.void-points {
-    list-style-type: none;
-    margin: 0;
-    margin-top: 3px;
-    padding: 0;
-    float: left;
-  }
-  .void-points-radios ul.void-points li {
-    float: left;
-  }
-  .void-points-radios ul.void-points label {
-    display: block;
-    padding: 4px;
-    position: relative;
-    padding-left: 27px;
-  }
-  .void-points-radios ul.void-points label input[type="radio"] {
-    display: none;
-  }
-  .void-points-radios ul.void-points input[type="radio"]:checked + span {
-    background: var(--highlight-background-color);
-    color: var(--highlight-foreground-color);
-    border: none;
-  }
-  .void-points-radios ul.void-points label span {
-    border: 1px solid #7a7971;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    overflow: hidden;
-    line-height: 1.5;
-    text-align: center;
-    border-radius: 100%;
-    font-size: 10pt;
-    /*font-family: var(--item-font);*/
-    left: 0;
-    top: 50%;
-  }
-  .void-points-block .void-points-roll {
-    flex: 0 0 50px;
-    padding-right: 14px;
-    text-align: right;
-    width: 100%;
-    font-size: 11px;
-  }
-  .void-points-block span.void-points-up-arrow {
-    font-size: 20px;
-    font-weight: 700;
-  }
-  .void-points-block .void-points-text-top {
-    /* TODO: get IBM Plex Mono to work with font-weight */
-    font-family: monospace;
-    font-size: 13px;
-    font-weight: bold;
-  }
-  .void-points-block .void-points-text-bottom {
-    font-size: 12px;
-  }
-  .situation-tab .cosmic-mutations-block {
-    display: flex;
-    flex-direction: column;
-    border-bottom: 2px solid black;
-    border-right: 2px solid black;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 2;
-  }
-  .cosmic-mutations-block .mutations-title {
-    flex: 0 0 10px;
-  }
-  // .cosmic-mutations-block .mutations-row {
-  //   border-bottom: 1px dotted black;
-  //   flex: 0 0 44px;
-  // }
-  .cosmic-mutations-block div.mutations-row:nth-last-child(1) {
-    border-bottom: none;
-  }
-  .situation-tab .void-corruption-block {
-    border-right: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    grid-column-start: 1;
-    grid-row-start: 3;
-  }
-  .void-corruption-block .corruption-title {
-    flex: 0 0 10px;
-  }
-  // .void-corruption-block .corruption-row {
-  //   border-bottom: 1px dotted black;
-  //   flex: 0 0 44px;
-  // }
-  .situation-tab .life-support-block {
-    display: flex;
-    flex-direction: column;
-    grid-column-start: 2;
-    grid-row-start: 3;
-  }
-  .life-support-block .oxygen-tank-row {
-    display: flex;
-    flex: 0 0 100px;
-    flex-direction: column;
-  }
-  .oxygen-tank-row .oxygen-numbers {
-    display: flex;
-    flex: 0 0 20px;
-    font-size: 11px;
-    justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 70px;
-  }
-  .oxygen-tank-row .oxygen-tank {
-    background-image: url("../images/oxygen_tank.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    flex: 0 0 58px;
-    height: 58px;
-    margin-left: 12px;
-    margin-right: 0px;
-    width: 226px;
-  }
-  .oxygen-tank-row .oxygen-tank .oxygen-increments {
-    display: flex;
-    padding-left: 17px;
-    padding-top: 6px;
-  }
-  .oxygen-tank-row .oxygen-tank .oxygen-increments .increment {
-    border-right: 1px dotted black;
-    height: 45px;
-    padding-top: 12px;
-    width: 21.5px;
-  }
-  .oxygen-tank-row
-    .oxygen-tank
-    .oxygen-increments
-    .increment:nth-last-child(1) {
-    border-right: none;
-  }
-  .life-support-block .tank-space {
-    flex: 1;
-  }
+    .cosmic-mutations-block {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 2px solid black;
+      border-right: 2px solid black;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 2;
+    }
+    .cosmic-mutations-block .mutations-title {
+      flex: 0 0 10px;
+    }
+    // .cosmic-mutations-block .mutations-row {
+    //   border-bottom: 1px dotted black;
+    //   flex: 0 0 44px;
+    // }
+    .cosmic-mutations-block div.mutations-row:nth-last-child(1) {
+      border-bottom: none;
+    }
+    .void-corruption-block {
+      border-right: 2px solid black;
+      display: flex;
+      flex-direction: column;
+      grid-column-start: 1;
+      grid-row-start: 3;
+    }
+    .void-corruption-block .corruption-title {
+      flex: 0 0 10px;
+    }
+    // .void-corruption-block .corruption-row {
+    //   border-bottom: 1px dotted black;
+    //   flex: 0 0 44px;
+    // }
+    .life-support-block {
+      display: flex;
+      flex-direction: column;
+      grid-column-start: 2;
+      grid-row-start: 3;
+    }
+    .life-support-block .oxygen-tank-row {
+      display: flex;
+      flex: 0 0 100px;
+      flex-direction: column;
+    }
+    .oxygen-tank-row .oxygen-numbers {
+      display: flex;
+      flex: 0 0 20px;
+      font-size: 11px;
+      justify-content: space-between;
+      padding-left: 20px;
+      padding-right: 70px;
+    }
+    .oxygen-tank-row .oxygen-tank {
+      background-image: url("../images/oxygen_tank.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      flex: 0 0 58px;
+      height: 58px;
+      margin-left: 12px;
+      margin-right: 0px;
+      width: 226px;
+    }
+    .oxygen-tank-row .oxygen-tank .oxygen-increments {
+      display: flex;
+      padding-left: 17px;
+      padding-top: 6px;
+    }
+    .oxygen-tank-row .oxygen-tank .oxygen-increments .increment {
+      border-right: 1px dotted black;
+      height: 45px;
+      padding-top: 12px;
+      width: 21.5px;
+    }
+    .oxygen-tank-row
+      .oxygen-tank
+      .oxygen-increments
+      .increment:nth-last-child(1) {
+      border-right: none;
+    }
+    .life-support-block .tank-space {
+      flex: 1;
+    }
+  } // situation-tab
+
   /* ====================== */
   /* Character sheet - Belongings tab */
   /* ====================== */
-  .belongings-wrapper {
-    display: flex;
-    flex-direction: column;
-  }
-  .belongings-tab .big-items {
-    display: flex;
-    padding: 8px;
-  }
-  .belongings-tab .col-1 {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-  .belongings-tab .col-spacer {
-    flex: 0 0 20px;
-  }
-  .belongings-tab .col-2 {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-  }
-  .big-items .item-row {
-    display: flex;
-    flex: 0 0 24px;
-    margin-top: 4px;
-  }
-  .big-items .item-row.total-slots {
-    display: block;
-    padding-top: 4px;
-    text-align: center;
-    width: 100%;
-  }
-  .big-items .item-row .num {
-    flex: 0 0 30px;
-  }
-  .big-items .item-row .item {
-    border-bottom: 1px dotted black;
-    flex: 1;
-  }
-  .belongings-tab .small-items {
-    border-bottom: 2px solid black;
-    flex: 0 0 100px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  .belongings-tab .holo-row {
-    border-bottom: 2px solid black;
-    display: flex;
-    flex: 0 0 50px;
-  }
-  .belongings-tab .holo-row .holos {
-    flex: 1;
-  }
-  .belongings-tab .holo-row .debt {
-    flex: 1;
-  }
+  .belongings-tab {
+    .belongings-wrapper {
+      display: flex;
+      flex-direction: column;
+    }    
+    .big-items {
+      display: flex;
+      padding: 8px;
+    }
+    .col-1 {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .col-spacer {
+      flex: 0 0 20px;
+    }
+    .col-2 {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+    .big-items .item-row {
+      display: flex;
+      flex: 0 0 24px;
+      margin-top: 4px;
+    }
+    .big-items .item-row.total-slots {
+      display: block;
+      padding-top: 4px;
+      text-align: center;
+      width: 100%;
+    }
+    .big-items .item-row .num {
+      flex: 0 0 30px;
+    }
+    .big-items .item-row .item {
+      border-bottom: 1px dotted black;
+      flex: 1;
+    }
+    .small-items {
+      border-bottom: 2px solid black;
+      flex: 0 0 100px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    .holo-row {
+      border-bottom: 2px solid black;
+      display: flex;
+      flex: 0 0 50px;
+    }
+    .holo-row .holos {
+      flex: 1;
+    }
+    .holo-row .debt {
+      flex: 1;
+    }
+  } // belongings-tab
   /* ====================== */
   /* Character sheet - Weaponry tab */
   /* ====================== */
   .weaponry-wrapper {
     padding: 10px;
-  }
-  .weaponry-wrapper table {
-    background: none;
-  }
-  .weaponry-wrapper table thead {
-    background: none;
-  }
-  .weaponry-wrapper table tr {
-    height: 40px;
-  }
-  .weaponry-wrapper table.weapons th.name {
-    padding-left: 20px;
-    text-align: left;
-    width: 55%;
-  }
-  .weaponry-wrapper th {
-    background: none;
-    border: none;
-    border-bottom: none;
-    color: black;
-    text-shadow: none;
-  }
-  .weaponry-wrapper th.damage {
-    width: 15%;
-  }
-  .weaponry-wrapper th.units {
-    width: 15%;
-  }
-  .weaponry-wrapper th.condition {
-    width: 15%;
-  }
-  .weaponry-wrapper table.armor {
-    margin-top: 30px;
-  }
-  .weaponry-wrapper table.armor th.name {
-    padding-left: 20px;
-    text-align: left;
-    width: 40%;
-  }
-  .weaponry-wrapper table.armor th.protects-against {
-    width: 30%;
-  }
-  .weaponry-wrapper th.dr-bonus {
-    width: 15%;
-  }
-  .weaponry-wrapper td.condition,
-  .weaponry-wrapper td.damage,
-  .weaponry-wrapper td.units,
-  .weaponry-wrapper td.dr-bonus {
-    border-left: 1px dotted black;
-  }
+    table {
+      background: none;
+    }
+    table thead {
+      background: none;
+    }
+    table tr {
+      height: 40px;
+    }
+    table.weapons th.name {
+      padding-left: 20px;
+      text-align: left;
+      width: 55%;
+    }
+    th {
+      background: none;
+      border: none;
+      border-bottom: none;
+      color: black;
+      text-shadow: none;
+    }
+    th.damage {
+      width: 15%;
+    }
+    th.units {
+      width: 15%;
+    }
+    th.condition {
+      width: 15%;
+    }
+    table.armor {
+      margin-top: 30px;
+    }
+    table.armor th.name {
+      padding-left: 20px;
+      text-align: left;
+      width: 40%;
+    }
+    table.armor th.protects-against {
+      width: 30%;
+    }
+    th.dr-bonus {
+      width: 15%;
+    }
+    td.condition,
+    td.damage,
+    td.units,
+    td.dr-bonus {
+      border-left: 1px dotted black;
+    }
+  } // weaponry-wrapper
+  
   /* ====================== */
   /* Character sheet - Notes tab */
   /* ====================== */
