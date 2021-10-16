@@ -99,109 +99,6 @@
 .deathinspace.sheet .editor {
   padding: 0 8px;
 }
-.deathinspace.sheet.item .sheet-header {
-  height: 80px;
-}
-
-.deathinspace.sheet.item .header-row {
-  display: flex;
-  height: 80px;
-}
-
-.deathinspace.sheet.item .header-row .col1 {
-  flex: 1;
-  margin: 0;
-  padding: 10px;
-}
-
-.deathinspace.sheet.item .header-row .col2 {
-  border-left: 2px solid black;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
-  margin: 0;
-  padding: 10px;
-}
-
-.deathinspace.sheet.item .header-row .col1 .game-title {
-  font-family: var(--title-font);
-  font-size: 36px;
-}
-
-.deathinspace.sheet.item .stat-block {
-  padding: 2px;
-}
-
-.deathinspace.sheet.item .stat-block label {
-  display: block;
-  float: left;
-  font-size: 12px;
-  text-transform: uppercase;
-}
-
-.deathinspace.sheet.item form {
-  border: 4px solid #7a7971;
-}
-
-.deathinspace.sheet.item.item .header-row .col1 .game-title {
-  color: #7a7971;
-}
-
-.deathinspace.sheet.item.item .header-row .col1 .sheet-title {
-  color: #7a7971;
-}
-
-.deathinspace.sheet.item .sheet-tabs {
-  background: #7a7971;
-  border-bottom: 1px solid #7a7971;
-  border-top: 1px solid #7a7971;
-  color: white;
-}
-
-.deathinspace.sheet.item .sheet-tabs .item:hover {
-  color: white;
-  text-shadow: 0 0 10px #7a7971;
-}
-
-.deathinspace.sheet.item .sheet-tabs .item.active {
-  background-color: white;
-  color: #7a7971;
-}
-
-.deathinspace.sheet.item .portrait img {
-  height: 100%;
-  width: 100%;
-}
-
-/* Notes tab */
-.deathinspace.sheet.item .notes-wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-}
-
-.deathinspace.sheet.item .data-wrapper .form-group {
-  border-bottom: 1px dotted black;
-  display: flex;
-  flex: 0 0 50px;
-  width: 100%;
-}
-
-.deathinspace.sheet.item .data-wrapper .form-group label {
-  flex: 1;
-  font-size: 16px;
-  padding-right: 10px;
-  text-align: right;
-}
-
-.deathinspace.sheet.item .data-wrapper .form-group input[type=number],
-.deathinspace.sheet.item .data-wrapper .form-group input[type=text] {
-  flex: 1;
-  text-align: center;
-}
 /* ====================== */
 /* Actor sheet */
 /* ====================== */
@@ -434,7 +331,6 @@
 .deathinspace.sheet.actor.character .situation-tab .situation-wrapper {
   display: inline-grid;
   grid-template-columns: 65% 35%;
-  /* TODO: figure out expandable rows */
   grid-template-rows: 90px 250px 174px;
   width: 100%;
 }
@@ -499,7 +395,6 @@
   border: none;
 }
 .deathinspace.sheet.actor.character .situation-tab .void-points-block .void-points-text-top {
-  /* TODO: get IBM Plex Mono to work with font-weight */
   font-family: monospace;
   font-size: 13px;
   font-weight: bold;
@@ -518,9 +413,6 @@
 }
 .deathinspace.sheet.actor.character .situation-tab .cosmic-mutations-block .mutations-title {
   flex: 0 0 10px;
-}
-.deathinspace.sheet.actor.character .situation-tab .cosmic-mutations-block div.mutations-row:nth-last-child(1) {
-  border-bottom: none;
 }
 .deathinspace.sheet.actor.character .situation-tab .void-corruption-block {
   border-right: 2px solid black;
@@ -543,7 +435,7 @@
   flex: 0 0 100px;
   flex-direction: column;
 }
-.deathinspace.sheet.actor.character .situation-tab .oxygen-tank-row .oxygen-numbers {
+.deathinspace.sheet.actor.character .situation-tab .life-support-block .oxygen-tank-row .oxygen-numbers {
   display: flex;
   flex: 0 0 20px;
   font-size: 11px;
@@ -551,7 +443,7 @@
   padding-left: 20px;
   padding-right: 70px;
 }
-.deathinspace.sheet.actor.character .situation-tab .oxygen-tank-row .oxygen-tank {
+.deathinspace.sheet.actor.character .situation-tab .life-support-block .oxygen-tank-row .oxygen-tank {
   background-image: url("../images/oxygen_tank.png");
   background-repeat: no-repeat;
   background-size: contain;
@@ -561,18 +453,18 @@
   margin-right: 0px;
   width: 226px;
 }
-.deathinspace.sheet.actor.character .situation-tab .oxygen-tank-row .oxygen-tank .oxygen-increments {
+.deathinspace.sheet.actor.character .situation-tab .life-support-block .oxygen-tank-row .oxygen-tank .oxygen-increments {
   display: flex;
   padding-left: 17px;
   padding-top: 6px;
 }
-.deathinspace.sheet.actor.character .situation-tab .oxygen-tank-row .oxygen-tank .oxygen-increments .increment {
+.deathinspace.sheet.actor.character .situation-tab .life-support-block .oxygen-tank-row .oxygen-tank .oxygen-increments .increment {
   border-right: 1px dotted black;
   height: 45px;
   padding-top: 12px;
   width: 21.5px;
 }
-.deathinspace.sheet.actor.character .situation-tab .oxygen-tank-row .oxygen-tank .oxygen-increments .increment:nth-last-child(1) {
+.deathinspace.sheet.actor.character .situation-tab .life-support-block .oxygen-tank-row .oxygen-tank .oxygen-increments .increment:nth-last-child(1) {
   border-right: none;
 }
 .deathinspace.sheet.actor.character .situation-tab .life-support-block .tank-space {
@@ -1083,4 +975,107 @@
 }
 .deathinspace.sheet.actor.hub .header-row .col1 .sheet-title {
   color: #32a6d2;
+}
+.deathinspace.sheet.item .sheet-header {
+  height: 80px;
+}
+
+.deathinspace.sheet.item .header-row {
+  display: flex;
+  height: 80px;
+}
+
+.deathinspace.sheet.item .header-row .col1 {
+  flex: 1;
+  margin: 0;
+  padding: 10px;
+}
+
+.deathinspace.sheet.item .header-row .col2 {
+  border-left: 2px solid black;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  margin: 0;
+  padding: 10px;
+}
+
+.deathinspace.sheet.item .header-row .col1 .game-title {
+  font-family: var(--title-font);
+  font-size: 36px;
+}
+
+.deathinspace.sheet.item .stat-block {
+  padding: 2px;
+}
+
+.deathinspace.sheet.item .stat-block label {
+  display: block;
+  float: left;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.deathinspace.sheet.item form {
+  border: 4px solid #7a7971;
+}
+
+.deathinspace.sheet.item.item .header-row .col1 .game-title {
+  color: #7a7971;
+}
+
+.deathinspace.sheet.item.item .header-row .col1 .sheet-title {
+  color: #7a7971;
+}
+
+.deathinspace.sheet.item .sheet-tabs {
+  background: #7a7971;
+  border-bottom: 1px solid #7a7971;
+  border-top: 1px solid #7a7971;
+  color: white;
+}
+
+.deathinspace.sheet.item .sheet-tabs .item:hover {
+  color: white;
+  text-shadow: 0 0 10px #7a7971;
+}
+
+.deathinspace.sheet.item .sheet-tabs .item.active {
+  background-color: white;
+  color: #7a7971;
+}
+
+.deathinspace.sheet.item .portrait img {
+  height: 100%;
+  width: 100%;
+}
+
+/* Notes tab */
+.deathinspace.sheet.item .notes-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.deathinspace.sheet.item .data-wrapper .form-group {
+  border-bottom: 1px dotted black;
+  display: flex;
+  flex: 0 0 50px;
+  width: 100%;
+}
+
+.deathinspace.sheet.item .data-wrapper .form-group label {
+  flex: 1;
+  font-size: 16px;
+  padding-right: 10px;
+  text-align: right;
+}
+
+.deathinspace.sheet.item .data-wrapper .form-group input[type=number],
+.deathinspace.sheet.item .data-wrapper .form-group input[type=text] {
+  flex: 1;
+  text-align: center;
 }

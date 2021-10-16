@@ -27,6 +27,7 @@
       color: #eb1c26;
     }
   }
+
   /* ====================== */
   /* Character sheet - Personal tab */
   /* ====================== */
@@ -126,8 +127,8 @@
     }
     .ability-value {
       flex: 0 0 50px;
-    }
 
+    }
     .ability-value input[type="number"],
     input[type="number"].stat-input {
       text-align: center;
@@ -192,7 +193,7 @@
     .situation-wrapper {
       display: inline-grid;
       grid-template-columns: 65% 35%;
-      /* TODO: figure out expandable rows */
+      // TODO: figure out expandable rows
       grid-template-rows: 90px 250px 174px;
       width: 100%;
     }
@@ -244,7 +245,7 @@
               font-size: 10pt;
               left: 0;
               top: 50%;
-            }            
+            }
           }
           input[type="radio"] {
             display: none;
@@ -255,9 +256,9 @@
             border: none;
           }
         }
-      }  // void-points-radios
+      } // void-points-radios
       .void-points-text-top {
-        /* TODO: get IBM Plex Mono to work with font-weight */
+        // TODO: get IBM Plex Mono to work with font-weight
         font-family: monospace;
         font-size: 13px;
         font-weight: bold;
@@ -265,7 +266,7 @@
       .void-points-text-bottom {
         font-size: 12px;
       }
-    }  // void-points-block
+    } // void-points-block
     .cosmic-mutations-block {
       display: flex;
       flex-direction: column;
@@ -274,16 +275,12 @@
       grid-column-start: 1;
       grid-column-end: 3;
       grid-row-start: 2;
-    }
-    .cosmic-mutations-block .mutations-title {
-      flex: 0 0 10px;
-    }
-    // .cosmic-mutations-block .mutations-row {
-    //   border-bottom: 1px dotted black;
-    //   flex: 0 0 44px;
-    // }
-    .cosmic-mutations-block div.mutations-row:nth-last-child(1) {
-      border-bottom: none;
+      .mutations-title {
+        flex: 0 0 10px;
+      }
+      // div.mutations-row:nth-last-child(1) {
+      //   border-bottom: none;
+      // }
     }
     .void-corruption-block {
       border-right: 2px solid black;
@@ -291,63 +288,56 @@
       flex-direction: column;
       grid-column-start: 1;
       grid-row-start: 3;
+      .corruption-title {
+        flex: 0 0 10px;
+      }
     }
-    .void-corruption-block .corruption-title {
-      flex: 0 0 10px;
-    }
-    // .void-corruption-block .corruption-row {
-    //   border-bottom: 1px dotted black;
-    //   flex: 0 0 44px;
-    // }
     .life-support-block {
       display: flex;
       flex-direction: column;
       grid-column-start: 2;
       grid-row-start: 3;
-    }
-    .life-support-block .oxygen-tank-row {
-      display: flex;
-      flex: 0 0 100px;
-      flex-direction: column;
-    }
-    .oxygen-tank-row .oxygen-numbers {
-      display: flex;
-      flex: 0 0 20px;
-      font-size: 11px;
-      justify-content: space-between;
-      padding-left: 20px;
-      padding-right: 70px;
-    }
-    .oxygen-tank-row .oxygen-tank {
-      background-image: url("../images/oxygen_tank.png");
-      background-repeat: no-repeat;
-      background-size: contain;
-      flex: 0 0 58px;
-      height: 58px;
-      margin-left: 12px;
-      margin-right: 0px;
-      width: 226px;
-    }
-    .oxygen-tank-row .oxygen-tank .oxygen-increments {
-      display: flex;
-      padding-left: 17px;
-      padding-top: 6px;
-    }
-    .oxygen-tank-row .oxygen-tank .oxygen-increments .increment {
-      border-right: 1px dotted black;
-      height: 45px;
-      padding-top: 12px;
-      width: 21.5px;
-    }
-    .oxygen-tank-row
-      .oxygen-tank
-      .oxygen-increments
-      .increment:nth-last-child(1) {
-      border-right: none;
-    }
-    .life-support-block .tank-space {
-      flex: 1;
-    }
+      .oxygen-tank-row {
+        display: flex;
+        flex: 0 0 100px;
+        flex-direction: column;
+        .oxygen-numbers {
+          display: flex;
+          flex: 0 0 20px;
+          font-size: 11px;
+          justify-content: space-between;
+          padding-left: 20px;
+          padding-right: 70px;
+        }
+        .oxygen-tank {
+          background-image: url("../images/oxygen_tank.png");
+          background-repeat: no-repeat;
+          background-size: contain;
+          flex: 0 0 58px;
+          height: 58px;
+          margin-left: 12px;
+          margin-right: 0px;
+          width: 226px;
+          .oxygen-increments {
+            display: flex;
+            padding-left: 17px;
+            padding-top: 6px;
+            .increment {
+              border-right: 1px dotted black;
+              height: 45px;
+              padding-top: 12px;
+              width: 21.5px;
+            }
+            .increment:nth-last-child(1) {
+              border-right: none;
+            }
+          }
+        }
+      } // oxygen-tank
+      .tank-space {
+        flex: 1;
+      }
+    } // life-support-block
   } // situation-tab
 
   /* ====================== */
