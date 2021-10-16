@@ -477,14 +477,6 @@
   position: relative;
   padding-left: 27px;
 }
-.deathinspace.sheet.actor.character .situation-tab .void-points-block .void-points-radios ul.void-points label input[type=radio] {
-  display: none;
-}
-.deathinspace.sheet.actor.character .situation-tab .void-points-block .void-points-radios ul.void-points input[type=radio]:checked + span {
-  background: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
-  border: none;
-}
 .deathinspace.sheet.actor.character .situation-tab .void-points-block .void-points-radios ul.void-points label span {
   border: 1px solid #7a7971;
   width: 20px;
@@ -495,28 +487,24 @@
   text-align: center;
   border-radius: 100%;
   font-size: 10pt;
-  /*font-family: var(--item-font);*/
   left: 0;
   top: 50%;
 }
-.deathinspace.sheet.actor.character .situation-tab .void-points-block .void-points-roll {
-  flex: 0 0 50px;
-  padding-right: 14px;
-  text-align: right;
-  width: 100%;
-  font-size: 11px;
+.deathinspace.sheet.actor.character .situation-tab .void-points-block .void-points-radios ul.void-points input[type=radio] {
+  display: none;
 }
-.deathinspace.sheet.actor.character .situation-tab .void-points-block .void-points-block span.void-points-up-arrow {
-  font-size: 20px;
-  font-weight: 700;
+.deathinspace.sheet.actor.character .situation-tab .void-points-block .void-points-radios ul.void-points input[type=radio]:checked + span {
+  background: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
+  border: none;
 }
-.deathinspace.sheet.actor.character .situation-tab .void-points-block .void-points-block .void-points-text-top {
+.deathinspace.sheet.actor.character .situation-tab .void-points-block .void-points-text-top {
   /* TODO: get IBM Plex Mono to work with font-weight */
   font-family: monospace;
   font-size: 13px;
   font-weight: bold;
 }
-.deathinspace.sheet.actor.character .situation-tab .void-points-block .void-points-block .void-points-text-bottom {
+.deathinspace.sheet.actor.character .situation-tab .void-points-block .void-points-text-bottom {
   font-size: 12px;
 }
 .deathinspace.sheet.actor.character .situation-tab .cosmic-mutations-block {
