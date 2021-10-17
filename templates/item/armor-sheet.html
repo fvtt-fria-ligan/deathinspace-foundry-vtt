@@ -1,0 +1,62 @@
+
+<form class="{{cssClass}}">
+  <header class="sheet-header">
+    <div class="header-row">
+      <div class="col1">
+        <div class="item-image"> <img src="{{data.img}}" data-edit="img" title="{{data.name}}"/></div>
+      </div>
+      <div class="col2">
+        <div class="row1">
+          <div class="game-title">DEATH IN SPACE</div>
+          <div class="sheet-title">ARMOR SHEET</div>
+        </div>
+        <div class="row2">
+          <div>
+             NAME </div>
+          <div class="item-name">
+            <input class="item-name" name="name" type="text" value="{{item.name}}" placeholder="Item Name" spellcheck="false"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="notes">{{ localize 'DIS.TabNotes' }}</a><a class="item" data-tab="data">{{ localize 'DIS.TabData' }}</a></nav>
+  <section class="sheet-body"> 
+    <div class="tab notes-tab" data-group="primary" data-tab="notes">
+      <div class="notes-wrapper">{{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}</div>
+    </div>
+    <div class="tab data-tab" data-group="primary" data-tab="data">
+      <div class="data-wrapper">
+        <div class="form-group"> 
+          <label>Cost</label>
+          <input type="number" name="data.cost" value="{{data.data.cost}}" placeholder="0" data-dtype="Number"/>
+        </div>
+        <div class="form-group"> 
+          <label>Slots </label>
+          <input type="number" name="data.slots" value="{{data.data.slots}}" placeholder="0" data-dtype="Number"/>
+        </div>
+        <div class="form-group"> 
+          <label>Units</label>
+          <input type="number" name="data.units" value="{{data.data.units}}" placeholder="1" data-dtype="Number"/>
+        </div>
+        <div class="form-spacer"> </div>
+        <div class="form-group"> 
+          <label>Defense Rating Bonus</label>
+          <input type="number" name="data.defenseRatingBonus" value="{{data.data.defenseRatingBonus}}" placeholder="0" data-dtype="Number"/>
+        </div>
+        <div class="form-group"> 
+          <label>Protects Against  </label>
+          <input type="text" name="data.protectsAgainst" value="{{data.data.protectsAgainst}}" data-dtype="String"/>
+        </div>
+        <div class="form-group"> 
+          <label>Life Support (Max)</label>
+          <input type="number" name="data.lifeSupport.max" value="{{data.data.lifeSupport.max}}" placeholder="0" data-dtype="Number"/>
+        </div>
+        <div class="form-group"> 
+          <label>Life Support (Current)</label>
+          <input type="number" name="data.lifeSupport.value" value="{{data.data.lifeSupport.value}}" placeholder="0" data-dtype="Number"/>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>

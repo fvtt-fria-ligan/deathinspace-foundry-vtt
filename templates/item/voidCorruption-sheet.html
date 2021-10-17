@@ -1,0 +1,32 @@
+
+<form class="{{cssClass}}">
+  <header class="sheet-header">
+    <div class="header-row">
+      <div class="col1">
+        <div class="item-image"> <img src="{{data.img}}" data-edit="img" title="{{data.name}}"/></div>
+      </div>
+      <div class="col2">
+        <div class="row1">
+          <div class="game-title">DEATH IN SPACE</div>
+          <div class="sheet-title">VOID CORRUPTION SHEET</div>
+        </div>
+        <div class="row2">
+          <div>
+             NAME </div>
+          <div class="item-name">
+            <input class="item-name" name="name" type="text" value="{{item.name}}" placeholder="Item Name" spellcheck="false"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="notes">{{ localize 'DIS.TabNotes' }}</a><a class="item" data-tab="data">{{ localize 'DIS.TabData' }}</a></nav>
+  <section class="sheet-body"> 
+    <div class="tab notes-tab" data-group="primary" data-tab="notes">
+      <div class="notes-wrapper">{{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}</div>
+    </div>
+    <div class="tab data-tab" data-group="primary" data-tab="data">
+      <div class="data-wrapper"></div>
+    </div>
+  </section>
+</form>

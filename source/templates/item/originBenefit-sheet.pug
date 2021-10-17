@@ -1,0 +1,32 @@
+form(class="{{cssClass}}")
+  header.sheet-header
+    .header-row
+      .col1
+        .item-image 
+          img(src="{{data.img}}" data-edit="img" title="{{data.name}}")
+      .col2
+        .row1
+          .game-title
+            | DEATH IN SPACE
+          .sheet-title
+            | ORIGIN BENEFIT SHEET
+        .row2
+          div 
+            | NAME 
+          div.item-name
+            input(class="item-name" name="name" type="text" value="{{item.name}}" placeholder="Item Name" spellcheck="false")
+
+  nav(class="sheet-tabs tabs" data-group="primary")
+    a(class="item" data-tab="notes")
+      | {{ localize 'DIS.TabNotes' }}
+    a(class="item" data-tab="data")
+      | {{ localize 'DIS.TabData' }}
+
+  section.sheet-body 
+
+    div(class="tab notes-tab" data-group="primary" data-tab="notes")
+      .notes-wrapper
+        | {{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}
+
+    div(class="tab data-tab" data-group="primary" data-tab="data")
+      .data-wrapper
