@@ -3,11 +3,36 @@
     border: 4px solid #7a7971;
   }
   .sheet-header {
-    height: 80px;
+    height: 160px;
     .header-row {
       display: flex;
-      height: 80px;
+      height: 160px;
+      margin-top: 1px;
       .col1 {
+        display: flex;
+        flex: 0 0 160px;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+        .item-image {
+          background-color: #7a7971;
+          border-radius: 0;
+          height: 160px;
+          padding-top: 1px;
+          width: 160px;  
+          img {
+            border: none;
+            border-radius: 0;
+            height: 160px;
+            margin: 0;
+            padding: 0;
+            width: 160px;  
+          }
+        }
+      }
+      .col2 {
         flex: 1;
         margin: 0;
         padding: 10px;
@@ -19,45 +44,29 @@
         .sheet-title {
           color: #7a7971;
         }
-      }
-      .col2 {
-        border-left: 2px solid black;
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        height: 100%;
-        justify-content: space-between;
-        margin: 0;
-        padding: 10px;
+        .row1 {
+          border-bottom: 1px solid black;
+          height: 80px;
+        }
+        .row2 {
+          height: 80px;
+          padding-top: 10px;
+        }
       }
     }
   }
-  // .stat-block {
-  //   padding: 2px;
-  //   label {
-  //     display: block;
-  //     float: left;
-  //     font-size: 12px;
-  //     text-transform: uppercase;
-  //   }
-  // }
   .sheet-tabs {
-    background: #7a7971;
-    border-bottom: 1px solid #7a7971;
-    border-top: 1px solid #7a7971;
-    color: white;
+    background: #f4f3ed;
+    border-bottom: 1px solid #f4f3ed;
+    border-top: 1px solid #f4f3ed;
+    .item.active {
+      background-color: #7a7971;
+      color: white;
+    }
     .item:hover {
       color: white;
-      text-shadow: 0 0 10px #7a7971;
+      text-shadow: 0 0 10px black;
     }
-    .item.active {
-      background-color: white;
-      color: #7a7971;
-    }
-  }
-  .portrait img {
-    height: 100%;
-    width: 100%;
   }
   /* Notes tab */
   .notes-wrapper {
@@ -66,6 +75,7 @@
     height: 100%;
     width: 100%;
   }
+  /* Data tab */
   .data-wrapper .form-group {
     border-bottom: 1px dotted black;
     display: flex;

@@ -2,15 +2,19 @@ form(class="{{cssClass}}")
   header.sheet-header
     .header-row
       .col1
-        .game-title
-          | DEATH IN SPACE
-        .sheet-title
-          | EQUIPMENT SHEET
+        .item-image 
+          img(src="{{data.img}}" data-edit="img" title="{{data.name}}")
       .col2
-        div 
-          | SECTION 0. ITEM INFORMATION 
-        div.item-name
-          input(class="item-name" name="data.name" type="text" value="{{data.name}}" placeholder="Item Name" spellcheck="false")
+        .row1
+          .game-title
+            | DEATH IN SPACE
+          .sheet-title
+            | EQUIPMENT SHEET
+        .row2
+          div 
+            | NAME 
+          div.item-name
+            input(class="item-name" name="name" type="text" value="{{item.name}}" placeholder="Item Name" spellcheck="false")
 
   nav(class="sheet-tabs tabs" data-group="primary")
     a(class="item" data-tab="notes")
