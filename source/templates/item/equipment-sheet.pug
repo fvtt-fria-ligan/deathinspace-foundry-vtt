@@ -46,6 +46,15 @@ form(class="{{cssClass}}")
           label
             | Units
           input(type="number" name="data.units" value="{{data.data.units}}" placeholder="1" data-dtype="Number")
+        .form-spacer 
+        .form-group 
+          label
+            | Condition (Max)
+          input(type="number" name="data.condition.max" value="{{data.data.condition.max}}" placeholder="0" data-dtype="Number")        
+        .form-group 
+          label
+            | Condition (Current)
+          input(type="number" name="data.condition.current" value="{{data.data.condition.current}}" placeholder="0" data-dtype="Number")
         .form-group 
           label
             | Addictive

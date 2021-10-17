@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: "AndroclesOpti-Heavy";
-  src: url("../fonts/AndroclesOpti-Heavy.otf") format("opentype");
+  src: url("../assets/fonts/AndroclesOpti-Heavy.otf") format("opentype");
 }
 .deathinspace .editor,
 .deathinspace .editor-content {
@@ -34,7 +34,7 @@
 .deathinspace.sheet .window-content {
   /* inherited background is parchment img bg */
   /* background: var(--background-color); */
-  background: url(../images/seamless_paper_texture.png) repeat;
+  background: url(../assets/images/ui/seamless_paper_texture.png) repeat;
   color: var(--foreground-color);
   /* TODO: what is busted, that requires that extra trailing var to work? */
   /*font-family: var(--text-font)var;*/
@@ -98,102 +98,6 @@
 }
 .deathinspace.sheet .editor {
   padding: 0 8px;
-}
-.deathinspace.sheet.item {
-  /* Notes tab */
-  /* Data tab */
-}
-.deathinspace.sheet.item form {
-  border: 4px solid #7a7971;
-}
-.deathinspace.sheet.item .sheet-header {
-  height: 160px;
-}
-.deathinspace.sheet.item .sheet-header .header-row {
-  display: flex;
-  height: 160px;
-  margin-top: 1px;
-}
-.deathinspace.sheet.item .sheet-header .header-row .col1 {
-  display: flex;
-  flex: 0 0 160px;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-}
-.deathinspace.sheet.item .sheet-header .header-row .col1 .item-image {
-  background-color: #7a7971;
-  border-radius: 0;
-  height: 160px;
-  padding-top: 1px;
-  width: 160px;
-}
-.deathinspace.sheet.item .sheet-header .header-row .col1 .item-image img {
-  border: none;
-  border-radius: 0;
-  height: 160px;
-  margin: 0;
-  padding: 0;
-  width: 160px;
-}
-.deathinspace.sheet.item .sheet-header .header-row .col2 {
-  flex: 1;
-  margin: 0;
-  padding: 10px;
-}
-.deathinspace.sheet.item .sheet-header .header-row .col2 .game-title {
-  color: #7a7971;
-  font-family: var(--title-font);
-  font-size: 36px;
-}
-.deathinspace.sheet.item .sheet-header .header-row .col2 .sheet-title {
-  color: #7a7971;
-}
-.deathinspace.sheet.item .sheet-header .header-row .col2 .row1 {
-  border-bottom: 1px solid black;
-  height: 80px;
-}
-.deathinspace.sheet.item .sheet-header .header-row .col2 .row2 {
-  height: 80px;
-  padding-top: 10px;
-}
-.deathinspace.sheet.item .sheet-tabs {
-  background: #f4f3ed;
-  border-bottom: 1px solid #f4f3ed;
-  border-top: 1px solid #f4f3ed;
-}
-.deathinspace.sheet.item .sheet-tabs .item.active {
-  background-color: #7a7971;
-  color: white;
-}
-.deathinspace.sheet.item .sheet-tabs .item:hover {
-  color: white;
-  text-shadow: 0 0 10px black;
-}
-.deathinspace.sheet.item .notes-wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-}
-.deathinspace.sheet.item .data-wrapper .form-group {
-  border-bottom: 1px dotted black;
-  display: flex;
-  flex: 0 0 50px;
-  width: 100%;
-}
-.deathinspace.sheet.item .data-wrapper .form-group label {
-  flex: 1;
-  font-size: 16px;
-  padding-right: 10px;
-  text-align: right;
-}
-.deathinspace.sheet.item .data-wrapper .form-group input[type=number],
-.deathinspace.sheet.item .data-wrapper .form-group input[type=text] {
-  flex: 1;
-  text-align: center;
 }
 /* ====================== */
 /* Actor sheet */
@@ -540,7 +444,7 @@
   padding-right: 70px;
 }
 .deathinspace.sheet.actor.character .situation-tab .life-support-block .oxygen-tank-row .oxygen-tank {
-  background-image: url("../images/oxygen_tank.png");
+  background-image: url("../assets/images/ui/oxygen_tank.png");
   background-repeat: no-repeat;
   background-size: contain;
   flex: 0 0 58px;
@@ -1020,4 +924,103 @@
 }
 .deathinspace.sheet.actor.hub .header-row .col1 .sheet-title {
   color: #32a6d2;
+}
+.deathinspace.sheet.item {
+  /* Notes tab */
+  /* Data tab */
+}
+.deathinspace.sheet.item form {
+  border: 4px solid #7a7971;
+}
+.deathinspace.sheet.item .sheet-header {
+  height: 160px;
+}
+.deathinspace.sheet.item .sheet-header .header-row {
+  display: flex;
+  height: 160px;
+  margin-top: 1px;
+}
+.deathinspace.sheet.item .sheet-header .header-row .col1 {
+  display: flex;
+  flex: 0 0 160px;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+.deathinspace.sheet.item .sheet-header .header-row .col1 .item-image {
+  background-color: #7a7971;
+  border-radius: 0;
+  height: 160px;
+  padding-top: 1px;
+  width: 160px;
+}
+.deathinspace.sheet.item .sheet-header .header-row .col1 .item-image img {
+  border: none;
+  border-radius: 0;
+  height: 160px;
+  margin: 0;
+  padding: 0;
+  width: 160px;
+}
+.deathinspace.sheet.item .sheet-header .header-row .col2 {
+  flex: 1;
+  margin: 0;
+  padding: 10px;
+}
+.deathinspace.sheet.item .sheet-header .header-row .col2 .game-title {
+  color: #7a7971;
+  font-family: var(--title-font);
+  font-size: 36px;
+}
+.deathinspace.sheet.item .sheet-header .header-row .col2 .sheet-title {
+  color: #7a7971;
+}
+.deathinspace.sheet.item .sheet-header .header-row .col2 .row1 {
+  border-bottom: 1px solid black;
+  height: 80px;
+}
+.deathinspace.sheet.item .sheet-header .header-row .col2 .row2 {
+  height: 80px;
+  padding-top: 10px;
+}
+.deathinspace.sheet.item .sheet-tabs {
+  background: #f4f3ed;
+  border-bottom: 1px solid #f4f3ed;
+  border-top: 1px solid #f4f3ed;
+}
+.deathinspace.sheet.item .sheet-tabs .item.active {
+  background-color: #7a7971;
+  color: white;
+}
+.deathinspace.sheet.item .sheet-tabs .item:hover {
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+.deathinspace.sheet.item .notes-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.deathinspace.sheet.item .data-wrapper .form-group {
+  border-bottom: 1px dotted black;
+  display: flex;
+  flex: 0 0 50px;
+  width: 100%;
+}
+.deathinspace.sheet.item .data-wrapper .form-group label {
+  flex: 1;
+  font-size: 16px;
+  padding-right: 10px;
+  text-align: right;
+}
+.deathinspace.sheet.item .data-wrapper .form-group input[type=number],
+.deathinspace.sheet.item .data-wrapper .form-group input[type=text] {
+  flex: 1;
+  text-align: center;
+}
+.deathinspace.sheet.item .data-wrapper .form-spacer {
+  height: 20px;
 }

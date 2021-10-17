@@ -28,11 +28,17 @@ form(class="{{cssClass}}")
       .notes-wrapper
         | {{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}
 
-
     div(class="tab data-tab" data-group="primary" data-tab="data")
       .data-wrapper
         .form-group 
           label
-            | Foo Field 
-          input(type="number" name="data.fooField" value="{{data.data.fooField}}" placeholder="1" data-dtype="Number")
-
+            | Cost
+          input(type="number" name="data.cost" value="{{data.data.cost}}" placeholder="0" data-dtype="Number")
+        .form-group 
+          label
+            | Slots 
+          input(type="number" name="data.slots" value="{{data.data.slots}}" placeholder="0" data-dtype="Number")
+        .form-group 
+          label
+            | Units
+          input(type="number" name="data.units" value="{{data.data.units}}" placeholder="1" data-dtype="Number")

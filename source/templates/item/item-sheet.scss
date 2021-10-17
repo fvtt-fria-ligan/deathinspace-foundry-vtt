@@ -21,14 +21,14 @@
           border-radius: 0;
           height: 160px;
           padding-top: 1px;
-          width: 160px;  
+          width: 160px;
           img {
             border: none;
             border-radius: 0;
             height: 160px;
             margin: 0;
             padding: 0;
-            width: 160px;  
+            width: 160px;
           }
         }
       }
@@ -76,21 +76,26 @@
     width: 100%;
   }
   /* Data tab */
-  .data-wrapper .form-group {
-    border-bottom: 1px dotted black;
-    display: flex;
-    flex: 0 0 50px;
-    width: 100%;
-    label {
-      flex: 1;
-      font-size: 16px;
-      padding-right: 10px;
-      text-align: right;
+  .data-wrapper {
+    .form-group {
+      border-bottom: 1px dotted black;
+      display: flex;
+      flex: 0 0 50px;
+      width: 100%;
+      label {
+        flex: 1;
+        font-size: 16px;
+        padding-right: 10px;
+        text-align: right;
+      }
+      input[type="number"],
+      input[type="text"] {
+        flex: 1;
+        text-align: center;
+      }
     }
-    input[type="number"],
-    input[type="text"] {
-      flex: 1;
-      text-align: center;
+    .form-spacer {
+      height: 20px;
     }
-  }
+  } // data-wrapper
 }
