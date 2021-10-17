@@ -83,10 +83,6 @@
     ],
     "templates": {
       "baseEquipment": {
-        "condition": {
-          "max": 0,
-          "value": 0
-        },
         "cost": 0,
         "notes": "",
         "slots": 0,
@@ -108,6 +104,10 @@
     },
     "equipment": {
       "addictive": false,
+      "condition": {
+        "max": 0,
+        "value": 0
+      },
       "templates": ["baseEquipment"]
     },
     "cosmicMutation": {
@@ -135,6 +135,10 @@
     },
     "weapon": {
       "templates": ["baseEquipment"],
+      "condition": {
+        "max": 0,
+        "value": 0
+      },
       "damage": "1d4",
       "usesBeforeReload": {
         "max": 0,
