@@ -58,7 +58,7 @@
         </div>
         <div class="stat-block looks-block">
           <label>LOOKS</label>
-          <textarea name="data.looks" rows="4"> {{data.data.looks}}</textarea>
+          <textarea name="data.looks" rows="4">{{data.data.looks}}</textarea>
         </div>
         <div class="stat-block ability-block">
           <label>ABILITY</label><br/>
@@ -66,25 +66,25 @@
             <div class="ability-row"> 
               <div class="ability-name">BODY</div>
               <div class="ability-value"> 
-                <input class="stat-input" type="number" name="data.abilities.BODY.value" value="{{data.data.abilities.BODY.value}}" data-dtype="Number"/>
+                <input class="stat-input" type="number" name="data.abilities.BODY.value" value="{{data.data.abilities.BODY.value}}" data-dtype="Number" min="-3" max="6"/>
               </div>
             </div>
             <div class="ability-row"> 
               <div class="ability-name">DEXTERITY</div>
               <div class="ability-value"> 
-                <input class="stat-input" type="number" name="data.abilities.DEXTERITY.value" value="{{data.data.abilities.DEXTERITY.value}}" data-dtype="Number"/>
+                <input class="stat-input" type="number" name="data.abilities.DEXTERITY.value" value="{{data.data.abilities.DEXTERITY.value}}" data-dtype="Number" min="-3" max="6"/>
               </div>
             </div>
             <div class="ability-row"> 
               <div class="ability-name">SAVVY</div>
               <div class="ability-value"> 
-                <input class="stat-input" type="number" name="data.abilities.SAVVY.value" value="{{data.data.abilities.SAVVY.value}}" data-dtype="Number"/>
+                <input class="stat-input" type="number" name="data.abilities.SAVVY.value" value="{{data.data.abilities.SAVVY.value}}" data-dtype="Number" min="-3" max="6"/>
               </div>
             </div>
             <div class="ability-row"> 
               <div class="ability-name">TECH</div>
               <div class="ability-value"> 
-                <input class="stat-input" type="number" name="data.abilities.TECH.value" value="{{data.data.abilities.TECH.value}}" data-dtype="Number"/>
+                <input class="stat-input" type="number" name="data.abilities.TECH.value" value="{{data.data.abilities.TECH.value}}" data-dtype="Number" min="-3" max="6"/>
               </div>
             </div>
           </div>

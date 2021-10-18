@@ -55,8 +55,7 @@ form(class="{{cssClass}}" autocomplete="off")
           input(type="text" class="stat-input" name="data.drive" value="{{data.data.drive}}" data-dtype="String")
         .stat-block.looks-block
           label LOOKS
-          textarea(name="data.looks", rows="4") 
-            | {{data.data.looks}}
+          textarea(name="data.looks", rows="4") {{data.data.looks}}
         .stat-block.ability-block
           label ABILITY
           br
@@ -65,7 +64,7 @@ form(class="{{cssClass}}" autocomplete="off")
               .ability-row 
                 .ability-name=val
                 .ability-value 
-                  input(type="number" class="stat-input" name="data.abilities." + val + ".value" value="{{data.data.abilities." + val + ".value}}" data-dtype="Number")
+                  input(type="number" class="stat-input" name="data.abilities." + val + ".value" value="{{data.data.abilities." + val + ".value}}" data-dtype="Number" min="-3" max="6")
         .defense-row 
           .defense-text 
             label DEFENSE RATING

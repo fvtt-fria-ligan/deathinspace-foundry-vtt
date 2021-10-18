@@ -35,8 +35,6 @@ export class DISCharacterSheet extends DISActorSheet {
     // }
 
     this.prepareCharacterItems(data);
-
-    console.log(superData);
     return superData;
   }  
 
