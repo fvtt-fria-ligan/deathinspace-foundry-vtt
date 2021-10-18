@@ -89,7 +89,7 @@
       "baseEquipment": {
         "cost": 0,
         "notes": "",
-        "slots": 0,
+        "slots": 0
       }
     },
     "armor": {
@@ -128,9 +128,6 @@
       "outputPower": 3,
       "requirement": "",
       "speed": ""
-    },
-    "voidCorruption": {
-      "notes": ""
     },
     "weapon": {
       "templates": ["baseEquipment"],

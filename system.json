@@ -8,7 +8,50 @@
   "scripts": [],
   "esmodules": ["module/deathinspace.js"],
   "styles": ["css/deathinspace.css"],
-  "packs": [],
+  "packs": [
+    {
+      "name": "armor",
+      "label": "Armor",
+      "system": "deathinspace",
+      "path": "./packs/armor.db",
+      "entity": "Item"
+    },    
+    {
+      "name": "electronics",
+      "label": "Electronics",
+      "system": "deathinspace",
+      "path": "./packs/electronics.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment",
+      "label": "Equipment",
+      "system": "deathinspace",
+      "path": "./packs/equipment.db",
+      "entity": "Item"
+    },
+    {
+      "name": "origins",
+      "label": "Origins",
+      "system": "deathinspace",
+      "path": "./packs/origins.db",
+      "entity": "Item"
+    },
+    {
+      "name": "origin-benefits",
+      "label": "Origin Benefits",
+      "system": "deathinspace",
+      "path": "./packs/origin-benefits.db",
+      "entity": "Item"
+    },
+    {
+      "name": "weapons",
+      "label": "Weapons",
+      "system": "deathinspace",
+      "path": "./packs/weapons.db",
+      "entity": "Item"
+    }    
+  ],
   "languages": [
     {
       "lang": "en",
