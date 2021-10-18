@@ -212,7 +212,7 @@
                CONDITION</div>
             <div class="item-controls">&nbsp;              </div>
           </div>{{#each data.data.equipment as |item id|}}
-          <div class="equipment-row">
+          <div class="equipment-row item" data-item-id="{{item._id}}">
             <div class="equipment-name">{{add id 1}}. {{item.name}}</div>
             <div class="equipment-condition">
                {{ item.data.condition.value }} / {{ item.data.condition.max}}</div>
@@ -233,7 +233,7 @@
             <div class="item-controls">
                &nbsp;</div>
           </div>
-          <div class="weapon-row"> 
+          <div class="weapon-row item" data-item-id="{{item._id}}"> 
             <div class="weapon-name">
                {{item.name}}</div>
             <div class="weapon-damage">
@@ -257,7 +257,7 @@
             <div class="item-controls">
                &nbsp;                </div>
           </div>
-          <div class="armor-row">
+          <div class="armor-row item" data-item-id="{{item._id}}">
             <div class="armor-name">
                {{item.name}}</div>
             <div class="armor-protects-against">

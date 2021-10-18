@@ -154,7 +154,7 @@ form(class="{{cssClass}}" autocomplete="off")
             .item-controls
               | &nbsp;              
           | {{#each data.data.equipment as |item id|}}
-          .equipment-row
+          .equipment-row.item(data-item-id="{{item._id}}")
             .equipment-name
               | {{add id 1}}. {{item.name}}
             .equipment-condition 
@@ -178,7 +178,7 @@ form(class="{{cssClass}}" autocomplete="off")
               | CONDITION
             .item-controls 
               | &nbsp;
-          .weapon-row 
+          .weapon-row.item(data-item-id="{{item._id}}") 
             .weapon-name 
               | {{item.name}}
             .weapon-damage 
@@ -204,7 +204,7 @@ form(class="{{cssClass}}" autocomplete="off")
                 | DR BONUS 
               .item-controls 
                 | &nbsp;                
-          .armor-row
+          .armor-row.item(data-item-id="{{item._id}}")
             .armor-name 
               | {{item.name}}
             .armor-protects-against 
