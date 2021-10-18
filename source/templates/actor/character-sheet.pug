@@ -26,9 +26,17 @@ form(class="{{cssClass}}" autocomplete="off")
 
     div(class="tab personal-tab" data-group="primary" data-tab="personal")
       .personal-wrapper 
-        .origin-row 
+        .origin-row.item(data-item-id="{{data.data.origin._id}}") 
           .origin-label ORIGIN 
+          | {{#if data.data.origin}}
           .origin 
+            | {{data.data.origin.name}}
+          .item-controls 
+            a.item-control.item-edit
+              i.fas.fa-edit                          
+            a.item-control.item-delete
+              i.fas.fa-trash
+          | {{/if}}
         .name-row 
           .stat-block
             label NAME

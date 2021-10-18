@@ -172,11 +172,12 @@
   color: white;
 }
 .deathinspace.sheet.actor.character .sheet-tabs .item:hover {
-  color: white;
-  text-shadow: 0 0 10px #eb1c26;
+  color: black;
+  text-shadow: 0 0 10px white;
 }
 .deathinspace.sheet.actor.character .sheet-tabs .item.active {
   background-color: white;
+  border-bottom: 1px solid #eb1c26;
   color: #eb1c26;
 }
 .deathinspace.sheet.actor.character .personal-tab .personal-wrapper {
@@ -199,6 +200,7 @@
   text-align: center;
 }
 .deathinspace.sheet.actor.character .personal-tab div.origin {
+  flex: 1;
   padding-left: 10px;
 }
 .deathinspace.sheet.actor.character .personal-tab .name-row {
