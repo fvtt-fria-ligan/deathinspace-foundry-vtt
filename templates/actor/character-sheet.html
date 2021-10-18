@@ -215,7 +215,10 @@
             <input class="stat-input" type="number" name="data.debt" value="{{data.data.debt}}" data-dtype="Number"/>
           </div>
         </div>
-        <div class="big-items"> </div>
+        <div class="belongings">
+           {{#each data.data.equipment as |item id|}}
+          <div class="belonging">{{item.name}}</div>{{/each}}
+        </div>
       </div>
     </div>
     <div class="tab weaponry-tab" data-group="primary" data-tab="weaponry">

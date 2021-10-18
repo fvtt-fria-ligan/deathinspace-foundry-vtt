@@ -154,7 +154,12 @@ form(class="{{cssClass}}" autocomplete="off")
           .stat-block.debt 
             label DEBT
             input(type="number" class="stat-input" name="data.debt" value="{{data.data.debt}}" data-dtype="Number")
-        .big-items 
+        .belongings 
+          | {{#each data.data.equipment as |item id|}}
+          .belonging
+            | {{item.name}}
+          | {{/each}}
+
 
     div(class="tab weaponry-tab" data-group="primary" data-tab="weaponry")
       .weaponry-wrapper 

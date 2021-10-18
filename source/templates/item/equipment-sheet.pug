@@ -40,10 +40,6 @@ form(class="{{cssClass}}")
           input(type="number" name="data.slots" value="{{data.data.slots}}" placeholder="0" data-dtype="Number")
         .form-group 
           label
-            | Condition
-          input(type="number" name="data.condition" value="{{data.data.condition}}" placeholder="0" data-dtype="Number")
-        .form-group 
-          label
             | Units
           input(type="number" name="data.units" value="{{data.data.units}}" placeholder="1" data-dtype="Number")
         .form-spacer 
@@ -54,7 +50,7 @@ form(class="{{cssClass}}")
         .form-group 
           label
             | Condition (Current)
-          input(type="number" name="data.condition.current" value="{{data.data.condition.current}}" placeholder="0" data-dtype="Number")
+          input(type="number" name="data.condition.value" value="{{data.data.condition.value}}" placeholder="0" data-dtype="Number")
         .form-group 
           label
             | Addictive
