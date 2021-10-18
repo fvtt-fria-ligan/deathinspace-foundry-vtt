@@ -66,9 +66,23 @@
     }
     .origin-benefit-block {
       border-bottom: 2px solid black;
+      display: flex;
+      flex-direction: column;
       grid-column-start: 3;
       grid-row-start: 2;
       grid-row-end: 6;
+      label {
+        margin-bottom: 10px;
+      }
+      .origin-benefit-row {
+        border-bottom: 1px dotted black;
+        display: flex;
+        flex: 0 0 24;
+        justify-content: space-between;
+        .origin-name {
+          flex: 1;
+        }
+      }
     }
     .xp-block {
       border-bottom: 2px solid black;

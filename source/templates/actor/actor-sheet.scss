@@ -40,6 +40,9 @@
   .item-controls {
     display: flex;
     flex: 0 0 50px;
-    justify-content: space-evenly;
+    justify-content: flex-end;
+    a {
+      margin-right: 5px;
+    }
   }
 }

@@ -46,6 +46,17 @@ form(class="{{cssClass}}" autocomplete="off")
             input(type="text" name="data.nickName" value="{{data.data.nickName}}" placeholder="{{ localize 'DIS.NickName' }}" spellcheck="false")
         .stat-block.origin-benefit-block
           label ORIGIN BENEFITS
+          .origin-benefits 
+            | {{#each data.data.originBenefits as |item id|}}
+            .origin-benefit-row.item(data-item-id="{{item._id}}")
+              .origin-benefit-name
+                | {{item.name}}
+              .item-controls 
+                a.item-control.item-edit
+                  i.fas.fa-edit                          
+                a.item-control.item-delete
+                  i.fas.fa-trash
+            | {{/each}}
         .stat-block.xp-block
           label XP
           input(type="number" class="stat-input" name="data.xp.value" value="{{data.data.xp.value}}" data-dtype="Number")
