@@ -32,35 +32,31 @@ form(class="{{cssClass}}")
       .data-wrapper
         .form-group 
           label
-            | Cost
-          input(type="number" name="data.cost" value="{{data.data.cost}}" placeholder="0" data-dtype="Number")
-        .form-group 
-          label
             | Slots 
           input(type="number" name="data.slots" value="{{data.data.slots}}" placeholder="0" data-dtype="Number")
         .form-group 
           label
-            | Units
-          input(type="number" name="data.units" value="{{data.data.units}}" placeholder="1" data-dtype="Number")
+            | Cost
+          input(type="number" name="data.cost" value="{{data.data.cost}}" placeholder="0" data-dtype="Number")
         .form-spacer
         .form-group 
           label
-            | Damage
-          input(type="text" name="data.damage" value="{{data.data.damage}}" placeholder="1d4" data-dtype="String")
-        .form-group 
-          label
-            | Uses Before Reload (Max)
-          input(type="number" name="data.usesBeforeReload.max" value="{{data.data.usesBeforeReload.max}}" placeholder="0" data-dtype="Number")          
-        .form-group 
-          label
-            | Uses Before Reload (Current)
-          input(type="number" name="data.usesBeforeReload.value" value="{{data.data.usesBeforeReload.value}}" placeholder="0" data-dtype="Number")          
+            | Condition (Current)
+          input(type="number" name="data.condition.value" value="{{data.data.condition.value}}" placeholder="0" data-dtype="Number")        
         .form-group 
           label
             | Condition (Max)
           input(type="number" name="data.condition.max" value="{{data.data.condition.max}}" placeholder="0" data-dtype="Number")        
         .form-group 
           label
-            | Condition (Current)
-          input(type="number" name="data.condition.value" value="{{data.data.condition.value}}" placeholder="0" data-dtype="Number")        
+            | Uses Before Reload (Current)
+          input(type="number" name="data.usesBeforeReload.value" value="{{data.data.usesBeforeReload.value}}" placeholder="0" data-dtype="Number")          
+        .form-group 
+          label
+            | Uses Before Reload (Max)
+          input(type="number" name="data.usesBeforeReload.max" value="{{data.data.usesBeforeReload.max}}" placeholder="0" data-dtype="Number")          
+        .form-group 
+          label
+            | Damage
+          input(type="text" name="data.damage" value="{{data.data.damage}}" placeholder="1d4" data-dtype="String")
 

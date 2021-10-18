@@ -3,12 +3,12 @@
   --foreground-color: #000000;
   --highlight-background-color: #eb1c26;
   --highlight-foreground-color: #ffffff;
-  --tab-font: "Helvetica";
+  --tab-font: "IBM Plex Mono";
   --title-font: "AndroclesOpti-Heavy";
   --text-font: "IBM Plex Mono";
   --input-font: sans-serif;
 }
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Roboto&Varta:wght@700display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Roboto&Varta:wght@700display=swap');
 @font-face {
   font-family: "AndroclesOpti-Heavy";
   src: url("../assets/fonts/AndroclesOpti-Heavy.otf") format("opentype");

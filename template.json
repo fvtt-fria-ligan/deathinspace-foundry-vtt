@@ -31,6 +31,10 @@
         "value": 1
       },
       "holos": 0,
+      "lifeSupport": {
+        "max": 7,
+        "value": 7
+      },
       "looks": "",
       "nickname": "",
       "notes": "",
@@ -86,16 +90,11 @@
         "cost": 0,
         "notes": "",
         "slots": 0,
-        "units": 1
       }
     },
     "armor": {
       "templates": ["baseEquipment"],
       "defenseRatingBonus": 0,
-      "lifeSupport": {
-        "max": 0,
-        "value": 0
-      },
       "protectsAgainst": ""
     },
     "cargo": {
