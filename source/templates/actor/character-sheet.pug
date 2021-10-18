@@ -14,15 +14,13 @@ form(class="{{cssClass}}" autocomplete="off")
 
   nav(class="sheet-tabs tabs" data-group="primary")
     a(class="item" data-tab="personal")
-      | {{ localize 'DIS.TabPersonal' }}
+      | 1. {{ localize 'DIS.TabPersonal' }}
     a(class="item" data-tab="situation")
-      | {{ localize 'DIS.TabSituation' }}
+      | 2. {{ localize 'DIS.TabSituation' }}
     a(class="item" data-tab="belongings")
-      | {{ localize 'DIS.TabBelongings' }}
-    a(class="item" data-tab="weaponry")
-      | {{ localize 'DIS.TabWeaponry' }}
+      | 3. {{ localize 'DIS.TabBelongings' }}
     a(class="item" data-tab="notes")
-      | {{ localize 'DIS.TabNotes' }}
+      | 4. {{ localize 'DIS.TabNotes' }}
   
   section.sheet-body 
 
@@ -147,6 +145,78 @@ form(class="{{cssClass}}" autocomplete="off")
 
     div(class="tab belongings-tab" data-group="primary" data-tab="belongings")
       .belongings-wrapper 
+        .equipment 
+          .equipment-header
+            .equipment-name
+              | EQUIPMENT
+            .equipment-condition 
+              | CONDITION
+            .item-controls
+              | &nbsp;              
+          | {{#each data.data.equipment as |item id|}}
+          .equipment-row
+            .equipment-name
+              | {{add id 1}}. {{item.name}}
+            .equipment-condition 
+              | {{ item.data.condition.value }} / {{ item.data.condition.max}}
+            .item-controls
+              a.item-control.item-edit
+                i.fas.fa-edit                          
+              a.item-control.item-delete
+                i.fas.fa-trash  
+          | {{/each}}
+        .weapons 
+          | {{#each data.data.weapons as |item id|}}
+          .weapon-header 
+            .weapon-name 
+              | WEAPON {{add id 1}}
+            .weapon-damage 
+              | DAMAGE 
+            .weapon-ammo 
+              | AMMO 
+            .weapon-condition   
+              | CONDITION
+            .item-controls 
+              | &nbsp;
+          .weapon-row 
+            .weapon-name 
+              | {{item.name}}
+            .weapon-damage 
+              | {{item.data.damage}}
+            .weapon-ammo 
+              | {{item.data.usesBeforeReload.value}} /  {{item.data.usesBeforeReload.max}}
+            .weapon-condition 
+              | {{item.data.condition.value}} /  {{item.data.condition.max}}
+            .item-controls
+              a.item-control.item-edit
+                i.fas.fa-edit                          
+              a.item-control.item-delete
+                i.fas.fa-trash                          
+          | {{/each}}
+        .armor 
+          | {{#each data.data.armor as |item id|}}
+          .armor-header 
+              .armor-name 
+                | ARMOR TYPE
+              .armor-protects-against 
+                | PROTECTS AGAINST 
+              .armor-dr-bonus 
+                | DR BONUS 
+              .item-controls 
+                | &nbsp;                
+          .armor-row
+            .armor-name 
+              | {{item.name}}
+            .armor-protects-against 
+              | {{item.data.protectsAgainst}}
+            .armor-dr-bonus 
+              | {{item.data.defenseRatingBonus}}
+            .item-controls
+              a.item-control.item-edit
+                i.fas.fa-edit                          
+              a.item-control.item-delete
+                i.fas.fa-trash  
+          | {{/each}}
         .holo-row 
           .stat-block.holos 
             label HOLOS
@@ -154,56 +224,6 @@ form(class="{{cssClass}}" autocomplete="off")
           .stat-block.debt 
             label DEBT
             input(type="number" class="stat-input" name="data.debt" value="{{data.data.debt}}" data-dtype="Number")
-        .belongings 
-          | {{#each data.data.equipment as |item id|}}
-          .belonging
-            | {{item.name}}
-          | {{/each}}
-
-
-    div(class="tab weaponry-tab" data-group="primary" data-tab="weaponry")
-      .weaponry-wrapper 
-        table.weapons 
-          thead 
-            th.name 
-              | WEAPON 
-            th.damage 
-              | DAMAGE 
-            th.units 
-              | UNITS 
-            th.condition 
-              | CONDITION 
-          tbody 
-            tr
-              td.name 
-                | &nbsp;
-              td.damage 
-                | &nbsp;
-              td.units 
-                | &nbsp;
-              td.condition 
-                | &nbsp;
-        table.armor 
-          thead 
-            th.name 
-              | ARMOR TYPE
-            th.protects-against 
-              | PROTECTS AGAINST 
-            th.dr-bonus 
-              | DR BONUS 
-            th.condition 
-              | CONDITION 
-          tbody 
-            tr
-              td.name 
-                | &nbsp;
-              td.protects-against 
-                | &nbsp;
-              td.dr-bonus 
-                | &nbsp;
-              td.condition 
-                | &nbsp;
-
     div(class="tab notes-tab" data-group="primary" data-tab="notes")
       .notes-wrapper 
         | {{editor content=data.data.notes target="data.notes" button=true owner=owner editable=true}}

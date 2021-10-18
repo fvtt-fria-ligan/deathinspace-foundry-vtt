@@ -344,13 +344,12 @@
   /* Character sheet - Belongings tab */
   /* ====================== */
   .belongings-tab {
+    .item-controls {
+      border-left: 1px dotted black;
+    }
     .belongings-wrapper {
       display: flex;
       flex-direction: column;
-    }
-    .big-items {
-      display: flex;
-      padding: 8px;
     }
     .col-1 {
       display: flex;
@@ -365,98 +364,123 @@
       flex: 1;
       flex-direction: column;
     }
-    .big-items .item-row {
+    .equipment {
       display: flex;
-      flex: 0 0 24px;
-      margin-top: 4px;
-    }
-    .big-items .item-row.total-slots {
-      display: block;
-      padding-top: 4px;
-      text-align: center;
-      width: 100%;
-    }
-    .big-items .item-row .num {
-      flex: 0 0 30px;
-    }
-    .big-items .item-row .item {
-      border-bottom: 1px dotted black;
-      flex: 1;
+      flex-direction: column;
+      margin-top: 20px;
+      .equipment-header {
+        display: flex;
+        flex: 0 0 24;
+        flex-direction: row;
+        font-size: 12px;
+        padding-left: 5px;
+        width: 100%;
+      }
+      .equipment-row {
+        border-bottom: 1px dotted black;
+        display: flex;
+        flex: 0 0 24;
+        flex-direction: row;
+        padding-left: 5px;
+      }
+      .equipment-name {
+        flex: 1;
+        flex-basis: 85%;
+      }
+      .equipment-condition {
+        border-left: 1px dotted black;
+        flex-basis: 15%;
+        text-align: center;
+      }
     }
     .small-items {
       border-bottom: 2px solid black;
       flex: 0 0 100px;
       padding-left: 15px;
       padding-right: 15px;
+    }    
+    .weapons {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      .weapon-header {
+        border-top: 2px solid black;
+        display: flex;
+        flex: 0 0 24;        
+        flex-direction: row;
+        font-size: 12px;
+        justify-content: space-between;
+        width: 100%;
+      }
+      .weapon-row {
+        display: flex;
+        flex: 0 0 40;
+        flex-direction: row;
+      }
+      .weapon-name {
+        flex-basis: 55%;
+        padding-left: 5px;
+      }
+      .weapon-damage {
+        border-left: 1px dotted black;
+        text-align: center;
+        flex-basis: 15%;
+      }
+      .weapon-ammo {
+        border-left: 1px dotted black;
+        flex-basis: 15%;
+        text-align: center;
+      }
+      .weapon-condition {
+        border-left: 1px dotted black;
+        text-align: center;
+        flex-basis: 15%;
+      }
+    }
+    .armor {
+      display: flex;
+      flex-direction: column;
+      .armor-header {
+        border-top: 2px solid black;
+        display: flex;
+        flex: 0 0 24;        
+        flex-direction: row;
+        font-size: 12px;
+        justify-content: space-between;
+        width: 100%;        
+      }    
+      .armor-row {
+        display: flex;
+        flex: 0 0 24;
+        flex-direction: row;
+      }
+      .armor-name {
+        padding-left: 5px;
+        flex-basis: 40%;
+      }
+      .armor-protects-against {
+        border-left: 1px dotted black;
+        text-align: center;
+        flex-basis: 45%;
+      }
+      .armor-dr-bonus {
+        border-left: 1px dotted black;
+        text-align: center;
+        flex-basis: 15%;
+      }
     }
     .holo-row {
-      border-bottom: 2px solid black;
+      border-top: 2px solid black;
       display: flex;
       flex: 0 0 50px;
-    }
-    .holo-row .holos {
-      flex: 1;
-    }
-    .holo-row .debt {
-      flex: 1;
+      .holos {
+        flex: 1;
+      }
+      .debt {
+        flex: 1;
+      }      
     }
   } // belongings-tab
-  /* ====================== */
-  /* Character sheet - Weaponry tab */
-  /* ====================== */
-  .weaponry-wrapper {
-    padding: 10px;
-    table {
-      background: none;
-    }
-    table thead {
-      background: none;
-    }
-    table tr {
-      height: 40px;
-    }
-    table.weapons th.name {
-      padding-left: 20px;
-      text-align: left;
-      width: 55%;
-    }
-    th {
-      background: none;
-      border: none;
-      border-bottom: none;
-      color: black;
-      text-shadow: none;
-    }
-    th.damage {
-      width: 15%;
-    }
-    th.units {
-      width: 15%;
-    }
-    th.condition {
-      width: 15%;
-    }
-    table.armor {
-      margin-top: 30px;
-    }
-    table.armor th.name {
-      padding-left: 20px;
-      text-align: left;
-      width: 40%;
-    }
-    table.armor th.protects-against {
-      width: 30%;
-    }
-    th.dr-bonus {
-      width: 15%;
-    }
-    td.condition,
-    td.damage,
-    td.units,
-    td.dr-bonus {
-      border-left: 1px dotted black;
-    }
-  } // weaponry-wrapper
 
   /* ====================== */
   /* Character sheet - Notes tab */

@@ -137,6 +137,11 @@
   font-size: 12px;
   text-transform: uppercase;
 }
+.deathinspace.sheet.actor .item-controls {
+  display: flex;
+  flex: 0 0 50px;
+  justify-content: space-evenly;
+}
 .deathinspace.sheet.actor.character {
   /* ====================== */
   /* Character sheet - Personal tab */
@@ -146,9 +151,6 @@
   /* ====================== */
   /* ====================== */
   /* Character sheet - Belongings tab */
-  /* ====================== */
-  /* ====================== */
-  /* Character sheet - Weaponry tab */
   /* ====================== */
   /* ====================== */
   /* Character sheet - Notes tab */
@@ -470,13 +472,12 @@
 .deathinspace.sheet.actor.character .situation-tab .life-support-block .tank-space {
   flex: 1;
 }
+.deathinspace.sheet.actor.character .belongings-tab .item-controls {
+  border-left: 1px dotted black;
+}
 .deathinspace.sheet.actor.character .belongings-tab .belongings-wrapper {
   display: flex;
   flex-direction: column;
-}
-.deathinspace.sheet.actor.character .belongings-tab .big-items {
-  display: flex;
-  padding: 8px;
 }
 .deathinspace.sheet.actor.character .belongings-tab .col-1 {
   display: flex;
@@ -491,23 +492,34 @@
   flex: 1;
   flex-direction: column;
 }
-.deathinspace.sheet.actor.character .belongings-tab .big-items .item-row {
+.deathinspace.sheet.actor.character .belongings-tab .equipment {
   display: flex;
-  flex: 0 0 24px;
-  margin-top: 4px;
+  flex-direction: column;
+  margin-top: 20px;
 }
-.deathinspace.sheet.actor.character .belongings-tab .big-items .item-row.total-slots {
-  display: block;
-  padding-top: 4px;
-  text-align: center;
+.deathinspace.sheet.actor.character .belongings-tab .equipment .equipment-header {
+  display: flex;
+  flex: 0 0 24;
+  flex-direction: row;
+  font-size: 12px;
+  padding-left: 5px;
   width: 100%;
 }
-.deathinspace.sheet.actor.character .belongings-tab .big-items .item-row .num {
-  flex: 0 0 30px;
-}
-.deathinspace.sheet.actor.character .belongings-tab .big-items .item-row .item {
+.deathinspace.sheet.actor.character .belongings-tab .equipment .equipment-row {
   border-bottom: 1px dotted black;
+  display: flex;
+  flex: 0 0 24;
+  flex-direction: row;
+  padding-left: 5px;
+}
+.deathinspace.sheet.actor.character .belongings-tab .equipment .equipment-name {
   flex: 1;
+  flex-basis: 85%;
+}
+.deathinspace.sheet.actor.character .belongings-tab .equipment .equipment-condition {
+  border-left: 1px dotted black;
+  flex-basis: 15%;
+  text-align: center;
 }
 .deathinspace.sheet.actor.character .belongings-tab .small-items {
   border-bottom: 2px solid black;
@@ -515,8 +527,78 @@
   padding-left: 15px;
   padding-right: 15px;
 }
+.deathinspace.sheet.actor.character .belongings-tab .weapons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-header {
+  border-top: 2px solid black;
+  display: flex;
+  flex: 0 0 24;
+  flex-direction: row;
+  font-size: 12px;
+  justify-content: space-between;
+  width: 100%;
+}
+.deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-row {
+  display: flex;
+  flex: 0 0 40;
+  flex-direction: row;
+}
+.deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-name {
+  flex-basis: 55%;
+  padding-left: 5px;
+}
+.deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-damage {
+  border-left: 1px dotted black;
+  text-align: center;
+  flex-basis: 15%;
+}
+.deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-ammo {
+  border-left: 1px dotted black;
+  flex-basis: 15%;
+  text-align: center;
+}
+.deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-condition {
+  border-left: 1px dotted black;
+  text-align: center;
+  flex-basis: 15%;
+}
+.deathinspace.sheet.actor.character .belongings-tab .armor {
+  display: flex;
+  flex-direction: column;
+}
+.deathinspace.sheet.actor.character .belongings-tab .armor .armor-header {
+  border-top: 2px solid black;
+  display: flex;
+  flex: 0 0 24;
+  flex-direction: row;
+  font-size: 12px;
+  justify-content: space-between;
+  width: 100%;
+}
+.deathinspace.sheet.actor.character .belongings-tab .armor .armor-row {
+  display: flex;
+  flex: 0 0 24;
+  flex-direction: row;
+}
+.deathinspace.sheet.actor.character .belongings-tab .armor .armor-name {
+  padding-left: 5px;
+  flex-basis: 40%;
+}
+.deathinspace.sheet.actor.character .belongings-tab .armor .armor-protects-against {
+  border-left: 1px dotted black;
+  text-align: center;
+  flex-basis: 45%;
+}
+.deathinspace.sheet.actor.character .belongings-tab .armor .armor-dr-bonus {
+  border-left: 1px dotted black;
+  text-align: center;
+  flex-basis: 15%;
+}
 .deathinspace.sheet.actor.character .belongings-tab .holo-row {
-  border-bottom: 2px solid black;
+  border-top: 2px solid black;
   display: flex;
   flex: 0 0 50px;
 }
@@ -525,59 +607,6 @@
 }
 .deathinspace.sheet.actor.character .belongings-tab .holo-row .debt {
   flex: 1;
-}
-.deathinspace.sheet.actor.character .weaponry-wrapper {
-  padding: 10px;
-}
-.deathinspace.sheet.actor.character .weaponry-wrapper table {
-  background: none;
-}
-.deathinspace.sheet.actor.character .weaponry-wrapper table thead {
-  background: none;
-}
-.deathinspace.sheet.actor.character .weaponry-wrapper table tr {
-  height: 40px;
-}
-.deathinspace.sheet.actor.character .weaponry-wrapper table.weapons th.name {
-  padding-left: 20px;
-  text-align: left;
-  width: 55%;
-}
-.deathinspace.sheet.actor.character .weaponry-wrapper th {
-  background: none;
-  border: none;
-  border-bottom: none;
-  color: black;
-  text-shadow: none;
-}
-.deathinspace.sheet.actor.character .weaponry-wrapper th.damage {
-  width: 15%;
-}
-.deathinspace.sheet.actor.character .weaponry-wrapper th.units {
-  width: 15%;
-}
-.deathinspace.sheet.actor.character .weaponry-wrapper th.condition {
-  width: 15%;
-}
-.deathinspace.sheet.actor.character .weaponry-wrapper table.armor {
-  margin-top: 30px;
-}
-.deathinspace.sheet.actor.character .weaponry-wrapper table.armor th.name {
-  padding-left: 20px;
-  text-align: left;
-  width: 40%;
-}
-.deathinspace.sheet.actor.character .weaponry-wrapper table.armor th.protects-against {
-  width: 30%;
-}
-.deathinspace.sheet.actor.character .weaponry-wrapper th.dr-bonus {
-  width: 15%;
-}
-.deathinspace.sheet.actor.character .weaponry-wrapper td.condition,
-.deathinspace.sheet.actor.character .weaponry-wrapper td.damage,
-.deathinspace.sheet.actor.character .weaponry-wrapper td.units,
-.deathinspace.sheet.actor.character .weaponry-wrapper td.dr-bonus {
-  border-left: 1px dotted black;
 }
 .deathinspace.sheet.actor.character .notes-wrapper {
   display: flex;

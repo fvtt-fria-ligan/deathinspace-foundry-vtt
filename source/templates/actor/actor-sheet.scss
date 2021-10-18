@@ -37,4 +37,9 @@
       text-transform: uppercase;
     }
   }
+  .item-controls {
+    display: flex;
+    flex: 0 0 50px;
+    justify-content: space-evenly;
+  }
 }

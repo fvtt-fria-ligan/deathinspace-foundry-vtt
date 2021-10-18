@@ -15,7 +15,7 @@
       </div>
     </div>
   </header>
-  <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="personal">{{ localize 'DIS.TabPersonal' }}</a><a class="item" data-tab="situation">{{ localize 'DIS.TabSituation' }}</a><a class="item" data-tab="belongings">{{ localize 'DIS.TabBelongings' }}</a><a class="item" data-tab="weaponry">{{ localize 'DIS.TabWeaponry' }}</a><a class="item" data-tab="notes">{{ localize 'DIS.TabNotes' }}</a></nav>
+  <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="personal">1. {{ localize 'DIS.TabPersonal' }}</a><a class="item" data-tab="situation">2. {{ localize 'DIS.TabSituation' }}</a><a class="item" data-tab="belongings">3. {{ localize 'DIS.TabBelongings' }}</a><a class="item" data-tab="notes">4. {{ localize 'DIS.TabNotes' }}</a></nav>
   <section class="sheet-body"> 
     <div class="tab personal-tab" data-group="primary" data-tab="personal">
       <div class="personal-wrapper"> 
@@ -205,6 +205,68 @@
     </div>
     <div class="tab belongings-tab" data-group="primary" data-tab="belongings">
       <div class="belongings-wrapper"> 
+        <div class="equipment"> 
+          <div class="equipment-header">
+            <div class="equipment-name">EQUIPMENT</div>
+            <div class="equipment-condition">
+               CONDITION</div>
+            <div class="item-controls">&nbsp;              </div>
+          </div>{{#each data.data.equipment as |item id|}}
+          <div class="equipment-row">
+            <div class="equipment-name">{{add id 1}}. {{item.name}}</div>
+            <div class="equipment-condition">
+               {{ item.data.condition.value }} / {{ item.data.condition.max}}</div>
+            <div class="item-controls"><a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash"> </i></a></div>
+          </div>{{/each}}
+        </div>
+        <div class="weapons">
+           {{#each data.data.weapons as |item id|}}
+          <div class="weapon-header"> 
+            <div class="weapon-name">
+               WEAPON {{add id 1}}</div>
+            <div class="weapon-damage">
+               DAMAGE </div>
+            <div class="weapon-ammo">
+               AMMO </div>
+            <div class="weapon-condition">
+                CONDITION</div>
+            <div class="item-controls">
+               &nbsp;</div>
+          </div>
+          <div class="weapon-row"> 
+            <div class="weapon-name">
+               {{item.name}}</div>
+            <div class="weapon-damage">
+               {{item.data.damage}}</div>
+            <div class="weapon-ammo">
+               {{item.data.usesBeforeReload.value}} /  {{item.data.usesBeforeReload.max}}</div>
+            <div class="weapon-condition">
+               {{item.data.condition.value}} /  {{item.data.condition.max}}</div>
+            <div class="item-controls"><a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash">                         </i></a></div>
+          </div>{{/each}}
+        </div>
+        <div class="armor">
+           {{#each data.data.armor as |item id|}}
+          <div class="armor-header"> 
+            <div class="armor-name">
+               ARMOR TYPE</div>
+            <div class="armor-protects-against">
+               PROTECTS AGAINST </div>
+            <div class="armor-dr-bonus">
+               DR BONUS </div>
+            <div class="item-controls">
+               &nbsp;                </div>
+          </div>
+          <div class="armor-row">
+            <div class="armor-name">
+               {{item.name}}</div>
+            <div class="armor-protects-against">
+               {{item.data.protectsAgainst}}</div>
+            <div class="armor-dr-bonus">
+               {{item.data.defenseRatingBonus}}</div>
+            <div class="item-controls"><a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash"> </i></a></div>
+          </div>{{/each}}
+        </div>
         <div class="holo-row"> 
           <div class="stat-block holos"> 
             <label>HOLOS</label>
@@ -215,62 +277,6 @@
             <input class="stat-input" type="number" name="data.debt" value="{{data.data.debt}}" data-dtype="Number"/>
           </div>
         </div>
-        <div class="belongings">
-           {{#each data.data.equipment as |item id|}}
-          <div class="belonging">{{item.name}}</div>{{/each}}
-        </div>
-      </div>
-    </div>
-    <div class="tab weaponry-tab" data-group="primary" data-tab="weaponry">
-      <div class="weaponry-wrapper"> 
-        <table class="weapons"> 
-          <thead> 
-            <th class="name">
-               WEAPON </th>
-            <th class="damage">
-               DAMAGE </th>
-            <th class="units">
-               UNITS </th>
-            <th class="condition">
-               CONDITION </th>
-          </thead>
-          <tbody> 
-            <tr>
-              <td class="name">
-                 &nbsp;</td>
-              <td class="damage">
-                 &nbsp;</td>
-              <td class="units">
-                 &nbsp;</td>
-              <td class="condition">
-                 &nbsp;</td>
-            </tr>
-          </tbody>
-        </table>
-        <table class="armor"> 
-          <thead> 
-            <th class="name">
-               ARMOR TYPE</th>
-            <th class="protects-against">
-               PROTECTS AGAINST </th>
-            <th class="dr-bonus">
-               DR BONUS </th>
-            <th class="condition">
-               CONDITION </th>
-          </thead>
-          <tbody> 
-            <tr>
-              <td class="name">
-                 &nbsp;</td>
-              <td class="protects-against">
-                 &nbsp;</td>
-              <td class="dr-bonus">
-                 &nbsp;</td>
-              <td class="condition">
-                 &nbsp;</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
     <div class="tab notes-tab" data-group="primary" data-tab="notes">
