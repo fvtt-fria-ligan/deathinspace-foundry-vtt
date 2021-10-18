@@ -103,12 +103,12 @@
       "units": 1
     },
     "equipment": {
+      "templates": ["baseEquipment"],
       "addictive": false,
       "condition": {
         "max": 0,
         "value": 0
-      },
-      "templates": ["baseEquipment"]
+      }
     },
     "cosmicMutation": {
       "notes": ""
