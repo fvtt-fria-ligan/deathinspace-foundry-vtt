@@ -315,15 +315,22 @@
   display: flex;
   grid-column-start: 2;
   grid-row-start: 8;
-  padding: 2px;
+  padding-left: 2px;
   width: 100%;
 }
-.deathinspace.sheet.actor.character .personal-tab .defense-text {
+.deathinspace.sheet.actor.character .personal-tab .defense-row .defense-text {
   border-right: 1px dotted black;
   flex: 1;
 }
-.deathinspace.sheet.actor.character .personal-tab .defense-value {
+.deathinspace.sheet.actor.character .personal-tab .defense-row .defense-text .help-text {
+  font-size: 12px;
+}
+.deathinspace.sheet.actor.character .personal-tab .defense-row .defense-value {
+  display: flex;
   flex: 0 0 100px;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2px;
 }
 .deathinspace.sheet.actor.character .personal-tab .hit-points-row {
   border-right: 2px solid black;
@@ -331,22 +338,26 @@
   grid-column-start: 2;
   grid-row-start: 9;
   grid-row-end: 11;
-  padding: 2px;
+  padding-left: 2px;
 }
-.deathinspace.sheet.actor.character .personal-tab .hit-points-text {
+.deathinspace.sheet.actor.character .personal-tab .hit-points-row .hit-points-text {
   flex: 1;
 }
-.deathinspace.sheet.actor.character .personal-tab .hit-points-current-col {
+.deathinspace.sheet.actor.character .personal-tab .hit-points-row .hit-points-text .help-text {
+  font-size: 12px;
+}
+.deathinspace.sheet.actor.character .personal-tab .hit-points-row .hit-points-current-col {
   border-right: 1px dotted black;
   display: flex;
   flex: 0 0 100px;
   flex-direction: column;
   text-align: center;
 }
-.deathinspace.sheet.actor.character .personal-tab .hit-points-max-col {
+.deathinspace.sheet.actor.character .personal-tab .hit-points-row .hit-points-max-col {
   display: flex;
   flex: 0 0 100px;
   flex-direction: column;
+  padding-left: 2px;
   text-align: center;
 }
 .deathinspace.sheet.actor.character .situation-tab .situation-wrapper {
@@ -432,8 +443,18 @@
   grid-column-end: 3;
   grid-row-start: 2;
 }
-.deathinspace.sheet.actor.character .situation-tab .cosmic-mutations-block .mutations-title {
+.deathinspace.sheet.actor.character .situation-tab .cosmic-mutations-block .cosmic-mutations-title {
   flex: 0 0 10px;
+  margin-bottom: 10px;
+}
+.deathinspace.sheet.actor.character .situation-tab .cosmic-mutations-block .cosmic-mutation-row {
+  border-bottom: 1px dotted black;
+  display: flex;
+  padding-top: 4px;
+}
+.deathinspace.sheet.actor.character .situation-tab .cosmic-mutations-block .cosmic-mutation-row .cosmic-mutation-name {
+  flex: 1;
+  padding-left: 4px;
 }
 .deathinspace.sheet.actor.character .situation-tab .void-corruption-block {
   border-right: 2px solid black;
@@ -442,8 +463,18 @@
   grid-column-start: 1;
   grid-row-start: 3;
 }
-.deathinspace.sheet.actor.character .situation-tab .void-corruption-block .corruption-title {
+.deathinspace.sheet.actor.character .situation-tab .void-corruption-block .void-corruption-title {
   flex: 0 0 10px;
+  margin-bottom: 10px;
+}
+.deathinspace.sheet.actor.character .situation-tab .void-corruption-block .void-corruption-row {
+  border-bottom: 1px dotted black;
+  display: flex;
+  padding-top: 4px;
+}
+.deathinspace.sheet.actor.character .situation-tab .void-corruption-block .void-corruption-row .void-corruption-name {
+  flex: 1;
+  padding-left: 4px;
 }
 .deathinspace.sheet.actor.character .situation-tab .life-support-block {
   display: flex;

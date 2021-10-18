@@ -9,6 +9,5 @@ DIS.itemTypes = {
     hubModule: "hubModule",
     origin: "origin",
     originBenefit: "originBenefit",
-    voidCorruption: "voidCorruption",
     weapon: "weapon"
 };

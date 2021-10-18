@@ -143,7 +143,6 @@
     }
     .ability-value {
       flex: 0 0 50px;
-
     }
     .ability-value input[type="number"],
     input[type="number"].stat-input {
@@ -166,15 +165,22 @@
       display: flex;
       grid-column-start: 2;
       grid-row-start: 8;
-      padding: 2px;
+      padding-left: 2px;
       width: 100%;
-    }
-    .defense-text {
-      border-right: 1px dotted black;
-      flex: 1;
-    }
-    .defense-value {
-      flex: 0 0 100px;
+      .defense-text {
+        border-right: 1px dotted black;
+        flex: 1;
+        .help-text {
+          font-size: 12px;
+        }
+      }
+      .defense-value {
+        display: flex;
+        flex: 0 0 100px;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 2px;
+      }
     }
     .hit-points-row {
       border-right: 2px solid black;
@@ -182,23 +188,27 @@
       grid-column-start: 2;
       grid-row-start: 9;
       grid-row-end: 11;
-      padding: 2px;
-    }
-    .hit-points-text {
-      flex: 1;
-    }
-    .hit-points-current-col {
-      border-right: 1px dotted black;
-      display: flex;
-      flex: 0 0 100px;
-      flex-direction: column;
-      text-align: center;
-    }
-    .hit-points-max-col {
-      display: flex;
-      flex: 0 0 100px;
-      flex-direction: column;
-      text-align: center;
+      padding-left: 2px;
+      .hit-points-text {
+        flex: 1;
+        .help-text {
+          font-size: 12px;
+        }
+      }
+      .hit-points-current-col {
+        border-right: 1px dotted black;
+        display: flex;
+        flex: 0 0 100px;
+        flex-direction: column;
+        text-align: center;
+      }
+      .hit-points-max-col {
+        display: flex;
+        flex: 0 0 100px;
+        flex-direction: column;
+        padding-left: 2px;
+        text-align: center;
+      }
     }
   } // personal-tab
 
@@ -220,7 +230,6 @@
       grid-column-start: 1;
       grid-column-end: 3;
       grid-row-start: 1;
-
       .void-col-1 {
         display: flex;
         flex: 0 0 200;
@@ -291,12 +300,19 @@
       grid-column-start: 1;
       grid-column-end: 3;
       grid-row-start: 2;
-      .mutations-title {
+      .cosmic-mutations-title {
         flex: 0 0 10px;
+        margin-bottom: 10px;
       }
-      // div.mutations-row:nth-last-child(1) {
-      //   border-bottom: none;
-      // }
+      .cosmic-mutation-row {
+        border-bottom: 1px dotted black;
+        display: flex;
+        padding-top: 4px;
+        .cosmic-mutation-name {
+          flex: 1;
+          padding-left: 4px;
+        }
+      }
     }
     .void-corruption-block {
       border-right: 2px solid black;
@@ -304,8 +320,18 @@
       flex-direction: column;
       grid-column-start: 1;
       grid-row-start: 3;
-      .corruption-title {
+      .void-corruption-title {
         flex: 0 0 10px;
+        margin-bottom: 10px;
+      }
+      .void-corruption-row {
+        border-bottom: 1px dotted black;
+        display: flex;
+        padding-top: 4px;
+        .void-corruption-name {
+          flex: 1;
+          padding-left: 4px;
+        }
       }
     }
     .life-support-block {
@@ -414,7 +440,7 @@
       flex: 0 0 100px;
       padding-left: 15px;
       padding-right: 15px;
-    }    
+    }
     .weapons {
       display: flex;
       flex-direction: column;
@@ -422,7 +448,7 @@
       .weapon-header {
         border-top: 2px solid black;
         display: flex;
-        flex: 0 0 24;        
+        flex: 0 0 24;
         flex-direction: row;
         font-size: 12px;
         justify-content: space-between;
@@ -459,12 +485,12 @@
       .armor-header {
         border-top: 2px solid black;
         display: flex;
-        flex: 0 0 24;        
+        flex: 0 0 24;
         flex-direction: row;
         font-size: 12px;
         justify-content: space-between;
-        width: 100%;        
-      }    
+        width: 100%;
+      }
       .armor-row {
         display: flex;
         flex: 0 0 24;
@@ -494,7 +520,7 @@
       }
       .debt {
         flex: 1;
-      }      
+      }
     }
   } // belongings-tab
 

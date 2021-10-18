@@ -37,8 +37,9 @@
       "pastAllegiance": "",
       "playerName": "",
       "trait": "",
+      "voidCorruption": "",
       "voidPoints": {
-        "max": 5,
+        "max": 4,
         "value": 0
       },
       "xp": 0
@@ -78,7 +79,6 @@
       "hubModule",
       "origin",
       "originBenefit",
-      "voidCorruption",
       "weapon"
     ],
     "templates": {

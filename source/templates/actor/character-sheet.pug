@@ -87,26 +87,22 @@ form(class="{{cssClass}}" autocomplete="off")
         .defense-row 
           .defense-text 
             label DEFENSE RATING
-            br
-            | 12+DEX Unarmored
+            .help-text
+              | 12+DEX Unarmored
           .defense-value 
-            label &nbsp;
-            br
             input(type="number" class="stat-input" name="data.defenseRating" value="{{data.data.defenseRating}}" data-dtype="Number")
         .hit-points-row 
           .hit-points-text 
             label HIT POINTS
-            br
-            | Start with 1d8
-            br
-            | Recover 1d4+BODY
+            .help-text
+              | Start with 1d8
+              br
+              | Recover 1d4+BODY
           .hit-points-current-col 
             label CURRENT
-            br
             input(type="number" class="stat-input" name="data.hitPoints.value" value="{{data.data.hitPoints.value}}" data-dtype="Number")
           .hit-points-max-col 
             label MAX
-            br
             input(type="number" class="stat-input" name="data.hitPoints.max" value="{{data.data.hitPoints.max}}" data-dtype="Number")
         .stat-block.portrait-block 
           label PORTRAIT
@@ -138,11 +134,22 @@ form(class="{{cssClass}}" autocomplete="off")
                 li Get advantage on an ability check or attack roll.
                 li Activate a cosmic mutation.
         .cosmic-mutations-block
-          .stat-block.mutations-title 
-            label COSMIC MUTATIONS 
+          .stat-block.cosmic-mutations-title 
+            label COSMIC MUTATIONS
+          | {{#each data.data.cosmicMutations as |item id|}}
+          .cosmic-mutation-row.item(data-item-id="{{item._id}}")            
+            .cosmic-mutation-name 
+              | {{item.name}}
+            .item-controls
+              a.item-control.item-edit
+                i.fas.fa-edit                          
+              a.item-control.item-delete
+                i.fas.fa-trash
+          | {{/each}}       
         .void-corruption-block 
-          .stat-block.corruption-title 
+          .stat-block.void-corruption-title 
             label VOID CORRUPTION 
+            textarea(name="data.voidCorruption", rows="7") {{data.data.voidCorruption}}
         .life-support-block
           .stat-block.life-support-title 
             label LIFE SUPPORT 
