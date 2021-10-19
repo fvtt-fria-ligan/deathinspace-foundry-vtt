@@ -15,14 +15,14 @@
       </div>
     </div>
   </header>
-  <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="specifics">{{ localize 'DIS.TabSpecifics' }}</a><a class="item" data-tab="hub-data">{{ localize 'DIS.TabHubData' }}</a><a class="item" data-tab="layout">{{ localize 'DIS.TabLayout' }}</a><a class="item" data-tab="cargo">{{ localize 'DIS.TabCargo' }}</a><a class="item" data-tab="notes">{{ localize 'DIS.TabNotes' }}</a></nav>
+  <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="specifics">1. {{ localize 'DIS.TabSpecifics' }}</a><a class="item" data-tab="hub-data">2. {{ localize 'DIS.TabHubData' }}</a><a class="item" data-tab="layout">3. {{ localize 'DIS.TabLayout' }}</a><a class="item" data-tab="notes">4. {{ localize 'DIS.TabCargoAndNotes' }}</a></nav>
   <section class="sheet-body"> 
     <div class="tab specifics-tab" data-group="primary" data-tab="specifics">
       <div class="specifics-wrapper">
         <div class="nickname-block">
           <div class="stat-block">
             <label>Name</label>
-            <input type="text" name="data.name" value="{{data.name}}" placeholder="" spellcheck="false"/>
+            <input type="text" name="name" value="{{actor.name}}" placeholder="Name" spellcheck="false"/>
           </div>
         </div>
         <div class="hub-type-block">
@@ -34,19 +34,19 @@
         <div class="background-block">
           <div class="stat-block">
             <label>Background</label>
-            <textarea name="data.background">{{data.data.background}}</textarea>
+            <textarea name="data.background" rows="4">{{data.data.background}}</textarea>
           </div>
         </div>
         <div class="appearance-block">
           <div class="stat-block">
             <label>Appearance</label>
-            <textarea name="data.appearance">{{data.data.appearance}}</textarea>
+            <textarea name="data.appearance" rows="4">{{data.data.appearance}}</textarea>
           </div>
         </div>
         <div class="quirks-block">
           <div class="stat-block">
             <label>Quirks</label>
-            <input type="text" name="data.quirks" value="{{data.data.quirks}}" placeholder="" spellcheck="false"/>
+            <textarea name="data.quirks" rows="3">{{data.data.quirks}}</textarea>
           </div>
         </div>
       </div>
@@ -57,89 +57,67 @@
           <div class="frame-integrity">FRAME INTEGRITY</div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio">
-                <input type="radio" name="data.frameIntegrity.value" value="0" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 0}}true{{/ifEq}}"/>
-              </div>
+              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=0 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 0}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">0%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio">
-                <input type="radio" name="data.frameIntegrity.value" value="10" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 10}}true{{/ifEq}}"/>
-              </div>
+              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=10 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 10}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">10%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio">
-                <input type="radio" name="data.frameIntegrity.value" value="20" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 20}}true{{/ifEq}}"/>
-              </div>
+              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=20 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 20}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">20%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio">
-                <input type="radio" name="data.frameIntegrity.value" value="30" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 30}}true{{/ifEq}}"/>
-              </div>
+              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=30 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 30}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">30%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio">
-                <input type="radio" name="data.frameIntegrity.value" value="40" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 40}}true{{/ifEq}}"/>
-              </div>
+              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=40 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 40}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">40%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio">
-                <input type="radio" name="data.frameIntegrity.value" value="50" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 50}}true{{/ifEq}}"/>
-              </div>
+              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=50 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 50}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">50%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio">
-                <input type="radio" name="data.frameIntegrity.value" value="60" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 60}}true{{/ifEq}}"/>
-              </div>
+              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=60 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 60}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">60%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio">
-                <input type="radio" name="data.frameIntegrity.value" value="70" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 70}}true{{/ifEq}}"/>
-              </div>
+              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=70 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 70}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">70%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio">
-                <input type="radio" name="data.frameIntegrity.value" value="80" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 80}}true{{/ifEq}}"/>
-              </div>
+              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=80 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 80}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">80%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio">
-                <input type="radio" name="data.frameIntegrity.value" value="90" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 90}}true{{/ifEq}}"/>
-              </div>
+              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=90 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 90}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">90%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio">
-                <input type="radio" name="data.frameIntegrity.value" value="100" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 100}}true{{/ifEq}}"/>
-              </div>
+              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=100 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 100}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">100%</div>
             </label>
           </div>
@@ -152,11 +130,12 @@
           </div>
         </div>
         <div class="roll-on-damage-row"> 
-          <div class="col1">ROLL ON<br/>DAMAGE TABLE</div>
-          <div class="col2">
-             ROLL ON<br/>DAMAGE TABLE</div>
+          <div class="col1"></div>
+          <div class="col2">ROLL ON<br/>DAMAGE TABLE</div>
           <div class="col3"></div>
-          <div class="col4">WHEN ALL IS CALM THE HUB<br/>REGAINS 1d4*10% INTEGRITY</div>
+          <div class="col4">ROLL ON<br/>DAMAGE TABLE</div>
+          <div class="col5"></div>
+          <div class="col6">WHEN ALL IS CALM THE HUB<br/>REGAINS 1d4*10% INTEGRITY</div>
         </div>
         <div class="condition-row"> 
           <div class="condition">
@@ -196,29 +175,21 @@
             </div>
           </div>
           <div class="power-source"> 
-            <div class="source-label">POWER SOURCE</div>
-            <div class="source-radios">
-              <div class="radio-row">
-                <label>Slow
-                  <input type="radio" name="data.powerSource" value="slow" data-dtype="String" checked="{{#ifEq data.data.powerSource 'slow'}}true{{/ifEq}}"/>
-                </label>
+            <div class="source-label">POWER SOURCE</div>{{#if data.data.powerSystem}}
+            <div class="source-row item" data-item-id="{{data.data.powerSystem._id}}">
+              <div class="source-name">
+                {{data.data.powerSystem.name}} 
+                {{#if data.data.powerSystem.data.speed}}
+                ({{data.data.powerSystem.data.speed}})
+                {{/if}}
               </div>
-              <div class="radio-row">
-                <label>Fast
-                  <input type="radio" name="data.powerSource" value="fast" data-dtype="String" checked="{{#ifEq data.data.powerSource 'fast'}}true{{/ifEq}}"/>
-                </label>
-              </div>
-              <div class="radio-row">
-                <label>Unknown
-                  <input type="radio" name="data.powerSource" value="unknown" data-dtype="String" checked="{{#ifEq data.data.powerSource 'unknown'}}true{{/ifEq}}"/>
-                </label>
-              </div>
-            </div>
+              <div class="item-controls"> <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a><a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash">               </i></a></div>
+            </div>{{/if}}
           </div>
           <div class="output-power">
             <div class="title-row">OUTPUT POWER</div>
             <div class="input-row">
-              <input class="output-power power" name="data.outputPower" type="number" value="{{data.data.outputPower}}" data-dtype="Number"/>
+              <input class="output-power power" name="data.powerSystem.data.outputPower" type="number" value="{{data.data.powerSystem.data.outputPower}}" data-dtype="Number" readonly="readonly"/>
             </div>
           </div>
         </div>
@@ -239,7 +210,7 @@
             </div>{{/each}}
           </div>
           <div class="modules-total"> 
-            <div class="col1">The power cost sum should not exceed the output power.<br/>Power cost > power output = overheat.</div>
+            <div class="col1">The power cost sum should not exceed the output power.<br/>Power cost > power output = overheated.</div>
             <div class="col2"></div>
             <div class="col3"> 
               <input class="total-power-cost power" name="data.totalPowerCost" type="number" value="{{data.data.totalPowerCost}}" data-dtype="Number" readonly="readonly"/>
@@ -251,17 +222,6 @@
     <div class="tab layout-tab" data-group="primary" data-tab="layout">
       <div class="layout-wrapper">
         <div class="portrait"><img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/></div>
-      </div>
-    </div>
-    <div class="tab cargo-tab" data-group="primary" data-tab="cargo">
-      <div class="cargo-wrapper">
-        <div class="title-row"><a class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="cargo"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}</a></div>
-        <div class="cargo-list">{{#each data.data.cargo as |item id|}}
-          <div class="item cargo-item" data-item-id="{{item._id}}">
-            <div class="col1">{{add @index 1}}. {{item.name}}</div>
-            <div class="col2"><a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a><a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a></div>
-          </div>{{/each}}
-        </div>
       </div>
     </div>
     <div class="tab notes-tab" data-group="primary" data-tab="notes">

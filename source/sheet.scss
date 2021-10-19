@@ -32,6 +32,11 @@
     font-size: 20px;
     text-decoration: none;
   }
+  select {
+    border-radius: 0;
+    font-family: var(--input-font);
+    font-size: 20px;
+  }
   textarea {
     border: none;
     border-bottom: 1px dotted #000;
@@ -52,9 +57,10 @@
     font-weight: 700;
     margin: 0px;
   }
-  .deathinspace .sheet-tabs .item {
+  .sheet-tabs .item {
     font-family: var(--tab-font);
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 600;
     height: 30px;
     line-height: 32px;
     width: 120px;
@@ -72,6 +78,7 @@
   }
   input[type="number"],
   input[type="text"],
+  select,
   textarea {
     border: 1px dotted #7a7971;
     font-family: "IBM Plex Mono";

@@ -20,12 +20,6 @@
     border-bottom: 1px solid #c8102e;
     border-top: 1px solid #c8102e;
     color: white;
-    font-weight: 600;
-    font-family: "IBM Plex Mono";
-    font-size: 16px;
-    text-transform: uppercase;
-
-    // TODO: Fix tab hover, currently invisible on off-tabs
     .item:hover {
       color: black;
       text-shadow: 0 0 10px white;

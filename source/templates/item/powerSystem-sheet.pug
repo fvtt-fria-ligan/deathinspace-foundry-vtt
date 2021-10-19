@@ -9,7 +9,7 @@ form(class="{{cssClass}}")
           .game-title
             | DEATH IN SPACE
           .sheet-title
-            | CARGO SHEET
+            | POWER SYSTEM SHEET
         .row2
           div 
             | NAME 
@@ -28,14 +28,32 @@ form(class="{{cssClass}}")
       .notes-wrapper
         | {{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}
 
-
     div(class="tab data-tab" data-group="primary" data-tab="data")
       .data-wrapper
         .form-group 
           label
-            | Tonnage 
-          input(type="number" name="data.tonnage" value="{{data.data.tonnage}}" placeholder="0" data-dtype="Number")
+            | Hub Type
+          select(name="data.hubType" data-dtype="String")
+            | {{#select data.data.hubType}}
+            option(value="spacecraft") spacecraft
+            option(value="station") station
+            | {{/select}}
         .form-group 
           label
-            | Units
-          input(type="number" name="data.units" value="{{data.data.units}}" placeholder="1" data-dtype="Number")
+            | Speed 
+          select(name="data.speed" data-dtype="String")
+            | {{#select data.data.speed}}
+            option(value="") -
+            option(value="slow") slow
+            option(value="fast") fast
+            option(value="bridging") bridging
+            option(value="unknown") unknown
+            | {{/select}}
+        .form-group 
+          label
+            | Requirement
+          input(type="text" name="data.requirement" value="{{data.data.requirement}}" placeholder="" data-dtype="String")
+        .form-group 
+          label
+            | Output Power
+          input(type="number" name="data.outputPower" value="{{data.data.outputPower}}" placeholder="0" data-dtype="Number")

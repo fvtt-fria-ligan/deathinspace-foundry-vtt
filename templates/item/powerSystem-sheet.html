@@ -8,7 +8,7 @@
       <div class="col2">
         <div class="row1">
           <div class="game-title">DEATH IN SPACE</div>
-          <div class="sheet-title">HUB MODULE SHEET</div>
+          <div class="sheet-title">POWER SYSTEM SHEET</div>
         </div>
         <div class="row2">
           <div>
@@ -28,16 +28,29 @@
     <div class="tab data-tab" data-group="primary" data-tab="data">
       <div class="data-wrapper">
         <div class="form-group"> 
-          <label>Module Type </label>
-          <select name="data.moduleType" data-dtype="String">{{#select data.data.moduleType}}
-            <option value="confrontation">confrontation</option>
-            <option value="general">general</option>
-            <option value="tech">tech</option>{{/select}}
+          <label>Hub Type</label>
+          <select name="data.hubType" data-dtype="String">{{#select data.data.hubType}}
+            <option value="spacecraft">spacecraft</option>
+            <option value="station">station</option>{{/select}}
           </select>
         </div>
         <div class="form-group"> 
-          <label>Power Cost </label>
-          <input type="number" name="data.powerCost" value="{{data.data.powerCost}}" placeholder="1" data-dtype="Number"/>
+          <label>Speed </label>
+          <select name="data.speed" data-dtype="String">{{#select data.data.speed}}
+            <option value="">-</option>
+            <option value="slow">slow</option>
+            <option value="fast">fast</option>
+            <option value="bridging">bridging</option>
+            <option value="unknown">unknown</option>{{/select}}
+          </select>
+        </div>
+        <div class="form-group"> 
+          <label>Requirement</label>
+          <input type="text" name="data.requirement" value="{{data.data.requirement}}" placeholder="" data-dtype="String"/>
+        </div>
+        <div class="form-group"> 
+          <label>Output Power</label>
+          <input type="number" name="data.outputPower" value="{{data.data.outputPower}}" placeholder="0" data-dtype="Number"/>
         </div>
       </div>
     </div>

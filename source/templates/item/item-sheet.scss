@@ -89,7 +89,8 @@
         text-align: right;
       }
       input[type="number"],
-      input[type="text"] {
+      input[type="text"],
+      select {
         flex: 1;
         text-align: center;
       }

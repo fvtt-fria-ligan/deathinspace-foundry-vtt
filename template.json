@@ -77,12 +77,12 @@
   "Item": {
     "types": [
       "armor",
-      "cargo",
       "cosmicMutation",
       "equipment",
       "hubModule",
       "origin",
       "originBenefit",
+      "powerSystem",
       "weapon"
     ],
     "templates": {
@@ -97,10 +97,6 @@
       "defenseRatingBonus": 0,
       "protectsAgainst": ""
     },
-    "cargo": {
-      "tonnage": 0,
-      "units": 1
-    },
     "equipment": {
       "templates": ["baseEquipment"],
       "addictive": false,
@@ -114,7 +110,8 @@
     },
     "hubModule": {
       "notes": "",
-      "powerCost": 0
+      "powerCost": 0,
+      "moduleType": "general"
     },
     "origin": {
       "notes": ""
@@ -127,7 +124,7 @@
       "notes": "",
       "outputPower": 3,
       "requirement": "",
-      "speed": ""
+      "speed": "slow"
     },
     "weapon": {
       "templates": ["baseEquipment"],

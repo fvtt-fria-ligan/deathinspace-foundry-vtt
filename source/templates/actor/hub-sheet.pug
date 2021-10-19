@@ -14,15 +14,13 @@ form(class="{{cssClass}}")
 
   nav(class="sheet-tabs tabs" data-group="primary")
     a(class="item" data-tab="specifics")
-      | {{ localize 'DIS.TabSpecifics' }}
+      | 1. {{ localize 'DIS.TabSpecifics' }}
     a(class="item" data-tab="hub-data")
-      | {{ localize 'DIS.TabHubData' }}
+      | 2. {{ localize 'DIS.TabHubData' }}
     a(class="item" data-tab="layout")
-      | {{ localize 'DIS.TabLayout' }}
-    a(class="item" data-tab="cargo")
-      | {{ localize 'DIS.TabCargo' }}
+      | 3. {{ localize 'DIS.TabLayout' }}
     a(class="item" data-tab="notes")
-      | {{ localize 'DIS.TabNotes' }}
+      | 4. {{ localize 'DIS.TabCargoAndNotes' }}
   
   section.sheet-body 
 
@@ -31,7 +29,7 @@ form(class="{{cssClass}}")
         .nickname-block
           .stat-block
             label Name
-            input(type="text" name="data.name" value="{{data.name}}" placeholder="" spellcheck="false")
+            input(type="text" name="name" value="{{actor.name}}" placeholder="Name" spellcheck="false")
         .hub-type-block
           .stat-block
             label Hub type and frame
@@ -39,89 +37,32 @@ form(class="{{cssClass}}")
         .background-block
           .stat-block
             label Background
-            textarea(name="data.background")
+            textarea(name="data.background", rows="4")
               | {{data.data.background}}
         .appearance-block
           .stat-block
             label Appearance
-            textarea(name="data.appearance")
+            textarea(name="data.appearance", rows="4")
               | {{data.data.appearance}}
         .quirks-block
           .stat-block
             label Quirks
-            input(type="text" name="data.quirks" value="{{data.data.quirks}}" placeholder="" spellcheck="false")
+            textarea(name="data.quirks", rows="3")
+              | {{data.data.quirks}}
 
     div(class="tab hub-data-tab" data-group="primary" data-tab="hub-data")
       .hub-data-wrapper
         .frame-integrity-row
           .frame-integrity
             | FRAME INTEGRITY
-          .integrity-increment
-            label
-              .integrity-radio
-                input(type="radio" name="data.frameIntegrity.value" value="0" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 0}}true{{/ifEq}}")
-              .integrity-percent
-                | 0%
-          .integrity-increment
-            label
-              .integrity-radio
-                input(type="radio" name="data.frameIntegrity.value" value="10" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 10}}true{{/ifEq}}")
-              .integrity-percent
-                | 10%
-          .integrity-increment
-            label
-              .integrity-radio
-                input(type="radio" name="data.frameIntegrity.value" value="20" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 20}}true{{/ifEq}}")
-              .integrity-percent
-                | 20%
-          .integrity-increment
-            label
-              .integrity-radio
-                input(type="radio" name="data.frameIntegrity.value" value="30" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 30}}true{{/ifEq}}")
-              .integrity-percent
-                | 30%
-          .integrity-increment
-            label
-              .integrity-radio
-                input(type="radio" name="data.frameIntegrity.value" value="40" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 40}}true{{/ifEq}}")
-              .integrity-percent
-                | 40%
-          .integrity-increment
-            label
-              .integrity-radio
-                input(type="radio" name="data.frameIntegrity.value" value="50" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 50}}true{{/ifEq}}")
-              .integrity-percent
-                | 50%
-          .integrity-increment
-            label
-              .integrity-radio
-                input(type="radio" name="data.frameIntegrity.value" value="60" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 60}}true{{/ifEq}}")
-              .integrity-percent
-                | 60%
-          .integrity-increment
-            label
-              .integrity-radio
-                input(type="radio" name="data.frameIntegrity.value" value="70" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 70}}true{{/ifEq}}")
-              .integrity-percent
-                | 70%
-          .integrity-increment
-            label
-              .integrity-radio
-                input(type="radio" name="data.frameIntegrity.value" value="80" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 80}}true{{/ifEq}}")
-              .integrity-percent
-                | 80%
-          .integrity-increment
-            label
-              .integrity-radio
-                input(type="radio" name="data.frameIntegrity.value" value="90" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 90}}true{{/ifEq}}")
-              .integrity-percent
-                | 90%
-          .integrity-increment
-            label
-              .integrity-radio
-                input(type="radio" name="data.frameIntegrity.value" value="100" data-dtype="Number" checked="{{#ifEq data.data.frameIntegrity.value 100}}true{{/ifEq}}")
-              .integrity-percent
-                | 100%
+          each val in [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+            .integrity-increment
+              label
+                .integrity-radio
+                  //- deal with pug checked= not working right with Foundry state
+                  | <input type="radio" name="data.frameIntegrity.value" value=#{val} data-dtype="Number" {{#ifEq data.data.frameIntegrity.value #{val}}}checked{{/ifEq}}/>
+                .integrity-percent
+                  | #{val}%
           .defense-rating
             .title-row 
               | DEFENSE RATING
@@ -129,15 +70,17 @@ form(class="{{cssClass}}")
               input(class="defense-rating" name="data.defenseRating" type="number" value="{{data.data.defenseRating}}" data-dtype="Number")
         .roll-on-damage-row 
           .col1
-            | ROLL ON
-            br
-            | DAMAGE TABLE
-          .col2 
+          .col2
             | ROLL ON
             br
             | DAMAGE TABLE
           .col3
           .col4
+            | ROLL ON
+            br
+            | DAMAGE TABLE
+          .col5
+          .col6
             | WHEN ALL IS CALM THE HUB
             br
             | REGAINS 1d4*10% INTEGRITY
@@ -175,25 +118,24 @@ form(class="{{cssClass}}")
           .power-source 
             .source-label
               | POWER SOURCE
-            .source-radios
-              .radio-row
-                label
-                  | Slow
-                  input(type="radio" name="data.powerSource" value="slow" data-dtype="String" checked="{{#ifEq data.data.powerSource 'slow'}}true{{/ifEq}}")
-              .radio-row
-                label
-                  | Fast
-                  input(type="radio" name="data.powerSource" value="fast" data-dtype="String" checked="{{#ifEq data.data.powerSource 'fast'}}true{{/ifEq}}")
-              .radio-row
-                label
-                  | Unknown
-                  input(type="radio" name="data.powerSource" value="unknown" data-dtype="String" checked="{{#ifEq data.data.powerSource 'unknown'}}true{{/ifEq}}")
+            | {{#if data.data.powerSystem}}
+            .source-row(class="item" data-item-id="{{data.data.powerSystem._id}}")
+              .source-name
+                | {{data.data.powerSystem.name}} 
+                | {{#if data.data.powerSystem.data.speed}}
+                | ({{data.data.powerSystem.data.speed}})
+                | {{/if}}
+              .item-controls 
+                a(class="item-control item-edit" title="Edit Item")
+                  i(class="fas fa-edit")
+                a(class="item-control item-delete" title="Delete Item")
+                  i(class="fas fa-trash")                
+            | {{/if}}
           .output-power
             .title-row
               | OUTPUT POWER
             .input-row
-              input(class="output-power power" name="data.outputPower" type="number" value="{{data.data.outputPower}}" data-dtype="Number")
-
+              input(class="output-power power" name="data.powerSystem.data.outputPower" type="number" value="{{data.data.powerSystem.data.outputPower}}" data-dtype="Number" readonly)
         .modules-block
           .title-row
             .col1
@@ -221,7 +163,7 @@ form(class="{{cssClass}}")
             .col1
               | The power cost sum should not exceed the output power.
               br
-              | Power cost > power output = overheat.
+              | Power cost > power output = overheated.
             .col2
             .col3 
               input(class="total-power-cost power" name="data.totalPowerCost" type="number" value="{{data.data.totalPowerCost}}" data-dtype="Number" readonly=true)
@@ -230,24 +172,6 @@ form(class="{{cssClass}}")
       .layout-wrapper
         .portrait
           img(class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}")
-
-    div(class="tab cargo-tab" data-group="primary" data-tab="cargo")
-      .cargo-wrapper
-        .title-row
-          a(class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="cargo")
-            i.fas.fa-plus
-            | {{localize "DIS.Add"}}
-        .cargo-list
-          | {{#each data.data.cargo as |item id|}}
-          div(class="item cargo-item" data-item-id="{{item._id}}")
-            .col1
-              | {{add @index 1}}. {{item.name}}
-            .col2
-              a(class="item-control item-edit" title="Edit Item")
-                i(class="fas fa-edit")
-              a(class="item-control item-delete" title="Delete Item")
-                i(class="fas fa-trash")
-          | {{/each}}
 
     div(class="tab notes-tab" data-group="primary" data-tab="notes")
       .notes-wrapper

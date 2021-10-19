@@ -7,7 +7,7 @@
     display: inline-grid;
     grid-template-columns: 50% 50%;
     /* TODO: figure out expandable rows */
-    grid-template-rows: 50px 100px 50px;
+    grid-template-rows: 50px 120px 100px;
     width: 100%;
   }  
   .nickname-block {
@@ -33,7 +33,7 @@
     grid-column-start: 2;
     grid-row-start: 2;
   }
-  quirks-block {
+  .quirks-block {
     border-bottom: 2px solid #32a6d2;
     grid-column-start: 1;
     grid-column-end: 3;

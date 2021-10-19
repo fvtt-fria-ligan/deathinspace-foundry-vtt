@@ -32,6 +32,14 @@ form(class="{{cssClass}}")
       .data-wrapper
         .form-group 
           label
+            | Module Type 
+          select(name="data.moduleType" data-dtype="String")
+            | {{#select data.data.moduleType}}
+            option(value="confrontation") confrontation
+            option(value="general") general
+            option(value="tech") tech
+            | {{/select}}
+        .form-group 
+          label
             | Power Cost 
           input(type="number" name="data.powerCost" value="{{data.data.powerCost}}" placeholder="1" data-dtype="Number")
-
