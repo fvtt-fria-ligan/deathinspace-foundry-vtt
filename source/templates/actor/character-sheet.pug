@@ -79,9 +79,9 @@ form(class="{{cssClass}}" autocomplete="off")
           label ABILITY
           br
           .ability-col 
-            each val in ["BODY", "DEXTERITY", "SAVVY", "TECH"]
+            each val in ["body", "dexterity", "savvy", "tech"]
               .ability-row 
-                .ability-name=val
+                .ability-name.rollable(data-ability=val)=val.toUpperCase()
                 .ability-value 
                   input(type="number" class="stat-input" name="data.abilities." + val + ".value" value="{{data.data.abilities." + val + ".value}}" data-dtype="Number" min="-3" max="6")
         .defense-row 

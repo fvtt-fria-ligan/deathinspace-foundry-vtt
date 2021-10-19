@@ -20,6 +20,8 @@ export class DISCharacterSheet extends DISActorSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
+
+    html.find(".ability-name").on("click", this._onAbilityRoll.bind(this));
   }
 
   /** @override */
@@ -50,4 +52,10 @@ export class DISCharacterSheet extends DISActorSheet {
 
     //sheetData.data.belongings = [...sheetData.data.weapons, ...sheetData.data.armor, ...sheetData.data.equipment].sort(byName);
   }
+
+  _onAbilityRoll(event) {
+    event.preventDefault();
+    const ability = event.target.getAttribute("data-ability");
+    this.actor.abilityCheck(ability);
+  }  
 }
