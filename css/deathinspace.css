@@ -847,7 +847,6 @@
   flex: 0 0 20px;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment:nth-child(2) .integrity-percent,
-.deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment:nth-child(4) .integrity-percent,
 .deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment:nth-child(7) .integrity-percent,
 .deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment:nth-child(12) .integrity-percent {
   background-color: #32a6d2;
