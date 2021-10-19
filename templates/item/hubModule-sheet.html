@@ -36,6 +36,15 @@
           </select>
         </div>
         <div class="form-group"> 
+          <label>Range </label>
+          <select name="data.range" data-dtype="String">{{#select data.data.range}}
+            <option value="">-</option>
+            <option value="boarding">boarding</option>
+            <option value="firing">firing</option>
+            <option value="within star system">within star system</option>{{/select}}
+          </select>
+        </div>
+        <div class="form-group"> 
           <label>Power Cost </label>
           <input type="number" name="data.powerCost" value="{{data.data.powerCost}}" placeholder="1" data-dtype="Number"/>
         </div>

@@ -41,5 +41,15 @@ form(class="{{cssClass}}")
             | {{/select}}
         .form-group 
           label
+            | Range 
+          select(name="data.range" data-dtype="String")
+            | {{#select data.data.range}}
+            option(value="") -
+            option(value="boarding") boarding
+            option(value="firing") firing
+            option(value="within star system") within star system
+            | {{/select}}
+        .form-group 
+          label
             | Power Cost 
           input(type="number" name="data.powerCost" value="{{data.data.powerCost}}" placeholder="1" data-dtype="Number")

@@ -17,6 +17,13 @@
       "entity": "Item"
     },    
     {
+      "name": "cosmic-mutations",
+      "label": "Cosmic Mutations",
+      "system": "deathinspace",
+      "path": "./packs/cosmic-mutations.db",
+      "entity": "Item"
+    },
+    {
       "name": "electronics",
       "label": "Electronics",
       "system": "deathinspace",
@@ -31,6 +38,27 @@
       "entity": "Item"
     },
     {
+      "name": "hub-modules-confrontation",
+      "label": "Hub Modules - Confrontation",
+      "system": "deathinspace",
+      "path": "./packs/hub-modules-confrontation.db",
+      "entity": "Item"
+    },
+    {
+      "name": "hub-modules-general",
+      "label": "Hub Modules - General",
+      "system": "deathinspace",
+      "path": "./packs/hub-modules-general.db",
+      "entity": "Item"
+    },
+    {
+      "name": "hub-modules-tech",
+      "label": "Hub Modules - Tech",
+      "system": "deathinspace",
+      "path": "./packs/hub-modules-tech.db",
+      "entity": "Item"
+    },
+    {
       "name": "origins",
       "label": "Origins",
       "system": "deathinspace",
@@ -42,6 +70,13 @@
       "label": "Origin Benefits",
       "system": "deathinspace",
       "path": "./packs/origin-benefits.db",
+      "entity": "Item"
+    },
+    {
+      "name": "power-systems",
+      "label": "Power Systems",
+      "system": "deathinspace",
+      "path": "./packs/power-systems.db",
       "entity": "Item"
     },
     {

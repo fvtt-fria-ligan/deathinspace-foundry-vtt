@@ -111,7 +111,8 @@
     "hubModule": {
       "notes": "",
       "powerCost": 0,
-      "moduleType": "general"
+      "moduleType": "general",
+      "range": ""
     },
     "origin": {
       "notes": ""
