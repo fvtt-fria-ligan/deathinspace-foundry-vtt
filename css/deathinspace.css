@@ -1100,7 +1100,7 @@
 }
 .deathinspace.sheet.hub .sheet-tabs .item.active {
   background-color: white;
-  border-bottom: 1px solid #3a8cb8;
+  border-bottom: none;
   color: #3a8cb8;
 }
 .deathinspace.sheet.hub .portrait img {
