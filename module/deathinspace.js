@@ -5,6 +5,7 @@
 import { DISActor } from "./actor/actor.js";
 import { DISCharacterSheet } from "./actor/sheet/character-sheet.js";
 import { DISHubSheet } from "./actor/sheet/hub-sheet.js";
+import { DISNpcSheet } from "./actor/sheet/npc-sheet.js";
 import { DIS } from "./config.js";
 import { DISItem } from "./item/item.js";
 import { DISItemSheet } from "./item/sheet/item-sheet.js";
@@ -32,6 +33,11 @@ Hooks.once("init", async function() {
     types: ["hub"],
     makeDefault: true,
     label: "DIS.SheetClassHub"
+  });
+  Actors.registerSheet("deathinspace", DISNpcSheet, {
+    types: ["npc"],
+    makeDefault: true,
+    label: "DIS.SheetClassNpc"
   });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("deathinspace", DISItemSheet, { makeDefault: true });

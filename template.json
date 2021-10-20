@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "hub"],
+    "types": ["character", "hub", "npc"],
     "templates": {
     },
     "character": {
@@ -72,6 +72,32 @@
       "ownerName": "",
       "quirks": "",
       "size": 5
+    },
+    "npc": {
+      "abilities": {
+        "body": {
+          "value": 0
+        },
+        "dexterity": {
+          "value": 0
+        },
+        "savvy": {
+          "value": 0
+        },
+        "tech": {
+          "value": 0
+        }
+      },
+      "attack": "",
+      "attackBonus": 0,
+      "damage": "",
+      "defenseRating": 12,      
+      "hitpoints": {
+        "max": 1,
+        "value": 1
+      },      
+      "morale": 0,
+      "special": ""
     }
   },
   "Item": {

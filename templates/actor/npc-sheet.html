@@ -1,0 +1,81 @@
+
+<form class="{{cssClass}}">
+  <header class="sheet-header">
+    <div class="header-row">
+      <div class="col1">
+        <div class="portrait"> <img src="{{data.img}}" data-edit="img" title="{{data.name}}"/></div>
+      </div>
+      <div class="col2">
+        <div class="row1">
+          <div class="game-title">DEATH IN SPACE</div>
+          <div class="sheet-title">NPC SHEET</div>
+        </div>
+        <div class="row2">
+          <div>
+             NAME </div>
+          <div class="item-name">
+            <input class="npc-name" name="name" type="text" value="{{actor.name}}" placeholder="NPC Name" spellcheck="false"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="notes">{{ localize 'DIS.TabNotes' }}</a><a class="item" data-tab="data">{{ localize 'DIS.TabData' }}</a></nav>
+  <section class="sheet-body"> 
+    <div class="tab notes-tab" data-group="primary" data-tab="notes">
+      <div class="notes-wrapper">{{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}</div>
+    </div>
+    <div class="tab data-tab" data-group="primary" data-tab="data">
+      <div class="data-wrapper">
+        <div class="form-group"> 
+          <label>BODY </label>
+          <input type="number" name="data.abilities.body.value" value="{{data.data.abilities.body.value}}" placeholder="0" data-dtype="Number"/>
+        </div>
+        <div class="form-group"> 
+          <label>DEXTERITY</label>
+          <input type="number" name="data.abilities.dexterity.value" value="{{data.data.abilities.dexterity.value}}" placeholder="0" data-dtype="Number"/>
+        </div>
+        <div class="form-group"> 
+          <label>SAVVY</label>
+          <input type="number" name="data.abilities.savvy.value" value="{{data.data.abilities.savvy.value}}" placeholder="0" data-dtype="Number"/>
+        </div>
+        <div class="form-group"> 
+          <label>TECH</label>
+          <input type="number" name="data.abilities.tech.value" value="{{data.data.abilities.tech.value}}" placeholder="0" data-dtype="Number"/>
+        </div>
+        <div class="form-group"> 
+          <label>Hit Points (Current) </label>
+          <input type="number" name="data.hp.value" value="{{data.data.hp.value}}" placeholder="0" data-dtype="Number"/>
+        </div>
+        <div class="form-group">
+          <label>Hit Points (Max) </label>
+          <input type="number" name="data.hp.max" value="{{data.data.hp.max}}" placeholder="0" data-dtype="Number"/>
+        </div>
+        <div class="form-group">
+          <label>Defense Rating </label>
+          <input type="number" name="data.defenseRating" value="{{data.data.defenseRating}}" placeholder="12" data-dtype="Number"/>
+        </div>
+        <div class="form-group"> 
+          <label>Morale </label>
+          <input type="number" name="data.morale" value="{{data.data.morale}}" placeholder="0" data-dtype="Number"/>
+        </div>
+        <div class="form-group"> 
+          <label>Attack </label>
+          <input type="text" name="data.attack" value="{{data.data.attack}}" data-dtype="String"/>
+        </div>
+        <div class="form-group"> 
+          <label>Attack Bonus </label>
+          <input type="number" name="data.attackBonus" value="{{data.data.attackBonus}}" placeholder="0" data-dtype="Number"/>
+        </div>
+        <div class="form-group"> 
+          <label>Damage </label>
+          <input type="text" name="data.damage" value="{{data.data.damage}}" placeholder="1d4" data-dtype="String"/>
+        </div>
+        <div class="form-group"> 
+          <label>Special</label>
+          <textarea name="data.special" rows="4">{{data.data.special}}</textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
