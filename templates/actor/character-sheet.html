@@ -226,12 +226,26 @@
             <div class="equipment-name">EQUIPMENT</div>
             <div class="equipment-condition">
                CONDITION</div>
+            <div class="equipment-slots">
+               SLOTS</div>
             <div class="item-controls">&nbsp;              </div>
           </div>{{#each data.data.equipment as |item id|}}
           <div class="equipment-row item" data-item-id="{{item._id}}">
             <div class="equipment-name">{{add id 1}}. {{item.name}}</div>
             <div class="equipment-condition">
-               {{ item.data.condition.value }} / {{ item.data.condition.max}}</div>
+               {{#if item.data.condition.max}}
+              {{ item.data.condition.value }} / {{ item.data.condition.max}}
+              {{else}}
+              -
+              {{/if}}
+            </div>
+            <div class="equipment-slots">
+               {{#if item.data.slots}}
+              {{ item.data.slots}}
+              {{else}}
+              -
+              {{/if}}
+            </div>
             <div class="item-controls"><a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash"> </i></a></div>
           </div>{{/each}}
         </div>
@@ -246,6 +260,8 @@
                AMMO </div>
             <div class="weapon-condition">
                 CONDITION</div>
+            <div class="weapon-slots">
+               SLOTS</div>
             <div class="item-controls">
                &nbsp;</div>
           </div>
@@ -258,6 +274,8 @@
                {{item.data.usesBeforeReload.value}} /  {{item.data.usesBeforeReload.max}}</div>
             <div class="weapon-condition">
                {{item.data.condition.value}} /  {{item.data.condition.max}}</div>
+            <div class="weapon-slots">
+               {{item.data.slots}}</div>
             <div class="item-controls"><a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash">                         </i></a></div>
           </div>{{/each}}
         </div>
@@ -270,6 +288,8 @@
                PROTECTS AGAINST </div>
             <div class="armor-dr-bonus">
                DR BONUS </div>
+            <div class="armor-slots">
+               SLOTS</div>
             <div class="item-controls">
                &nbsp;                </div>
           </div>
@@ -280,8 +300,26 @@
                {{item.data.protectsAgainst}}</div>
             <div class="armor-dr-bonus">
                {{item.data.defenseRatingBonus}}</div>
+            <div class="armor-slots">
+               {{item.data.slots}}</div>
             <div class="item-controls"><a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash"> </i></a></div>
           </div>{{/each}}
+        </div>
+        <div class="slots-total">
+          <div class="slots-total-header">
+            <div class="slots-text">
+               &nbsp;</div>
+            <div class="slots-total">
+               TOTAL</div>
+            <div class="item-controls">&nbsp;</div>
+          </div>
+          <div class="slots-total-row">
+            <div class="slots-text">
+               &#10071; PLEASE NOTE THAT THE NUMBER OF ITEM SLOTS IS EQUAL TO 12+BODY</div>
+            <div class="slots-total">
+               {{data.data.totalSlots}}/{{data.data.maxSlots}}</div>
+            <div class="item-controls">&nbsp;</div>
+          </div>
         </div>
         <div class="holo-row"> 
           <div class="stat-block holos"> 

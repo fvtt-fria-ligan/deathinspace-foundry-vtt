@@ -176,6 +176,8 @@ form(class="{{cssClass}}" autocomplete="off")
               | EQUIPMENT
             .equipment-condition 
               | CONDITION
+            .equipment-slots 
+              | SLOTS
             .item-controls
               | &nbsp;              
           | {{#each data.data.equipment as |item id|}}
@@ -183,7 +185,17 @@ form(class="{{cssClass}}" autocomplete="off")
             .equipment-name
               | {{add id 1}}. {{item.name}}
             .equipment-condition 
+              | {{#if item.data.condition.max}}
               | {{ item.data.condition.value }} / {{ item.data.condition.max}}
+              | {{else}}
+              | -
+              | {{/if}}
+            .equipment-slots 
+              | {{#if item.data.slots}}
+              | {{ item.data.slots}}
+              | {{else}}
+              | -
+              | {{/if}}
             .item-controls
               a.item-control.item-edit
                 i.fas.fa-edit                          
@@ -201,6 +213,8 @@ form(class="{{cssClass}}" autocomplete="off")
               | AMMO 
             .weapon-condition   
               | CONDITION
+            .weapon-slots 
+              | SLOTS
             .item-controls 
               | &nbsp;
           .weapon-row.item(data-item-id="{{item._id}}") 
@@ -212,6 +226,8 @@ form(class="{{cssClass}}" autocomplete="off")
               | {{item.data.usesBeforeReload.value}} /  {{item.data.usesBeforeReload.max}}
             .weapon-condition 
               | {{item.data.condition.value}} /  {{item.data.condition.max}}
+            .weapon-slots 
+              | {{item.data.slots}}
             .item-controls
               a.item-control.item-edit
                 i.fas.fa-edit                          
@@ -227,6 +243,8 @@ form(class="{{cssClass}}" autocomplete="off")
                 | PROTECTS AGAINST 
               .armor-dr-bonus 
                 | DR BONUS 
+              .armor-slots 
+                | SLOTS
               .item-controls 
                 | &nbsp;                
           .armor-row.item(data-item-id="{{item._id}}")
@@ -236,12 +254,29 @@ form(class="{{cssClass}}" autocomplete="off")
               | {{item.data.protectsAgainst}}
             .armor-dr-bonus 
               | {{item.data.defenseRatingBonus}}
+            .armor-slots 
+              | {{item.data.slots}}
             .item-controls
               a.item-control.item-edit
                 i.fas.fa-edit                          
               a.item-control.item-delete
                 i.fas.fa-trash  
           | {{/each}}
+        .slots-total
+          .slots-total-header
+            .slots-text 
+              | &nbsp;
+            .slots-total 
+              | TOTAL
+            .item-controls
+              | &nbsp;
+          .slots-total-row
+            .slots-text 
+              | &#10071; PLEASE NOTE THAT THE NUMBER OF ITEM SLOTS IS EQUAL TO 12+BODY
+            .slots-total 
+              | {{data.data.totalSlots}}/{{data.data.maxSlots}}
+            .item-controls
+              | &nbsp;
         .holo-row 
           .stat-block.holos 
             label HOLOS
