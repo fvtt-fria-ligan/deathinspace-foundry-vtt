@@ -99,6 +99,10 @@
 .deathinspace.sheet .portrait:hover {
   cursor: pointer;
 }
+.deathinspace.sheet .rollable:hover {
+  cursor: pointer;
+  text-shadow: 0 0 10px red;
+}
 .deathinspace.sheet .hub .sheet-tabs {
   flex: 0 0 30px;
   font-size: 16px;
@@ -221,10 +225,6 @@
   background-color: white;
   border-bottom: 1px solid var(--character-background-color);
   color: var(--character-background-color);
-}
-.deathinspace.sheet.actor.character .rollable:hover {
-  cursor: pointer;
-  text-shadow: 0 0 10px red;
 }
 .deathinspace.sheet.actor.character .personal-tab .personal-wrapper {
   display: inline-grid;
@@ -1093,6 +1093,7 @@
 }
 .deathinspace.sheet.npc form {
   border: 4px solid var(--item-background-color);
+  padding: 0;
 }
 .deathinspace.sheet.npc .sheet-header {
   height: 160px;
@@ -1100,7 +1101,6 @@
 .deathinspace.sheet.npc .sheet-header .header-row {
   display: flex;
   height: 160px;
-  margin-top: 1px;
 }
 .deathinspace.sheet.npc .sheet-header .header-row .col1 {
   display: flex;
@@ -1115,7 +1115,6 @@
   background-color: var(--input-border-color);
   border-radius: 0;
   height: 160px;
-  padding-top: 1px;
   width: 160px;
 }
 .deathinspace.sheet.npc .sheet-header .header-row .col1 .portrait img {
@@ -1204,7 +1203,6 @@
 .deathinspace.sheet.item .sheet-header .header-row {
   display: flex;
   height: 160px;
-  margin-top: 1px;
 }
 .deathinspace.sheet.item .sheet-header .header-row .col1 {
   display: flex;

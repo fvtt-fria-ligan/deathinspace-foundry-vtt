@@ -60,7 +60,10 @@
   .portrait:hover {
     cursor: pointer;
   }
-
+  .rollable:hover {
+    cursor: pointer;
+    text-shadow: 0 0 10px red;
+  }
 
   /* ====================== */
   /* Sheet Tabs */

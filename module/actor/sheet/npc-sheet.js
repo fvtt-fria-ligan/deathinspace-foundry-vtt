@@ -15,4 +15,34 @@ export class DISNpcSheet extends DISActorSheet {
       dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
     });
   }
+
+  /** @override */
+  activateListeners(html) {
+    super.activateListeners(html);
+    html.find(".ability.rollable").on("click", this._onAbilityRoll.bind(this));
+    html.find(".morale.rollable").on("click", this._onMoraleRoll.bind(this));
+    html.find(".attack.rollable").on("click", this._onAttackRoll.bind(this));
+    html.find(".damage.rollable").on("click", this._onDamageRoll.bind(this));
+  }  
+
+  _onAbilityRoll(event) {
+    event.preventDefault();
+    const ability = event.target.getAttribute("data-ability");
+    this.actor.rollAbilityCheck(ability);
+  }
+
+  _onMoraleRoll(event) {
+    event.preventDefault();
+    this.actor.rollNpcMorale();
+  }
+
+  _onAttackRoll(event) {
+    event.preventDefault();
+    this.actor.rollNpcAttack();
+  }
+
+  _onDamageRoll(event) {
+    event.preventDefault();
+    this.actor.rollNpcDamage();
+  }
 }

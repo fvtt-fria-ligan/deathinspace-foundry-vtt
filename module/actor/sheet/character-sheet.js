@@ -52,20 +52,20 @@ export class DISCharacterSheet extends DISActorSheet {
   _onAbilityRoll(event) {
     event.preventDefault();
     const ability = event.target.getAttribute("data-ability");
-    this.actor.abilityCheck(ability);
+    this.actor.rolLAbilityCheck(ability);
   }  
 
   _onWeaponRoll(event) {
     event.preventDefault();
     const row = $(event.currentTarget).parents(".item");
     const itemId = row.data("itemId");
-    this.actor.attack(itemId);
+    this.actor.rollAttackWithItem(itemId);
   }  
 
   _onDamageRoll(event) {
     event.preventDefault();
     const row = $(event.currentTarget).parents(".item");
     const itemId = row.data("itemId");
-    this.actor.damage(itemId);
+    this.actor.rollDamageWithItem(itemId);
   }    
 }

@@ -28,19 +28,19 @@
     <div class="tab data-tab" data-group="primary" data-tab="data">
       <div class="data-wrapper">
         <div class="form-group"> 
-          <label>BODY </label>
+          <label class="ability rollable" data-ability="body">BODY </label>
           <input type="number" name="data.abilities.body.value" value="{{data.data.abilities.body.value}}" placeholder="0" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
-          <label>DEXTERITY</label>
+          <label class="ability rollable" data-ability="dexterity">DEXTERITY</label>
           <input type="number" name="data.abilities.dexterity.value" value="{{data.data.abilities.dexterity.value}}" placeholder="0" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
-          <label>SAVVY</label>
+          <label class="ability rollable" data-ability="savvy">SAVVY</label>
           <input type="number" name="data.abilities.savvy.value" value="{{data.data.abilities.savvy.value}}" placeholder="0" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
-          <label>TECH</label>
+          <label class="ability rollable" data-ability="tech">TECH</label>
           <input type="number" name="data.abilities.tech.value" value="{{data.data.abilities.tech.value}}" placeholder="0" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
@@ -56,11 +56,11 @@
           <input type="number" name="data.defenseRating" value="{{data.data.defenseRating}}" placeholder="12" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
-          <label>Morale </label>
+          <label class="morale rollable">Morale </label>
           <input type="number" name="data.morale" value="{{data.data.morale}}" placeholder="0" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
-          <label>Attack </label>
+          <label class="attack rollable">Attack </label>
           <input type="text" name="data.attack" value="{{data.data.attack}}" data-dtype="String"/>
         </div>
         <div class="form-group"> 
@@ -68,7 +68,7 @@
           <input type="number" name="data.attackBonus" value="{{data.data.attackBonus}}" placeholder="0" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
-          <label>Damage </label>
+          <label class="damage rollable">Damage </label>
           <input type="text" name="data.damage" value="{{data.data.damage}}" placeholder="1d4" data-dtype="String"/>
         </div>
         <div class="form-group"> 
