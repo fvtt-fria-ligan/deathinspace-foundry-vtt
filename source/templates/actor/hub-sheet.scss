@@ -20,9 +20,12 @@
       color: var(--hub-background-color);
     }
   }
-  .portrait img {
-    height: 100%;
-    width: 100%;
+  .portrait {
+    background: none;
+    img {
+      height: 100%;
+      width: 100%;
+    }
   }
   input.power {
     text-align: center;

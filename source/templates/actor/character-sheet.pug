@@ -218,9 +218,9 @@ form(class="{{cssClass}}" autocomplete="off")
             .item-controls 
               | &nbsp;
           .weapon-row.item(data-item-id="{{item._id}}") 
-            .weapon-name 
+            .weapon-name.rollable
               | {{item.name}}
-            .weapon-damage 
+            .weapon-damage.rollable 
               | {{item.data.damage}}
             .weapon-ammo 
               | {{item.data.usesBeforeReload.value}} /  {{item.data.usesBeforeReload.max}}

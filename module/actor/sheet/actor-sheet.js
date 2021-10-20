@@ -24,15 +24,14 @@ export default class DISActorSheet extends ActorSheet {
   }  
 
   _onItemEdit(event) {
-    const li = $(event.currentTarget).parents(".item");
-    const item = this.actor.getOwnedItem(li.data("itemId"));
+    const row = $(event.currentTarget).parents(".item");
+    const item = this.actor.getOwnedItem(row.data("itemId"));
     item.sheet.render(true);
   }
 
   _onItemDelete(event) {
-    const li = $(event.currentTarget).parents(".item");
-    const itemId = li.data("itemId");
-    this.actor.deleteOwnedItem(li.data("itemId"));
-    li.slideUp(200, () => this.render(false));
+    const row = $(event.currentTarget).parents(".item");
+    this.actor.deleteOwnedItem(row.data("itemId"));
+    row.slideUp(200, () => this.render(false));
   }
 }

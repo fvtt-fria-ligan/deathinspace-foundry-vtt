@@ -22,6 +22,8 @@ export class DISCharacterSheet extends DISActorSheet {
     super.activateListeners(html);
 
     html.find(".ability-name").on("click", this._onAbilityRoll.bind(this));
+    html.find(".weapon-name.rollable").on("click", this._onWeaponRoll.bind(this));
+    html.find(".weapon-damage.rollable").on("click", this._onDamageRoll.bind(this));
   }
 
   /** @override */
@@ -29,13 +31,6 @@ export class DISCharacterSheet extends DISActorSheet {
     const superData = super.getData();
     const data = superData.data;
     data.config = CONFIG.DIS;
-
-    // Ability Scores
-    // for (let [a, abl] of Object.entries(data.data.abilities)) {
-    //   const translationKey = CONFIG.MB.abilities[a];
-    //   abl.label = game.i18n.localize(translationKey);
-    // }
-
     this.prepareCharacterItems(data);
     return superData;
   }  
@@ -59,4 +54,18 @@ export class DISCharacterSheet extends DISActorSheet {
     const ability = event.target.getAttribute("data-ability");
     this.actor.abilityCheck(ability);
   }  
+
+  _onWeaponRoll(event) {
+    event.preventDefault();
+    const row = $(event.currentTarget).parents(".item");
+    const itemId = row.data("itemId");
+    this.actor.attack(itemId);
+  }  
+
+  _onDamageRoll(event) {
+    event.preventDefault();
+    const row = $(event.currentTarget).parents(".item");
+    const itemId = row.data("itemId");
+    this.actor.damage(itemId);
+  }    
 }
