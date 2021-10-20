@@ -137,7 +137,8 @@
       "usesBeforeReload": {
         "max": 0,
         "value": 0
-      }
+      },
+      "weaponType": "ranged"
     }
   }
 }
