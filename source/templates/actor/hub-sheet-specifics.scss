@@ -11,30 +11,30 @@
     width: 100%;
   }  
   .nickname-block {
-    border-bottom: 2px solid #32a6d2;
+    border-bottom: 2px solid var(--hub-background-color);
     border-right: 2px solid black;
     display: flex;
     grid-column-start: 1;
     grid-row-start: 1;
   }
   .hub-type-block {
-    border-bottom: 2px solid #32a6d2;
+    border-bottom: 2px solid var(--hub-background-color);
     grid-column-start: 2;
     grid-row-start: 1;
   }
   .background-block {
-    border-bottom: 2px solid #32a6d2;
+    border-bottom: 2px solid var(--hub-background-color);
     border-right: 2px solid black;
     grid-column-start: 1;
     grid-row-start: 2;
   }
   .appearance-block {
-    border-bottom: 2px solid #32a6d2;
+    border-bottom: 2px solid var(--hub-background-color);
     grid-column-start: 2;
     grid-row-start: 2;
   }
   .quirks-block {
-    border-bottom: 2px solid #32a6d2;
+    border-bottom: 2px solid var(--hub-background-color);
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;

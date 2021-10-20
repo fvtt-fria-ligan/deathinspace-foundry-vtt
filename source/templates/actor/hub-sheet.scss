@@ -3,12 +3,12 @@
 // new new blue 4088b4
 .deathinspace.sheet.hub {
   form {
-    border: 4px solid #4088b4;
+    border: 4px solid var(--hub-background-color);
   }
   .sheet-tabs {
-    background: #4088b4;
-    border-bottom: 1px solid #4088b4;
-    border-top: 1px solid #4088b4;
+    background: var(--hub-background-color);
+    border-bottom: 1px solid var(--hub-background-color);
+    border-top: 1px solid var(--hub-background-color);
     color: white;
     .item:hover {
       color: black;
@@ -17,7 +17,7 @@
     .item.active {
       background-color: white;
       border-bottom: none;
-      color: #4088b4;
+      color: var(--hub-background-color);
     }  
   }
   .portrait img {
@@ -33,10 +33,10 @@
   .header-row {
     .col1 {
       .game-title {
-        color: #4088b4;
+        color: var(--hub-background-color);
       }
       .sheet-title {
-        color: #4088b4;
+        color: var(--hub-background-color);
       }
     }
   }

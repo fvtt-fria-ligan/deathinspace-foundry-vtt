@@ -3,22 +3,22 @@
   // new red d72228
   // new new red c8102e
   form {
-    border: 4px solid #c8102e;
+    border: 4px solid var(--character-background-color);
   }
   .header-row {
     .col1 {
       .game-title {
-        color: #c8102e;
+        color: var(--character-background-color);
       }
       .sheet-title {
-        color: #c8102e;
+        color: var(--character-background-color);
       }
     }
   }
   .sheet-tabs {
-    background: #c8102e;
-    border-bottom: 1px solid #c8102e;
-    border-top: 1px solid #c8102e;
+    background: var(--character-background-color);
+    border-bottom: 1px solid var(--character-background-color);
+    border-top: 1px solid var(--character-background-color);
     color: white;
     .item:hover {
       color: black;
@@ -26,8 +26,8 @@
     }
     .item.active {
       background-color: white;
-      border-bottom: 1px solid #c8102e;
-      color: #c8102e;
+      border-bottom: 1px solid var(--character-background-color);
+      color: var(--character-background-color);
     }
   }
   .rollable:hover {

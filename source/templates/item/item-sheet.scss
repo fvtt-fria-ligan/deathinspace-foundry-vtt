@@ -1,6 +1,6 @@
 .deathinspace.sheet.item {
   form {
-    border: 4px solid #7a7971;
+    border: 4px solid var(--item-background-color);
   }
   .sheet-header {
     height: 160px;
@@ -17,7 +17,7 @@
         margin: 0;
         padding: 0;
         .item-image {
-          background-color: #7a7971;
+          background-color: var(--input-border-color);
           border-radius: 0;
           height: 160px;
           padding-top: 1px;
@@ -37,12 +37,12 @@
         margin: 0;
         padding: 10px;
         .game-title {
-          color: #7a7971;
+          color: var(--item-background-color);
           font-family: var(--title-font);
           font-size: 36px;
         }
         .sheet-title {
-          color: #7a7971;
+          color: var(--item-background-color);
         }
         .row1 {
           border-bottom: 1px solid black;
@@ -60,7 +60,7 @@
     border-bottom: 1px solid #f4f3ed;
     border-top: 1px solid #f4f3ed;
     .item.active {
-      background-color: #7a7971;
+      background-color: var(--item-background-color);
       color: white;
     }
     .item:hover {

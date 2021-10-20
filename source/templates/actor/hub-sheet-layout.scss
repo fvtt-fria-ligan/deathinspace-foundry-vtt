@@ -4,7 +4,7 @@
 .deathinspace.sheet.actor.hub .layout-wrapper {
   align-items: center;
   background: #fffffb;
-  background-image: radial-gradient(#7a7971 1px, transparent 0);
+  background-image: radial-gradient(var(--input-border-color) 1px, transparent 0);
   background-position: -14px -14px;
   background-size: 30px 30px;
   display: flex;
