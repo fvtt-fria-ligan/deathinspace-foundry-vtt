@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Roboto&Varta:wght@700display=swap");
 :root {
   --background-color: #ffffff;
+  --character-red-color: red;
+  --hub-blue-color: #32a6d2;
   --foreground-color: #000000;
   --highlight-background-color: #c8102e;
   --highlight-foreground-color: #ffffff;
@@ -8,6 +10,7 @@
   --title-font: "AndroclesOpti-Heavy";
   --text-font: "IBM Plex Mono";
   --input-font: sans-serif;
+  --input-border-color: #7a7971;
 }
 
 @font-face {
@@ -50,11 +53,30 @@
 .deathinspace.sheet input[type=text],
 .deathinspace.sheet input[type=number] {
   border: none;
-  border-bottom: 1px dotted #000;
+  border-bottom: 1px dotted black;
   border-radius: 0;
   font-family: var(--input-font);
   font-size: 20px;
   text-decoration: none;
+}
+.deathinspace.sheet ::-moz-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--input-border-color);
+  opacity: 0.5;
+}
+.deathinspace.sheet :-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--input-border-color);
+  opacity: 0.5;
+}
+.deathinspace.sheet ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--input-border-color);
+  opacity: 0.5;
+}
+.deathinspace.sheet :-ms-input-placeholder {
+  color: var(--input-border-color);
+  opacity: 0.5;
 }
 .deathinspace.sheet select {
   border-radius: 0;
@@ -63,12 +85,15 @@
 }
 .deathinspace.sheet textarea {
   border: none;
-  border-bottom: 1px dotted #000;
+  border-bottom: 1px dotted black;
   border-radius: 0;
   height: 90%;
   font-family: var(--input-font);
   font-size: 20px;
   resize: none;
+}
+.deathinspace.sheet .portrait {
+  background: rgba(0, 0, 0, 0.05);
 }
 .deathinspace.sheet .hub .sheet-tabs {
   flex: 0 0 30px;
@@ -99,7 +124,7 @@
 .deathinspace.sheet input[type=text],
 .deathinspace.sheet select,
 .deathinspace.sheet textarea {
-  border: 1px dotted #7a7971;
+  border: 1px dotted var(--input-border-color);
   font-family: "IBM Plex Mono";
   font-size: 16px;
 }
@@ -288,25 +313,25 @@
   grid-row-start: 6;
   grid-row-end: 11;
 }
-.deathinspace.sheet.actor.character .personal-tab .ability-col {
+.deathinspace.sheet.actor.character .personal-tab .ability-block .ability-col {
   display: flex;
   flex-direction: column;
   height: 80%;
   justify-content: space-around;
   padding: 5px;
 }
-.deathinspace.sheet.actor.character .personal-tab .ability-row {
+.deathinspace.sheet.actor.character .personal-tab .ability-block .ability-col .ability-row {
   display: flex;
 }
-.deathinspace.sheet.actor.character .personal-tab .ability-name {
+.deathinspace.sheet.actor.character .personal-tab .ability-block .ability-col .ability-row .ability-name {
   flex: 1;
   font-weight: bold;
 }
-.deathinspace.sheet.actor.character .personal-tab .ability-value {
+.deathinspace.sheet.actor.character .personal-tab .ability-block .ability-col .ability-row .ability-value {
   flex: 0 0 50px;
 }
-.deathinspace.sheet.actor.character .personal-tab .ability-value input[type=number],
-.deathinspace.sheet.actor.character .personal-tab input[type=number].stat-input {
+.deathinspace.sheet.actor.character .personal-tab .ability-block .ability-col .ability-row .ability-value input[type=number],
+.deathinspace.sheet.actor.character .personal-tab .ability-block .ability-col .ability-row input[type=number].stat-input {
   text-align: center;
 }
 .deathinspace.sheet.actor.character .personal-tab .portrait-block {
@@ -314,11 +339,15 @@
   grid-row-start: 6;
   grid-row-end: 11;
 }
-.deathinspace.sheet.actor.character .personal-tab .portrait-col {
+.deathinspace.sheet.actor.character .personal-tab .portrait-block .portrait-col {
   display: flex;
   flex-direction: column;
   height: 90%;
   justify-content: center;
+}
+.deathinspace.sheet.actor.character .personal-tab .portrait-block .portrait-col .portrait {
+  height: 172px;
+  width: 172px;
 }
 .deathinspace.sheet.actor.character .personal-tab .defense-row {
   border-bottom: 2px solid black;
@@ -716,7 +745,7 @@
   width: 100%;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row {
-  border-bottom: 2px solid #32a6d2;
+  border-bottom: 2px solid var(--hub-blue-color);
   display: flex;
   flex: 0 0 80px;
 }
@@ -753,7 +782,7 @@
 .deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment:nth-child(2) .integrity-percent,
 .deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment:nth-child(7) .integrity-percent,
 .deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment:nth-child(12) .integrity-percent {
-  background-color: #32a6d2;
+  background-color: var(--hub-blue-color);
   color: white;
   display: block;
 }
@@ -775,33 +804,54 @@
   width: 118px;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row {
-  border-bottom: 2px solid #32a6d2;
+  border-bottom: 2px solid var(--hub-blue-color);
   display: flex;
   flex: 0 0 35px;
-  font-size: 12px;
+  font-size: 10px;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col1 {
-  flex: 0 0 170px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col1 .arrow-row {
+  display: flex;
+  color: var(--hub-blue-color);
+  font-size: 16px;
+  font-weight: bold;
+  flex: 0 0 15px;
+  line-height: 15px;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+.deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col1 .arrow-row .arrow1 {
+  flex: 0 0 113px;
+}
+.deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col1 .arrow-row .arrow2 {
+  flex: 0 0 201px;
+}
+.deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col1 .roll-text-row {
+  display: flex;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+.deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col1 .roll-text-row .spacer1 {
+  flex: 0 0 74px;
+}
+.deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col1 .roll-text-row .spacer2 {
+  flex: 0 0 110px;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col2 {
-  flex: 0 0 100px;
-}
-.deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col3 {
-  flex: 0 0 20px;
-}
-.deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col4 {
-  flex: 0 0 100px;
-}
-.deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col5 {
-  flex: 0 0 99px;
-}
-.deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col6 {
   border-left: 1px dotted black;
-  flex: 1;
-  padding-left: 5px;
+  flex: 0 0 217px;
+  font-size: 10px;
+  padding: 5px;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row {
-  border-bottom: 2px solid #32a6d2;
+  border-bottom: 2px solid var(--hub-blue-color);
   display: flex;
   flex: 0 0 80px;
 }
@@ -989,12 +1039,12 @@
   grid-row-start: 3;
 }
 .deathinspace.sheet.hub form {
-  border: 4px solid #3a8cb8;
+  border: 4px solid #4088b4;
 }
 .deathinspace.sheet.hub .sheet-tabs {
-  background: #3a8cb8;
-  border-bottom: 1px solid #3a8cb8;
-  border-top: 1px solid #3a8cb8;
+  background: #4088b4;
+  border-bottom: 1px solid #4088b4;
+  border-top: 1px solid #4088b4;
   color: white;
 }
 .deathinspace.sheet.hub .sheet-tabs .item:hover {
@@ -1004,7 +1054,7 @@
 .deathinspace.sheet.hub .sheet-tabs .item.active {
   background-color: white;
   border-bottom: none;
-  color: #3a8cb8;
+  color: #4088b4;
 }
 .deathinspace.sheet.hub .portrait img {
   height: 100%;
@@ -1016,10 +1066,10 @@
 }
 
 .deathinspace.sheet.actor.hub .header-row .col1 .game-title {
-  color: #3a8cb8;
+  color: #4088b4;
 }
 .deathinspace.sheet.actor.hub .header-row .col1 .sheet-title {
-  color: #3a8cb8;
+  color: #4088b4;
 }
 .deathinspace.sheet.item {
   /* Notes tab */

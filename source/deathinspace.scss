@@ -1,5 +1,7 @@
 :root {
   --background-color: #ffffff;
+  --character-red-color: red;
+  --hub-blue-color: #32a6d2;
   --foreground-color: #000000;
   --highlight-background-color: #c8102e;
   --highlight-foreground-color: #ffffff;
@@ -7,6 +9,7 @@
   --title-font: "AndroclesOpti-Heavy";
   --text-font: "IBM Plex Mono";
   --input-font: sans-serif;
+  --input-border-color: #7a7971; 
 }
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Roboto&Varta:wght@700display=swap');
 @font-face {

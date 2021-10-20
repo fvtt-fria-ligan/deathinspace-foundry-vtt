@@ -132,38 +132,42 @@
       grid-column-start: 1;
       grid-row-start: 6;
       grid-row-end: 11;
-    }
-    .ability-col {
-      display: flex;
-      flex-direction: column;
-      height: 80%;
-      justify-content: space-around;
-      padding: 5px;
-    }
-    .ability-row {
-      display: flex;
-    }
-    .ability-name {
-      flex: 1;
-      font-weight: bold;
-    }
-    .ability-value {
-      flex: 0 0 50px;
-    }
-    .ability-value input[type="number"],
-    input[type="number"].stat-input {
-      text-align: center;
+      .ability-col {
+        display: flex;
+        flex-direction: column;
+        height: 80%;
+        justify-content: space-around;
+        padding: 5px;
+        .ability-row {
+          display: flex;
+          .ability-name {
+            flex: 1;
+            font-weight: bold;
+          }
+          .ability-value {
+            flex: 0 0 50px;
+          }
+          .ability-value input[type="number"],
+          input[type="number"].stat-input {
+            text-align: center;
+          }
+        }
+      }
     }
     .portrait-block {
       grid-column-start: 3;
       grid-row-start: 6;
       grid-row-end: 11;
-    }
-    .portrait-col {
-      display: flex;
-      flex-direction: column;
-      height: 90%;
-      justify-content: center;
+      .portrait-col {
+        display: flex;
+        flex-direction: column;
+        height: 90%;
+        justify-content: center;
+        .portrait {
+          height: 172px;
+          width: 172px;
+        }
+      }
     }
     .defense-row {
       border-bottom: 2px solid black;

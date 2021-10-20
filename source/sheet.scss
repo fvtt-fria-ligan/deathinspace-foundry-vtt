@@ -26,11 +26,19 @@
   input[type="text"],
   input[type="number"] {
     border: none;
-    border-bottom: 1px dotted #000;
+    border-bottom: 1px dotted black;
     border-radius: 0;
     font-family: var(--input-font);
     font-size: 20px;
     text-decoration: none;
+  }
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--input-border-color);
+    opacity: 0.5;
+  }
+  :-ms-input-placeholder {
+    color: var(--input-border-color);
+    opacity: 0.5;
   }
   select {
     border-radius: 0;
@@ -39,12 +47,15 @@
   }
   textarea {
     border: none;
-    border-bottom: 1px dotted #000;
+    border-bottom: 1px dotted black;
     border-radius: 0;
     height: 90%;
     font-family: var(--input-font);
     font-size: 20px;
     resize: none;
+  }
+  .portrait {
+    background: rgba(0, 0, 0, 0.05);
   }
 
   /* ====================== */
@@ -80,7 +91,7 @@
   input[type="text"],
   select,
   textarea {
-    border: 1px dotted #7a7971;
+    border: 1px dotted var(--input-border-color);
     font-family: "IBM Plex Mono";
     font-size: 16px;
   }

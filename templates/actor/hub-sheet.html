@@ -21,13 +21,13 @@
       <div class="specifics-wrapper">
         <div class="nickname-block">
           <div class="stat-block">
-            <label>Name</label>
+            <label>NickName</label>
             <input type="text" name="name" value="{{actor.name}}" placeholder="Name" spellcheck="false"/>
           </div>
         </div>
         <div class="hub-type-block">
           <div class="stat-block">
-            <label>Hub type and frame</label>
+            <label>Hub type</label>
             <input type="text" name="data.hubType" value="{{data.data.hubType}}" placeholder="" spellcheck="false"/>
           </div>
         </div>
@@ -130,12 +130,20 @@
           </div>
         </div>
         <div class="roll-on-damage-row"> 
-          <div class="col1"></div>
-          <div class="col2"></div>
-          <div class="col3"></div>
-          <div class="col4">ROLL ON<br/>DAMAGE TABLE</div>
-          <div class="col5"></div>
-          <div class="col6">WHEN ALL IS CALM THE HUB<br/>REGAINS 1d4*10% INTEGRITY</div>
+          <div class="col1">
+            <div class="arrow-row"> 
+              <div class="arrow1">
+                 ↓</div>
+              <div class="arrow2">↓ </div>
+            </div>
+            <div class="roll-text-row">
+              <div class="spacer1"></div>
+              <div class="condition0">CONDITION 0</div>
+              <div class="spacer2"></div>
+              <div class="roll-on-text">ROLL ON THE SPACECRAFT<br/>DISASTERS TABLE</div>
+            </div>
+          </div>
+          <div class="col2">WHEN ALL IS CALM THE HUB<br/>REGAINS 1D6*10% FRAME INTEGRITY<br/>ON A CALM NIGHT UP TO MAXIMUM</div>
         </div>
         <div class="condition-row"> 
           <div class="condition">
@@ -210,7 +218,7 @@
             </div>{{/each}}
           </div>
           <div class="modules-total"> 
-            <div class="col1">The power cost sum should not exceed the output power.<br/>Power cost > power output = overheated.</div>
+            <div class="col1">The power cost sum should not<br/>exceed the output power.</div>
             <div class="col2"></div>
             <div class="col3"> 
               <input class="total-power-cost power" name="data.totalPowerCost" type="number" value="{{data.data.totalPowerCost}}" data-dtype="Number" readonly="readonly"/>

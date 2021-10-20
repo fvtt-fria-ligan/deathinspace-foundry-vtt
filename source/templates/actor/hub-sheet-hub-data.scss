@@ -6,7 +6,7 @@
   flex-direction: column;
   width: 100%;
   .frame-integrity-row {
-    border-bottom: 2px solid #32a6d2;
+    border-bottom: 2px solid var(--hub-blue-color);
     display: flex;
     flex: 0 0 80px;
     .frame-integrity {
@@ -42,7 +42,7 @@
     .integrity-increment:nth-child(2) .integrity-percent,
     .integrity-increment:nth-child(7) .integrity-percent,
     .integrity-increment:nth-child(12) .integrity-percent {
-      background-color: #32a6d2;
+      background-color: var(--hub-blue-color);
       color: white;
       display: block;
     }
@@ -66,34 +66,59 @@
   } // frame-integrity-row
 
   .roll-on-damage-row {
-    border-bottom: 2px solid #32a6d2;
+    border-bottom: 2px solid var(--hub-blue-color);
     display: flex;
     flex: 0 0 35px;
-    font-size: 12px;
+    font-size: 10px;
     .col1 {
-      flex: 0 0 170px;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      .arrow-row {
+        display: flex;
+        color: var(--hub-blue-color);
+        font-size: 16px;
+        font-weight: bold;
+        flex: 0 0 15px;
+        line-height: 15px;
+        margin: 0;
+        padding: 0;
+        text-align: right;
+        .arrow1 {
+          flex: 0 0 113px;
+        }
+        .arrow2 {
+          flex: 0 0 201px;
+        }
+      }
+      .roll-text-row {
+        display: flex;
+        flex: 1;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        .spacer1 {
+          flex: 0 0 74px;
+        }
+        .condition0 {
+        }
+        .spacer2 {
+          flex: 0 0 110px;
+        }
+        .roll-on-text {
+        }
+      }
     }
     .col2 {
-      flex: 0 0 100px;
-    }
-    .col3 {
-      flex: 0 0 20px;
-    }
-    .col4 {
-      flex: 0 0 100px;
-    }
-    .col5 {
-      flex: 0 0 99px;
-    }
-    .col6 {
       border-left: 1px dotted black;
-      flex: 1;
-      padding-left: 5px;
+      flex: 0 0 217px;
+      font-size: 10px;
+      padding: 5px;
     }
   } // roll-on-damage-row
 
   .condition-row {
-    border-bottom: 2px solid #32a6d2;
+    border-bottom: 2px solid var(--hub-blue-color);
     display: flex;
     flex: 0 0 80px;
 

@@ -28,11 +28,11 @@ form(class="{{cssClass}}")
       .specifics-wrapper
         .nickname-block
           .stat-block
-            label Name
+            label NickName
             input(type="text" name="name" value="{{actor.name}}" placeholder="Name" spellcheck="false")
         .hub-type-block
           .stat-block
-            label Hub type and frame
+            label Hub type
             input(type="text" name="data.hubType" value="{{data.data.hubType}}" placeholder="" spellcheck="false")
         .background-block
           .stat-block
@@ -70,17 +70,26 @@ form(class="{{cssClass}}")
               input(class="defense-rating" name="data.defenseRating" type="number" value="{{data.data.defenseRating}}" data-dtype="Number")
         .roll-on-damage-row 
           .col1
+            .arrow-row 
+              .arrow1 
+                | ↓
+              .arrow2
+                | ↓ 
+            .roll-text-row
+              .spacer1
+              .condition0
+                | CONDITION 0
+              .spacer2
+              .roll-on-text
+                | ROLL ON THE SPACECRAFT
+                br
+                | DISASTERS TABLE
           .col2
-          .col3
-          .col4
-            | ROLL ON
-            br
-            | DAMAGE TABLE
-          .col5
-          .col6
             | WHEN ALL IS CALM THE HUB
             br
-            | REGAINS 1d4*10% INTEGRITY
+            | REGAINS 1D6*10% FRAME INTEGRITY
+            br
+            | ON A CALM NIGHT UP TO MAXIMUM
         .condition-row 
           .condition
             .label-row
@@ -158,9 +167,9 @@ form(class="{{cssClass}}")
             | {{/each}}
           .modules-total 
             .col1
-              | The power cost sum should not exceed the output power.
+              | The power cost sum should not
               br
-              | Power cost > power output = overheated.
+              | exceed the output power.
             .col2
             .col3 
               input(class="total-power-cost power" name="data.totalPowerCost" type="number" value="{{data.data.totalPowerCost}}" data-dtype="Number" readonly=true)
