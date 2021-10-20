@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Roboto&Varta:wght@700display=swap");
 :root {
   --background-color: #ffffff;
-  --character-red-color: red;
-  --hub-blue-color: #32a6d2;
+  --character-background-color: #c8102e;
+  --hub-background-color: #4088b4;
   --foreground-color: #000000;
   --highlight-background-color: #c8102e;
   --highlight-foreground-color: #ffffff;
+  --item-background-color: #7a7971;
   --tab-font: "IBM Plex Mono";
   --title-font: "AndroclesOpti-Heavy";
   --text-font: "IBM Plex Mono";
@@ -101,6 +102,9 @@
   font-weight: 700;
   margin: 0px;
 }
+.deathinspace.sheet .sheet-tabs {
+  margin: 0;
+}
 .deathinspace.sheet .sheet-tabs .item {
   font-family: var(--tab-font);
   font-size: 16px;
@@ -192,18 +196,18 @@
   /* ====================== */
 }
 .deathinspace.sheet.actor.character form {
-  border: 4px solid #c8102e;
+  border: 4px solid var(--character-background-color);
 }
 .deathinspace.sheet.actor.character .header-row .col1 .game-title {
-  color: #c8102e;
+  color: var(--character-background-color);
 }
 .deathinspace.sheet.actor.character .header-row .col1 .sheet-title {
-  color: #c8102e;
+  color: var(--character-background-color);
 }
 .deathinspace.sheet.actor.character .sheet-tabs {
-  background: #c8102e;
-  border-bottom: 1px solid #c8102e;
-  border-top: 1px solid #c8102e;
+  background: var(--character-background-color);
+  border-bottom: 1px solid var(--character-background-color);
+  border-top: 1px solid var(--character-background-color);
   color: white;
 }
 .deathinspace.sheet.actor.character .sheet-tabs .item:hover {
@@ -212,8 +216,8 @@
 }
 .deathinspace.sheet.actor.character .sheet-tabs .item.active {
   background-color: white;
-  border-bottom: 1px solid #c8102e;
-  color: #c8102e;
+  border-bottom: 1px solid var(--character-background-color);
+  color: var(--character-background-color);
 }
 .deathinspace.sheet.actor.character .rollable:hover {
   cursor: pointer;
@@ -745,7 +749,7 @@
   width: 100%;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row {
-  border-bottom: 2px solid var(--hub-blue-color);
+  border-bottom: 2px solid var(--hub-background-color);
   display: flex;
   flex: 0 0 80px;
 }
@@ -782,7 +786,7 @@
 .deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment:nth-child(2) .integrity-percent,
 .deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment:nth-child(7) .integrity-percent,
 .deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment:nth-child(12) .integrity-percent {
-  background-color: var(--hub-blue-color);
+  background-color: var(--hub-background-color);
   color: white;
   display: block;
 }
@@ -804,7 +808,7 @@
   width: 118px;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row {
-  border-bottom: 2px solid var(--hub-blue-color);
+  border-bottom: 2px solid var(--hub-background-color);
   display: flex;
   flex: 0 0 35px;
   font-size: 10px;
@@ -816,7 +820,7 @@
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col1 .arrow-row {
   display: flex;
-  color: var(--hub-blue-color);
+  color: var(--hub-background-color);
   font-size: 16px;
   font-weight: bold;
   flex: 0 0 15px;
@@ -851,7 +855,7 @@
   padding: 5px;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row {
-  border-bottom: 2px solid var(--hub-blue-color);
+  border-bottom: 2px solid var(--hub-background-color);
   display: flex;
   flex: 0 0 80px;
 }
@@ -976,7 +980,7 @@
 .deathinspace.sheet.actor.hub .layout-wrapper {
   align-items: center;
   background: #fffffb;
-  background-image: radial-gradient(#7a7971 1px, transparent 0);
+  background-image: radial-gradient(var(--input-border-color) 1px, transparent 0);
   background-position: -14px -14px;
   background-size: 30px 30px;
   display: flex;
@@ -1010,41 +1014,41 @@
   width: 100%;
 }
 .deathinspace.sheet.actor.hub .specifics-tab .nickname-block {
-  border-bottom: 2px solid #32a6d2;
+  border-bottom: 2px solid var(--hub-background-color);
   border-right: 2px solid black;
   display: flex;
   grid-column-start: 1;
   grid-row-start: 1;
 }
 .deathinspace.sheet.actor.hub .specifics-tab .hub-type-block {
-  border-bottom: 2px solid #32a6d2;
+  border-bottom: 2px solid var(--hub-background-color);
   grid-column-start: 2;
   grid-row-start: 1;
 }
 .deathinspace.sheet.actor.hub .specifics-tab .background-block {
-  border-bottom: 2px solid #32a6d2;
+  border-bottom: 2px solid var(--hub-background-color);
   border-right: 2px solid black;
   grid-column-start: 1;
   grid-row-start: 2;
 }
 .deathinspace.sheet.actor.hub .specifics-tab .appearance-block {
-  border-bottom: 2px solid #32a6d2;
+  border-bottom: 2px solid var(--hub-background-color);
   grid-column-start: 2;
   grid-row-start: 2;
 }
 .deathinspace.sheet.actor.hub .specifics-tab .quirks-block {
-  border-bottom: 2px solid #32a6d2;
+  border-bottom: 2px solid var(--hub-background-color);
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 3;
 }
 .deathinspace.sheet.hub form {
-  border: 4px solid #4088b4;
+  border: 4px solid var(--hub-background-color);
 }
 .deathinspace.sheet.hub .sheet-tabs {
-  background: #4088b4;
-  border-bottom: 1px solid #4088b4;
-  border-top: 1px solid #4088b4;
+  background: var(--hub-background-color);
+  border-bottom: 1px solid var(--hub-background-color);
+  border-top: 1px solid var(--hub-background-color);
   color: white;
 }
 .deathinspace.sheet.hub .sheet-tabs .item:hover {
@@ -1054,7 +1058,7 @@
 .deathinspace.sheet.hub .sheet-tabs .item.active {
   background-color: white;
   border-bottom: none;
-  color: #4088b4;
+  color: var(--hub-background-color);
 }
 .deathinspace.sheet.hub .portrait img {
   height: 100%;
@@ -1066,17 +1070,17 @@
 }
 
 .deathinspace.sheet.actor.hub .header-row .col1 .game-title {
-  color: #4088b4;
+  color: var(--hub-background-color);
 }
 .deathinspace.sheet.actor.hub .header-row .col1 .sheet-title {
-  color: #4088b4;
+  color: var(--hub-background-color);
 }
 .deathinspace.sheet.item {
   /* Notes tab */
   /* Data tab */
 }
 .deathinspace.sheet.item form {
-  border: 4px solid #7a7971;
+  border: 4px solid var(--item-background-color);
 }
 .deathinspace.sheet.item .sheet-header {
   height: 160px;
@@ -1096,7 +1100,7 @@
   padding: 0;
 }
 .deathinspace.sheet.item .sheet-header .header-row .col1 .item-image {
-  background-color: #7a7971;
+  background-color: var(--input-border-color);
   border-radius: 0;
   height: 160px;
   padding-top: 1px;
@@ -1116,12 +1120,12 @@
   padding: 10px;
 }
 .deathinspace.sheet.item .sheet-header .header-row .col2 .game-title {
-  color: #7a7971;
+  color: var(--item-background-color);
   font-family: var(--title-font);
   font-size: 36px;
 }
 .deathinspace.sheet.item .sheet-header .header-row .col2 .sheet-title {
-  color: #7a7971;
+  color: var(--item-background-color);
 }
 .deathinspace.sheet.item .sheet-header .header-row .col2 .row1 {
   border-bottom: 1px solid black;
@@ -1137,7 +1141,7 @@
   border-top: 1px solid #f4f3ed;
 }
 .deathinspace.sheet.item .sheet-tabs .item.active {
-  background-color: #7a7971;
+  background-color: var(--item-background-color);
   color: white;
 }
 .deathinspace.sheet.item .sheet-tabs .item:hover {

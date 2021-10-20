@@ -6,7 +6,7 @@
   flex-direction: column;
   width: 100%;
   .frame-integrity-row {
-    border-bottom: 2px solid var(--hub-blue-color);
+    border-bottom: 2px solid var(--hub-background-color);
     display: flex;
     flex: 0 0 80px;
     .frame-integrity {
@@ -42,7 +42,7 @@
     .integrity-increment:nth-child(2) .integrity-percent,
     .integrity-increment:nth-child(7) .integrity-percent,
     .integrity-increment:nth-child(12) .integrity-percent {
-      background-color: var(--hub-blue-color);
+      background-color: var(--hub-background-color);
       color: white;
       display: block;
     }
@@ -66,7 +66,7 @@
   } // frame-integrity-row
 
   .roll-on-damage-row {
-    border-bottom: 2px solid var(--hub-blue-color);
+    border-bottom: 2px solid var(--hub-background-color);
     display: flex;
     flex: 0 0 35px;
     font-size: 10px;
@@ -76,7 +76,7 @@
       flex-direction: column;
       .arrow-row {
         display: flex;
-        color: var(--hub-blue-color);
+        color: var(--hub-background-color);
         font-size: 16px;
         font-weight: bold;
         flex: 0 0 15px;
@@ -118,7 +118,7 @@
   } // roll-on-damage-row
 
   .condition-row {
-    border-bottom: 2px solid var(--hub-blue-color);
+    border-bottom: 2px solid var(--hub-background-color);
     display: flex;
     flex: 0 0 80px;
 
