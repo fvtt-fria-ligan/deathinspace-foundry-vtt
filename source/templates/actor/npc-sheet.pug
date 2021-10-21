@@ -47,6 +47,10 @@ form(class="{{cssClass}}")
             | TECH
           input(type="number" name="data.abilities.tech.value" value="{{data.data.abilities.tech.value}}" placeholder="0" data-dtype="Number")
         .form-group 
+          label.morale.rollable
+            | Morale 
+          input(type="number" name="data.morale" value="{{data.data.morale}}" placeholder="0" data-dtype="Number")
+        .form-group 
           label
             | Hit Points (Current) 
           input(type="number" name="data.hp.value" value="{{data.data.hp.value}}" placeholder="0" data-dtype="Number")
@@ -58,10 +62,6 @@ form(class="{{cssClass}}")
           label
             | Defense Rating 
           input(type="number" name="data.defenseRating" value="{{data.data.defenseRating}}" placeholder="12" data-dtype="Number")
-        .form-group 
-          label.morale.rollable
-            | Morale 
-          input(type="number" name="data.morale" value="{{data.data.morale}}" placeholder="0" data-dtype="Number")
         .form-group 
           label.attack.rollable
             | Attack 
@@ -77,6 +77,6 @@ form(class="{{cssClass}}")
         .form-group 
           label
             | Special
-          textarea(name="data.special", rows="4")
+          textarea(name="data.special", rows="7")
             | {{data.data.special}}
 

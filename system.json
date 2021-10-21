@@ -15,7 +15,14 @@
       "system": "deathinspace",
       "path": "./packs/armor.db",
       "entity": "Item"
-    },    
+    },
+    {
+      "name": "corrupted-by-the-void",
+      "label": "Corrupted by the Void",
+      "system": "deathinspace",
+      "path": "./packs/corrupted-by-the-void.db",
+      "entity": "Actor"
+    },
     {
       "name": "cosmic-mutations",
       "label": "Cosmic Mutations",
@@ -23,6 +30,13 @@
       "path": "./packs/cosmic-mutations.db",
       "entity": "Item"
     },
+    {
+      "name": "creatures-of-the-abyss",
+      "label": "Creatures of the Abyss",
+      "system": "deathinspace",
+      "path": "./packs/creatures-of-the-abyss.db",
+      "entity": "Actor"
+    },    
     {
       "name": "electronics",
       "label": "Electronics",

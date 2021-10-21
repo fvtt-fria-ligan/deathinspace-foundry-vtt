@@ -10,7 +10,7 @@ export class DISNpcSheet extends DISActorSheet {
       classes: ["deathinspace", "sheet", "actor", "npc"],
       template: "systems/deathinspace/templates/actor/npc-sheet.html",
       width: 730,
-      height: 680,
+      height: 742,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "data"}],
       dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
     });
