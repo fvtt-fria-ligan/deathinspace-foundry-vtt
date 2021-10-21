@@ -1,3 +1,6 @@
+# 0.1.3
+- Fix slot tally correctly this time.
+
 # 0.1.2
 - Fix slot tally for new characters without any items.
 
