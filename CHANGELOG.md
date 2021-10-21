@@ -1,3 +1,6 @@
+# 0.1.2
+- Fix slot tally for new characters without any items.
+
 # 0.1.1
 - Mark compatibility with Foundry 0.8.9.
 - Fix typos in function calls for ability and weapon rolls. 
