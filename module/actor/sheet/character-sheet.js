@@ -45,7 +45,7 @@ export class DISCharacterSheet extends DISActorSheet {
     sheetData.data.armor = sheetData.items.filter(item => item.type === CONFIG.DIS.itemTypes.armor).sort(byName);
     sheetData.data.equipment = sheetData.items.filter(item => item.type === CONFIG.DIS.itemTypes.equipment).sort(byName);
     const allSlotItems = [...sheetData.data.weapons, ...sheetData.data.armor, ...sheetData.data.equipment];
-    sheetData.data.totalSlots = allSlotItems.map(item => item.data.slots).reduce((prev, next) => prev + next, []);
+    sheetData.data.totalSlots = allSlotItems.map(item => item.data.slots).reduce((prev, next) => prev + next, 0);
     sheetData.data.maxSlots = 12 + sheetData.data.abilities.body.value;
   }
 
