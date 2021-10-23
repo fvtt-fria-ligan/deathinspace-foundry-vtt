@@ -1,6 +1,7 @@
 # 0.2.0
 - Add hub core functions, represented as modules.
 - Add 4 core functions to newly-created Hubs.
+- Add frame as a first-class item type, and allow a hub to have only one at a time.
 - Add availability field to power systems.
 - Destroy any existing origin item when a new one is added to a Character.
 - Update power systems output power to the lower value in the listed range.
