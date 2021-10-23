@@ -31,7 +31,7 @@ export default class DISActorSheet extends ActorSheet {
 
   _onItemDelete(event) {
     const row = $(event.currentTarget).parents(".item");
-    this.actor.deleteOwnedItem(row.data("itemId"));
+    this.actor.deleteEmbeddedDocuments("Item", [row.data("itemId")]);
     row.slideUp(200, () => this.render(false));
   }
 }
