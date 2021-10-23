@@ -59,6 +59,13 @@
       "entity": "Item"
     },
     {
+      "name": "hub-modules-core-functions",
+      "label": "Hub Modules - Core Functions",
+      "system": "deathinspace",
+      "path": "./packs/hub-modules-core-functions.db",
+      "entity": "Item"
+    },
+    {
       "name": "hub-modules-general",
       "label": "Hub Modules - General",
       "system": "deathinspace",
