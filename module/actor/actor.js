@@ -98,7 +98,7 @@ export class DISActor extends Actor {
       return;
     }
     let ability;
-    if (item.weaponType === "melee") {
+    if (item.data.data.weaponType === "melee") {
       ability = "body";
     } else {
       ability = "tech";
