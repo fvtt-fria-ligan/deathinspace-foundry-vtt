@@ -1,3 +1,7 @@
+# 0.2.0
+- Add hub core functions, represented as modules.
+- Destroy any existing origin item when a new one is dropped on character sheet.
+
 # 0.1.3
 - Fix slot tally correctly this time.
 

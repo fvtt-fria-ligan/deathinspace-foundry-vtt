@@ -22,6 +22,7 @@ Hooks.once("init", async function() {
   };
   CONFIG.Actor.documentClass = DISActor;
   CONFIG.Item.documentClass = DISItem;
+
   CONFIG.DIS = DIS;
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("deathinspace", DISCharacterSheet, {
@@ -43,6 +44,7 @@ Hooks.once("init", async function() {
   Items.registerSheet("deathinspace", DISItemSheet, { makeDefault: true });
 });
 
+// TODO: can we just use Foundry's "eq" helper? verify.
 Handlebars.registerHelper('ifEq', function(arg1, arg2, options) {
   // TODO: verify whether we want == or === for this equality check
   return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
