@@ -147,6 +147,7 @@
       "notes": ""
     },
     "powerSystem": {
+      "availability": "common",
       "hubType": "spacecraft",
       "notes": "",
       "outputPower": 3,

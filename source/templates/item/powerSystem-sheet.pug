@@ -57,3 +57,14 @@ form(class="{{cssClass}}")
           label
             | Output Power
           input(type="number" name="data.outputPower" value="{{data.data.outputPower}}" placeholder="0" data-dtype="Number")
+        .form-group 
+          label
+            | Availability 
+          select(name="data.availability" data-dtype="String")
+            | {{#select data.data.availability}}
+            option(value="common") common
+            option(value="unusual") unusual
+            option(value="rare") rare
+            option(value="very rare") very rare
+            option(value="unique") unique
+            | {{/select}}

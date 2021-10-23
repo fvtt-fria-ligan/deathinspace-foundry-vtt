@@ -52,6 +52,16 @@
           <label>Output Power</label>
           <input type="number" name="data.outputPower" value="{{data.data.outputPower}}" placeholder="0" data-dtype="Number"/>
         </div>
+        <div class="form-group"> 
+          <label>Availability </label>
+          <select name="data.availability" data-dtype="String">{{#select data.data.availability}}
+            <option value="common">common</option>
+            <option value="unusual">unusual</option>
+            <option value="rare">rare</option>
+            <option value="very rare">very rare</option>
+            <option value="unique">unique</option>{{/select}}
+          </select>
+        </div>
       </div>
     </div>
   </section>
