@@ -26,10 +26,11 @@
           </div>
         </div>
         <div class="hub-type-block">
-          <div class="stat-block">
-            <label>Hub type</label>
-            <input type="text" name="data.hubType" value="{{data.data.hubType}}" placeholder="" spellcheck="false"/>
-          </div>
+          <div class="frame-label">FRAME</div>{{#if data.data.frame}}
+          <div class="frame-row item" data-item-id="{{data.data.frame._id}}"> 
+            <div class="frame-name">{{data.data.frame.name}}</div>
+            <div class="item-controls"> <a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash"></i></a></div>
+          </div>{{/if}}
         </div>
         <div class="background-block">
           <div class="stat-block">
@@ -125,7 +126,7 @@
             <div class="title-row">
                DEFENSE RATING</div>
             <div class="input-row">
-              <input class="defense-rating" name="data.defenseRating" type="number" value="{{data.data.defenseRating}}" data-dtype="Number"/>
+              <input class="defense-rating" name="data.frame.data.defenseRating" type="number" value="{{data.data.frame.data.defenseRating}}" data-dtype="Number" readonly="readonly"/>
             </div>
           </div>
         </div>
@@ -160,7 +161,7 @@
                 <input class="condition-current" name="data.condition.value" type="number" value="{{data.data.condition.value}}" data-dtype="Number"/>
               </div>
               <div class="col3">
-                <input class="condition-max" name="data.condition.max" type="number" value="{{data.data.condition.max}}" data-dtype="Number"/>
+                <input class="condition-max" name="data.frame.data.condition" type="number" value="{{data.data.frame.data.condition}}" data-dtype="Number" readonly="readonly"/>
               </div>
             </div>
           </div>
@@ -178,7 +179,7 @@
                 <input class="fuel-current" name="data.fuel.value" type="number" value="{{data.data.fuel.value}}" data-dtype="Number"/>
               </div>
               <div class="col3">
-                <input class="fuel-max" name="data.fuel.max" type="number" value="{{data.data.fuel.max}}" data-dtype="Number"/>
+                <input class="fuel-max" name="data.frame.data.fuelDepot" type="number" value="{{data.data.frame.data.fuelDepot}}" data-dtype="Number" readonly="readonly"/>
               </div>
             </div>
           </div>

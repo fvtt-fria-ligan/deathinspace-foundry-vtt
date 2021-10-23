@@ -1,0 +1,67 @@
+form(class="{{cssClass}}")
+  header.sheet-header
+    .header-row
+      .col1
+        .item-image 
+          img(src="{{data.img}}" data-edit="img" title="{{data.name}}")
+      .col2
+        .row1
+          .game-title
+            | DEATH IN SPACE
+          .sheet-title
+            | FRAME SHEET
+        .row2
+          div 
+            | NAME 
+          div.item-name
+            input(class="item-name" name="name" type="text" value="{{item.name}}" placeholder="Item Name" spellcheck="false")
+
+  nav(class="sheet-tabs tabs" data-group="primary")
+    a(class="item" data-tab="notes")
+      | {{ localize 'DIS.TabNotes' }}
+    a(class="item" data-tab="data")
+      | {{ localize 'DIS.TabData' }}
+  
+  section.sheet-body 
+
+    div(class="tab notes-tab" data-group="primary" data-tab="notes")
+      .notes-wrapper
+        | {{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}
+
+    div(class="tab data-tab" data-group="primary" data-tab="data")
+      .data-wrapper
+        .form-group 
+          label
+            | Hub Type
+          select(name="data.hubType" data-dtype="String")
+            | {{#select data.data.hubType}}
+            option(value="spacecraft") spacecraft
+            option(value="station") station
+            | {{/select}}
+        .form-group 
+          label
+            | Size
+          input(type="number" name="data.size" value="{{data.data.size}}" placeholder="0" data-dtype="Number")        
+        .form-group 
+          label
+            | Condition
+          input(type="number" name="data.condition" value="{{data.data.condition}}" placeholder="0" data-dtype="Number")        
+        .form-group 
+          label
+            | Defense Rating
+          input(type="number" name="data.defenseRating" value="{{data.data.defenseRating}}" placeholder="0" data-dtype="Number")        
+        .form-group 
+          label
+            | Fuel Depot
+          input(type="number" name="data.fuelDepot" value="{{data.data.fuelDepot}}" placeholder="0" data-dtype="Number")        
+        .form-group 
+          label
+            | Availability 
+          select(name="data.availability" data-dtype="String")
+            | {{#select data.data.availability}}
+            option(value="common") common
+            option(value="unusual") unusual
+            option(value="rare") rare
+            option(value="very rare") very rare
+            option(value="unique") unique
+            | {{/select}}      

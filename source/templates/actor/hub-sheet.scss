@@ -63,9 +63,25 @@
       grid-row-start: 1;
     }
     .hub-type-block {
+      display: flex;
+      flex-direction: column;
       border-bottom: 2px solid var(--hub-background-color);
       grid-column-start: 2;
       grid-row-start: 1;
+      .frame-label {
+        flex: 0 0 24;
+        font-size: 12px;
+        padding-left: 2px;
+      }
+      .frame-row {
+        display: flex;
+        flex: 1;
+        padding-top: 5px;
+        .frame-name {
+          flex: 1;
+          text-align: center;
+        }
+      }
     }
     .background-block {
       border-bottom: 2px solid var(--hub-background-color);
@@ -270,6 +286,9 @@
         }
         .input-row {
           flex: 1;
+          input {
+            background: none;
+          }
         }
       }
     } // conditions-row

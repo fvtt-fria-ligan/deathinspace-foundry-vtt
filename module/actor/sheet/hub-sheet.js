@@ -27,6 +27,7 @@ export class DISHubSheet extends DISActorSheet {
     const superData = super.getData();
     const data = superData.data;
     const byName = (a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
+    data.data.frame = data.items.filter(item => item.type === CONFIG.DIS.itemTypes.frame).pop();
     data.data.powerSystem = data.items.filter(item => item.type === CONFIG.DIS.itemTypes.powerSystem).pop();
     data.data.hubModules = data.items.filter(item => item.type === "hubModule").sort(byName);
     data.data.totalPowerCost = data.data.hubModules.reduce((a, b) => a + parseInt(b.data.powerCost), 0);  

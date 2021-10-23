@@ -5,6 +5,7 @@ DIS.itemTypes = {
     armor: "armor",
     cosmicMutation: "cosmicMutation",
     equipment: "equipment",
+    frame: "frame",
     hubModule: "hubModule",
     origin: "origin",
     originBenefit: "originBenefit",

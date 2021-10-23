@@ -1,0 +1,66 @@
+
+<form class="{{cssClass}}">
+  <header class="sheet-header">
+    <div class="header-row">
+      <div class="col1">
+        <div class="item-image"> <img src="{{data.img}}" data-edit="img" title="{{data.name}}"/></div>
+      </div>
+      <div class="col2">
+        <div class="row1">
+          <div class="game-title">DEATH IN SPACE</div>
+          <div class="sheet-title">FRAME SHEET</div>
+        </div>
+        <div class="row2">
+          <div>
+             NAME </div>
+          <div class="item-name">
+            <input class="item-name" name="name" type="text" value="{{item.name}}" placeholder="Item Name" spellcheck="false"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="notes">{{ localize 'DIS.TabNotes' }}</a><a class="item" data-tab="data">{{ localize 'DIS.TabData' }}</a></nav>
+  <section class="sheet-body"> 
+    <div class="tab notes-tab" data-group="primary" data-tab="notes">
+      <div class="notes-wrapper">{{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}</div>
+    </div>
+    <div class="tab data-tab" data-group="primary" data-tab="data">
+      <div class="data-wrapper">
+        <div class="form-group"> 
+          <label>Hub Type</label>
+          <select name="data.hubType" data-dtype="String">{{#select data.data.hubType}}
+            <option value="spacecraft">spacecraft</option>
+            <option value="station">station</option>{{/select}}
+          </select>
+        </div>
+        <div class="form-group"> 
+          <label>Size</label>
+          <input type="number" name="data.size" value="{{data.data.size}}" placeholder="0" data-dtype="Number"/>
+        </div>
+        <div class="form-group"> 
+          <label>Condition</label>
+          <input type="number" name="data.condition" value="{{data.data.condition}}" placeholder="0" data-dtype="Number"/>
+        </div>
+        <div class="form-group"> 
+          <label>Defense Rating</label>
+          <input type="number" name="data.defenseRating" value="{{data.data.defenseRating}}" placeholder="0" data-dtype="Number"/>
+        </div>
+        <div class="form-group"> 
+          <label>Fuel Depot</label>
+          <input type="number" name="data.fuelDepot" value="{{data.data.fuelDepot}}" placeholder="0" data-dtype="Number"/>
+        </div>
+        <div class="form-group"> 
+          <label>Availability </label>
+          <select name="data.availability" data-dtype="String">{{#select data.data.availability}}
+            <option value="common">common</option>
+            <option value="unusual">unusual</option>
+            <option value="rare">rare</option>
+            <option value="very rare">very rare</option>
+            <option value="unique">unique</option>{{/select}}      
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>

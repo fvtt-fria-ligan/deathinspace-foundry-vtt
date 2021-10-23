@@ -42,8 +42,16 @@ export class DISActor extends Actor {
   }
 
   _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId) {
-    if (documents.pop().data.type === "origin") {
-      this._deleteEarlierItems("origin");
+    // TODO: move these checks into character.js and hub.js subclasses
+    if (documents[0].data.type === CONFIG.DIS.itemTypes.origin) {
+      this._deleteEarlierItems(CONFIG.DIS.itemTypes.origin);
+    }
+    if (documents[0].data.type === CONFIG.DIS.itemTypes.frame) {
+      this._deleteEarlierItems(CONFIG.DIS.itemTypes.frame);
+      this.update({
+        ["data.condition.value"]: documents[0].data.data.condition,
+        ["data.fuel.value"]: documents[0].data.data.fuelDepot,
+      });
     }
     super._onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId);
   }
@@ -56,7 +64,6 @@ export class DISActor extends Actor {
   }
 
   async _deleteEarlierItems(itemType) {
-    console.log("deleting earlier items");
     const itemsOfType = this.items.filter(i => i.data.type === itemType);
     itemsOfType.pop();  // don't delete the last one
     const deletions = itemsOfType.map(i => i.id);

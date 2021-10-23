@@ -57,12 +57,10 @@
         "value": 5
       },
       "defenseRating": 11,
-      "frame": "Scout ship",
       "frameIntegrity": {
         "max": 100,
         "value": 100
       },
-      "hubType": "spacecraft",
       "fuel": {
         "max": 4,
         "value": 0
@@ -70,8 +68,7 @@
       "nickname": "",
       "notes": "",
       "ownerName": "",
-      "quirks": "",
-      "size": 5
+      "quirks": ""
     },
     "npc": {
       "abilities": {
@@ -105,6 +102,7 @@
       "armor",
       "cosmicMutation",
       "equipment",
+      "frame",
       "hubModule",
       "origin",
       "originBenefit",
@@ -139,6 +137,14 @@
       "powerCost": 0,
       "moduleType": "general",
       "range": ""
+    },
+    "frame": {
+      "availability": "common",
+      "condition": 3,
+      "defenseRating": 5,
+      "fuelDepot": 3,
+      "hubType": "spacecraft",
+      "size": 1
     },
     "origin": {
       "notes": ""

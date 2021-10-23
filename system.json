@@ -52,6 +52,13 @@
       "entity": "Item"
     },
     {
+      "name": "frames",
+      "label": "Frames",
+      "system": "deathinspace",
+      "path": "./packs/frames.db",
+      "entity": "Item"
+    },
+    {
       "name": "hub-modules-confrontation",
       "label": "Hub Modules - Confrontation",
       "system": "deathinspace",

@@ -60,6 +60,12 @@
   font-size: 20px;
   text-decoration: none;
 }
+.deathinspace.sheet input:-moz-read-only {
+  background: none;
+}
+.deathinspace.sheet input:read-only {
+  background: none;
+}
 .deathinspace.sheet ::-moz-placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: var(--input-border-color);
@@ -812,9 +818,25 @@
   grid-row-start: 1;
 }
 .deathinspace.sheet.actor.hub .specifics-tab .hub-type-block {
+  display: flex;
+  flex-direction: column;
   border-bottom: 2px solid var(--hub-background-color);
   grid-column-start: 2;
   grid-row-start: 1;
+}
+.deathinspace.sheet.actor.hub .specifics-tab .hub-type-block .frame-label {
+  flex: 0 0 24;
+  font-size: 12px;
+  padding-left: 2px;
+}
+.deathinspace.sheet.actor.hub .specifics-tab .hub-type-block .frame-row {
+  display: flex;
+  flex: 1;
+  padding-top: 5px;
+}
+.deathinspace.sheet.actor.hub .specifics-tab .hub-type-block .frame-row .frame-name {
+  flex: 1;
+  text-align: center;
 }
 .deathinspace.sheet.actor.hub .specifics-tab .background-block {
   border-bottom: 2px solid var(--hub-background-color);
@@ -1014,6 +1036,9 @@
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .output-power .input-row {
   flex: 1;
+}
+.deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .output-power .input-row input {
+  background: none;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .modules-block {
   display: flex;
