@@ -8,7 +8,8 @@
 - Add hub core functions, represented as modules.
 - Add 4 core functions to newly-created Hubs.
 - Add availability field to power systems.
-- Update power systems output power to the lower value in the listed range.
+- Change power systems output power to the lower value in the listed range.
+- Fix ranges for confrontation modules.
 - Add Anarchy Program.
 - Fix Vector Parasite morale value.
 - Fix Nadi Snake attack bonus.
