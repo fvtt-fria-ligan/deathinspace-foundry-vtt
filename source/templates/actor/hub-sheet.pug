@@ -33,16 +33,20 @@ form(class="{{cssClass}}")
         .hub-type-block
           .frame-label
             | FRAME
-          | {{#if data.data.frame}}
           .frame-row.item(data-item-id="{{data.data.frame._id}}")  
             .frame-name
               | {{data.data.frame.name}}
             .item-controls 
+              | {{#if data.data.frame}}
               a.item-control.item-edit
                 i.fas.fa-edit                          
               a.item-control.item-delete
                 i.fas.fa-trash
-          | {{/if}}
+              | {{else}}
+              a(class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="frame")
+                i.fas.fa-plus
+                | {{localize "DIS.Add"}}                 
+              | {{/if}}
         .background-block
           .stat-block
             label Background
@@ -136,7 +140,6 @@ form(class="{{cssClass}}")
           .power-source 
             .source-label
               | POWER SOURCE
-            | {{#if data.data.powerSystem}}
             .source-row(class="item" data-item-id="{{data.data.powerSystem._id}}")
               .source-name
                 | {{data.data.powerSystem.name}} 
@@ -144,11 +147,16 @@ form(class="{{cssClass}}")
                 | ({{data.data.powerSystem.data.speed}})
                 | {{/if}}
               .item-controls 
+                | {{#if data.data.powerSystem}}
                 a(class="item-control item-edit" title="Edit Item")
                   i(class="fas fa-edit")
                 a(class="item-control item-delete" title="Delete Item")
-                  i(class="fas fa-trash")                
-            | {{/if}}
+                  i(class="fas fa-trash")
+                | {{else}}
+                a(class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="powerSystem")
+                  i.fas.fa-plus
+                  | {{localize "DIS.Add"}}   
+                | {{/if}}
           .output-power
             .title-row
               | OUTPUT POWER

@@ -20,10 +20,11 @@
     <div class="tab personal-tab" data-group="primary" data-tab="personal">
       <div class="personal-wrapper"> 
         <div class="origin-row item" data-item-id="{{data.data.origin._id}}"> 
-          <div class="origin-label">ORIGIN </div>{{#if data.data.origin}}
+          <div class="origin-label">ORIGIN </div>
           <div class="origin">
              {{data.data.origin.name}}</div>
-          <div class="item-controls"> <a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash"></i></a></div>{{/if}}
+          <div class="item-controls">
+             {{#if data.data.origin}}<a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash"></i></a>{{else}}<a class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="origin"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}              </a>{{/if}}</div>
         </div>
         <div class="name-row"> 
           <div class="stat-block">
@@ -35,8 +36,11 @@
             <input type="text" name="data.nickName" value="{{data.data.nickName}}" placeholder="{{ localize 'DIS.NickName' }}" spellcheck="false"/>
           </div>
         </div>
-        <div class="stat-block origin-benefit-block">
-          <label>ORIGIN BENEFITS</label>
+        <div class="origin-benefit-block">
+          <div class="title-row">
+            <label>ORIGIN BENEFITS</label>
+            <div class="item-controls"><a class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="originBenefit"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}          </a></div>
+          </div>
           <div class="origin-benefits">
              {{#each data.data.originBenefits as |item id|}}
             <div class="origin-benefit-row item" data-item-id="{{item._id}}">
@@ -171,6 +175,7 @@
         <div class="cosmic-mutations-block">
           <div class="stat-block cosmic-mutations-title"> 
             <label>COSMIC MUTATIONS</label>
+            <div class="item-controls"><a class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="cosmicMutation"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}</a></div>
           </div>{{#each data.data.cosmicMutations as |item id|}}
           <div class="cosmic-mutation-row item" data-item-id="{{item._id}}">           
             <div class="cosmic-mutation-name">

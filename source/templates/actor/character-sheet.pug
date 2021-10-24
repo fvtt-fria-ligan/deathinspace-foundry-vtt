@@ -28,15 +28,19 @@ form(class="{{cssClass}}" autocomplete="off")
       .personal-wrapper 
         .origin-row.item(data-item-id="{{data.data.origin._id}}") 
           .origin-label ORIGIN 
-          | {{#if data.data.origin}}
           .origin 
             | {{data.data.origin.name}}
           .item-controls 
+            | {{#if data.data.origin}}
             a.item-control.item-edit
               i.fas.fa-edit                          
             a.item-control.item-delete
               i.fas.fa-trash
-          | {{/if}}
+            | {{else}}
+            a(class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="origin")
+              i.fas.fa-plus
+              | {{localize "DIS.Add"}}              
+            | {{/if}}
         .name-row 
           .stat-block
             label NAME
@@ -44,8 +48,13 @@ form(class="{{cssClass}}" autocomplete="off")
           .stat-block
             label NICKNAME
             input(type="text" name="data.nickName" value="{{data.data.nickName}}" placeholder="{{ localize 'DIS.NickName' }}" spellcheck="false")
-        .stat-block.origin-benefit-block
-          label ORIGIN BENEFITS
+        .origin-benefit-block
+          .title-row
+            label ORIGIN BENEFITS
+            .item-controls
+              a(class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="originBenefit")
+                i.fas.fa-plus
+                | {{localize "DIS.Add"}}          
           .origin-benefits 
             | {{#each data.data.originBenefits as |item id|}}
             .origin-benefit-row.item(data-item-id="{{item._id}}")
@@ -136,6 +145,10 @@ form(class="{{cssClass}}" autocomplete="off")
         .cosmic-mutations-block
           .stat-block.cosmic-mutations-title 
             label COSMIC MUTATIONS
+            .item-controls
+              a(class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="cosmicMutation")
+                i.fas.fa-plus
+                | {{localize "DIS.Add"}}
           | {{#each data.data.cosmicMutations as |item id|}}
           .cosmic-mutation-row.item(data-item-id="{{item._id}}")            
             .cosmic-mutation-name 
