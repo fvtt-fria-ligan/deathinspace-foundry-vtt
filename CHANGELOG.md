@@ -9,6 +9,7 @@
 - Add 4 core functions to newly-created Hubs.
 - Add availability field to power systems.
 - Update power systems output power to the lower value in the listed range.
+- Add Anarchy Program.
 - Fix Vector Parasite morale value.
 - Fix Nadi Snake attack bonus.
 - Fix Roche Spider DR.
