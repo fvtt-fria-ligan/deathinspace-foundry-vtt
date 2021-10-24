@@ -20,13 +20,17 @@ export default class DISActorSheet extends ActorSheet {
       type: type,
       data: {},
     };
-    this.actor.createOwnedItem(itemData);
+    this.actor.createEmbeddedDocuments("Item", [itemData]);
   }  
 
   _onItemEdit(event) {
     const row = $(event.currentTarget).parents(".item");
-    const item = this.actor.getOwnedItem(row.data("itemId"));
-    item.sheet.render(true);
+    if (row) {
+      const item = this.actor.items.get(row.data("itemId"));
+      if (item) {
+        item.sheet.render(true);
+      }
+    }
   }
 
   _onItemDelete(event) {

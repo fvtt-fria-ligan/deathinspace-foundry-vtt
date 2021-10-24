@@ -34,7 +34,7 @@ form(class="{{cssClass}}")
           .frame-label
             | FRAME
           .frame-row.item(data-item-id="{{data.data.frame._id}}")  
-            .frame-name
+            .frame-name.item-edit.rollable
               | {{data.data.frame.name}}
             .item-controls 
               | {{#if data.data.frame}}
@@ -141,7 +141,7 @@ form(class="{{cssClass}}")
             .source-label
               | POWER SOURCE
             .source-row(class="item" data-item-id="{{data.data.powerSystem._id}}")
-              .source-name
+              .source-name.item-edit.rollable
                 | {{data.data.powerSystem.name}} 
                 | {{#if data.data.powerSystem.data.speed}}
                 | ({{data.data.powerSystem.data.speed}})
@@ -175,7 +175,7 @@ form(class="{{cssClass}}")
           .modules-list 
             | {{#each data.data.hubModules as |item id|}}
             div(class="item module-item" data-item-id="{{item._id}}")
-              .col1
+              .col1.item-edit.rollable
                 | {{add @index 1}}. {{item.name}}
               .col2
                 a(class="item-control item-edit" title="Edit Item")

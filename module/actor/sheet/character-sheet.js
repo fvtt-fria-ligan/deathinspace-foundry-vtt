@@ -27,10 +27,10 @@ export class DISCharacterSheet extends DISActorSheet {
     super.activateListeners(html);
     html.find(".ability-name").on("click", this._onAbilityRoll.bind(this));
     html
-      .find(".weapon-name.rollable")
+      .find(".weapon-attack")
       .on("click", this._onWeaponRoll.bind(this));
     html
-      .find(".weapon-damage.rollable")
+      .find(".weapon-damage")
       .on("click", this._onDamageRoll.bind(this));
     html.find(".add-belonging").click(this._onAddBelonging.bind(this));
   }

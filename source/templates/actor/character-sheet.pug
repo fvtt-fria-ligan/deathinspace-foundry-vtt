@@ -28,7 +28,7 @@ form(class="{{cssClass}}" autocomplete="off")
       .personal-wrapper 
         .origin-row.item(data-item-id="{{data.data.origin._id}}") 
           .origin-label ORIGIN 
-          .origin 
+          .origin.item-edit.rollable 
             | {{data.data.origin.name}}
           .item-controls 
             | {{#if data.data.origin}}
@@ -58,7 +58,7 @@ form(class="{{cssClass}}" autocomplete="off")
           .origin-benefits 
             | {{#each data.data.originBenefits as |item id|}}
             .origin-benefit-row.item(data-item-id="{{item._id}}")
-              .origin-benefit-name
+              .origin-benefit-name.item-edit.rollable
                 | {{item.name}}
               .item-controls 
                 a.item-control.item-edit
@@ -151,7 +151,7 @@ form(class="{{cssClass}}" autocomplete="off")
                 | {{localize "DIS.Add"}}
           | {{#each data.data.cosmicMutations as |item id|}}
           .cosmic-mutation-row.item(data-item-id="{{item._id}}")            
-            .cosmic-mutation-name 
+            .cosmic-mutation-name.item-edit.rollable 
               | {{item.name}}
             .item-controls
               a.item-control.item-edit
@@ -201,7 +201,7 @@ form(class="{{cssClass}}" autocomplete="off")
            
           | {{#each data.data.equipment as |item id|}}
           .equipment-row.item(data-item-id="{{item._id}}")
-            .equipment-name
+            .equipment-name.item-edit.rollable
               | {{add id 1}}. {{item.name}}
             .equipment-condition 
               | {{#if item.data.condition.max}}
@@ -237,7 +237,7 @@ form(class="{{cssClass}}" autocomplete="off")
             .item-controls 
               | &nbsp;
           .weapon-row.item(data-item-id="{{item._id}}") 
-            .weapon-name.rollable
+            .weapon-name.item-edit.rollable
               | {{item.name}}
             .weapon-damage.rollable 
               | {{item.data.damage}}
@@ -267,7 +267,7 @@ form(class="{{cssClass}}" autocomplete="off")
               .item-controls 
                 | &nbsp;                
           .armor-row.item(data-item-id="{{item._id}}")
-            .armor-name 
+            .armor-name.item-edit.rollable 
               | {{item.name}}
             .armor-protects-against 
               | {{item.data.protectsAgainst}}
