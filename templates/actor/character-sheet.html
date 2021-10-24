@@ -221,6 +221,7 @@
     </div>
     <div class="tab belongings-tab" data-group="primary" data-tab="belongings">
       <div class="belongings-wrapper"> 
+        <div class="add-row"><a class="add-belonging" title="Add Belonging"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}</a></div>
         <div class="equipment"> 
           <div class="equipment-header">
             <div class="equipment-name">EQUIPMENT</div>
@@ -228,7 +229,8 @@
                CONDITION</div>
             <div class="equipment-slots">
                SLOTS</div>
-            <div class="item-controls">&nbsp;              </div>
+            <div class="item-controls">
+               &nbsp;</div>
           </div>{{#each data.data.equipment as |item id|}}
           <div class="equipment-row item" data-item-id="{{item._id}}">
             <div class="equipment-name">{{add id 1}}. {{item.name}}</div>

@@ -1,0 +1,10 @@
+form.custom-dialog(action="")
+  .form-group
+    label Name 
+    input(type="text" name="itemname" value="" placeholder="Name" data-dtype="String") 
+  .form-group
+    label Type
+    select.add-type(name="itemtype") 
+      option armor
+      option(selected=true) equipment 
+      option weapon

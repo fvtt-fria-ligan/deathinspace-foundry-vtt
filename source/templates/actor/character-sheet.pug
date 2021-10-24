@@ -170,6 +170,11 @@ form(class="{{cssClass}}" autocomplete="off")
 
     div(class="tab belongings-tab" data-group="primary" data-tab="belongings")
       .belongings-wrapper 
+        .add-row
+          a(class="add-belonging" title="Add Belonging")
+            i.fas.fa-plus
+            | {{localize "DIS.Add"}}
+
         .equipment 
           .equipment-header
             .equipment-name
@@ -178,8 +183,9 @@ form(class="{{cssClass}}" autocomplete="off")
               | CONDITION
             .equipment-slots 
               | SLOTS
-            .item-controls
-              | &nbsp;              
+            .item-controls 
+              | &nbsp;
+           
           | {{#each data.data.equipment as |item id|}}
           .equipment-row.item(data-item-id="{{item._id}}")
             .equipment-name
