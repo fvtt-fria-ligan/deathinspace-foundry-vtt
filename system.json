@@ -24,6 +24,13 @@
       "entity": "Item"
     },
     {
+      "name": "character-creation",
+      "label": "Character Creation",
+      "system": "deathinspace",
+      "path": "./packs/character-creation.db",
+      "entity": "RollTable"
+    },    
+    {
       "name": "corrupted-by-the-void",
       "label": "Corrupted by the Void",
       "system": "deathinspace",
@@ -58,6 +65,13 @@
       "path": "./packs/equipment.db",
       "entity": "Item"
     },
+    {
+      "name": "food",
+      "label": "Food",
+      "system": "deathinspace",
+      "path": "./packs/food.db",
+      "entity": "Item"
+    },    
     {
       "name": "frames",
       "label": "Frames",
