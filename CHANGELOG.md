@@ -1,5 +1,6 @@
 # 0.2.0
 - Make item names on character and hub sheets clickable, triggering item edit.
+- Add ATK button for weapon attack.
 - Add +Add button for Origin and Origin Benefits.
 - Add +Add button for Belongings, with item type dialog.
 - Destroy any existing origin item when a new one is added to a Character.
