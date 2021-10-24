@@ -660,8 +660,11 @@
   flex-direction: row;
 }
 .deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-name {
-  flex-basis: 45%;
+  flex-basis: 40%;
   padding-left: 5px;
+}
+.deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-attack {
+  flex-basis: 5%;
 }
 .deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-damage {
   border-left: 1px dotted black;

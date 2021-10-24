@@ -226,6 +226,8 @@ form(class="{{cssClass}}" autocomplete="off")
           .weapon-header 
             .weapon-name 
               | WEAPON {{add id 1}}
+            .weapon-attack 
+              | &nbsp;
             .weapon-damage 
               | DAMAGE 
             .weapon-ammo 
@@ -239,6 +241,8 @@ form(class="{{cssClass}}" autocomplete="off")
           .weapon-row.item(data-item-id="{{item._id}}") 
             .weapon-name.item-edit.rollable
               | {{item.name}}
+            .weapon-attack.rollable 
+              | ATK
             .weapon-damage.rollable 
               | {{item.data.damage}}
             .weapon-ammo 
