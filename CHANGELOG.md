@@ -3,6 +3,9 @@
 - Add +Add button for Belongings, with item type dialog.
 - Destroy any existing origin item when a new one is added to a Character.
 - Add Addictive Substances.
+= Add Starting Kits roll table and all related items.
+- Add pack for Character Creation roll tables.
+- Add pack for Food items.
 - Add frame as a first-class item type, and allow a hub to have only one at a time.
 - Add +Add button for Frame and Power Source.
 - Add hub core functions, represented as modules.
