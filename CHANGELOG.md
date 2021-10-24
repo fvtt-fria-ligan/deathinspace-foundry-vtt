@@ -12,16 +12,16 @@
 - Add 4 core functions to newly-created Hubs.
 - Add availability field to power systems.
 - Change power systems output power to the lower value in the listed range.
+- Fix melee weapons using TECH for attack.
+- Fix typo in Feedback Loop cosmic mutation.
+- Fix translator slots and cost.
 - Fix ranges for confrontation modules.
+- Fix typo in Hull plating hub module name.
 - Add Anarchy Program.
 - Fix Vector Parasite morale value.
 - Fix Nadi Snake attack bonus.
 - Fix Roche Spider DR.
 - Fix Transmutation Cube attack bonus.
-- Fix typo in Feedback Loop cosmic mutation.
-- Fix translator slots and cost.
-- Fix typo in Hull plating hub module name.
-- Fix melee weapons using TECH for attack.
 
 # 0.1.3
 - Fix slot tally correctly this time.
