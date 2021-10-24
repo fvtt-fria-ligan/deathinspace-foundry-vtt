@@ -10,6 +10,13 @@
   "styles": ["css/deathinspace.css"],
   "packs": [
     {
+      "name": "addictive-substances",
+      "label": "Addictive Substances",
+      "system": "deathinspace",
+      "path": "./packs/addictive-substances.db",
+      "entity": "Item"
+    },    
+    {
       "name": "armor",
       "label": "Armor",
       "system": "deathinspace",
