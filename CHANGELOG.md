@@ -13,6 +13,7 @@
 - Fix Vector Parasite morale value.
 - Fix Nadi Snake attack bonus.
 - Fix Roche Spider DR.
+- Fix Transmutation Cube attack bonus.
 - Fix typo in Feedback Loop cosmic mutation.
 - Fix translator slots and cost.
 - Fix typo in Hull plating hub module name.
