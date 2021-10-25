@@ -122,6 +122,13 @@
       "entity": "Item"
     },
     {
+      "name": "personal-trinkets",
+      "label": "Personal Trinkets",
+      "system": "deathinspace",
+      "path": "./packs/personal-trinkets.db",
+      "entity": "Item"
+    },
+    {
       "name": "power-systems",
       "label": "Power Systems",
       "system": "deathinspace",
