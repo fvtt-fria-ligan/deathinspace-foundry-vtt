@@ -35,6 +35,12 @@
   input:read-only {
     background: none;
   }
+  input[type="text"].inline-edit,
+  input[type="number"].inline-edit {
+    font-size: 14px;
+    height: 16px;
+    width: 30px;
+  }
   ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: var(--input-border-color);
     opacity: 0.5;

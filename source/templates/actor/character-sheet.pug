@@ -205,7 +205,8 @@ form(class="{{cssClass}}" autocomplete="off")
               | {{add id 1}}. {{item.name}}
             .equipment-condition 
               | {{#if item.data.condition.max}}
-              | {{ item.data.condition.value }} / {{ item.data.condition.max}}
+              input(type="number" min="0" max="{{ item.data.condition.max}}" step="1" class="inline-edit" data-mod="data.condition.value" name="item.data.condition.value" value="{{item.data.condition.value}}" data-dtype="Number")
+              |  / {{ item.data.condition.max}}
               | {{else}}
               | -
               | {{/if}}
@@ -246,9 +247,19 @@ form(class="{{cssClass}}" autocomplete="off")
             .weapon-damage.rollable 
               | {{item.data.damage}}
             .weapon-ammo 
-              | {{item.data.usesBeforeReload.value}} /  {{item.data.usesBeforeReload.max}}
-            .weapon-condition 
-              | {{item.data.condition.value}} /  {{item.data.condition.max}}
+              | {{#if item.data.usesBeforeReload.max}}
+              input(type="number" min="0" max="{{ item.data.usesBeforeReload.max}}" class="inline-edit" data-mod="data.usesBeforeReload.value" name="item.data.usesBeforeReload.value" value="{{item.data.usesBeforeReload.value}}" data-dtype="Number")
+              |  / {{ item.data.usesBeforeReload.max}} 
+              | {{else}}
+              | -
+              | {{/if}}
+            .weapon-condition
+              | {{#if item.data.condition.max}}
+              input(type="number" min="0" max="{{ item.data.condition.max}}" class="inline-edit" data-mod="data.condition.value" name="item.data.condition.value" value="{{item.data.condition.value}}" data-dtype="Number")
+              |  / {{ item.data.condition.max}}
+              | {{else}}
+              | -
+              | {{/if}}
             .weapon-slots 
               | {{item.data.slots}}
             .item-controls

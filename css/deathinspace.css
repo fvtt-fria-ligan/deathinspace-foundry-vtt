@@ -66,6 +66,12 @@
 .deathinspace.sheet input:read-only {
   background: none;
 }
+.deathinspace.sheet input[type=text].inline-edit,
+.deathinspace.sheet input[type=number].inline-edit {
+  font-size: 14px;
+  height: 16px;
+  width: 30px;
+}
 .deathinspace.sheet ::-moz-placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: var(--input-border-color);

@@ -117,7 +117,7 @@ form(class="{{cssClass}}")
               .col1 
                 | 
               .col2
-                input(class="condition-current" name="data.condition.value" type="number" value="{{data.data.condition.value}}" data-dtype="Number")
+                input(class="condition-current" name="data.condition.value" type="number" min="0" value="{{data.data.condition.value}}" data-dtype="Number")
               .col3
                 //- input(class="condition-max" name="data.condition.max" type="number" value="{{data.data.condition.max}}" data-dtype="Number")
                 input(class="condition-max" name="data.frame.data.condition" type="number" value="{{data.data.frame.data.condition}}" data-dtype="Number" readonly)
@@ -133,7 +133,7 @@ form(class="{{cssClass}}")
               .col1 
                 | 
               .col2
-                input(class="fuel-current" name="data.fuel.value" type="number" value="{{data.data.fuel.value}}" data-dtype="Number")
+                input(class="fuel-current" name="data.fuel.value" type="number" min="0" value="{{data.data.fuel.value}}" data-dtype="Number")
               .col3
                 //- input(class="fuel-max" name="data.fuel.max" type="number" value="{{data.data.fuel.max}}" data-dtype="Number")
                 input(class="fuel-max" name="data.frame.data.fuelDepot" type="number" value="{{data.data.frame.data.fuelDepot}}" data-dtype="Number" readonly)

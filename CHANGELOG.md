@@ -1,3 +1,6 @@
+# 0.3.0
+- Add inline-edit handler to make item current condition and current ammo editable on character sheet.
+
 # 0.2.0
 - Make item names on character and hub sheets clickable, triggering item edit.
 - Add ATK button for weapon attack.
