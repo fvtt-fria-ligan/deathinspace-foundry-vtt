@@ -136,6 +136,13 @@
       "entity": "Item"
     },
     {
+      "name": "starting-npcs",
+      "label": "Starting NPCs",
+      "system": "deathinspace",
+      "path": "./packs/starting-npcs.db",
+      "entity": "Actor"
+    },
+    {
       "name": "weapons",
       "label": "Weapons",
       "system": "deathinspace",
