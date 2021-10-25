@@ -1,5 +1,10 @@
 # 0.3.0
-- Add inline-edit handler to make item current condition and current ammo editable on character sheet.
+- Allow direct editing of item current condition and ammo on character sheet.
+- Add Starting Bonus NPCs.
+- Add Food.
+- Add Personal Trinkets and rolltable.
+- Add rolltable for Cosmic Mutations.
+- Fix EVA suit slots.
 
 # 0.2.0
 - Make item names on character and hub sheets clickable, triggering item edit.
