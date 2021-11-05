@@ -5,6 +5,37 @@ export class DISActor extends Actor {
   // TODO: make DISActor subclasses work correctly
   // seems like Foundry can only handle setting a single Actor.documentClass ?
 
+  /** @override */
+  static async create(data, options = {}) {
+    data.token = data.token || {};
+    let defaults = {};
+    if (data.type === "character") {
+      defaults = {
+        actorLink: true,
+        disposition: 1,  // friendly
+        vision: true,
+        dimSight: 60,
+        brightSight: 10,
+      };
+    } else if (data.type === "npc") {
+      defaults = {
+        actorLink: false,
+        disposition: -1,  // hostile
+        vision: false,
+      };
+    } else if (data.type === "hub") {
+      defaults = {
+        actorLink: true,
+        disposition: 0,  // neutral
+        vision: true,
+        dimSight: 60,
+        brightSight: 10,
+      };
+    }
+    mergeObject(data.token, defaults, { overwrite: false });
+    return super.create(data, options);
+  }
+  
   _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
     // give new Hubs the 4 core functions
