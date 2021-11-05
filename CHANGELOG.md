@@ -1,5 +1,6 @@
 # 0.3.1
 - Give Actors sensible defaults for actorLink, disposition, and vision.
+- Fix throwing weapon cost.
 
 # 0.3.0
 - Allow direct editing of item current condition and ammo on character sheet.
