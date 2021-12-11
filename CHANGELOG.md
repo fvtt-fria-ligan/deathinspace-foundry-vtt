@@ -1,3 +1,6 @@
+# 0.4.0
+- Make compatible with Foundry v9.
+
 # 0.3.1
 - Give Actors sensible defaults for actorLink, disposition, and vision.
 - Fix throwing weapon cost.
