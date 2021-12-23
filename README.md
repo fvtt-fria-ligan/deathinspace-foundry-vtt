@@ -2,9 +2,9 @@
 
 An unoffical, community-supported system for playing [Death in Space](https://deathinspace.com/) on [Foundry VTT](http://foundryvtt.com/).
 
-DEATH IN SPACE is copyright Christian Plogfors, Carl Niblaeus, and Stockholm Kartell.
+DEATH IN SPACE is © Stockholm Kartell and/or other authors. 
 
-NOTE: DEATH IN SPACE IS NOT YET RELEASED. Work thus far is based on character sheet screenshots and rules overviews from Kickstarter updates.
+*Death in Space for Foundry VTT is an independent production by mcglintlock and is not affiliated with Stockholm Kartell. It is published under the [DEATH IN SPACE Third Party License](https://deathinspace.com/third-party-license/)*.
 
 
 ## Follow the Kickstarter
@@ -22,6 +22,7 @@ https://www.kickstarter.com/projects/cnibl/death-in-space
 ## License
 
   * Code: [MIT](https://en.wikipedia.org/wiki/MIT_License)
+  * System: [Death in Space Third-Party License](https://deathinspace.com/third-party-license/)
 
 
 ## Developer Installation
