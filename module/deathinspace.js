@@ -10,6 +10,8 @@ import { DIS } from "./config.js";
 import { DISItem } from "./item/item.js";
 import { DISItemSheet } from "./item/sheet/item-sheet.js";
 
+import { generateCharacter } from "./generator.js";
+
 /**
  * Init hook.
  */
@@ -22,6 +24,8 @@ Hooks.once("init", async function() {
   };
   CONFIG.Actor.documentClass = DISActor;
   CONFIG.Item.documentClass = DISItem;
+
+  game.gen = generateCharacter; // DEBUGGING
 
   CONFIG.DIS = DIS;
   Actors.unregisterSheet("core", ActorSheet);
