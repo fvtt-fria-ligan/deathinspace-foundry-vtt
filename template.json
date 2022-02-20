@@ -25,8 +25,9 @@
         "value": 0
       },
       "debt": 0,
+      "defenseRating": 12,
       "drive": "",
-      "hitpoints": {
+      "hitPoints": {
         "max": 1,
         "value": 1
       },
@@ -147,6 +148,7 @@
       "size": 1
     },
     "origin": {
+      "benefitNames": "",
       "notes": ""
     },
     "originBenefit": {

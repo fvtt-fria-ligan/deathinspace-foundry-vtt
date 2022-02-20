@@ -9,12 +9,11 @@ export const generateCharacter = async () => {
   const savvy = generateAbilityValue();
   const tech = generateAbilityValue();
 
+  const defenseRating = 12 + dexterity;
+
   // 2. origin
   const origin = await drawDocument(creationPack, "Origins");
-
-  // pick one of two origin benefits
-  // TODO: figure out how we want to configure these. Maybe as embedded docs inside the origin?
-  // then origin will need a tab for that
+  const originBenefit = await pickOriginBenefit(origin);
 
   // 3. character details
   const background = await drawText(creationPack, "Backgrounds");
@@ -41,11 +40,11 @@ export const generateCharacter = async () => {
   }
   const personalTrinket = await drawDocument(creationPack, "Personal Trinkets");
 
-  // TODO: next create the character actor, with attributes and embedded items
+  const firstName = await drawText(creationPack, "First Names");
+  const lastName = await drawText(creationPack, "Last Names");
 
   const actorData = {
-    name: "I need a random name",
-    // img???
+    name: `${firstName} ${lastName}`,
     data: {
       abilities: {
         body: { value: body },
@@ -54,26 +53,25 @@ export const generateCharacter = async () => {
         tech: { value: tech },
       },
       background,
+      defenseRating,
       drive,
-      hitpoints: {
+      hitPoints: {
         max: hitPoints,
         value: hitPoints,
       },
       holos,
-      notes: "Some notes here",
       looks,
       pastAllegiance,
       trait,
     },
     type: "character",    
   };
-
   const actor = await DISActor.create(actorData);
 
   // TODO: apply starting bonus to character
 
   // TODO: originBenefit
-  await actor.createEmbeddedDocuments("Item", [origin.data, personalTrinket.data])
+  await actor.createEmbeddedDocuments("Item", [origin.data, originBenefit.data, personalTrinket.data])
   actor.sheet.render(true);
 
   return actor;
@@ -88,6 +86,22 @@ const rollTotal = (formula) => {
 
 const generateAbilityValue = () => {
   return rollTotal("1d4") - rollTotal("1d4");
+};
+
+const pickOriginBenefit = async (origin) => {
+  console.log(origin);
+  if (origin.data.data.benefitNames) {
+    const names = origin.data.data.benefitNames.split(",");
+    if (names.length) {
+      const randName = names[Math.floor(Math.random() * names.length)];
+      const pack = game.packs.get("deathinspace.origin-benefits");
+      const docs = await pack.getDocuments();  
+      const benefit = docs.find(
+        (i) => i.name === randName
+      );
+      return benefit;
+    }
+  }
 };
 
 const drawFromTable = async (packName, tableName) => {
@@ -135,8 +149,6 @@ const documentFromResult = async (result) => {
   const doc = await fromUuid(uuid);
   return doc;
 };
-
-
 
 const generateSpacecraft = async () => {
 
