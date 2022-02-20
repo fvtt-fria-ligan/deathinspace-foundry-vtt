@@ -7,6 +7,7 @@ import { DISCharacterSheet } from "./actor/sheet/character-sheet.js";
 import { DISHubSheet } from "./actor/sheet/hub-sheet.js";
 import { DISNpcSheet } from "./actor/sheet/npc-sheet.js";
 import { DIS } from "./config.js";
+import { generateCharacter } from "./generator.js";
 import { DISItem } from "./item/item.js";
 import { DISItemSheet } from "./item/sheet/item-sheet.js";
 
@@ -22,6 +23,8 @@ Hooks.once("init", async function() {
   };
   CONFIG.Actor.documentClass = DISActor;
   CONFIG.Item.documentClass = DISItem;
+
+  game.gen = generateCharacter; // DEBUGGING
 
   CONFIG.DIS = DIS;
   Actors.unregisterSheet("core", ActorSheet);
@@ -42,6 +45,29 @@ Hooks.once("init", async function() {
   });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("deathinspace", DISItemSheet, { makeDefault: true });
+});
+
+Hooks.on("renderActorDirectory", (app, html) => {
+  if (game.user.can("ACTOR_CREATE")) {
+    // only show the Create Scvm button to users who can create actors
+    const section = document.createElement("header");
+    section.classList.add("generate-character");
+    section.classList.add("directory-header");
+    // Add menu before directory header
+    const dirHeader = html[0].querySelector(".directory-header");
+    dirHeader.parentNode.insertBefore(section, dirHeader);
+    section.insertAdjacentHTML(
+      "afterbegin",
+      `
+      <div class="header-actions action-buttons flexrow">
+        <button class="generate-character-button"><i class="fas fa-skull"></i>${game.i18n.localize('DIS.GenerateCharacter')}</button>
+      </div>
+      `
+    );
+    section
+      .querySelector(".generate-character-button")
+      .addEventListener("click", () => { generateCharacter() });
+  }
 });
 
 // TODO: can we just use Foundry's "eq" helper? verify.

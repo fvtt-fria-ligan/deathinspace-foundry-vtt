@@ -19,8 +19,8 @@ form(class="{{cssClass}}")
   nav(class="sheet-tabs tabs" data-group="primary")
     a(class="item" data-tab="notes")
       | {{ localize 'DIS.TabNotes' }}
-    //- a(class="item" data-tab="data")
-    //-   | {{ localize 'DIS.TabData' }}
+    a(class="item" data-tab="data")
+      | {{ localize 'DIS.TabData' }}
 
   section.sheet-body 
 
@@ -30,3 +30,7 @@ form(class="{{cssClass}}")
 
     div(class="tab data-tab" data-group="primary" data-tab="data")
       .data-wrapper
+        .form-group 
+          label
+            | Benefit Names  
+          input(type="text" name="data.benefitNames" value="{{data.data.benefitNames}}" data-dtype="String")

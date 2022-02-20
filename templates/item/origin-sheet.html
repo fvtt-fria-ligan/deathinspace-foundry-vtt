@@ -20,13 +20,18 @@
       </div>
     </div>
   </header>
-  <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="notes">{{ localize 'DIS.TabNotes' }}</a></nav>
+  <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="notes">{{ localize 'DIS.TabNotes' }}</a><a class="item" data-tab="data">{{ localize 'DIS.TabData' }}</a></nav>
   <section class="sheet-body"> 
     <div class="tab notes-tab" data-group="primary" data-tab="notes">
       <div class="notes-wrapper">{{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}</div>
     </div>
     <div class="tab data-tab" data-group="primary" data-tab="data">
-      <div class="data-wrapper"></div>
+      <div class="data-wrapper">
+        <div class="form-group"> 
+          <label>Benefit Names  </label>
+          <input type="text" name="data.benefitNames" value="{{data.data.benefitNames}}" data-dtype="String"/>
+        </div>
+      </div>
     </div>
   </section>
 </form>

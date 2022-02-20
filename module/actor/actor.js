@@ -14,8 +14,6 @@ export class DISActor extends Actor {
         actorLink: true,
         disposition: 1,  // friendly
         vision: true,
-        dimSight: 60,
-        brightSight: 10,
       };
     } else if (data.type === "npc") {
       defaults = {
@@ -28,8 +26,6 @@ export class DISActor extends Actor {
         actorLink: true,
         disposition: 0,  // neutral
         vision: true,
-        dimSight: 60,
-        brightSight: 10,
       };
     }
     mergeObject(data.token, defaults, { overwrite: false });
