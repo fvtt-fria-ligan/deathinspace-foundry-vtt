@@ -372,8 +372,7 @@
   justify-content: center;
 }
 .deathinspace.sheet.actor.character .personal-tab .portrait-block .portrait-col .portrait {
-  height: 172px;
-  width: 172px;
+  width: 100%;
 }
 .deathinspace.sheet.actor.character .personal-tab .defense-row {
   border-bottom: 2px solid black;

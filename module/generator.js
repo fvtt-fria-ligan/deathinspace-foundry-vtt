@@ -5,6 +5,7 @@ const CREATION_PACK = "deathinspace.character-creation";
 export const generateCharacter = async () => {
   const firstName = await drawText(CREATION_PACK, "First Names");
   const lastName = await drawText(CREATION_PACK, "Last Names");
+  const img = randomCharacterPortait();
 
   // 1. abilities
   const body = generateAbilityValue();
@@ -56,6 +57,7 @@ export const generateCharacter = async () => {
       pastAllegiance,
       trait,
     },
+    img,
     type: "character",    
   };
   const actor = await DISActor.create(actorData);
@@ -149,6 +151,13 @@ const pickOriginBenefit = async (origin) => {
   }
 };
 
+const randomCharacterPortait = () => {
+  const maxNum = 102;
+  const randNum = Math.floor(Math.random() * maxNum) + 1;
+  const padded = randNum.toString().padStart(2, "0");
+  return `systems/deathinspace/assets/images/portraits/character/character_${padded}.jpg`;
+}
+
 const documentFromPack = async (packName, docName) => {
   const pack = game.packs.get(packName);
   const docs = await pack.getDocuments();
@@ -216,8 +225,6 @@ export const generateSpacecraft = async () => {
   const name = await drawText("deathinspace.hub-creation", "Hub Names");
   const background = await drawText("deathinspace.hub-creation", "Spacecraft Backgrounds");
   const quirk = await drawText("deathinspace.hub-creation", "Hub Quirks");
-  // systems/deathinspace/assets/images/icons/frames/frame-spacecraft.png
-  // systems/deathinspace/assets/images/icons/frames/frame-station.png
   const actorData = {
     name,
     data: {

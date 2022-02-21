@@ -17,6 +17,9 @@ https://www.kickstarter.com/projects/cnibl/death-in-space
   * Fonts
     * [Androcles Opti Heavy](https://www.whatfontis.com/AndroclesOpti-Heavy.font) by Castcraft Software Inc and free for personal use.
     * [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono) by Mike Abbink and Bold Monday, under [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
+  * Images
+    * Item icons by [game-icons.net](https://game-icons.net/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+    * Character portraits from [Ashen Victor]'s [Sci-fi Character Portraits Project](https://ashen-victor.itch.io/sci-fi-character-portraits-poject) under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 
 
 ## License
