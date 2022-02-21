@@ -10,6 +10,11 @@
     border-bottom: 1px solid var(--hub-background-color);
     border-top: 1px solid var(--hub-background-color);
     color: white;
+    display: flex;
+    justify-content: space-around;
+    .item {
+      flex: 0 0 170px;
+    }
     .item:hover {
       color: black;
       text-shadow: 0 0 10px white;
