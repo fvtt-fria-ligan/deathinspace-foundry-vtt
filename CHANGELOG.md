@@ -1,3 +1,6 @@
+# 0.6.0
+- Implement spacecraft and station generators.
+
 # 0.5.0
 - Implement character generator.
 
