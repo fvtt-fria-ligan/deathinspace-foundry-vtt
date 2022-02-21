@@ -1,3 +1,7 @@
+# 0.7.0 
+- Add randomized character portraits to generator.
+- Fix text wrap on hub sheet cargo & notes tab.
+
 # 0.6.0
 - Implement spacecraft and station generators.
 
