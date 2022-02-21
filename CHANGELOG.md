@@ -1,3 +1,6 @@
+# 0.5.0
+- Implement character generator.
+
 # 0.4.0
 - Make compatible with Foundry v9.
 
