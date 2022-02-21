@@ -213,10 +213,13 @@ export const generateSpacecraft = async () => {
   const defenseRating = 11;
   const maxCondition = 5;
   const fuelCapacity = 6;
+  const name = await drawText("deathinspace.hub-creation", "Hub Names");
   const background = await drawText("deathinspace.hub-creation", "Spacecraft Backgrounds");
   const quirk = await drawText("deathinspace.hub-creation", "Hub Quirks");
+  // systems/deathinspace/assets/images/icons/frames/frame-spacecraft.png
+  // systems/deathinspace/assets/images/icons/frames/frame-station.png
   const actorData = {
-    name: "Starting Spacecraft",
+    name,
     data: {
       background,
       condition: {
@@ -230,7 +233,8 @@ export const generateSpacecraft = async () => {
       defenseRating,
       quirks: quirk
     },
-    type: "hub",    
+    img: "systems/deathinspace/assets/images/icons/frames/frame-spacecraft.png",
+    type: "hub"
   };
   const actor = await DISActor.create(actorData);
   const frame = await documentFromPack("deathinspace.frames", "Starting spacecraft");
@@ -243,10 +247,11 @@ export const generateStation = async () => {
   const defenseRating = 11;
   const maxCondition = 5;
   const fuelCapacity = 4;
+  const name = await drawText("deathinspace.hub-creation", "Hub Names");
   const background = await drawText("deathinspace.hub-creation", "Station Backgrounds");
   const quirk = await drawText("deathinspace.hub-creation", "Hub Quirks");
   const actorData = {
-    name: "Starting Station",
+    name,
     data: {
       background,
       condition: {
@@ -260,7 +265,8 @@ export const generateStation = async () => {
       defenseRating,
       quirks: quirk
     },
-    type: "hub",    
+    img: "systems/deathinspace/assets/images/icons/frames/frame-station.png",
+    type: "hub"
   };
   const actor = await DISActor.create(actorData);
   const frame = await documentFromPack("deathinspace.frames", "Starting station");
