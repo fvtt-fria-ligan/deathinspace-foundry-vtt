@@ -209,10 +209,62 @@ const documentFromResult = async (result) => {
   return doc;
 };
 
-const generateSpacecraft = async () => {
-  // TODO
+export const generateSpacecraft = async () => {
+  const defenseRating = 11;
+  const maxCondition = 5;
+  const fuelCapacity = 6;
+  const background = await drawText("deathinspace.hub-creation", "Spacecraft Backgrounds");
+  const quirk = await drawText("deathinspace.hub-creation", "Hub Quirks");
+  const actorData = {
+    name: "Starting Spacecraft",
+    data: {
+      background,
+      condition: {
+        max: maxCondition,
+        value: maxCondition
+      },
+      fuel: {
+        max: fuelCapacity,
+        value: fuelCapacity
+      },
+      defenseRating,
+      quirks: quirk
+    },
+    type: "hub",    
+  };
+  const actor = await DISActor.create(actorData);
+  const frame = await documentFromPack("deathinspace.frames", "Starting spacecraft");
+  const engine = await documentFromPack("deathinspace.power-systems", "Chemical engine");
+  await actor.createEmbeddedDocuments("Item", [frame.data, engine.data]);
+  actor.sheet.render(true);
 };
 
-const generateStation = async () => {
-  // TODO
+export const generateStation = async () => {
+  const defenseRating = 11;
+  const maxCondition = 5;
+  const fuelCapacity = 4;
+  const background = await drawText("deathinspace.hub-creation", "Station Backgrounds");
+  const quirk = await drawText("deathinspace.hub-creation", "Hub Quirks");
+  const actorData = {
+    name: "Starting Station",
+    data: {
+      background,
+      condition: {
+        max: maxCondition,
+        value: maxCondition
+      },
+      fuel: {
+        max: fuelCapacity,
+        value: fuelCapacity
+      },
+      defenseRating,
+      quirks: quirk
+    },
+    type: "hub",    
+  };
+  const actor = await DISActor.create(actorData);
+  const frame = await documentFromPack("deathinspace.frames", "Starting station");
+  const engine = await documentFromPack("deathinspace.power-systems", "Industrial generator");
+  await actor.createEmbeddedDocuments("Item", [frame.data, engine.data]);
+  actor.sheet.render(true);  
 };

@@ -80,6 +80,13 @@
       "entity": "Item"
     },
     {
+      "name": "hub-creation",
+      "label": "Hub Creation",
+      "system": "deathinspace",
+      "path": "./packs/hub-creation.db",
+      "entity": "RollTable"
+    },
+    {
       "name": "hub-modules-confrontation",
       "label": "Hub Modules - Confrontation",
       "system": "deathinspace",

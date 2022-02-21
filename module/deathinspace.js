@@ -7,7 +7,7 @@ import { DISCharacterSheet } from "./actor/sheet/character-sheet.js";
 import { DISHubSheet } from "./actor/sheet/hub-sheet.js";
 import { DISNpcSheet } from "./actor/sheet/npc-sheet.js";
 import { DIS } from "./config.js";
-import { generateCharacter } from "./generator.js";
+import { generateCharacter, generateSpacecraft, generateStation } from "./generator.js";
 import { DISItem } from "./item/item.js";
 import { DISItemSheet } from "./item/sheet/item-sheet.js";
 
@@ -60,13 +60,25 @@ Hooks.on("renderActorDirectory", (app, html) => {
       "afterbegin",
       `
       <div class="header-actions action-buttons flexrow">
-        <button class="generate-character-button"><i class="fas fa-skull"></i>${game.i18n.localize('DIS.GenerateCharacter')}</button>
+        <button class="generate-character-button"><i class="fas fa-user"></i>${game.i18n.localize('DIS.GenerateCharacter')}</button>
+      </div>
+      <div class="header-actions action-buttons flexrow">
+        <button class="generate-spacecraft-button"><i class="fas fa-rocket"></i>${game.i18n.localize('DIS.GenerateSpacecraft')}</button>
+      </div>
+      <div class="header-actions action-buttons flexrow">
+        <button class="generate-station-button"><i class="fas fa-satellite"></i>${game.i18n.localize('DIS.GenerateStation')}</button>
       </div>
       `
     );
     section
       .querySelector(".generate-character-button")
       .addEventListener("click", () => { generateCharacter() });
+    section
+      .querySelector(".generate-spacecraft-button")
+      .addEventListener("click", () => { generateSpacecraft() });
+    section
+      .querySelector(".generate-station-button")
+      .addEventListener("click", () => { generateStation() });
   }
 });
 
