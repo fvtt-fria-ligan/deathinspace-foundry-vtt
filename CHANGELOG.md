@@ -1,3 +1,6 @@
+# 0.9.0
+- Create round token images for all character portraits, and use in generator.
+
 # 0.8.0
 - Add regenerate button to character sheet.
 - Minor layout tweaks to character sheet.

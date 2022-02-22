@@ -29,7 +29,9 @@ const randomCharacter = async () => {
   const firstName = await drawText(CREATION_PACK, "First Names");
   const lastName = await drawText(CREATION_PACK, "Last Names");
   const name = `${firstName} ${lastName}`;
-  const img = randomCharacterPortait();
+  const imageBase = randomCharacterImageBase();
+  const portrait = `systems/deathinspace/assets/images/portraits/characters/${imageBase}.jpg`;
+  const token = `systems/deathinspace/assets/images/tokens/characters/${imageBase}.png`;
 
   // 1. abilities
   const body = generateAbilityValue();
@@ -81,9 +83,9 @@ const randomCharacter = async () => {
       pastAllegiance,
       trait,
     },
-    img,
+    img: portrait,
     token: {
-      img,
+      img: token,
       name
     },
     type: "character",    
@@ -179,11 +181,12 @@ const pickOriginBenefit = async (origin) => {
   }
 };
 
-const randomCharacterPortait = () => {
+const randomCharacterImageBase = () => {
+  // prefix for our portrait jpgs and token pngs
   const maxNum = 102;
   const randNum = Math.floor(Math.random() * maxNum) + 1;
   const padded = randNum.toString().padStart(2, "0");
-  return `systems/deathinspace/assets/images/portraits/character/character_${padded}.jpg`;
+  return `character_${padded}`;
 }
 
 const documentFromPack = async (packName, docName) => {
