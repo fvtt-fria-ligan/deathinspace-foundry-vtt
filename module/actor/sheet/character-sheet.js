@@ -10,7 +10,7 @@ export class DISCharacterSheet extends DISActorSheet {
       classes: ["deathinspace", "sheet", "actor", "character"],
       template: "systems/deathinspace/templates/actor/character-sheet.html",
       width: 730,
-      height: 695,
+      height: 692,
       tabs: [
         {
           navSelector: ".sheet-tabs",
