@@ -33,6 +33,7 @@ export class DISCharacterSheet extends DISActorSheet {
       .find(".weapon-damage")
       .on("click", this._onDamageRoll.bind(this));
     html.find(".add-belonging").click(this._onAddBelonging.bind(this));
+    html.find("a.regenerate").click(this._onRegenerate.bind(this));
   }
 
   /** @override */
@@ -126,6 +127,28 @@ export class DISCharacterSheet extends DISActorSheet {
     const row = $(event.currentTarget).parents(".item");
     const itemId = row.data("itemId");
     this.actor.rollItemDamage(itemId);
+  }
+
+  _onRegenerate(event) {
+    event.preventDefault();
+    // confirm before regenerating
+    const d = new Dialog({
+      title: game.i18n.localize("DIS.Regenerate"),
+      content:
+        `<p>${game.i18n.localize("DIS.RegenerateWarning")}`,
+      buttons: {
+        cancel: {
+          label: game.i18n.localize("DIS.Cancel"),
+        },
+        getbetter: {
+          icon: '<i class="fas fa-skull"></i>',
+          label: game.i18n.localize("DIS.Regenerate"),
+          callback: () => this.actor.regenerate(),
+        },
+      },
+      default: "cancel",
+    });
+    d.render(true);
   }
 }
 

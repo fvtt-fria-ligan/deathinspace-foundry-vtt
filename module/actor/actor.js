@@ -1,3 +1,5 @@
+import { regenerateCharacter } from "../generator.js";
+
 /**
  * @extends {Actor}
  */
@@ -189,5 +191,9 @@ export class DISActor extends Actor {
       speaker: ChatMessage.getSpeaker({ actor: this }),
       flavor: `Morale`,
     });
+  }
+
+  async regenerate() {
+    regenerateCharacter(this);
   }
 }

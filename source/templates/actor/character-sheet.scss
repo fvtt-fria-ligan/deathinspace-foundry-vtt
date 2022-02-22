@@ -42,21 +42,38 @@
       grid-template-rows: 37px 60px 50px 50px 50px 50px 50px 55px 55px 55px;
     }
     .origin-row {
+      border-right: 2px solid black;
       border-bottom: 2px solid black;
       display: flex;
       grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      padding-top: 0px;
+      div.origin-label {
+        border-right: 1px dotted #000;
+        flex: 0 0 80px;
+        padding-top: 9px;
+        text-align: center;
+      }
+      div.origin {
+        flex: 1;
+        padding-left: 10px;
+        padding-top: 9px;
+      }
+      div.item-controls {
+        padding-top: 9px;
+      }
+    }
+    .regenerate-block {
+      border-bottom: 2px solid black;
+      grid-column-start: 3;
       grid-column-end: 4;
       grid-row-start: 1;
-      padding-top: 6px;
-    }
-    div.origin-label {
-      border-right: 1px dotted #000;
-      flex: 0 0 80px;
+      padding-top: 8px;
       text-align: center;
-    }
-    div.origin {
-      flex: 1;
-      padding-left: 10px;
+      a.regenerate {
+        text-decoration: underline;
+      }
     }
     .name-row {
       border-bottom: 2px solid black;

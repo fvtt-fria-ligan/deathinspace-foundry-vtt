@@ -3,8 +3,32 @@ import { DISActor } from "./actor/actor.js";
 const CREATION_PACK = "deathinspace.character-creation";
 
 export const generateCharacter = async () => {
+  const char = await randomCharacter();
+  const actor = await DISActor.create(char.actorData);
+  await actor.createEmbeddedDocuments("Item", char.items);
+  await maybeGiveStartingBonus(actor);
+  actor.sheet.render(true);
+};
+
+export const regenerateCharacter = async (actor) => {
+  const char = await randomCharacter();
+  await actor.deleteEmbeddedDocuments("Item", [], { deleteAll: true });
+  await actor.update(char.actorData);
+  await actor.createEmbeddedDocuments("Item", char.items);
+  await maybeGiveStartingBonus(actor);
+  // update any actor tokens in the scene, too
+  for (const token of actor.getActiveTokens()) {
+    await token.document.update({
+      img: actor.data.img,
+      name: actor.name,
+    });
+  }
+};
+
+const randomCharacter = async () => {
   const firstName = await drawText(CREATION_PACK, "First Names");
   const lastName = await drawText(CREATION_PACK, "Last Names");
+  const name = `${firstName} ${lastName}`;
   const img = randomCharacterPortait();
 
   // 1. abilities
@@ -37,7 +61,7 @@ export const generateCharacter = async () => {
   const personalTrinket = await drawDocument(CREATION_PACK, "Personal Trinkets");
 
   const actorData = {
-    name: `${firstName} ${lastName}`,
+    name,
     data: {
       abilities: {
         body: { value: body },
@@ -58,14 +82,18 @@ export const generateCharacter = async () => {
       trait,
     },
     img,
+    token: {
+      img,
+      name
+    },
     type: "character",    
   };
-  const actor = await DISActor.create(actorData);
-  const allItems = [origin.data, originBenefit.data, personalTrinket.data].concat(startingKitItems.map(x => x.data));
-  await actor.createEmbeddedDocuments("Item", allItems);
-  await maybeGiveStartingBonus(actor);
+  const items = [origin.data, originBenefit.data, personalTrinket.data].concat(startingKitItems.map(x => x.data));
 
-  actor.sheet.render(true);
+  return {
+    actorData,
+    items
+  };
 }
 
 const maybeGiveStartingBonus = async (actor) => {
