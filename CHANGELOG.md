@@ -1,3 +1,8 @@
+# 0.8.0
+- Add regenerate button to character sheet.
+- Minor layout tweaks to character sheet.
+- Fix typo in origin benefits names for generator.
+
 # 0.7.0 
 - Add randomized character portraits to generator.
 - Fix text wrap on hub sheet cargo & notes tab.
