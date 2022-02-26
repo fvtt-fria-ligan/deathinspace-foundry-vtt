@@ -17,10 +17,12 @@ export const regenerateCharacter = async (actor) => {
   await actor.createEmbeddedDocuments("Item", char.items);
   await maybeGiveStartingBonus(actor);
   // update any actor tokens in the scene, too
+  console.log(actor);
   for (const token of actor.getActiveTokens()) {
+    console.log(token);    
     await token.document.update({
-      img: actor.data.img,
-      name: actor.name,
+      img: actor.data.token.img,
+      name: actor.name
     });
   }
 };

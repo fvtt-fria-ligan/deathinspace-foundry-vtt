@@ -1,3 +1,6 @@
+# 0.9.1
+- Fix token img update when regenerating character.
+
 # 0.9.0
 - Create round token images for all character portraits, and use in generator.
 
