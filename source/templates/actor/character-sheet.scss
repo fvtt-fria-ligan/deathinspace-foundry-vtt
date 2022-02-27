@@ -419,6 +419,15 @@
     .item-controls {
       border-left: 1px dotted black;
     }
+    .item-equip {
+      margin-left: 4px;
+    }
+    .item-equip.equipped {
+      color: red;
+    }
+    .item-equip.unequipped {
+      color: gray;
+    }
     .belongings-wrapper {
       display: flex;
       flex-direction: column;

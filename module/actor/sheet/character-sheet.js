@@ -34,6 +34,7 @@ export class DISCharacterSheet extends DISActorSheet {
       .on("click", this._onDamageRoll.bind(this));
     html.find(".add-belonging").click(this._onAddBelonging.bind(this));
     html.find("a.regenerate").click(this._onRegenerate.bind(this));
+    html.find("a.item-equip").click(this._onEquipToggle.bind(this));
   }
 
   /** @override */
@@ -63,18 +64,28 @@ export class DISCharacterSheet extends DISActorSheet {
       .filter((item) => item.type === CONFIG.DIS.itemTypes.weapon)
       .sort(byName);
     sheetData.data.armor = sheetData.items
-      .filter((item) => item.type === CONFIG.DIS.itemTypes.armor)
+      .filter((item) => {
+        return (
+          item.type === CONFIG.DIS.itemTypes.armor && 
+          (!item.data.equippable || item.data.equipped)
+        )
+      })
       .sort(byName);
     sheetData.data.equipment = sheetData.items
-      .filter((item) => item.type === CONFIG.DIS.itemTypes.equipment)
-      .sort(byName);
+      .filter((item) => {
+        return (
+          item.type === CONFIG.DIS.itemTypes.equipment || 
+          (item.type === CONFIG.DIS.itemTypes.armor && (item.data.equippable && !item.data.equipped))
+        );
+      })
+      .sort(byName);      
     const allSlotItems = [
       ...sheetData.data.weapons,
       ...sheetData.data.armor,
       ...sheetData.data.equipment,
     ];
     sheetData.data.totalSlots = allSlotItems
-      .map((item) => item.data.slots)
+      .map((item) => item.data.equippable ? (item.data.equipped ? 0 : item.data.slots) : item.data.slots)
       .reduce((prev, next) => prev + next, 0);
     sheetData.data.maxSlots = 12 + sheetData.data.abilities.body.value;
   }
@@ -127,6 +138,19 @@ export class DISCharacterSheet extends DISActorSheet {
     const row = $(event.currentTarget).parents(".item");
     const itemId = row.data("itemId");
     this.actor.rollItemDamage(itemId);
+  }
+
+  async _onEquipToggle(event) {
+    event.preventDefault();
+    const anchor = $(event.currentTarget);
+    const li = anchor.parents(".item");
+    const itemId = li.data("itemId");
+    const item = this.actor.items.get(itemId);
+    if (item.equipped) {
+      await item.unequip();
+    } else {
+      await item.equip();
+    }
   }
 
   _onRegenerate(event) {

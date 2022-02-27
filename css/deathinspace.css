@@ -608,6 +608,15 @@
 .deathinspace.sheet.actor.character .belongings-tab .item-controls {
   border-left: 1px dotted black;
 }
+.deathinspace.sheet.actor.character .belongings-tab .item-equip {
+  margin-left: 4px;
+}
+.deathinspace.sheet.actor.character .belongings-tab .item-equip.equipped {
+  color: red;
+}
+.deathinspace.sheet.actor.character .belongings-tab .item-equip.unequipped {
+  color: gray;
+}
 .deathinspace.sheet.actor.character .belongings-tab .belongings-wrapper {
   display: flex;
   flex-direction: column;

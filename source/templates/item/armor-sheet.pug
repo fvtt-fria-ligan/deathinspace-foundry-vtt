@@ -47,3 +47,7 @@ form(class="{{cssClass}}")
           label
             | Defense Rating Bonus
           input(type="number" name="data.defenseRatingBonus" value="{{data.data.defenseRatingBonus}}" placeholder="0" data-dtype="Number")
+        .form-group 
+          label
+            | Equippable
+          | <input type="checkbox" name="data.equippable" {{checked data.data.equippable}} />

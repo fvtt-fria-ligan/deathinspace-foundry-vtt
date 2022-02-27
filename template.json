@@ -120,6 +120,7 @@
     "armor": {
       "templates": ["baseEquipment"],
       "defenseRatingBonus": 0,
+      "equippable": false,
       "protectsAgainst": ""
     },
     "equipment": {

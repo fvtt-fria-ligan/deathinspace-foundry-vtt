@@ -214,10 +214,22 @@ form(class="{{cssClass}}" autocomplete="off")
               | -
               | {{/if}}
             .equipment-slots 
+              | {{#if item.data.equippable}}
+              | {{#if item.data.equipped}}
+              | -
+              a.item-control.item-equip.equipped(title="Unequip")
+                i.fas.fa-shield-alt
+              | {{else}}
+              | {{item.data.slots}}
+              a.item-control.item-equip.unequipped(title="Equip")
+                i.fas.fa-shield-alt
+              | {{/if}}
+              | {{else}}
               | {{#if item.data.slots}}
               | {{ item.data.slots}}
               | {{else}}
               | -
+              | {{/if}}
               | {{/if}}
             .item-controls
               a.item-control.item-edit
@@ -292,7 +304,19 @@ form(class="{{cssClass}}" autocomplete="off")
             .armor-dr-bonus 
               | {{item.data.defenseRatingBonus}}
             .armor-slots 
+              | {{#if item.data.equippable}}
+              | {{#if item.data.equipped}}
+              | -
+              a.item-control.item-equip.equipped(title="Unequip")
+                i.fas.fa-shield-alt
+              | {{else}}
               | {{item.data.slots}}
+              a.item-control.item-equip.unequipped(title="Equip")
+                i.fas.fa-shield-alt
+              | {{/if}}
+              | {{else}}
+              | {{item.data.slots}}
+              | {{/if}}
             .item-controls
               a.item-control.item-edit
                 i.fas.fa-edit                          
