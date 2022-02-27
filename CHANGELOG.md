@@ -1,3 +1,6 @@
+# 0.10.0
+- Support equip/unequip EVA suits.
+
 # 0.9.1
 - Fix token img update when regenerating character.
 
