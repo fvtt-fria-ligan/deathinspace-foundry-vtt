@@ -1,3 +1,6 @@
+# 0.10.1
+- Fix Situation tab to match latest print character sheet.
+
 # 0.10.0
 - Support equip/unequip EVA suits.
 

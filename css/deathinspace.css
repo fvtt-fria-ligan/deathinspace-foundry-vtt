@@ -446,12 +446,11 @@
 .deathinspace.sheet.actor.character .situation-tab .situation-wrapper {
   display: inline-grid;
   grid-template-columns: 65% 35%;
-  grid-template-rows: 90px 250px 174px;
+  grid-template-rows: 70px 174px 250px;
   width: 100%;
 }
 .deathinspace.sheet.actor.character .situation-tab .void-points-block {
   border-bottom: 2px solid black;
-  border-right: 2px solid black;
   display: flex;
   grid-column-start: 1;
   grid-column-end: 3;
@@ -523,7 +522,6 @@
   border-bottom: 2px solid black;
   border-right: 2px solid black;
   grid-column-start: 1;
-  grid-column-end: 3;
   grid-row-start: 2;
 }
 .deathinspace.sheet.actor.character .situation-tab .cosmic-mutations-block .cosmic-mutations-title {
@@ -540,10 +538,10 @@
   padding-left: 4px;
 }
 .deathinspace.sheet.actor.character .situation-tab .void-corruption-block {
-  border-right: 2px solid black;
   display: flex;
   flex-direction: column;
   grid-column-start: 1;
+  grid-column-end: 3;
   grid-row-start: 3;
 }
 .deathinspace.sheet.actor.character .situation-tab .void-corruption-block .void-corruption-title {
@@ -560,10 +558,11 @@
   padding-left: 4px;
 }
 .deathinspace.sheet.actor.character .situation-tab .life-support-block {
+  border-bottom: 2px solid black;
   display: flex;
   flex-direction: column;
   grid-column-start: 2;
-  grid-row-start: 3;
+  grid-row-start: 2;
 }
 .deathinspace.sheet.actor.character .situation-tab .life-support-block .oxygen-tank-row {
   display: flex;

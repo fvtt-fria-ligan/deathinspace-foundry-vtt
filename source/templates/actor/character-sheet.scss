@@ -250,12 +250,11 @@
       display: inline-grid;
       grid-template-columns: 65% 35%;
       // TODO: figure out expandable rows
-      grid-template-rows: 90px 250px 174px;
+      grid-template-rows: 70px 174px 250px;
       width: 100%;
     }
     .void-points-block {
       border-bottom: 2px solid black;
-      border-right: 2px solid black;
       display: flex;
       grid-column-start: 1;
       grid-column-end: 3;
@@ -328,7 +327,6 @@
       border-bottom: 2px solid black;
       border-right: 2px solid black;
       grid-column-start: 1;
-      grid-column-end: 3;
       grid-row-start: 2;
       .cosmic-mutations-title {
         flex: 0 0 10px;
@@ -345,10 +343,10 @@
       }
     }
     .void-corruption-block {
-      border-right: 2px solid black;
       display: flex;
       flex-direction: column;
       grid-column-start: 1;
+      grid-column-end: 3;
       grid-row-start: 3;
       .void-corruption-title {
         flex: 0 0 10px;
@@ -365,10 +363,11 @@
       }
     }
     .life-support-block {
+      border-bottom: 2px solid black;
       display: flex;
       flex-direction: column;
       grid-column-start: 2;
-      grid-row-start: 3;
+      grid-row-start: 2;
       .oxygen-tank-row {
         display: flex;
         flex: 0 0 100px;
