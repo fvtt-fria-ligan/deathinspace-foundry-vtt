@@ -20,16 +20,16 @@
     <div class="tab personal-tab" data-group="primary" data-tab="personal">
       <div class="personal-wrapper"> 
         <div class="origin-row item" data-item-id="{{data.data.origin._id}}"> 
-          <div class="origin-label">ORIGIN </div>
+          <div class="origin-label">{{ localize 'DIS.Origin' }} </div>
           <div class="origin item-edit rollable">
              {{data.data.origin.name}}</div>
           <div class="item-controls">
              {{#if data.data.origin}}<a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash"></i></a>{{else}}<a class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="origin"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}              </a>{{/if}}</div>
         </div>
-        <div class="regenerate-block"> <a class="regenerate">REGENERATE</a></div>
+        <div class="regenerate-block"> <a class="regenerate">{{ localize 'DIS.Regenerate' }}</a></div>
         <div class="origin-benefit-block">
           <div class="title-row">
-            <label>ORIGIN BENEFITS</label>
+            <label>{{ localize 'DIS.OriginBenefits' }}</label>
             <div class="item-controls"><a class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="originBenefit"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}          </a></div>
           </div>
           <div class="origin-benefits">
@@ -41,31 +41,31 @@
           </div>
         </div>
         <div class="stat-block xp-block">
-          <label>XP</label>
+          <label>{{localize "DIS.XP"}}</label>
           <input class="stat-input" type="number" name="data.xp.value" value="{{data.data.xp.value}}" data-dtype="Number"/>
         </div>
         <div class="stat-block background-block">
-          <label>BACKGROUND</label>
+          <label>{{localize "DIS.Background"}}</label>
           <input class="stat-input" type="text" name="data.background" value="{{data.data.background}}" data-dtype="String"/>
         </div>
         <div class="stat-block trait-block">
-          <label>TRAITS</label>
+          <label>{{localize "DIS.Traits"}}</label>
           <input class="stat-input" type="text" name="data.trait" value="{{data.data.trait}}" data-dtype="String"/>
         </div>
         <div class="stat-block past-allegiance-block">
-          <label>PAST ALLEGIANCE</label>
+          <label>{{localize "DIS.PastAllegiance"}}</label>
           <textarea name="data.pastAllegiance" rows="4">{{data.data.pastAllegiance}}</textarea>
         </div>
         <div class="stat-block drive-block">
-          <label>DRIVE</label>
+          <label>{{localize "DIS.Drive"}}</label>
           <input class="stat-input" type="text" name="data.drive" value="{{data.data.drive}}" data-dtype="String"/>
         </div>
         <div class="stat-block looks-block">
-          <label>LOOKS</label>
+          <label>{{localize "DIS.Looks"}}</label>
           <textarea name="data.looks" rows="4">{{data.data.looks}}</textarea>
         </div>
         <div class="stat-block ability-block">
-          <label>ABILITY</label><br/>
+          <label>{{localize "DIS.Ability"}}</label><br/>
           <div class="ability-col"> 
             <div class="ability-row"> 
               <div class="ability-name rollable" data-ability="body">BODY</div>
@@ -95,7 +95,7 @@
         </div>
         <div class="defense-row"> 
           <div class="defense-text"> 
-            <label>DEFENSE RATING</label>
+            <label>{{localize "DIS.DefenseRating"}}</label>
             <div class="help-text">12+DEX Unarmored</div>
           </div>
           <div class="defense-value"> 
@@ -104,7 +104,7 @@
         </div>
         <div class="hit-points-row"> 
           <div class="hit-points-text"> 
-            <label>HIT POINTS</label>
+            <label>{{localize "DIS.HitPoints"}}</label>
             <div class="help-text">Start with 1d8<br/>Recover 1d4+BODY</div>
           </div>
           <div class="hit-points-current-col"> 
@@ -117,7 +117,7 @@
           </div>
         </div>
         <div class="stat-block portrait-block"> 
-          <label>PORTRAIT</label><br/>
+          <label>{{localize "DIS.Portrait"}}</label><br/>
           <div class="portrait-col"> 
             <div class="portrait"> <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/></div>
           </div>
@@ -130,7 +130,7 @@
           <div class="void-col-1"> 
             <div class="stat-block"> 
               <label>
-                 VOID POINTS </label>
+                 {{localize "DIS.VoidPoints"}}</label>
             </div>
             <div class="void-points-radios"> 
               <ul class="void-points">
@@ -165,7 +165,7 @@
         </div>
         <div class="cosmic-mutations-block">
           <div class="stat-block cosmic-mutations-title"> 
-            <label>COSMIC MUTATIONS</label>
+            <label>{{localize "DIS.CosmicMutations"}}</label>
             <div class="item-controls"><a class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="cosmicMutation"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}</a></div>
           </div>{{#each data.data.cosmicMutations as |item id|}}
           <div class="cosmic-mutation-row item" data-item-id="{{item._id}}">           
@@ -176,13 +176,13 @@
         </div>
         <div class="void-corruption-block"> 
           <div class="stat-block void-corruption-title"> 
-            <label>VOID CORRUPTION </label>
+            <label>{{localize "DIS.VoidCorruption"}}</label>
             <textarea name="data.voidCorruption" rows="6">{{data.data.voidCorruption}}</textarea>
           </div>
         </div>
         <div class="life-support-block">
           <div class="stat-block life-support-title"> 
-            <label>LIFE SUPPORT </label>
+            <label>{{localize "DIS.LifeSupport"}}</label>
           </div>
           <div class="tank-space"> </div>
           <div class="oxygen-tank-row"> 
@@ -220,11 +220,11 @@
         <div class="add-row"><a class="add-belonging" title="Add Belonging"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}</a></div>
         <div class="equipment"> 
           <div class="equipment-header">
-            <div class="equipment-name">EQUIPMENT</div>
+            <div class="equipment-name">{{localize "DIS.Equipment"}}</div>
             <div class="equipment-condition">
-               CONDITION</div>
+               {{localize "DIS.Condition"}}</div>
             <div class="equipment-slots">
-               SLOTS</div>
+               {{localize "DIS.Slots"}}</div>
             <div class="item-controls">
                &nbsp;</div>
           </div>{{#each data.data.equipment as |item id|}}
@@ -257,24 +257,24 @@
            {{#each data.data.weapons as |item id|}}
           <div class="weapon-header"> 
             <div class="weapon-name">
-               WEAPON {{add id 1}}</div>
+               {{localize "DIS.Weapon"}} {{add id 1}}</div>
             <div class="weapon-attack">
                &nbsp;</div>
             <div class="weapon-damage">
-               DAMAGE </div>
+               {{localize "DIS.Damage"}} </div>
             <div class="weapon-ammo">
-               AMMO </div>
+               {{localize "DIS.Ammo"}} </div>
             <div class="weapon-condition">
-                CONDITION</div>
+                {{localize "DIS.Condition"}}</div>
             <div class="weapon-slots">
-               SLOTS</div>
+               {{localize "DIS.Slots"}}</div>
             <div class="item-controls">
                &nbsp;</div>
           </div>
           <div class="weapon-row item" data-item-id="{{item._id}}"> 
             <div class="weapon-name item-edit rollable">{{item.name}}</div>
             <div class="weapon-attack rollable">
-               ATK</div>
+               {{localize "DIS.AttackAbbrev"}}</div>
             <div class="weapon-damage rollable">
                {{item.data.damage}}</div>
             <div class="weapon-ammo">
@@ -299,13 +299,13 @@
            {{#each data.data.armor as |item id|}}
           <div class="armor-header"> 
             <div class="armor-name">
-               ARMOR TYPE</div>
+               {{localize "DIS.ArmorType"}}</div>
             <div class="armor-protects-against">
-               PROTECTS AGAINST </div>
+               {{localize "DIS.ProtectsAgainst"}}</div>
             <div class="armor-dr-bonus">
-               DR BONUS </div>
+               {{localize "DIS.DRBonus"}}</div>
             <div class="armor-slots">
-               SLOTS</div>
+               {{localize "DIS.Slots"}}</div>
             <div class="item-controls">
                &nbsp;                </div>
           </div>
@@ -333,7 +333,7 @@
             <div class="slots-text">
                &nbsp;</div>
             <div class="slots-total">
-               TOTAL</div>
+               {{localize "DIS.Total"}}</div>
             <div class="item-controls">&nbsp;</div>
           </div>
           <div class="slots-total-row">
@@ -346,11 +346,11 @@
         </div>
         <div class="holo-row"> 
           <div class="stat-block holos"> 
-            <label>HOLOS</label>
+            <label>{{localize "DIS.Holos"}}</label>
             <input class="stat-input" type="number" name="data.holos" value="{{data.data.holos}}" data-dtype="Number"/>
           </div>
           <div class="stat-block debt"> 
-            <label>DEBT</label>
+            <label>{{localize "DIS.Debt"}}</label>
             <input class="stat-input" type="number" name="data.debt" value="{{data.data.debt}}" data-dtype="Number"/>
           </div>
         </div>

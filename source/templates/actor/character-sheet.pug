@@ -27,7 +27,7 @@ form(class="{{cssClass}}" autocomplete="off")
     div(class="tab personal-tab" data-group="primary" data-tab="personal")
       .personal-wrapper 
         .origin-row.item(data-item-id="{{data.data.origin._id}}") 
-          .origin-label ORIGIN 
+          .origin-label {{ localize 'DIS.Origin' }} 
           .origin.item-edit.rollable 
             | {{data.data.origin.name}}
           .item-controls 
@@ -43,10 +43,10 @@ form(class="{{cssClass}}" autocomplete="off")
             | {{/if}}
         .regenerate-block 
           a.regenerate
-            | REGENERATE
+            | {{ localize 'DIS.Regenerate' }}
         .origin-benefit-block
           .title-row
-            label ORIGIN BENEFITS
+            label {{ localize 'DIS.OriginBenefits' }}
             .item-controls
               a(class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="originBenefit")
                 i.fas.fa-plus
@@ -63,25 +63,25 @@ form(class="{{cssClass}}" autocomplete="off")
                   i.fas.fa-trash
             | {{/each}}
         .stat-block.xp-block
-          label XP
+          label {{localize "DIS.XP"}}
           input(type="number" class="stat-input" name="data.xp.value" value="{{data.data.xp.value}}" data-dtype="Number")
         .stat-block.background-block
-          label BACKGROUND
+          label {{localize "DIS.Background"}}
           input(type="text" class="stat-input" name="data.background" value="{{data.data.background}}" data-dtype="String")
         .stat-block.trait-block
-          label TRAITS
+          label {{localize "DIS.Traits"}}
           input(type="text" class="stat-input" name="data.trait" value="{{data.data.trait}}" data-dtype="String")
         .stat-block.past-allegiance-block
-          label PAST ALLEGIANCE
+          label {{localize "DIS.PastAllegiance"}}
           textarea(name="data.pastAllegiance", rows="4") {{data.data.pastAllegiance}}
         .stat-block.drive-block
-          label DRIVE
+          label {{localize "DIS.Drive"}}
           input(type="text" class="stat-input" name="data.drive" value="{{data.data.drive}}" data-dtype="String")
         .stat-block.looks-block
-          label LOOKS
+          label {{localize "DIS.Looks"}}
           textarea(name="data.looks", rows="4") {{data.data.looks}}
         .stat-block.ability-block
-          label ABILITY
+          label {{localize "DIS.Ability"}}
           br
           .ability-col 
             each val in ["body", "dexterity", "savvy", "tech"]
@@ -91,14 +91,14 @@ form(class="{{cssClass}}" autocomplete="off")
                   input(type="number" class="stat-input" name="data.abilities." + val + ".value" value="{{data.data.abilities." + val + ".value}}" data-dtype="Number" min="-3" max="6")
         .defense-row 
           .defense-text 
-            label DEFENSE RATING
+            label {{localize "DIS.DefenseRating"}}
             .help-text
               | 12+DEX Unarmored
           .defense-value 
             input(type="number" class="stat-input" name="data.defenseRating" value="{{data.data.defenseRating}}" data-dtype="Number")
         .hit-points-row 
           .hit-points-text 
-            label HIT POINTS
+            label {{localize "DIS.HitPoints"}}
             .help-text
               | Start with 1d8
               br
@@ -110,7 +110,7 @@ form(class="{{cssClass}}" autocomplete="off")
             label MAX
             input(type="number" class="stat-input" name="data.hitPoints.max" value="{{data.data.hitPoints.max}}" data-dtype="Number")
         .stat-block.portrait-block 
-          label PORTRAIT
+          label {{localize "DIS.Portrait"}}
           br
           .portrait-col 
             .portrait 
@@ -122,7 +122,7 @@ form(class="{{cssClass}}" autocomplete="off")
           .void-col-1 
             .stat-block 
               label 
-                | VOID POINTS 
+                | {{localize "DIS.VoidPoints"}}
             .void-points-radios 
               ul.void-points
                 each val in [0, 1, 2, 3, 4] 
@@ -140,7 +140,7 @@ form(class="{{cssClass}}" autocomplete="off")
                 li Activate a cosmic mutation.
         .cosmic-mutations-block
           .stat-block.cosmic-mutations-title 
-            label COSMIC MUTATIONS
+            label {{localize "DIS.CosmicMutations"}}
             .item-controls
               a(class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="cosmicMutation")
                 i.fas.fa-plus
@@ -157,11 +157,11 @@ form(class="{{cssClass}}" autocomplete="off")
           | {{/each}}       
         .void-corruption-block 
           .stat-block.void-corruption-title 
-            label VOID CORRUPTION 
+            label {{localize "DIS.VoidCorruption"}}
             textarea(name="data.voidCorruption", rows="6") {{data.data.voidCorruption}}
         .life-support-block
           .stat-block.life-support-title 
-            label LIFE SUPPORT 
+            label {{localize "DIS.LifeSupport"}}
           .tank-space 
           .oxygen-tank-row 
             .oxygen-numbers 
@@ -187,11 +187,11 @@ form(class="{{cssClass}}" autocomplete="off")
         .equipment 
           .equipment-header
             .equipment-name
-              | EQUIPMENT
+              | {{localize "DIS.Equipment"}}
             .equipment-condition 
-              | CONDITION
+              | {{localize "DIS.Condition"}}
             .equipment-slots 
-              | SLOTS
+              | {{localize "DIS.Slots"}}
             .item-controls 
               | &nbsp;
            
@@ -234,24 +234,24 @@ form(class="{{cssClass}}" autocomplete="off")
           | {{#each data.data.weapons as |item id|}}
           .weapon-header 
             .weapon-name 
-              | WEAPON {{add id 1}}
+              | {{localize "DIS.Weapon"}} {{add id 1}}
             .weapon-attack 
               | &nbsp;
             .weapon-damage 
-              | DAMAGE 
+              | {{localize "DIS.Damage"}} 
             .weapon-ammo 
-              | AMMO 
+              | {{localize "DIS.Ammo"}} 
             .weapon-condition   
-              | CONDITION
+              | {{localize "DIS.Condition"}}
             .weapon-slots 
-              | SLOTS
+              | {{localize "DIS.Slots"}}
             .item-controls 
               | &nbsp;
           .weapon-row.item(data-item-id="{{item._id}}") 
             .weapon-name.item-edit.rollable
               | {{item.name}}
             .weapon-attack.rollable 
-              | ATK
+              | {{localize "DIS.AttackAbbrev"}}
             .weapon-damage.rollable 
               | {{item.data.damage}}
             .weapon-ammo 
@@ -280,13 +280,13 @@ form(class="{{cssClass}}" autocomplete="off")
           | {{#each data.data.armor as |item id|}}
           .armor-header 
               .armor-name 
-                | ARMOR TYPE
+                | {{localize "DIS.ArmorType"}}
               .armor-protects-against 
-                | PROTECTS AGAINST 
+                | {{localize "DIS.ProtectsAgainst"}}
               .armor-dr-bonus 
-                | DR BONUS 
+                | {{localize "DIS.DRBonus"}}
               .armor-slots 
-                | SLOTS
+                | {{localize "DIS.Slots"}}
               .item-controls 
                 | &nbsp;                
           .armor-row.item(data-item-id="{{item._id}}")
@@ -321,7 +321,7 @@ form(class="{{cssClass}}" autocomplete="off")
             .slots-text 
               | &nbsp;
             .slots-total 
-              | TOTAL
+              | {{localize "DIS.Total"}}
             .item-controls
               | &nbsp;
           .slots-total-row
@@ -333,10 +333,10 @@ form(class="{{cssClass}}" autocomplete="off")
               | &nbsp;
         .holo-row 
           .stat-block.holos 
-            label HOLOS
+            label {{localize "DIS.Holos"}}
             input(type="number" class="stat-input" name="data.holos" value="{{data.data.holos}}" data-dtype="Number")
           .stat-block.debt 
-            label DEBT
+            label {{localize "DIS.Debt"}}
             input(type="number" class="stat-input" name="data.debt" value="{{data.data.debt}}" data-dtype="Number")
     div(class="tab notes-tab" data-group="primary" data-tab="notes")
       .notes-wrapper 

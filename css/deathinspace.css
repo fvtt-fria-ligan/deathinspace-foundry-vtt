@@ -275,6 +275,7 @@
   flex: 0 0 80px;
   padding-top: 9px;
   text-align: center;
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.character .personal-tab .origin-row div.origin {
   flex: 1;
@@ -294,6 +295,7 @@
 }
 .deathinspace.sheet.actor.character .personal-tab .regenerate-block a.regenerate {
   text-decoration: underline;
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.character .personal-tab .origin-benefit-block {
   border-bottom: 2px solid black;
@@ -311,6 +313,7 @@
 .deathinspace.sheet.actor.character .personal-tab .origin-benefit-block .title-row label {
   font-size: 12px;
   padding-left: 2px;
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.character .personal-tab .origin-benefit-block .origin-benefit-row {
   border-bottom: 1px dotted black;
@@ -420,6 +423,9 @@
   border-right: 1px dotted black;
   flex: 1;
 }
+.deathinspace.sheet.actor.character .personal-tab .defense-row .defense-text label {
+  text-transform: uppercase;
+}
 .deathinspace.sheet.actor.character .personal-tab .defense-row .defense-text .help-text {
   font-size: 12px;
 }
@@ -441,6 +447,9 @@
 }
 .deathinspace.sheet.actor.character .personal-tab .hit-points-row .hit-points-text {
   flex: 1;
+}
+.deathinspace.sheet.actor.character .personal-tab .hit-points-row .hit-points-text label {
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.character .personal-tab .hit-points-row .hit-points-text .help-text {
   font-size: 12px;
@@ -664,6 +673,7 @@
   flex-direction: row;
   font-size: 12px;
   padding-left: 5px;
+  text-transform: uppercase;
   width: 100%;
 }
 .deathinspace.sheet.actor.character .belongings-tab .equipment .equipment-row {
@@ -699,6 +709,7 @@
   flex-direction: row;
   font-size: 12px;
   justify-content: space-between;
+  text-transform: uppercase;
   width: 100%;
 }
 .deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-row {
@@ -744,6 +755,7 @@
   flex-direction: row;
   font-size: 12px;
   justify-content: space-between;
+  text-transform: uppercase;
   width: 100%;
 }
 .deathinspace.sheet.actor.character .belongings-tab .armor .armor-row {
@@ -779,6 +791,7 @@
   display: flex;
   flex: 0 0 24;
   font-size: 12px;
+  text-transform: uppercase;
   width: 100%;
 }
 .deathinspace.sheet.actor.character .belongings-tab .slots-total .slots-total-row {

@@ -71,6 +71,7 @@
         flex: 0 0 80px;
         padding-top: 9px;
         text-align: center;
+        text-transform: uppercase;
       }
       div.origin {
         flex: 1;
@@ -90,6 +91,7 @@
       text-align: center;
       a.regenerate {
         text-decoration: underline;
+        text-transform: uppercase;
       }
     }
     .origin-benefit-block {
@@ -106,6 +108,7 @@
         label {
           font-size: 12px;
           padding-left: 2px;
+          text-transform: uppercase;
         }
       }
       .origin-benefit-row {
@@ -215,6 +218,9 @@
       .defense-text {
         border-right: 1px dotted black;
         flex: 1;
+        label {
+          text-transform: uppercase;
+        }
         .help-text {
           font-size: 12px;
         }
@@ -237,6 +243,9 @@
       padding-left: 2px;
       .hit-points-text {
         flex: 1;
+        label {
+          text-transform: uppercase;
+        }
         .help-text {
           font-size: 12px;
         }
@@ -474,6 +483,7 @@
         flex-direction: row;
         font-size: 12px;
         padding-left: 5px;
+        text-transform: uppercase;
         width: 100%;
       }
       .equipment-row {
@@ -509,6 +519,7 @@
         flex-direction: row;
         font-size: 12px;
         justify-content: space-between;
+        text-transform: uppercase;
         width: 100%;
       }
       .weapon-row {
@@ -554,6 +565,7 @@
         flex-direction: row;
         font-size: 12px;
         justify-content: space-between;
+        text-transform: uppercase;
         width: 100%;
       }
       .armor-row {
@@ -589,6 +601,7 @@
         display: flex;
         flex: 0 0 24;
         font-size: 12px;
+        text-transform: uppercase;
         width: 100%;
       }
       .slots-total-row {
