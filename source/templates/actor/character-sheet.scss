@@ -125,17 +125,21 @@
       grid-column-start: 2;
       grid-row-start: 3;
     }
-    .past-allegiance-block {
+    .trait-block {
       border-bottom: 2px solid black;
       border-right: 2px solid black;
       grid-column-start: 1;
       grid-row-start: 4;
     }
-    .trait-block {
+    .past-allegiance-block {
       border-bottom: 2px solid black;
       border-right: 2px solid black;
       grid-column-start: 2;
       grid-row-start: 4;
+      grid-row-end: 6;
+      textarea {
+        height: 76px;
+      }
     }
     .drive-block {
       border-bottom: 2px solid black;
@@ -147,8 +151,11 @@
       border-bottom: 2px solid black;
       border-right: 2px solid black;
       grid-column-start: 2;
-      grid-row-start: 5;
+      grid-row-start: 6;
       grid-row-end: 8;
+      textarea {
+        height: 76px;
+      }
     }
     .ability-block {
       border-right: 2px solid black;

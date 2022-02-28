@@ -75,12 +75,12 @@ form(class="{{cssClass}}" autocomplete="off")
         .stat-block.background-block
           label BACKGROUND
           input(type="text" class="stat-input" name="data.background" value="{{data.data.background}}" data-dtype="String")
-        .stat-block.past-allegiance-block
-          label PAST ALLEGIANCE
-          input(type="text" class="stat-input" name="data.pastAllegiance" value="{{data.data.pastAllegiance}}" data-dtype="String")
         .stat-block.trait-block
           label TRAITS
           input(type="text" class="stat-input" name="data.trait" value="{{data.data.trait}}" data-dtype="String")
+        .stat-block.past-allegiance-block
+          label PAST ALLEGIANCE
+          textarea(name="data.pastAllegiance", rows="4") {{data.data.pastAllegiance}}
         .stat-block.drive-block
           label DRIVE
           input(type="text" class="stat-input" name="data.drive" value="{{data.data.drive}}" data-dtype="String")
