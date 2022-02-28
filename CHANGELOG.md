@@ -1,5 +1,5 @@
 # 0.11.0
-- Reorganize character and hub sheet name placement, tweak CSS, and start localizing.
+- Tweak character and hub sheet fields and layout for online use and field data sizes.
 
 # 0.10.1
 - Fix Situation tab to match latest print character sheet.
