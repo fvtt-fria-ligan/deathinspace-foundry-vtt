@@ -3,14 +3,14 @@
   <header class="sheet-header">
     <div class="header-row">
       <div class="col1">
-        <div class="game-title">DEATH IN SPACE</div>
-        <div class="sheet-title">HUB DATA SHEET</div>
+        <div class="game-title">{{ localize 'DIS.DeathInSpace' }}</div>
+        <div class="sheet-title">{{ localize 'DIS.HubSheetTitle' }}</div>
       </div>
       <div class="col2">
-        <div>
-           SECTION 0. OWNER INFORMATION </div>
+        <div class="section-label">
+           {{ localize 'DIS.Section0Name' }}</div>
         <div class="owner-sig">
-          <input class="owner-name" name="data.ownerName" type="text" value="{{data.data.ownerName}}" placeholder="{{ localize 'DIS.OwnerName' }}" spellcheck="false"/>
+          <input class="hub-name" type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'DIS.Name' }}" spellcheck="false"/>
         </div>
       </div>
     </div>
@@ -19,10 +19,10 @@
   <section class="sheet-body"> 
     <div class="tab specifics-tab" data-group="primary" data-tab="specifics">
       <div class="specifics-wrapper">
-        <div class="nickname-block">
-          <div class="stat-block">
-            <label>NickName</label>
-            <input type="text" name="name" value="{{actor.name}}" placeholder="Name" spellcheck="false"/>
+        <div class="nickname-block"> 
+          <div class="stat-block"> 
+            <label>{{ localize 'DIS.OwnerName' }}</label>
+            <input class="owner-name" name="data.ownerName" type="text" value="{{data.data.ownerName}}" placeholder="{{ localize 'DIS.OwnerName' }}" spellcheck="false"/>
           </div>
         </div>
         <div class="hub-type-block">

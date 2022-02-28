@@ -3,14 +3,14 @@
   <header class="sheet-header">
     <div class="header-row">
       <div class="col1">
-        <div class="game-title">DEATH IN SPACE</div>
-        <div class="sheet-title">PERSONAL DATA SHEET</div>
+        <div class="game-title"> {{ localize 'DIS.DeathInSpace' }}</div>
+        <div class="sheet-title">{{ localize 'DIS.CharacterSheetTitle' }}</div>
       </div>
       <div class="col2">
-        <div>
-           SECTION 0. PLAYER INFORMATION </div>
-        <div class="player-name">
-          <input class="player-name" name="data.playerName" type="text" value="{{data.data.playerName}}" placeholder="{{ localize 'DIS.PlayerName' }}" spellcheck="false"/>
+        <div class="section-label">
+           {{ localize 'DIS.Section0Name' }} </div>
+        <div class="character-name">
+          <input class="character-name" type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'DIS.Name' }}" spellcheck="false"/>
         </div>
       </div>
     </div>
@@ -27,16 +27,6 @@
              {{#if data.data.origin}}<a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash"></i></a>{{else}}<a class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="origin"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}              </a>{{/if}}</div>
         </div>
         <div class="regenerate-block"> <a class="regenerate">REGENERATE</a></div>
-        <div class="name-row"> 
-          <div class="stat-block">
-            <label>NAME</label>
-            <input type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'DIS.Name' }}" spellcheck="false"/>
-          </div>
-          <div class="stat-block">
-            <label>NICKNAME</label>
-            <input type="text" name="data.nickName" value="{{data.data.nickName}}" placeholder="{{ localize 'DIS.NickName' }}" spellcheck="false"/>
-          </div>
-        </div>
         <div class="origin-benefit-block">
           <div class="title-row">
             <label>ORIGIN BENEFITS</label>

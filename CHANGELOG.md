@@ -1,3 +1,6 @@
+# 0.11.0
+- Reorganize character and hub sheet name placement, tweak CSS, and start localizing.
+
 # 0.10.1
 - Fix Situation tab to match latest print character sheet.
 

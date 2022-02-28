@@ -3,14 +3,14 @@ form(class="{{cssClass}}" autocomplete="off")
     .header-row
       .col1
         .game-title
-          | DEATH IN SPACE
+          |  {{ localize 'DIS.DeathInSpace' }}
         .sheet-title
-          | PERSONAL DATA SHEET
+          | {{ localize 'DIS.CharacterSheetTitle' }}
       .col2
-        div 
-          | SECTION 0. PLAYER INFORMATION 
-        .player-name
-          input(class="player-name" name="data.playerName" type="text" value="{{data.data.playerName}}" placeholder="{{ localize 'DIS.PlayerName' }}" spellcheck="false")
+        .section-label 
+          | {{ localize 'DIS.Section0Name' }} 
+        .character-name
+          input(class="character-name" type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'DIS.Name' }}" spellcheck="false")
 
   nav(class="sheet-tabs tabs" data-group="primary")
     a(class="item" data-tab="personal")
@@ -44,13 +44,6 @@ form(class="{{cssClass}}" autocomplete="off")
         .regenerate-block 
           a.regenerate
             | REGENERATE
-        .name-row 
-          .stat-block
-            label NAME
-            input(type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'DIS.Name' }}" spellcheck="false")
-          .stat-block
-            label NICKNAME
-            input(type="text" name="data.nickName" value="{{data.data.nickName}}" placeholder="{{ localize 'DIS.NickName' }}" spellcheck="false")
         .origin-benefit-block
           .title-row
             label ORIGIN BENEFITS

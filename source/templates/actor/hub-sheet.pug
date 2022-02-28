@@ -3,14 +3,14 @@ form(class="{{cssClass}}")
     .header-row
       .col1
         .game-title
-          | DEATH IN SPACE
+          | {{ localize 'DIS.DeathInSpace' }}
         .sheet-title
-          | HUB DATA SHEET
+          | {{ localize 'DIS.HubSheetTitle' }}
       .col2
-        div 
-          | SECTION 0. OWNER INFORMATION 
-        div.owner-sig
-          input(class="owner-name" name="data.ownerName" type="text" value="{{data.data.ownerName}}" placeholder="{{ localize 'DIS.OwnerName' }}" spellcheck="false")
+        .section-label 
+          | {{ localize 'DIS.Section0Name' }}
+        .owner-sig
+          input(class="hub-name" type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'DIS.Name' }}" spellcheck="false")
 
   nav(class="sheet-tabs tabs" data-group="primary")
     a(class="item" data-tab="specifics")
@@ -26,10 +26,10 @@ form(class="{{cssClass}}")
 
     div(class="tab specifics-tab" data-group="primary" data-tab="specifics")
       .specifics-wrapper
-        .nickname-block
-          .stat-block
-            label NickName
-            input(type="text" name="name" value="{{actor.name}}" placeholder="Name" spellcheck="false")
+        .nickname-block 
+          .stat-block  
+            label {{ localize 'DIS.OwnerName' }}
+            input(class="owner-name" name="data.ownerName" type="text" value="{{data.data.ownerName}}" placeholder="{{ localize 'DIS.OwnerName' }}" spellcheck="false")            
         .hub-type-block
           .frame-label
             | FRAME
