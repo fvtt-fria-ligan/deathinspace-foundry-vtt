@@ -254,7 +254,7 @@
   display: inline-grid;
   grid-template-columns: 25% 50% 25%;
   /* TODO: figure out expandable rows */
-  grid-template-rows: 37px 50px 50px 50px 50px 50px 60px 55px 55px 55px;
+  grid-template-rows: 37px 50px 50px 50px 50px 50px 60px 55px 55px 10px;
 }
 .deathinspace.sheet.actor.character .personal-tab .origin-row {
   border-right: 2px solid black;
@@ -1171,12 +1171,9 @@
   height: 100%;
   justify-content: center;
 }
-.deathinspace.sheet.actor.hub .layout-wrapper .profile-img {
-  border: none;
-  flex: 1;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+.deathinspace.sheet.actor.hub .layout-wrapper .layout-image {
+  height: auto;
+  margin: auto;
 }
 .deathinspace.sheet.actor.hub .notes-wrapper {
   display: flex;

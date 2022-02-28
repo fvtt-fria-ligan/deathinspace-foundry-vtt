@@ -11,7 +11,7 @@ export class DISHubSheet extends DISActorSheet {
       classes: ["deathinspace", "sheet", "actor", "hub"],
       template: "systems/deathinspace/templates/actor/hub-sheet.html",
       width: 730,
-      height: 680,
+      height: 694,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "specifics"}],
       dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
     });
