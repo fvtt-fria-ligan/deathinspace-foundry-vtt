@@ -149,7 +149,7 @@
 .deathinspace.sheet textarea {
   border: 1px dotted var(--input-border-color);
   font-family: "IBM Plex Mono";
-  font-size: 16px;
+  font-size: 14px;
 }
 .deathinspace.sheet .editor {
   padding: 0 8px;
@@ -285,6 +285,9 @@
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 2;
+}
+.deathinspace.sheet.actor.character .personal-tab .name-row input[type=text] {
+  font-size: 16px;
 }
 .deathinspace.sheet.actor.character .personal-tab .origin-benefit-block {
   border-bottom: 2px solid black;
