@@ -5,6 +5,11 @@
   form {
     border: 4px solid var(--character-background-color);
   }
+  textarea {
+    border: 1px dotted var(--input-border-color);
+    font-family: "IBM Plex Mono";
+    font-size: 12px;
+  }
   .header-row {
     .col1 {
       text-transform: uppercase;

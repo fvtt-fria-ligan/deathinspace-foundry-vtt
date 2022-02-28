@@ -57,7 +57,7 @@
   border-bottom: 1px dotted black;
   border-radius: 0;
   font-family: var(--input-font);
-  font-size: 10px;
+  font-size: 14px;
   text-decoration: none;
 }
 .deathinspace.sheet input:-moz-read-only {
@@ -216,6 +216,11 @@
 }
 .deathinspace.sheet.actor.character form {
   border: 4px solid var(--character-background-color);
+}
+.deathinspace.sheet.actor.character textarea {
+  border: 1px dotted var(--input-border-color);
+  font-family: "IBM Plex Mono";
+  font-size: 12px;
 }
 .deathinspace.sheet.actor.character .header-row .col1 {
   text-transform: uppercase;
