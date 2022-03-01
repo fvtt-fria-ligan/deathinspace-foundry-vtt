@@ -93,21 +93,21 @@ form(class="{{cssClass}}" autocomplete="off")
           .defense-text 
             label {{localize "DIS.DefenseRating"}}
             .help-text
-              | 12+DEX Unarmored
+              | {{localize "DIS.DefenseRatingHelp"}}
           .defense-value 
             input(type="number" class="stat-input" name="data.defenseRating" value="{{data.data.defenseRating}}" data-dtype="Number")
         .hit-points-row 
           .hit-points-text 
             label {{localize "DIS.HitPoints"}}
             .help-text
-              | Start with 1d8
+              | {{localize "DIS.HitPointsHelp1"}}
               br
-              | Recover 1d4+BODY
+              | {{localize "DIS.HitPointsHelp2"}}
           .hit-points-current-col 
-            label CURRENT
+            label {{localize "DIS.Current"}}
             input(type="number" class="stat-input" name="data.hitPoints.value" value="{{data.data.hitPoints.value}}" data-dtype="Number")
           .hit-points-max-col 
-            label MAX
+            label {{localize "DIS.Max"}}
             input(type="number" class="stat-input" name="data.hitPoints.max" value="{{data.data.hitPoints.max}}" data-dtype="Number")
         .stat-block.portrait-block 
           label {{localize "DIS.Portrait"}}
@@ -133,11 +133,11 @@ form(class="{{cssClass}}" autocomplete="off")
                       span= val
           .void-col-2 
             .void-points-text-top 
-              | VOID POINTS CAN BE USED TO: 
+              | {{localize "DIS.VoidPointsCanBeUsedTo"}}:
             .void-points-text-bottom 
               ul 
-                li Get advantage on an ability check or attack roll.
-                li Activate a cosmic mutation.
+                li {{localize "DIS.VoidPointsUse1"}}.
+                li {{localize "DIS.VoidPointsUse2"}}.
         .cosmic-mutations-block
           .stat-block.cosmic-mutations-title 
             label {{localize "DIS.CosmicMutations"}}
@@ -326,7 +326,7 @@ form(class="{{cssClass}}" autocomplete="off")
               | &nbsp;
           .slots-total-row
             .slots-text 
-              | &#10071; PLEASE NOTE THAT THE NUMBER OF ITEM SLOTS IS EQUAL TO 12+BODY
+              | &#10071; {{localize "DIS.SlotsHelp"}}
             .slots-total 
               | {{data.data.totalSlots}}/{{data.data.maxSlots}}
             .item-controls

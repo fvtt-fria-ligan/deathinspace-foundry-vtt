@@ -96,7 +96,7 @@
         <div class="defense-row"> 
           <div class="defense-text"> 
             <label>{{localize "DIS.DefenseRating"}}</label>
-            <div class="help-text">12+DEX Unarmored</div>
+            <div class="help-text">{{localize "DIS.DefenseRatingHelp"}}</div>
           </div>
           <div class="defense-value"> 
             <input class="stat-input" type="number" name="data.defenseRating" value="{{data.data.defenseRating}}" data-dtype="Number"/>
@@ -105,14 +105,14 @@
         <div class="hit-points-row"> 
           <div class="hit-points-text"> 
             <label>{{localize "DIS.HitPoints"}}</label>
-            <div class="help-text">Start with 1d8<br/>Recover 1d4+BODY</div>
+            <div class="help-text">{{localize "DIS.HitPointsHelp1"}}<br/>{{localize "DIS.HitPointsHelp2"}}</div>
           </div>
           <div class="hit-points-current-col"> 
-            <label>CURRENT</label>
+            <label>{{localize "DIS.Current"}}</label>
             <input class="stat-input" type="number" name="data.hitPoints.value" value="{{data.data.hitPoints.value}}" data-dtype="Number"/>
           </div>
           <div class="hit-points-max-col"> 
-            <label>MAX</label>
+            <label>{{localize "DIS.Max"}}</label>
             <input class="stat-input" type="number" name="data.hitPoints.max" value="{{data.data.hitPoints.max}}" data-dtype="Number"/>
           </div>
         </div>
@@ -154,11 +154,11 @@
           </div>
           <div class="void-col-2"> 
             <div class="void-points-text-top">
-               VOID POINTS CAN BE USED TO: </div>
+               {{localize "DIS.VoidPointsCanBeUsedTo"}}:</div>
             <div class="void-points-text-bottom"> 
               <ul> 
-                <li>Get advantage on an ability check or attack roll.</li>
-                <li>Activate a cosmic mutation.</li>
+                <li>{{localize "DIS.VoidPointsUse1"}}.</li>
+                <li>{{localize "DIS.VoidPointsUse2"}}.</li>
               </ul>
             </div>
           </div>
@@ -338,7 +338,7 @@
           </div>
           <div class="slots-total-row">
             <div class="slots-text">
-               &#10071; PLEASE NOTE THAT THE NUMBER OF ITEM SLOTS IS EQUAL TO 12+BODY</div>
+               &#10071; {{localize "DIS.SlotsHelp"}}</div>
             <div class="slots-total">
                {{data.data.totalSlots}}/{{data.data.maxSlots}}</div>
             <div class="item-controls">&nbsp;</div>

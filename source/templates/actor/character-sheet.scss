@@ -15,9 +15,11 @@
       text-transform: uppercase;
       .game-title {
         color: var(--character-background-color);
+        text-transform: uppercase;
       }
       .sheet-title {
         color: var(--character-background-color);
+        text-transform: uppercase;
       }
     }
     .col2 {
@@ -256,6 +258,9 @@
         flex: 0 0 100px;
         flex-direction: column;
         text-align: center;
+        label {
+          text-transform: uppercase;
+        }
       }
       .hit-points-max-col {
         display: flex;
@@ -263,6 +268,9 @@
         flex-direction: column;
         padding-left: 2px;
         text-align: center;
+        label {
+          text-transform: uppercase;
+        }
       }
     }
   } // personal-tab
@@ -341,6 +349,7 @@
         font-family: monospace;
         font-size: 13px;
         font-weight: bold;
+        text-transform: uppercase;
       }
       .void-points-text-bottom {
         font-size: 12px;
@@ -613,6 +622,7 @@
         flex-basis: 90%;
         font-size: 12px;
         text-align: center;
+        text-transform: uppercase;
       }
       .slots-total {
         border-left: 1px dotted black;

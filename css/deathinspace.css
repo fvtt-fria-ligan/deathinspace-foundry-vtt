@@ -227,9 +227,11 @@
 }
 .deathinspace.sheet.actor.character .header-row .col1 .game-title {
   color: var(--character-background-color);
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.character .header-row .col1 .sheet-title {
   color: var(--character-background-color);
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.character .header-row .col2 .section-label {
   text-transform: uppercase;
@@ -461,12 +463,18 @@
   flex-direction: column;
   text-align: center;
 }
+.deathinspace.sheet.actor.character .personal-tab .hit-points-row .hit-points-current-col label {
+  text-transform: uppercase;
+}
 .deathinspace.sheet.actor.character .personal-tab .hit-points-row .hit-points-max-col {
   display: flex;
   flex: 0 0 100px;
   flex-direction: column;
   padding-left: 2px;
   text-align: center;
+}
+.deathinspace.sheet.actor.character .personal-tab .hit-points-row .hit-points-max-col label {
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.character .situation-tab .situation-wrapper {
   display: inline-grid;
@@ -537,6 +545,7 @@
   font-family: monospace;
   font-size: 13px;
   font-weight: bold;
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.character .situation-tab .void-points-block .void-points-text-bottom {
   font-size: 12px;
@@ -803,6 +812,7 @@
   flex-basis: 90%;
   font-size: 12px;
   text-align: center;
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.character .belongings-tab .slots-total .slots-total {
   border-left: 1px dotted black;
