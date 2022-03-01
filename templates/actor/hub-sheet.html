@@ -3,12 +3,12 @@
   <header class="sheet-header">
     <div class="header-row">
       <div class="col1">
-        <div class="game-title">{{ localize 'DIS.DeathInSpace' }}</div>
-        <div class="sheet-title">{{ localize 'DIS.HubSheetTitle' }}</div>
+        <div class="game-title">{{ localize "DIS.DeathInSpace" }}</div>
+        <div class="sheet-title">{{ localize "DIS.HubSheetTitle" }}</div>
       </div>
       <div class="col2">
         <div class="section-label">
-           {{ localize 'DIS.Section0Name' }}</div>
+           {{ localize "DIS.Section0Name" }}</div>
         <div class="owner-sig">
           <input class="hub-name" type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'DIS.Name' }}" spellcheck="false"/>
         </div>
@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="hub-type-block">
-          <div class="frame-label">FRAME</div>
+          <div class="frame-label">{{ localize 'DIS.Frame' }}</div>
           <div class="frame-row item" data-item-id="{{data.data.frame._id}}"> 
             <div class="frame-name item-edit rollable">{{data.data.frame.name}}</div>
             <div class="item-controls">
@@ -35,19 +35,19 @@
         </div>
         <div class="background-block">
           <div class="stat-block">
-            <label>Background</label>
+            <label> {{ localize "DIS.Background" }}</label>
             <textarea name="data.background" rows="4">{{data.data.background}}</textarea>
           </div>
         </div>
         <div class="appearance-block">
           <div class="stat-block">
-            <label>Appearance</label>
+            <label>{{ localize "DIS.Appearance" }}</label>
             <textarea name="data.appearance" rows="4">{{data.data.appearance}}</textarea>
           </div>
         </div>
         <div class="quirks-block">
           <div class="stat-block">
-            <label>Quirks</label>
+            <label>{{ localize "DIS.Quirks" }}</label>
             <textarea name="data.quirks" rows="3">{{data.data.quirks}}</textarea>
           </div>
         </div>
@@ -56,7 +56,7 @@
     <div class="tab hub-data-tab" data-group="primary" data-tab="hub-data">
       <div class="hub-data-wrapper">
         <div class="frame-integrity-row">
-          <div class="frame-integrity">FRAME INTEGRITY</div>
+          <div class="frame-integrity">{{ localize "DIS.FrameIntegrity" }}</div>
           <div class="integrity-increment">
             <label>
               <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=0 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 0}}checked{{/ifEq}}/></div>
@@ -125,7 +125,7 @@
           </div>
           <div class="defense-rating">
             <div class="title-row">
-               DEFENSE RATING</div>
+               {{ localize "DIS.DefenseRating" }}</div>
             <div class="input-row">
               <input class="defense-rating" name="data.frame.data.defenseRating" type="number" value="{{data.data.frame.data.defenseRating}}" data-dtype="Number" readonly="readonly"/>
             </div>
@@ -140,20 +140,20 @@
             </div>
             <div class="roll-text-row">
               <div class="spacer1"></div>
-              <div class="condition0">CONDITION 0</div>
+              <div class="condition0">{{ localize "DIS.Condition" }} 0</div>
               <div class="spacer2"></div>
-              <div class="roll-on-text">ROLL ON THE SPACECRAFT<br/>DISASTERS TABLE</div>
+              <div class="roll-on-text">{{ localize "DIS.Condition0Help1" }}<br/>{{ localize "DIS.Condition0Help2" }}</div>
             </div>
           </div>
-          <div class="col2">WHEN ALL IS CALM THE HUB<br/>REGAINS 1D6*10% FRAME INTEGRITY<br/>ON A CALM NIGHT UP TO MAXIMUM</div>
+          <div class="col2">{{ localize "DIS.HubRegainHelp1" }}<br/>{{ localize "DIS.HubRegainHelp2" }}<br/>{{ localize "DIS.HubRegainHelp3" }}</div>
         </div>
         <div class="condition-row"> 
           <div class="condition">
             <div class="label-row">
-              <div class="col1">CONDITION</div>
+              <div class="col1">{{ localize "DIS.Condition" }}</div>
               <div class="col2">
-                 CURRENT</div>
-              <div class="col3">MAX</div>
+                 {{ localize "DIS.Current" }}</div>
+              <div class="col3">{{ localize "DIS.Max" }}</div>
             </div>
             <div class="field-row">
               <div class="col1">
@@ -168,10 +168,10 @@
           </div>
           <div class="fuel"> 
             <div class="label-row">
-              <div class="col1">FUEL</div>
+              <div class="col1">{{ localize "DIS.Fuel" }}</div>
               <div class="col2">
-                 CURRENT</div>
-              <div class="col3">MAX</div>
+                 {{ localize "DIS.Current" }}</div>
+              <div class="col3">{{ localize "DIS.Max" }}</div>
             </div>
             <div class="field-row">
               <div class="col1">
@@ -185,7 +185,7 @@
             </div>
           </div>
           <div class="power-source"> 
-            <div class="source-label">POWER SOURCE</div>
+            <div class="source-label">{{ localize "DIS.PowerSource" }}</div>
             <div class="source-row item" data-item-id="{{data.data.powerSystem._id}}">
               <div class="source-name item-edit rollable">
                 {{data.data.powerSystem.name}} 
@@ -198,7 +198,7 @@
             </div>
           </div>
           <div class="output-power">
-            <div class="title-row">OUTPUT POWER</div>
+            <div class="title-row">{{ localize "DIS.OutputPower" }}</div>
             <div class="input-row">
               <input class="output-power power" name="data.powerSystem.data.outputPower" type="number" value="{{data.data.powerSystem.data.outputPower}}" data-dtype="Number" readonly="readonly"/>
             </div>
@@ -206,9 +206,9 @@
         </div>
         <div class="modules-block">
           <div class="title-row">
-            <div class="col1">MODULES</div>
+            <div class="col1">{{ localize "DIS.Modules" }}</div>
             <div class="col2"><a class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="hubModule"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}</a></div>
-            <div class="col3">POWER COST</div>
+            <div class="col3">{{ localize "DIS.PowerCost" }}</div>
           </div>
           <div class="modules-list">
              {{#each data.data.hubModules as |item id|}}
@@ -221,7 +221,7 @@
             </div>{{/each}}
           </div>
           <div class="modules-total"> 
-            <div class="col1">The power cost sum should not<br/>exceed the output power.</div>
+            <div class="col1">{{ localize "DIS.PowerTotalHelp1" }}<br/>{{ localize "DIS.PowerTotalHelp2" }}</div>
             <div class="col2"></div>
             <div class="col3"> 
               <input class="total-power-cost power" name="data.totalPowerCost" type="number" value="{{data.data.totalPowerCost}}" data-dtype="Number" readonly="readonly"/>

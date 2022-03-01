@@ -890,9 +890,11 @@
 }
 .deathinspace.sheet.actor.hub .header-row .col1 .game-title {
   color: var(--hub-background-color);
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.hub .header-row .col1 .sheet-title {
   color: var(--hub-background-color);
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.hub .header-row .col2 .section-label {
   text-transform: uppercase;
@@ -928,6 +930,7 @@
   flex: 0 0 24;
   font-size: 12px;
   padding-left: 2px;
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.hub .specifics-tab .hub-type-block .frame-row {
   display: flex;
@@ -970,6 +973,7 @@
   flex: 0 0 90px;
   padding-left: 5px;
   padding-top: 5px;
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .integrity-increment {
   border-right: 1px dotted black;
@@ -1011,6 +1015,7 @@
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .defense-rating .title-row {
   flex: 0 0 30px;
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row .defense-rating .input-row {
   flex: 1;
@@ -1053,6 +1058,7 @@
   margin: 0;
   padding: 0;
   text-align: left;
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .roll-on-damage-row .col1 .roll-text-row .spacer1 {
   flex: 0 0 74px;
@@ -1081,6 +1087,7 @@
 .deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .label-row {
   display: flex;
   flex: 0 0 30px;
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .field-row {
   display: flex;
@@ -1106,6 +1113,9 @@
   flex-direction: column;
   padding: 5px;
 }
+.deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .fuel .label-row {
+  text-transform: uppercase;
+}
 .deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .power-source {
   border-right: 1px dotted black;
   display: flex;
@@ -1115,6 +1125,7 @@
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .power-source .source-label {
   flex: 0 0 24;
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .power-source .source-row {
   display: flex;
@@ -1133,6 +1144,7 @@
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .output-power .title-row {
   flex: 0 0 30px;
+  text-transform: uppercase;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .condition-row .output-power .input-row {
   flex: 1;
@@ -1145,6 +1157,12 @@
   flex: 1;
   flex-direction: column;
   padding: 5px;
+  width: 100%;
+}
+.deathinspace.sheet.actor.hub .hub-data-wrapper .modules-block .title-row {
+  display: flex;
+  flex: 0 0 30px;
+  text-transform: uppercase;
   width: 100%;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .modules-block .col1 {
@@ -1160,11 +1178,6 @@
   padding-left: 5px;
   padding-right: 5px;
   text-align: center;
-}
-.deathinspace.sheet.actor.hub .hub-data-wrapper .modules-block .title-row {
-  display: flex;
-  flex: 0 0 30px;
-  width: 100%;
 }
 .deathinspace.sheet.actor.hub .hub-data-wrapper .modules-block .modules-list {
   display: flex;

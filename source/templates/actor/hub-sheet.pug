@@ -3,12 +3,12 @@ form(class="{{cssClass}}")
     .header-row
       .col1
         .game-title
-          | {{ localize 'DIS.DeathInSpace' }}
+          | {{ localize "DIS.DeathInSpace" }}
         .sheet-title
-          | {{ localize 'DIS.HubSheetTitle' }}
+          | {{ localize "DIS.HubSheetTitle" }}
       .col2
         .section-label 
-          | {{ localize 'DIS.Section0Name' }}
+          | {{ localize "DIS.Section0Name" }}
         .owner-sig
           input(class="hub-name" type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'DIS.Name' }}" spellcheck="false")
 
@@ -32,7 +32,7 @@ form(class="{{cssClass}}")
             input(class="owner-name" name="data.ownerName" type="text" value="{{data.data.ownerName}}" placeholder="{{ localize 'DIS.OwnerName' }}" spellcheck="false")            
         .hub-type-block
           .frame-label
-            | FRAME
+            | {{ localize 'DIS.Frame' }}
           .frame-row.item(data-item-id="{{data.data.frame._id}}")  
             .frame-name.item-edit.rollable
               | {{data.data.frame.name}}
@@ -49,17 +49,17 @@ form(class="{{cssClass}}")
               | {{/if}}
         .background-block
           .stat-block
-            label Background
+            label  {{ localize "DIS.Background" }}
             textarea(name="data.background", rows="4")
               | {{data.data.background}}
         .appearance-block
           .stat-block
-            label Appearance
+            label {{ localize "DIS.Appearance" }}
             textarea(name="data.appearance", rows="4")
               | {{data.data.appearance}}
         .quirks-block
           .stat-block
-            label Quirks
+            label {{ localize "DIS.Quirks" }}
             textarea(name="data.quirks", rows="3")
               | {{data.data.quirks}}
 
@@ -67,7 +67,7 @@ form(class="{{cssClass}}")
       .hub-data-wrapper
         .frame-integrity-row
           .frame-integrity
-            | FRAME INTEGRITY
+            | {{ localize "DIS.FrameIntegrity" }}
           each val in [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
             .integrity-increment
               label
@@ -78,7 +78,7 @@ form(class="{{cssClass}}")
                   | #{val}%
           .defense-rating
             .title-row 
-              | DEFENSE RATING
+              | {{ localize "DIS.DefenseRating" }}
             .input-row
               //- input(class="defense-rating" name="data.defenseRating" type="number" value="{{data.data.defenseRating}}" data-dtype="Number")
               input(class="defense-rating" name="data.frame.data.defenseRating" type="number" value="{{data.data.frame.data.defenseRating}}" data-dtype="Number" readonly)
@@ -92,27 +92,27 @@ form(class="{{cssClass}}")
             .roll-text-row
               .spacer1
               .condition0
-                | CONDITION 0
+                | {{ localize "DIS.Condition" }} 0
               .spacer2
               .roll-on-text
-                | ROLL ON THE SPACECRAFT
+                | {{ localize "DIS.Condition0Help1" }}
                 br
-                | DISASTERS TABLE
+                | {{ localize "DIS.Condition0Help2" }}
           .col2
-            | WHEN ALL IS CALM THE HUB
+            | {{ localize "DIS.HubRegainHelp1" }}
             br
-            | REGAINS 1D6*10% FRAME INTEGRITY
+            | {{ localize "DIS.HubRegainHelp2" }}
             br
-            | ON A CALM NIGHT UP TO MAXIMUM
+            | {{ localize "DIS.HubRegainHelp3" }}
         .condition-row 
           .condition
             .label-row
               .col1
-                | CONDITION
+                | {{ localize "DIS.Condition" }}
               .col2 
-                | CURRENT
+                | {{ localize "DIS.Current" }}
               .col3
-                | MAX
+                | {{ localize "DIS.Max" }}
             .field-row
               .col1 
                 | 
@@ -124,11 +124,11 @@ form(class="{{cssClass}}")
           .fuel 
             .label-row
               .col1
-                | FUEL
+                | {{ localize "DIS.Fuel" }}
               .col2 
-                | CURRENT
+                | {{ localize "DIS.Current" }}
               .col3
-                | MAX
+                | {{ localize "DIS.Max" }}
             .field-row
               .col1 
                 | 
@@ -139,7 +139,7 @@ form(class="{{cssClass}}")
                 input(class="fuel-max" name="data.frame.data.fuelDepot" type="number" value="{{data.data.frame.data.fuelDepot}}" data-dtype="Number" readonly)
           .power-source 
             .source-label
-              | POWER SOURCE
+              | {{ localize "DIS.PowerSource" }}
             .source-row(class="item" data-item-id="{{data.data.powerSystem._id}}")
               .source-name.item-edit.rollable
                 | {{data.data.powerSystem.name}} 
@@ -159,19 +159,19 @@ form(class="{{cssClass}}")
                 | {{/if}}
           .output-power
             .title-row
-              | OUTPUT POWER
+              | {{ localize "DIS.OutputPower" }}
             .input-row
               input(class="output-power power" name="data.powerSystem.data.outputPower" type="number" value="{{data.data.powerSystem.data.outputPower}}" data-dtype="Number" readonly)
         .modules-block
           .title-row
             .col1
-              | MODULES
+              | {{ localize "DIS.Modules" }}
             .col2
               a(class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="hubModule")
                 i.fas.fa-plus
                 | {{localize "DIS.Add"}}
             .col3
-              | POWER COST
+              | {{ localize "DIS.PowerCost" }}
           .modules-list 
             | {{#each data.data.hubModules as |item id|}}
             div(class="item module-item" data-item-id="{{item._id}}")
@@ -187,9 +187,9 @@ form(class="{{cssClass}}")
             | {{/each}}
           .modules-total 
             .col1
-              | The power cost sum should not
+              | {{ localize "DIS.PowerTotalHelp1" }}
               br
-              | exceed the output power.
+              | {{ localize "DIS.PowerTotalHelp2" }}
             .col2
             .col3 
               input(class="total-power-cost power" name="data.totalPowerCost" type="number" value="{{data.data.totalPowerCost}}" data-dtype="Number" readonly=true)
