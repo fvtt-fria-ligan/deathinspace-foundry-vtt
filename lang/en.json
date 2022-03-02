@@ -10,6 +10,7 @@
 "DIS.AttackCriticalHit": "Critical Hit",
 "DIS.AttackHit": "Hit",
 "DIS.AttackMiss": "Miss",
+"DIS.AttackWith": "Attack with",
 "DIS.Background": "Background",
 "DIS.Cancel": "Cancel",
 "DIS.CharacterSheetTitle": "Personal Data Sheet",
@@ -25,6 +26,7 @@
 "DIS.DefenseRating": "Defense Rating",
 "DIS.DefenseRatingHelp": "12+DEX Unarmored",
 "DIS.Drive": "Drive",
+"DIS.DR": "DR",
 "DIS.DRBonus": "DR Bonus",
 "DIS.Equipment": "Equipment",
 "DIS.Frame": "Frame",
@@ -85,6 +87,7 @@
 "DIS.TabCargo": "Cargo",
 "DIS.TabSituation": "Situation",
 "DIS.TabWeaponry": "Weaponry",
+"DIS.ToHit": "To hit",
 "DIS.Total": "Total",
 "DIS.Traits": "Traits",
 "DIS.Weapon": "Weapon",
@@ -95,5 +98,6 @@
 "DIS.VoidPointsCanBeUsedTo": "Void points can be used to",
 "DIS.VoidPointsUse1": "Get advantage on an ability check or attack roll",
 "DIS.VoidPointsUse2": "Activate a cosmic mutation",
+"DIS.Vs": "vs.",
 "DIS.XP": "XP"
 }

@@ -130,42 +130,42 @@ export class DISActor extends Actor {
     });
   }
 
-  async showAttackDialog(itemId) {
+  async showAttackDialogWithItem(itemId) {
     const item = this.items.get(itemId);
     if (!item) {
       return;
     }
+    let attackAbility;
+    if (item.data.data.weaponType === "melee") {
+      attackAbility = "body";
+    } else {
+      attackAbility = "tech";
+    }
+    await this.showAttackDialog(
+      item.name, attackAbility, item.data.data.damage);
+  }
+
+  async showAttackDialog(attackName, attackAbility, attackDamage) {
     const attackDialog = new AttackDialog();
     attackDialog.actor = this;
-    attackDialog.itemId = itemId;
+    attackDialog.attackName = attackName;
+    attackDialog.attackAbility = attackAbility;
+    attackDialog.attackDamage = attackDamage;
     attackDialog.render(true);
   }
 
-  async attack(itemId, defenderDR, rollType, risky) {
-    const item = this.items.get(itemId);
-    if (!item) {
-      return;
-    }
-
+  async rollAttack(attackName, attackAbility, attackDamage, defenderDR, rollType, risky) {
     let d20Formula = "1d20";
     if (rollType === "advantage") {
       d20Formula = "2d20kh";
     } else if (rollType === "disadvantage") {
       d20Formula = "2d20kl";
     }
-    let ability;
-    if (item.data.data.weaponType === "melee") {
-      ability = "body";
-    } else {
-      ability = "tech";
-    }
-    const weaponTypeKey = `DIS.WeaponType${item.data.data.weaponType[0].toUpperCase() + item.data.data.weaponType.substring(1)}`;
-    const attackTitle = `${game.i18n.localize(weaponTypeKey)} ${game.i18n.localize("DIS.Attack")}`;
-    // TODO: localize
-    const attackText = `To hit: ${d20Formula}+${ability.toUpperCase()} vs. DR${defenderDR}`; 
+    const attackTitle = `${game.i18n.localize("DIS.AttackWith")} ${attackName}`;
+    const attackText = `${game.i18n.localize("DIS.ToHit")}: ${d20Formula}+${attackAbility.toUpperCase()} ${game.i18n.localize("DIS.Vs")} ${game.i18n.localize("DIS.DR")}${defenderDR}`; 
     const rollData = this.getRollData();
     const attackRoll = new Roll(
-      `${d20Formula} + @abilities.${ability}.value`,
+      `${d20Formula} + @abilities.${attackAbility}.value`,
       rollData
     );
     attackRoll.evaluate({ async: false });
@@ -180,7 +180,7 @@ export class DISActor extends Actor {
     if (isCrit || attackRoll.total >= defenderDR) {
       // hit
       attackOutcome = game.i18n.localize(isCrit ? "DIS.AttackCriticalHit" : "DIS.AttackHit");
-      const baseDamage = item.data.data.damage;
+      const baseDamage = attackDamage;
       let damageFormula = baseDamage;
       if (isCrit) {
         damageFormula += ` + ${baseDamage}`;
@@ -202,6 +202,7 @@ export class DISActor extends Actor {
     }
 
     const chatData = {
+      attackName,
       attackOutcome,
       attackRoll,
       attackText,

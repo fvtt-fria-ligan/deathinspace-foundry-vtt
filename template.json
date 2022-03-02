@@ -86,9 +86,9 @@
           "value": 0
         }
       },
-      "attack": "",
-      "attackBonus": 0,
-      "damage": "",
+      "attackName": "",
+      "attackDamage": "",
+      "attackType": "melee",
       "defenseRating": 12,      
       "hitpoints": {
         "max": 1,

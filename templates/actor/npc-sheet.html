@@ -60,16 +60,21 @@
           <input type="number" name="data.defenseRating" value="{{data.data.defenseRating}}" placeholder="12" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
-          <label class="attack rollable">Attack </label>
-          <input type="text" name="data.attack" value="{{data.data.attack}}" data-dtype="String"/>
+          <label class="attack rollable">Attack Name</label>
+          <input type="text" name="data.attackName" value="{{data.data.attackName}}" data-dtype="String"/>
         </div>
         <div class="form-group"> 
-          <label>Attack Bonus </label>
-          <input type="number" name="data.attackBonus" value="{{data.data.attackBonus}}" placeholder="0" data-dtype="Number"/>
+          <label>Attack Ability </label>
+          <select name="data.attackAbility" data-dtype="String">{{#select data.data.attackAbility}}
+            <option value="body">body</option>
+            <option value="dexterity">dexterity</option>
+            <option value="savvy">savvy</option>
+            <option value="tech">tech</option>{{/select}}
+          </select>
         </div>
         <div class="form-group"> 
-          <label class="damage rollable">Damage </label>
-          <input type="text" name="data.damage" value="{{data.data.damage}}" placeholder="1d4" data-dtype="String"/>
+          <label class="damage rollable">Attack Damage </label>
+          <input type="text" name="data.attackDamage" value="{{data.data.attackDamage}}" placeholder="1d4" data-dtype="String"/>
         </div>
         <div class="form-group"> 
           <label>Special</label>

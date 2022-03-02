@@ -38,7 +38,7 @@ export class DISNpcSheet extends DISActorSheet {
 
   _onAttackRoll(event) {
     event.preventDefault();
-    this.actor.rollNpcAttack();
+    this.actor.showAttackDialog(this.actor.data.data.attackName, this.actor.data.data.attackAbility, this.actor.data.data.attackDamage);
   }
 
   _onDamageRoll(event) {

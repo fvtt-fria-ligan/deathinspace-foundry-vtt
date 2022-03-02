@@ -27,7 +27,6 @@ export default class AttackDialog extends Application {
       .val();
     const risky = $(form).find("input[name=risky]").is(":checked");
     this.close();
-    // TODO: await this?
-    this.actor.attack(this.itemId, defenderDR, rollType, risky);
+    this.actor.rollAttack(this.attackName, this.attackAbility, this.attackDamage, defenderDR, rollType, risky);
   }
 }

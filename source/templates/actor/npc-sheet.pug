@@ -64,16 +64,22 @@ form(class="{{cssClass}}")
           input(type="number" name="data.defenseRating" value="{{data.data.defenseRating}}" placeholder="12" data-dtype="Number")
         .form-group 
           label.attack.rollable
-            | Attack 
-          input(type="text" name="data.attack" value="{{data.data.attack}}" data-dtype="String")
+            | Attack Name
+          input(type="text" name="data.attackName" value="{{data.data.attackName}}" data-dtype="String")
         .form-group 
           label
-            | Attack Bonus 
-          input(type="number" name="data.attackBonus" value="{{data.data.attackBonus}}" placeholder="0" data-dtype="Number")
+            | Attack Ability 
+          select(name="data.attackAbility" data-dtype="String")
+            | {{#select data.data.attackAbility}}
+            option(value="body") body
+            option(value="dexterity") dexterity
+            option(value="savvy") savvy
+            option(value="tech") tech
+            | {{/select}}
         .form-group 
           label.damage.rollable
-            | Damage 
-          input(type="text" name="data.damage" value="{{data.data.damage}}" placeholder="1d4" data-dtype="String")
+            | Attack Damage 
+          input(type="text" name="data.attackDamage" value="{{data.data.attackDamage}}" placeholder="1d4" data-dtype="String")
         .form-group 
           label
             | Special

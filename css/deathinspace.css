@@ -154,6 +154,45 @@
 .deathinspace.sheet .editor {
   padding: 0 8px;
 }
+.roll-card {
+  border: 1px solid var(--highlight-background-color);
+  font-family: var(--text-font);
+  padding: 5px;
+}
+.roll-card .card-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.roll-card .roll-title {
+  text-align: center;
+  text-transform: uppercase;
+}
+.roll-card .roll-result {
+  border: 1px solid gray;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+.roll-card .roll-result span {
+  font-size: 20px;
+}
+.roll-card .outcome-text {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.attack-roll-card {
+  border: 2px solid var(--character-background-color);
+}
+.attack-roll-card .risky-outcome {
+  font-size: 12px;
+  text-transform: none;
+}
 /* ====================== */
 /* Actor sheet */
 /* ====================== */
@@ -1371,45 +1410,6 @@
 }
 .deathinspace.sheet.npc .data-wrapper .form-spacer {
   height: 20px;
-}
-.roll-card {
-  border: 1px solid var(--highlight-background-color);
-  font-family: var(--text-font);
-  padding: 5px;
-}
-.roll-card .card-title {
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-.roll-card .roll-title {
-  text-align: center;
-  text-transform: uppercase;
-}
-.roll-card .roll-result {
-  border: 1px solid gray;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  text-align: center;
-}
-.roll-card .roll-result span {
-  font-size: 20px;
-}
-.roll-card .outcome-text {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.attack-roll-card {
-  border: 2px solid var(--character-background-color);
-}
-.attack-roll-card .risky-outcome {
-  font-size: 12px;
-  text-transform: none;
 }
 .deathinspace.sheet.item {
   /* Notes tab */
