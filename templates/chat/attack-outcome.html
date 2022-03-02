@@ -1,0 +1,18 @@
+
+<form class="roll-card attack-roll-card">
+  <div class="card-title">
+     {{attackTitle}}</div>
+  <div class="attack-roll"> 
+    <div class="roll-title">{{attackText}}</div>
+    <div class="roll-result"> <span>{{xtotal attackRoll}}</span></div>
+  </div>
+  <div class="outcome-text"> 
+    <div class="attack-outcome">
+       {{attackOutcome}}</div>{{#if riskyOutcome}}
+    <div class="risky-outcome">{{riskyOutcome}}</div>{{/if}}
+  </div>{{#if damageRoll}}
+  <div class="damage-roll"> 
+    <div class="roll-title">{{damageText}}</div>
+    <div class="roll-result"> <span>{{xtotal damageRoll}}</span></div>
+  </div>{{/if}}
+</form>

@@ -1,0 +1,36 @@
+form.custom-dialog.attack-dialog
+  .form-group 
+    label
+      | {{ localize "DIS.DefenderDR" }}
+    div
+      input(type="number" name="defender-dr" value="12" data-dtype="Number")
+
+  .form-group 
+    label
+      | {{ localize "DIS.RollType" }}
+    ul
+      li
+        label
+          input(name="roll-type" type="radio" value="normal" checked)
+          div
+            | {{ localize "DIS.RollTypeNormal" }}
+      li
+        label 
+          input(name="roll-type" type="radio" value="advantage")
+          div
+            | {{ localize "DIS.RollTypeAdvantage" }}
+      li
+        label
+          input(name="roll-type" type="radio" value="disadvantage")
+          div
+            | {{ localize "DIS.RollTypeDisadvantage" }}
+
+  .form-group 
+    label
+      | {{ localize "DIS.RiskyAttack" }}?
+    div
+      input(name="risky" type="checkbox" value="1")
+
+  .button-row
+    button(type="submit" class="attack-button" name="Attack")
+      | {{ localize "DIS.Attack" }}

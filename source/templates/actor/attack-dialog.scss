@@ -1,0 +1,62 @@
+
+.deathinspace.app.window-app{
+  // background-image: url(../assets/images/ui/seamless_paper_texture.png) repeat;
+  .window-content {
+    background: url(../assets/images/ui/seamless_paper_texture.png) repeat;
+  }
+}
+
+.attack-dialog {
+  border: 2px solid var(--character-background-color);  
+  color: var(--foreground-color);
+  font-family: var(--text-font);  
+  margin: 0;
+  padding: 10px;
+
+  .form-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    ul {
+      list-style-type: none;
+      margin-left: 0;
+      padding-left: 0;
+      li {
+        input {
+          &[type="radio"] {
+            float: left;
+            margin-top: 5px;
+          }
+        }
+        label div {
+          display: block;
+          margin-left: 30px;
+        }        
+      }
+    }
+  }
+
+  .button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    // margin-bottom: 10px;
+    margin-top: 10px;
+
+    button {
+      border: none;
+      border-radius: 0;
+      background-color: var(--character-background-color);
+      color: white;
+      font-size: 18px;
+      text-transform: uppercase;
+      width: 150px;
+
+      &:active,
+      &:focus,
+      &:hover {
+        box-shadow: 0 0 5px var(--highlight-background-color);
+        text-shadow: 0 0 10px var(--highlight-background-color);
+      }
+    }
+  }
+}

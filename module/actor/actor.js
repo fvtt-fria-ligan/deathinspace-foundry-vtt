@@ -1,4 +1,6 @@
+import { addShowDicePromise, diceSound, showDice } from "../dice.js";
 import { regenerateCharacter } from "../generator.js";
+import AttackDialog from "./sheet/attack-dialog.js";
 
 /**
  * @extends {Actor}
@@ -128,10 +130,28 @@ export class DISActor extends Actor {
     });
   }
 
-  async rollItemAttack(itemId) {
+  async showAttackDialog(itemId) {
     const item = this.items.get(itemId);
     if (!item) {
       return;
+    }
+    const attackDialog = new AttackDialog();
+    attackDialog.actor = this;
+    attackDialog.itemId = itemId;
+    attackDialog.render(true);
+  }
+
+  async attack(itemId, defenderDR, rollType, risky) {
+    const item = this.items.get(itemId);
+    if (!item) {
+      return;
+    }
+
+    let d20Formula = "1d20";
+    if (rollType === "advantage") {
+      d20Formula = "2d20kh";
+    } else if (rollType === "disadvantage") {
+      d20Formula = "2d20kl";
     }
     let ability;
     if (item.data.data.weaponType === "melee") {
@@ -139,19 +159,84 @@ export class DISActor extends Actor {
     } else {
       ability = "tech";
     }
-    const weaponType =
-      item.data.data.weaponType[0].toUpperCase() +
-      item.data.data.weaponType.substring(1);
-    const roll = new Roll(
-      `1d20 + @abilities.${ability}.value`,
-      this.getRollData()
+    const weaponTypeKey = `DIS.WeaponType${item.data.data.weaponType[0].toUpperCase() + item.data.data.weaponType.substring(1)}`;
+    const attackTitle = `${game.i18n.localize(weaponTypeKey)} ${game.i18n.localize("DIS.Attack")}`;
+    // TODO: localize
+    const attackText = `To hit: ${d20Formula}+${ability.toUpperCase()} vs. DR${defenderDR}`; 
+    const rollData = this.getRollData();
+    const attackRoll = new Roll(
+      `${d20Formula} + @abilities.${ability}.value`,
+      rollData
     );
-    roll.toMessage({
-      user: game.user.id,
+    attackRoll.evaluate({ async: false });
+    await showDice(attackRoll);
+
+    const d20Result = attackRoll.terms[0].results[0].result;
+    const isCrit = d20Result === 20;
+    let attackOutcome;
+    let riskyOutcome;
+    let damageRoll;
+    let damageText;
+    if (isCrit || attackRoll.total >= defenderDR) {
+      // hit
+      attackOutcome = game.i18n.localize(isCrit ? "DIS.AttackCriticalHit" : "DIS.AttackHit");
+      const baseDamage = item.data.data.damage;
+      let damageFormula = baseDamage;
+      if (isCrit) {
+        damageFormula += ` + ${baseDamage}`;
+      }
+      if (risky) {
+        damageFormula += ` + ${baseDamage}`;
+        riskyOutcome = game.i18n.localize("DIS.RiskyAttackSuccess");
+      }
+      damageText = `Damage: ${damageFormula}`;
+      damageRoll = new Roll(damageFormula, {});
+      damageRoll.evaluate({ async: false });
+      await showDice(damageRoll);
+    } else {
+      // miss
+      attackOutcome = game.i18n.localize("DIS.AttackMiss");
+      if (risky) {
+        riskyOutcome = game.i18n.localize("DIS.RiskyAttackFailure");
+      }
+    }
+
+    const chatData = {
+      attackOutcome,
+      attackRoll,
+      attackText,
+      attackTitle,
+      damageRoll,
+      damageText,
+      riskyOutcome,
+    };
+    const html = await renderTemplate(
+      "systems/deathinspace/templates/chat/attack-outcome.html", chatData);
+    ChatMessage.create({
+      content: html,
+      sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: `${weaponType} attack with ${item.name}`,
     });
   }
+
+  // async rollItemAttack(itemId) {
+  //   const item = this.items.get(itemId);
+  //   if (!item) {
+  //     return;
+  //   }
+  //   const weaponType =
+  //     item.data.data.weaponType[0].toUpperCase() +
+  //     item.data.data.weaponType.substring(1);
+  //   const roll = new Roll(
+  //     `1d20 + @abilities.${ability}.value`,
+  //     this.getRollData()
+  //   );
+  //   roll.toMessage({
+  //     user: game.user.id,
+  //     speaker: ChatMessage.getSpeaker({ actor: this }),
+  //     flavor: `${weaponType} attack with ${item.name}`,
+  //   });
+  // }
 
   async rollItemDamage(itemId) {
     const item = this.items.get(itemId);

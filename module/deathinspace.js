@@ -8,6 +8,7 @@ import { DISHubSheet } from "./actor/sheet/hub-sheet.js";
 import { DISNpcSheet } from "./actor/sheet/npc-sheet.js";
 import { DIS } from "./config.js";
 import { generateCharacter, generateSpacecraft, generateStation } from "./generator.js";
+import { configureHandlebars } from "./handlebars.js";
 import { DISItem } from "./item/item.js";
 import { DISItemSheet } from "./item/sheet/item-sheet.js";
 
@@ -45,6 +46,8 @@ Hooks.once("init", async function() {
   });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("deathinspace", DISItemSheet, { makeDefault: true });
+
+  configureHandlebars();
 });
 
 Hooks.on("renderActorDirectory", (app, html) => {

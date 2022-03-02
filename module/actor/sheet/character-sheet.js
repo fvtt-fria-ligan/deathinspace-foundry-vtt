@@ -130,7 +130,8 @@ export class DISCharacterSheet extends DISActorSheet {
     event.preventDefault();
     const row = $(event.currentTarget).parents(".item");
     const itemId = row.data("itemId");
-    this.actor.rollItemAttack(itemId);
+    //this.actor.rollItemAttack(itemId);
+    this.actor.showAttackDialog(itemId);
   }
 
   _onDamageRoll(event) {

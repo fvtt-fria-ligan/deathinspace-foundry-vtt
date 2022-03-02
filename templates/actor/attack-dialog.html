@@ -1,0 +1,41 @@
+
+<form class="custom-dialog attack-dialog">
+  <div class="form-group"> 
+    <label>{{ localize "DIS.DefenderDR" }}</label>
+    <div>
+      <input type="number" name="defender-dr" value="12" data-dtype="Number"/>
+    </div>
+  </div>
+  <div class="form-group"> 
+    <label>{{ localize "DIS.RollType" }}</label>
+    <ul>
+      <li>
+        <label>
+          <input name="roll-type" type="radio" value="normal" checked="checked"/>
+          <div>{{ localize "DIS.RollTypeNormal" }}</div>
+        </label>
+      </li>
+      <li>
+        <label> 
+          <input name="roll-type" type="radio" value="advantage"/>
+          <div>{{ localize "DIS.RollTypeAdvantage" }}</div>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input name="roll-type" type="radio" value="disadvantage"/>
+          <div>{{ localize "DIS.RollTypeDisadvantage" }}</div>
+        </label>
+      </li>
+    </ul>
+  </div>
+  <div class="form-group"> 
+    <label>{{ localize "DIS.RiskyAttack" }}?</label>
+    <div>
+      <input name="risky" type="checkbox" value="1"/>
+    </div>
+  </div>
+  <div class="button-row">
+    <button class="attack-button" type="submit" name="Attack">{{ localize "DIS.Attack" }}</button>
+  </div>
+</form>

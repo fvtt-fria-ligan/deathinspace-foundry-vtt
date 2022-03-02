@@ -1,0 +1,24 @@
+form.roll-card.attack-roll-card
+  .card-title 
+    | {{attackTitle}}
+  .attack-roll 
+    .roll-title
+      | {{attackText}}
+    .roll-result 
+      span
+        | {{xtotal attackRoll}}
+  .outcome-text 
+    .attack-outcome 
+      | {{attackOutcome}}
+    | {{#if riskyOutcome}}
+    .risky-outcome
+      | {{riskyOutcome}}
+    | {{/if}}
+  | {{#if damageRoll}}
+  .damage-roll 
+    .roll-title
+      | {{damageText}}
+    .roll-result 
+      span
+        | {{xtotal damageRoll}}
+  | {{/if}}
