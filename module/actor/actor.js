@@ -261,6 +261,9 @@ export class DISActor extends Actor {
   }
 
   async rollNpcDamage() {
+    if (!this.data.data.damage) {
+      return;
+    }
     const roll = new Roll(this.data.data.damage);
     roll.toMessage({
       user: game.user.id,
