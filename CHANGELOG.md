@@ -1,3 +1,7 @@
+# 0.12.0
+- Add attack automation for character and npc attacks.
+- Tweak npc attack-related fields.
+
 # 0.11.0
 - Tweak character and hub sheet fields and layout for online use and field data sizes.
 
