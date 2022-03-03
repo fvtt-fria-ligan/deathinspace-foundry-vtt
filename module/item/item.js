@@ -47,12 +47,12 @@ export class DISItem extends Item {
     if (conditionRoll.total === 1) {
       await this.decrementCondition();
       if (this.broken) {
-        conditionOutcome = "Item broken";
+        conditionOutcome = game.i18n.localize("DIS.ItemBroken");
       } else {
-        conditionOutcome = "Condition reduced by one";
+        conditionOutcome = game.i18n.localize("DIS.ConditionReduced");
       }
     } else {
-      conditionOutcome = "Condition unaffected";
+      conditionOutcome = game.i18n.localize("DIS.ConditionUnaffected");
     }
 
     const chatData = {
