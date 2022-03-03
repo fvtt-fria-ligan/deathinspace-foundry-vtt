@@ -133,6 +133,17 @@ export class DISCharacterSheet extends DISActorSheet {
     this.actor.showAttackDialogWithItem(itemId);
   }
 
+  _onItemConditionTest(event) {
+    event.preventDefault();
+    const row = $(event.currentTarget).parents(".item");
+    const itemId = row.data("itemId");
+    const item = this.actor.getItem(itemId);
+    if (item) {
+      
+    }
+
+  }
+
   _onDamageRoll(event) {
     event.preventDefault();
     const row = $(event.currentTarget).parents(".item");

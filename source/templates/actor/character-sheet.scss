@@ -502,6 +502,9 @@
         flex-direction: row;
         padding-left: 5px;
       }
+      .equipment-row.broken {
+        background-color: lightgray;
+      }
       .equipment-name {
         flex: 1;
         flex-basis: 75%;
@@ -535,6 +538,9 @@
         display: flex;
         flex: 0 0 40;
         flex-direction: row;
+      }
+      .weapon-row.broken {
+        background-color: lightgray;
       }
       .weapon-name {
         flex-basis: 40%;

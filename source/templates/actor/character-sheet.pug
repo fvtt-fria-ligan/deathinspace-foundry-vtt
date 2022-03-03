@@ -196,11 +196,13 @@ form(class="{{cssClass}}" autocomplete="off")
               | &nbsp;
            
           | {{#each data.data.equipment as |item id|}}
-          .equipment-row.item(data-item-id="{{item._id}}")
+          .equipment-row.item(class="{{item.data.brokenClass}}" data-item-id="{{item._id}}")
             .equipment-name.item-edit.rollable
               | {{add id 1}}. {{item.name}}
             .equipment-condition 
               | {{#if item.data.condition.max}}
+              a.item-control.item-condition 
+                i.fas.fa-dice-six
               input(type="number" min="0" max="{{ item.data.condition.max}}" step="1" class="inline-edit" data-mod="data.condition.value" name="item.data.condition.value" value="{{item.data.condition.value}}" data-dtype="Number")
               |  / {{ item.data.condition.max}}
               | {{else}}
@@ -247,7 +249,7 @@ form(class="{{cssClass}}" autocomplete="off")
               | {{localize "DIS.Slots"}}
             .item-controls 
               | &nbsp;
-          .weapon-row.item(data-item-id="{{item._id}}") 
+          .weapon-row.item(class="{{item.data.brokenClass}}" data-item-id="{{item._id}}") 
             .weapon-name.item-edit.rollable
               | {{item.name}}
             .weapon-attack.rollable 
@@ -263,6 +265,8 @@ form(class="{{cssClass}}" autocomplete="off")
               | {{/if}}
             .weapon-condition
               | {{#if item.data.condition.max}}
+              a.item-control.item-condition 
+                i.fas.fa-dice-six
               input(type="number" min="0" max="{{ item.data.condition.max}}" class="inline-edit" data-mod="data.condition.value" name="item.data.condition.value" value="{{item.data.condition.value}}" data-dtype="Number")
               |  / {{ item.data.condition.max}}
               | {{else}}

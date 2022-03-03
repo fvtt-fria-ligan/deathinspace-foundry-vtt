@@ -1,4 +1,4 @@
-import { addShowDicePromise, diceSound, showDice } from "../dice.js";
+import { diceSound, showDice } from "../dice.js";
 import { regenerateCharacter } from "../generator.js";
 import AttackDialog from "./sheet/attack-dialog.js";
 

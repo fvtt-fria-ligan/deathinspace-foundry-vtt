@@ -228,10 +228,10 @@
             <div class="item-controls">
                &nbsp;</div>
           </div>{{#each data.data.equipment as |item id|}}
-          <div class="equipment-row item" data-item-id="{{item._id}}">
+          <div class="equipment-row item {{item.data.brokenClass}}" data-item-id="{{item._id}}">
             <div class="equipment-name item-edit rollable">{{add id 1}}. {{item.name}}</div>
             <div class="equipment-condition">
-               {{#if item.data.condition.max}}
+               {{#if item.data.condition.max}}<a class="item-control item-condition"> <i class="fas fa-dice-six"></i></a>
               <input class="inline-edit" type="number" min="0" max="{{ item.data.condition.max}}" step="1" data-mod="data.condition.value" name="item.data.condition.value" value="{{item.data.condition.value}}" data-dtype="Number"/> / {{ item.data.condition.max}}
               {{else}}
               -
@@ -271,7 +271,7 @@
             <div class="item-controls">
                &nbsp;</div>
           </div>
-          <div class="weapon-row item" data-item-id="{{item._id}}"> 
+          <div class="weapon-row item {{item.data.brokenClass}}" data-item-id="{{item._id}}"> 
             <div class="weapon-name item-edit rollable">{{item.name}}</div>
             <div class="weapon-attack rollable">
                {{localize "DIS.AttackAbbrev"}}</div>
@@ -284,7 +284,7 @@
               -
               {{/if}}
             </div>
-            <div class="weapon-condition">{{#if item.data.condition.max}}
+            <div class="weapon-condition">{{#if item.data.condition.max}}<a class="item-control item-condition"> <i class="fas fa-dice-six"></i></a>
               <input class="inline-edit" type="number" min="0" max="{{ item.data.condition.max}}" data-mod="data.condition.value" name="item.data.condition.value" value="{{item.data.condition.value}}" data-dtype="Number"/> / {{ item.data.condition.max}}
               {{else}}
               -

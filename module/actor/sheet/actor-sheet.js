@@ -9,6 +9,7 @@ export default class DISActorSheet extends ActorSheet {
     html.find(".item-edit").click(this._onItemEdit.bind(this));
     html.find(".item-delete").click(this._onItemDelete.bind(this));
     html.find('.inline-edit').change(this._onInlineEdit.bind(this));
+    html.find(".item-condition").click(this._onItemConditionCheck.bind(this));
   }
 
   _onItemCreate(event) {
@@ -40,14 +41,26 @@ export default class DISActorSheet extends ActorSheet {
     row.slideUp(200, () => this.render(false));
   }
 
-  _onInlineEdit(event) {
+  async _onInlineEdit(event) {
     event.preventDefault();
     const row = $(event.currentTarget).parents(".item");
     if (row) {
       const item = this.actor.items.get(row.data("itemId"));
       if (item) {
         const temp = event.currentTarget.dataset.mod;
-        return item.update({ [temp]: event.currentTarget.value }, {});
+        // currently only handling inline integers
+        const value = parseInt(event.currentTarget.value);
+        await item.update({ [temp]: value }, {});
+      }
+    }
+  }
+
+  _onItemConditionCheck(event) {
+    const row = $(event.currentTarget).parents(".item");
+    if (row) {
+      const item = this.actor.items.get(row.data("itemId"));
+      if (item) {
+        item.checkCondition();
       }
     }
   }
