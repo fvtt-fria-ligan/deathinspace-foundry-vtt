@@ -19,6 +19,14 @@ export class DISItem extends Item {
     return this.data.data.equipped === true;
   }  
 
+  get usesAmmo() {
+    return this.data.data.ammo && this.data.data.ammo.max;
+  }
+
+  get outOfAmmo() {
+    return this.usesAmmo && !this.data.data.ammo.value;
+  }
+
   async equip() {
     await this.update({ "data.equipped": true });
   }
@@ -26,7 +34,6 @@ export class DISItem extends Item {
   async unequip() {
     await this.update({ "data.equipped": false });
   }
-
 
   async checkCondition() {
     if (!this.data.data.condition.value) {
@@ -66,5 +73,12 @@ export class DISItem extends Item {
       return;
     }
     await this.update({ ["data.condition.value"]:  this.data.data.condition.value - 1 });
-  }  
+  }
+
+  async decrementAmmo() {
+    if (!this.usesAmmo || this.outOfAmmo) {
+      return;
+    }
+    await this.update({ ["data.ammo.value"]:  this.data.data.ammo.value - 1 });
+  }
 }

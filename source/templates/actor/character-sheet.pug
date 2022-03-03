@@ -257,9 +257,9 @@ form(class="{{cssClass}}" autocomplete="off")
             .weapon-damage.rollable 
               | {{item.data.damage}}
             .weapon-ammo 
-              | {{#if item.data.usesBeforeReload.max}}
-              input(type="number" min="0" max="{{ item.data.usesBeforeReload.max}}" class="inline-edit" data-mod="data.usesBeforeReload.value" name="item.data.usesBeforeReload.value" value="{{item.data.usesBeforeReload.value}}" data-dtype="Number")
-              |  / {{ item.data.usesBeforeReload.max}} 
+              | {{#if item.data.ammo.max}}
+              input(type="number" min="0" max="{{ item.data.ammo.max}}" class="inline-edit" data-mod="data.ammo.value" name="item.data.ammo.value" value="{{item.data.ammo.value}}" data-dtype="Number")
+              |  / {{ item.data.ammo.max}} 
               | {{else}}
               | -
               | {{/if}}
@@ -267,7 +267,7 @@ form(class="{{cssClass}}" autocomplete="off")
               | {{#if item.data.condition.max}}
               a.item-control.item-condition 
                 i.fas.fa-dice-six
-              input(type="number" min="0" max="{{ item.data.condition.max}}" class="inline-edit" data-mod="data.condition.value" name="item.data.condition.value" value="{{item.data.condition.value}}" data-dtype="Number")
+              input(type="number" min="0" max="{{ item.data.condition.max }}" class="inline-edit" data-mod="data.condition.value" name="item.data.condition.value" value="{{item.data.condition.value}}" data-dtype="Number")
               |  / {{ item.data.condition.max}}
               | {{else}}
               | -

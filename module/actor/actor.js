@@ -135,14 +135,18 @@ export class DISActor extends Actor {
     if (!item) {
       return;
     }
-    let attackAbility;
-    if (item.data.data.weaponType === "melee") {
-      attackAbility = "body";
-    } else {
-      attackAbility = "tech";
+    if (item.broken) {
+      ui.notifications.warn(`${game.i18n.localize("DIS.WeaponBroken").toUpperCase()}!!!`);
+      return;
     }
-    await this.showAttackDialog(
-      item.name, attackAbility, item.data.data.damage);
+    if (item.outOfAmmo) {
+      ui.notifications.warn(`${game.i18n.localize("DIS.OutOfAmmo").toUpperCase()}!!!`);
+      return;
+    }
+    const attackDialog = new AttackDialog();
+    attackDialog.actor = this;
+    attackDialog.itemId = item.id;
+    attackDialog.render(true);
   }
 
   async showAttackDialog(attackName, attackAbility, attackDamage) {
@@ -152,6 +156,16 @@ export class DISActor extends Actor {
     attackDialog.attackAbility = attackAbility;
     attackDialog.attackDamage = attackDamage;
     attackDialog.render(true);
+  }
+
+  async rollAttackWithItem(itemId, defenderDR, rollType, risky) {
+    const item = this.items.get(itemId);
+    if (!item) {
+      return;
+    }
+    await item.decrementAmmo();
+    const attackAbility = item.data.data.weaponType === "melee" ? "body" : "tech";
+    await this.rollAttack(item.name, attackAbility, item.data.data.damage, defenderDR, rollType, risky);
   }
 
   async rollAttack(attackName, attackAbility, attackDamage, defenderDR, rollType, risky) {
@@ -217,7 +231,7 @@ export class DISActor extends Actor {
       content: html,
       sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
-    });
+    });    
   }
 
   // async rollItemAttack(itemId) {

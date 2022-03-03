@@ -1,0 +1,39 @@
+.roll-card {
+  border: 2px solid var(--highlight-background-color);
+  font-family: var(--text-font);
+  padding: 5px;
+
+  .card-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .roll-title {
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .roll-result {
+    border: 1px solid gray;
+    // font-family: var(--chat-font);
+    // font-size: 18px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+
+    span {
+      // color: var(--foreground-color);
+      font-size: 20px;
+    }    
+  }
+
+  .outcome-text {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}

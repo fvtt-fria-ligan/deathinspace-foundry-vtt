@@ -165,15 +165,15 @@
     },
     "weapon": {
       "templates": ["baseEquipment"],
+      "ammo": {
+        "max": 0,
+        "value": 0
+      },
       "condition": {
         "max": 0,
         "value": 0
       },
       "damage": "1d4",
-      "usesBeforeReload": {
-        "max": 0,
-        "value": 0
-      },
       "weaponType": "ranged"
     }
   }

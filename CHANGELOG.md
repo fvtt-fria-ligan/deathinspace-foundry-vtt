@@ -1,5 +1,5 @@
 # 0.12.0
-- Add attack automation for character and npc attacks.
+- Add attack automation for character and npc attacks: advantage/disadvantage/risky attack, ammo decrement.
 - Tweak npc attack-related fields.
 - Add button and roll card for testing item condition.
 - Gray-out broken items.

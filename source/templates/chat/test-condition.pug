@@ -1,0 +1,12 @@
+form.roll-card.test-condition
+  .card-title 
+    | {{cardTitle}}
+  .condition-roll 
+    .roll-title
+      | {{conditionRoll.formula}}
+    .roll-result 
+      span
+        | {{xtotal conditionRoll}}
+  .outcome-text 
+    .condition-outcome 
+      | {{conditionOutcome}}

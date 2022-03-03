@@ -278,14 +278,14 @@
             <div class="weapon-damage rollable">
                {{item.data.damage}}</div>
             <div class="weapon-ammo">
-               {{#if item.data.usesBeforeReload.max}}
-              <input class="inline-edit" type="number" min="0" max="{{ item.data.usesBeforeReload.max}}" data-mod="data.usesBeforeReload.value" name="item.data.usesBeforeReload.value" value="{{item.data.usesBeforeReload.value}}" data-dtype="Number"/> / {{ item.data.usesBeforeReload.max}} 
+               {{#if item.data.ammo.max}}
+              <input class="inline-edit" type="number" min="0" max="{{ item.data.ammo.max}}" data-mod="data.ammo.value" name="item.data.ammo.value" value="{{item.data.ammo.value}}" data-dtype="Number"/> / {{ item.data.ammo.max}} 
               {{else}}
               -
               {{/if}}
             </div>
             <div class="weapon-condition">{{#if item.data.condition.max}}<a class="item-control item-condition"> <i class="fas fa-dice-six"></i></a>
-              <input class="inline-edit" type="number" min="0" max="{{ item.data.condition.max}}" data-mod="data.condition.value" name="item.data.condition.value" value="{{item.data.condition.value}}" data-dtype="Number"/> / {{ item.data.condition.max}}
+              <input class="inline-edit" type="number" min="0" max="{{ item.data.condition.max }}" data-mod="data.condition.value" name="item.data.condition.value" value="{{item.data.condition.value}}" data-dtype="Number"/> / {{ item.data.condition.max}}
               {{else}}
               -
               {{/if}}
