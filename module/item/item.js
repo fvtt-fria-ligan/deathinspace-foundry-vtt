@@ -45,13 +45,14 @@ export class DISItem extends Item {
 
     let conditionOutcome;
     if (conditionRoll.total === 1) {
-      conditionOutcome = "Condition reduced by one."
-      if (this.data.data.condition.current === 1) {
-        conditionOutcome += " Item is broken.";         
-      }
       await this.decrementCondition();
+      if (this.broken) {
+        conditionOutcome = "Item broken";
+      } else {
+        conditionOutcome = "Condition reduced by one";
+      }
     } else {
-      conditionOutcome = "Condition unaffected."
+      conditionOutcome = "Condition unaffected";
     }
 
     const chatData = {
