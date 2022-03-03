@@ -1,6 +1,7 @@
 # 0.14.0
 - Wordsmith condition messages.
 - Add examples to weapon descriptions.
+- Add riot shield description.
 
 # 0.13.0
 - Add button and roll card for testing item condition.
