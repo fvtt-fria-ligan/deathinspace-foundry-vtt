@@ -1,9 +1,13 @@
-# 0.12.0
-- Add attack automation for character and npc attacks: advantage/disadvantage/risky attack, ammo decrement.
-- Rename weapon field from "usesBeforeReload" to "ammo".
-- Tweak npc attack-related fields.
+# 0.13.0
 - Add button and roll card for testing item condition.
 - Gray-out broken items.
+- Auto-decrement ammo when attacking.
+- Rename weapon field from "usesBeforeReload" to "ammo".
+- Show warning notification if attempting to attack with a broken or out-of-ammo weapon.
+
+# 0.12.0
+- Add attack automation for character and npc attacks.
+- Tweak npc attack-related fields.
 
 # 0.11.0
 - Tweak character and hub sheet fields and layout for online use and field data sizes.
