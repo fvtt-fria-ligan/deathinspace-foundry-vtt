@@ -1,5 +1,6 @@
 # 0.12.0
 - Add attack automation for character and npc attacks: advantage/disadvantage/risky attack, ammo decrement.
+- Rename weapon field from "usesBeforeReload" to "ammo".
 - Tweak npc attack-related fields.
 - Add button and roll card for testing item condition.
 - Gray-out broken items.
