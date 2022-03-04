@@ -6,6 +6,13 @@
       <input type="number" name="defender-dr" value="12" data-dtype="Number"/>
     </div>
   </div>
+  <div class="form-group {{voidPointsClass}}">
+    <label>{{ localize "DIS.UseVoidPoint" }}?</label>
+    <div>{{#if hasVoidPoints}}
+      <input name="use-void-point" type="checkbox" value="1"/>{{else}}
+      <input name="use-void-point" type="checkbox" value="1" disabled="disabled"/>{{/if}}
+    </div>
+  </div>
   <div class="form-group"> 
     <label>{{ localize "DIS.RollType" }}</label>
     <ul>

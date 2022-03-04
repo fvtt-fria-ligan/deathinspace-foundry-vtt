@@ -1,8 +1,8 @@
 import AbilityCheckDialog from "../dialog/ability-check-dialog.js";
+import AttackDialog from "../dialog/attack-dialog.js";
 import { diceSound, showDice } from "../dice.js";
 import { regenerateCharacter } from "../generator.js";
 import { tableFromPack } from "../packutils.js";
-import AttackDialog from "./sheet/attack-dialog.js";
 
 /**
  * @extends {Actor}
@@ -228,17 +228,21 @@ export class DISActor extends Actor {
     attackDialog.render(true);
   }
 
-  async rollAttackWithItem(itemId, defenderDR, rollType, risky) {
+  async rollAttackWithItem(itemId, defenderDR, rollType, risky, useVoidPoint) {
     const item = this.items.get(itemId);
     if (!item) {
       return;
     }
     await item.decrementAmmo();
     const attackAbility = item.data.data.weaponType === "melee" ? "body" : "tech";
-    await this.rollAttack(item.name, attackAbility, item.data.data.damage, defenderDR, rollType, risky);
+    await this.rollAttack(item.name, attackAbility, item.data.data.damage, defenderDR, rollType, risky, useVoidPoint);
   }
 
-  async rollAttack(attackName, attackAbility, attackDamage, defenderDR, rollType, risky) {
+  async rollAttack(attackName, attackAbility, attackDamage, defenderDR, rollType, risky, useVoidPoint) {
+    if (useVoidPoint) {
+      await this.decrementVoidPoints();
+    }
+
     const d20Formula = this.formulaForRollType(rollType);
     const attackTitle = `${game.i18n.localize("DIS.AttackWith")} ${attackName}`;
     const attackText = `${game.i18n.localize("DIS.ToHit")}: ${d20Formula}+${attackAbility.toUpperCase()} ${game.i18n.localize("DIS.Vs")} ${game.i18n.localize("DIS.DR")}${defenderDR}`; 
@@ -253,6 +257,8 @@ export class DISActor extends Actor {
     const d20Result = attackRoll.terms[0].results[0].result;
     const isCrit = d20Result === 20;
     let attackOutcome;
+    let rollVoidCorruption;
+    let gainVoidPoint;
     let riskyOutcome;
     let damageRoll;
     let damageText;
@@ -272,9 +278,17 @@ export class DISActor extends Actor {
       damageRoll = new Roll(damageFormula, {});
       damageRoll.evaluate({ async: false });
       await showDice(damageRoll);
+    } else if (useVoidPoint) {
+      // miss when using void point
+      attackOutcome = game.i18n.localize("DIS.AttackMissRollVoidCorruption");
+      rollVoidCorruption = true;
+      if (risky) {
+        riskyOutcome = game.i18n.localize("DIS.RiskyAttackFailure");
+      }
     } else {
       // miss
-      attackOutcome = game.i18n.localize("DIS.AttackMiss");
+      attackOutcome = game.i18n.localize("DIS.AttackMissGainVoidPoint");
+      gainVoidPoint = true;
       if (risky) {
         riskyOutcome = game.i18n.localize("DIS.RiskyAttackFailure");
       }
@@ -298,7 +312,13 @@ export class DISActor extends Actor {
       content: html,
       sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
-    });    
+    });
+
+    if (gainVoidPoint) {
+      await this.incrementVoidPoints();
+    } else if (rollVoidCorruption) {
+      this.rollVoidCorruption();
+    }
   }
 
   async rollItemDamage(itemId) {

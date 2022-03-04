@@ -17,6 +17,14 @@ export default class AttackDialog extends Application {
     html.find(".attack-button").click(this._onAttack.bind(this));
   }
 
+  /** @override */
+  getData() {
+    return {
+      hasVoidPoints: this.actor.hasVoidPoints,
+      voidPointsClass: this.actor.hasVoidPoints ? "enabled" : "disabled",  
+    };
+  }
+  
   _onAttack(event) {
     event.preventDefault();
     const form = $(event.currentTarget).parents(".attack-dialog")[0];
@@ -26,11 +34,12 @@ export default class AttackDialog extends Application {
       .find("input[name=roll-type]:checked")
       .val();
     const risky = $(form).find("input[name=risky]").is(":checked");
+    const useVoidPoint = $(form).find("input[name=use-void-point]").is(":checked");
     this.close();
     if (this.itemId) {
-      this.actor.rollAttackWithItem(this.itemId, defenderDR, rollType, risky);
+      this.actor.rollAttackWithItem(this.itemId, defenderDR, rollType, risky, useVoidPoint);
     } else {
-      this.actor.rollAttack(this.attackName, this.attackAbility, this.attackDamage, defenderDR, rollType, risky);
+      this.actor.rollAttack(this.attackName, this.attackAbility, this.attackDamage, defenderDR, rollType, risky, useVoidPoint);
     }
   }
 }

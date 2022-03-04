@@ -11,6 +11,8 @@
 "DIS.AttackCriticalHit": "Critical Hit",
 "DIS.AttackHit": "Hit",
 "DIS.AttackMiss": "Miss",
+"DIS.AttackMissGainVoidPoint": "Miss, gain a void point",
+"DIS.AttackMissRollVoidCorruption": "Miss, possible void corruption",
 "DIS.AttackWith": "Attack with",
 "DIS.Background": "Background",
 "DIS.Cancel": "Cancel",
