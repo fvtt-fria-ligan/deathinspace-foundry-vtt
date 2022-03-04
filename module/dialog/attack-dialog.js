@@ -15,6 +15,7 @@ export default class AttackDialog extends Application {
   activateListeners(html) {
     super.activateListeners(html);
     html.find(".attack-button").click(this._onAttack.bind(this));
+    html.find("input[name=use-void-point]").change(this._onUseVoidPointChange.bind(this));
   }
 
   /** @override */
@@ -25,6 +26,16 @@ export default class AttackDialog extends Application {
     };
   }
   
+  _onUseVoidPointChange(event) {
+    event.preventDefault();
+    const useVoidPoint = $(event.currentTarget).is(":checked");
+    if (useVoidPoint) {
+      $("input[name=roll-type][value=advantage]").prop("checked", true);
+    } else {
+      $("input[name=roll-type][value=normal]").prop("checked", true);
+    }
+  }
+
   _onAttack(event) {
     event.preventDefault();
     const form = $(event.currentTarget).parents(".attack-dialog")[0];
