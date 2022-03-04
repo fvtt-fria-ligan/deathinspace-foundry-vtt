@@ -1,5 +1,13 @@
 form.custom-dialog.ability-check-dialog
-
+  .form-group(class="{{voidPointsClass}}")
+    label
+      | {{ localize "DIS.UseVoidPoint" }}?
+    div
+      | {{#if hasVoidPoints}}
+      input(name="use-void-point" type="checkbox" value="1")
+      | {{else}}
+      input(name="use-void-point" type="checkbox" value="1" disabled="disabled")
+      | {{/if}}
   .form-group 
     label
       | {{ localize "DIS.RollType" }}

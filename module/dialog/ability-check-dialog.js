@@ -17,6 +17,14 @@ export default class AbilityCheckDialog extends Application {
      html.find(".ability-check-button").click(this._onAbilityCheck.bind(this));
   }
 
+  /** @override */
+  getData() {
+    return {
+      hasVoidPoints: this.actor.hasVoidPoints,
+      voidPointsClass: this.actor.hasVoidPoints ? "enabled" : "disabled",  
+    };
+  }
+
   _onAbilityCheck(event) {
     event.preventDefault();
     const form = $(event.currentTarget).parents(".ability-check-dialog")[0];
@@ -26,7 +34,8 @@ export default class AbilityCheckDialog extends Application {
       .find("input[name=roll-type]:checked")
       .val();
     const opposed = $(form).find("input[name=opposed]").is(":checked");
+    const useVoidPoint = $(form).find("input[name=use-void-point]").is(":checked");
     this.close();
-    this.actor.rollAbilityCheck(this.ability, rollType, opposed);
+    this.actor.rollAbilityCheck(this.ability, rollType, opposed, useVoidPoint);
   }
 }

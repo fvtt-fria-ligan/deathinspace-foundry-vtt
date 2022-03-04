@@ -1,7 +1,8 @@
+import AbilityCheckDialog from "../dialog/ability-check-dialog.js";
 import { diceSound, showDice } from "../dice.js";
 import { regenerateCharacter } from "../generator.js";
+import { tableFromPack } from "../packutils.js";
 import AttackDialog from "./sheet/attack-dialog.js";
-import AbilityCheckDialog from "../dialog/ability-check-dialog.js";
 
 /**
  * @extends {Actor}
@@ -45,6 +46,10 @@ export class DISActor extends Actor {
     }
   }
 
+  get hasVoidPoints() {
+    return this.data.data.voidPoints && this.data.data.voidPoints.value;
+  } 
+    
   async _addCoreFunctionItems() {
     const pack = game.packs.get("deathinspace.hub-modules-core-functions");
     if (!pack) {
@@ -104,19 +109,19 @@ export class DISActor extends Actor {
   }
 
   async bodyCheck() {
-    return this.abilityCheck("body");
+    return this.showAbilityCheckDialog("body");
   }
 
   async dexterityCheck() {
-    return this.abilityCheck("dexterity");
+    return this.showAbilityCheckDialog("dexterity");
   }
 
   async savvyCheck() {
-    return this.abilityCheck("savvy");
+    return this.showAbilityCheckDialog("savvy");
   }
 
   async techCheck() {
-    return this.abilityCheck("tech");
+    return this.showAbilityCheckDialog("tech");
   }
 
   async showAbilityCheckDialog(ability) {
@@ -136,32 +141,43 @@ export class DISActor extends Actor {
     return d20Formula;
   }
 
-  async rollAbilityCheck(ability, rollType, opposed) {
+  async rollAbilityCheck(ability, rollType, opposed, useVoidPoint) {
+    if (useVoidPoint) {
+      await this.decrementVoidPoints();
+    }
+
     const d20Formula = this.formulaForRollType(rollType);
     const abilityRoll = new Roll(
       `${d20Formula} + @abilities.${ability}.value`,
       this.getRollData()
     );
-    // roll.toMessage({
-    //   user: game.user.id,
-    //   speaker: ChatMessage.getSpeaker({ actor: this }),
-    //   flavor: `${ability.toUpperCase()} check`,
-    // });
     abilityRoll.evaluate({ async: false });
     await showDice(abilityRoll);
 
     const targetDR = 12;
     const opposedWord = opposed ? `${game.i18n.localize("DIS.Opposed")} ` : "";
-    const cardTitle = `${opposedWord}${ability} ${game.i18n.localize("DIS.Check")}`;
+    const cardTitle = `${game.i18n.localize("DIS.Check")} ${opposedWord}${ability}`;
     const drWord = opposed ? game.i18n.localize("DIS.Opponent") : `${game.i18n.localize("DIS.DR")}${targetDR}`;
     const abilityText = `${d20Formula}+${ability.toUpperCase()} ${game.i18n.localize("DIS.Vs")} ${drWord}`; 
 
+    let gainVoidPoint;
+    let rollVoidCorruption;
     let abilityOutcome;
     if (opposed) {
       abilityOutcome = game.i18n.localize("DIS.HighestResultWins");
     } else {
       const success = abilityRoll.total >= targetDR;
-      abilityOutcome = success ? game.i18n.localize("DIS.Success") : game.i18n.localize("DIS.Failure");  
+      if (success) {
+        abilityOutcome = game.i18n.localize("DIS.Success");
+      } else if (useVoidPoint) {
+        // failure when using a void point => void corruption
+        abilityOutcome = game.i18n.localize("DIS.FailureRollVoidCorruption");  
+        rollVoidCorruption = true;
+      } else {
+        // regular failure, gain a void point
+        abilityOutcome = game.i18n.localize("DIS.FailureGainVoidPoint");
+        gainVoidPoint = true;
+      }
     }
     const chatData = {
       abilityOutcome,
@@ -175,20 +191,14 @@ export class DISActor extends Actor {
       content: html,
       sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
-    });       
-  }
+    });
 
-  // async rollAbilityCheck(ability) {
-  //   const roll = new Roll(
-  //     `1d20 + @abilities.${ability}.value`,
-  //     this.getRollData()
-  //   );
-  //   roll.toMessage({
-  //     user: game.user.id,
-  //     speaker: ChatMessage.getSpeaker({ actor: this }),
-  //     flavor: `${ability.toUpperCase()} check`,
-  //   });
-  // }
+    if (gainVoidPoint) {
+      await this.incrementVoidPoints();
+    } else if (rollVoidCorruption) {
+      this.rollVoidCorruption();
+    }
+  }
 
   async showAttackDialogWithItem(itemId) {
     const item = this.items.get(itemId);
@@ -279,6 +289,8 @@ export class DISActor extends Actor {
       damageRoll,
       damageText,
       riskyOutcome,
+      voidPointsClass: this.hasVoidPoints ? "enabled" : "disabled",
+      voidPointsDisabled: this.hasVoidPoints ? "" : "disabled",
     };
     const html = await renderTemplate(
       "systems/deathinspace/templates/chat/attack-outcome.html", chatData);
@@ -288,25 +300,6 @@ export class DISActor extends Actor {
       speaker: ChatMessage.getSpeaker({ actor: this }),
     });    
   }
-
-  // async rollItemAttack(itemId) {
-  //   const item = this.items.get(itemId);
-  //   if (!item) {
-  //     return;
-  //   }
-  //   const weaponType =
-  //     item.data.data.weaponType[0].toUpperCase() +
-  //     item.data.data.weaponType.substring(1);
-  //   const roll = new Roll(
-  //     `1d20 + @abilities.${ability}.value`,
-  //     this.getRollData()
-  //   );
-  //   roll.toMessage({
-  //     user: game.user.id,
-  //     speaker: ChatMessage.getSpeaker({ actor: this }),
-  //     flavor: `${weaponType} attack with ${item.name}`,
-  //   });
-  // }
 
   async rollItemDamage(itemId) {
     const item = this.items.get(itemId);
@@ -320,15 +313,6 @@ export class DISActor extends Actor {
       flavor: `${item.name} damage`,
     });
   }
-
-  // async rollNpcAttack() {
-  //   const roll = new Roll(`1d20 + @attackBonus`, this.getRollData());
-  //   roll.toMessage({
-  //     user: game.user.id,
-  //     speaker: ChatMessage.getSpeaker({ actor: this }),
-  //     flavor: `Attack with ${this.data.data.attack}`,
-  //   });
-  // }
 
   async rollNpcDamage() {
     if (!this.data.data.damage) {
@@ -353,5 +337,34 @@ export class DISActor extends Actor {
 
   async regenerate() {
     regenerateCharacter(this);
+  }
+
+  async decrementVoidPoints() {
+    if (!this.hasVoidPoints) {
+      return;
+    }
+    await this.update({ ["data.voidPoints.value"]:  this.data.data.voidPoints.value - 1 });
+  }
+
+  async incrementVoidPoints() {
+    if (!this.data.data.voidPoints) {
+      return;
+    }
+    // max 4 void points
+    const newValue = Math.min(this.data.data.voidPoints.value + 1, 4);
+    await this.update({ ["data.voidPoints.value"]: newValue });
+  }
+
+  async rollVoidCorruption() {
+    const roll = new Roll("1d6");
+    await roll.toMessage({
+      user: game.user.id,
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      flavor: `${game.i18n.localize('DIS.VoidCorruption')}?`,
+    });
+    if (roll.total === 1) {
+      const table = await tableFromPack("deathinspace.character-creation", "Void Corruption");
+      await table.draw();  
+    }
   }
 }

@@ -25,6 +25,10 @@
         }        
       }
     }
+
+    &.disabled {
+      background-color: lightgray;
+    }
   }
 
   .button-row {

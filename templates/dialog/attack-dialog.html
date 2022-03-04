@@ -1,10 +1,9 @@
 
-<form class="custom-dialog ability-check-dialog">
-  <div class="form-group {{voidPointsClass}}">
-    <label>{{ localize "DIS.UseVoidPoint" }}?</label>
-    <div>{{#if hasVoidPoints}}
-      <input name="use-void-point" type="checkbox" value="1"/>{{else}}
-      <input name="use-void-point" type="checkbox" value="1" disabled="disabled"/>{{/if}}
+<form class="custom-dialog attack-dialog">
+  <div class="form-group"> 
+    <label>{{ localize "DIS.DefenderDR" }}</label>
+    <div>
+      <input type="number" name="defender-dr" value="12" data-dtype="Number"/>
     </div>
   </div>
   <div class="form-group"> 
@@ -31,12 +30,12 @@
     </ul>
   </div>
   <div class="form-group"> 
-    <label>{{ localize "DIS.Opposed" }}?</label>
+    <label>{{ localize "DIS.RiskyAttack" }}?</label>
     <div>
-      <input name="opposed" type="checkbox" value="1"/>
+      <input name="risky" type="checkbox" value="1"/>
     </div>
   </div>
   <div class="button-row">
-    <button class="ability-check-button" name="ability-check-button">{{ localize "DIS.Roll" }}</button>
+    <button class="attack-button" type="submit" name="Attack">{{ localize "DIS.Attack" }}</button>
   </div>
 </form>
