@@ -1,12 +1,4 @@
-
-.deathinspace.app.window-app {
-  // background-image: url(../assets/images/ui/seamless_paper_texture.png) repeat;
-  .window-content {
-    background: url(../assets/images/ui/seamless_paper_texture.png) repeat;
-  }
-}
-
-.attack-dialog {
+.custom-dialog {
   border: 2px solid var(--character-background-color);  
   color: var(--foreground-color);
   font-family: var(--text-font);  
@@ -57,5 +49,5 @@
         text-shadow: 0 0 10px var(--highlight-background-color);
       }
     }
-  }
+  }  
 }

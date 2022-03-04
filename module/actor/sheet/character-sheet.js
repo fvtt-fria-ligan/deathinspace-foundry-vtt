@@ -25,7 +25,6 @@ export class DISCharacterSheet extends DISActorSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    html.find(".ability-name").on("click", this._onAbilityRoll.bind(this));
     html
       .find(".weapon-attack")
       .on("click", this._onWeaponRoll.bind(this));
@@ -35,6 +34,7 @@ export class DISCharacterSheet extends DISActorSheet {
     html.find(".add-belonging").click(this._onAddBelonging.bind(this));
     html.find("a.regenerate").click(this._onRegenerate.bind(this));
     html.find("a.item-equip").click(this._onEquipToggle.bind(this));
+    html.find(".item-condition").click(this._onItemConditionCheck.bind(this));
   }
 
   /** @override */
@@ -120,12 +120,6 @@ export class DISCharacterSheet extends DISActorSheet {
     });
   }
 
-  _onAbilityRoll(event) {
-    event.preventDefault();
-    const ability = event.target.getAttribute("data-ability");
-    this.actor.rollAbilityCheck(ability);
-  }
-
   _onWeaponRoll(event) {
     event.preventDefault();
     const row = $(event.currentTarget).parents(".item");
@@ -184,6 +178,16 @@ export class DISCharacterSheet extends DISActorSheet {
       default: "cancel",
     });
     d.render(true);
+  }
+
+  _onItemConditionCheck(event) {
+    const row = $(event.currentTarget).parents(".item");
+    if (row) {
+      const item = this.actor.items.get(row.data("itemId"));
+      if (item) {
+        item.checkCondition();
+      }
+    }
   }
 }
 

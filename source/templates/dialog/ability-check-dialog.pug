@@ -1,0 +1,31 @@
+form.custom-dialog.ability-check-dialog
+
+  .form-group 
+    label
+      | {{ localize "DIS.RollType" }}
+    ul
+      li
+        label
+          input(name="roll-type" type="radio" value="normal" checked)
+          div
+            | {{ localize "DIS.RollTypeNormal" }}
+      li
+        label 
+          input(name="roll-type" type="radio" value="advantage")
+          div
+            | {{ localize "DIS.RollTypeAdvantage" }}
+      li
+        label
+          input(name="roll-type" type="radio" value="disadvantage")
+          div
+            | {{ localize "DIS.RollTypeDisadvantage" }}
+
+  .form-group 
+    label
+      | {{ localize "DIS.Opposed" }}?
+    div
+      input(name="opposed" type="checkbox" value="1")
+
+  .button-row
+    button(class="ability-check-button" name="ability-check-button")
+      | {{ localize "DIS.Roll" }}

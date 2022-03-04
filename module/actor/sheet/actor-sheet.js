@@ -9,7 +9,7 @@ export default class DISActorSheet extends ActorSheet {
     html.find(".item-edit").click(this._onItemEdit.bind(this));
     html.find(".item-delete").click(this._onItemDelete.bind(this));
     html.find('.inline-edit').change(this._onInlineEdit.bind(this));
-    html.find(".item-condition").click(this._onItemConditionCheck.bind(this));
+    html.find(".ability-name").on("click", this._onAbilityRoll.bind(this));
   }
 
   _onItemCreate(event) {
@@ -55,13 +55,9 @@ export default class DISActorSheet extends ActorSheet {
     }
   }
 
-  _onItemConditionCheck(event) {
-    const row = $(event.currentTarget).parents(".item");
-    if (row) {
-      const item = this.actor.items.get(row.data("itemId"));
-      if (item) {
-        item.checkCondition();
-      }
-    }
+  _onAbilityRoll(event) {
+    event.preventDefault();
+    const ability = event.target.getAttribute("data-ability");
+    this.actor.showAbilityCheckDialog(ability);
   }
 }

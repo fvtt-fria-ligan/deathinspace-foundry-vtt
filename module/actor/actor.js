@@ -1,6 +1,7 @@
 import { diceSound, showDice } from "../dice.js";
 import { regenerateCharacter } from "../generator.js";
 import AttackDialog from "./sheet/attack-dialog.js";
+import AbilityCheckDialog from "../dialog/ability-check-dialog.js";
 
 /**
  * @extends {Actor}
@@ -118,17 +119,76 @@ export class DISActor extends Actor {
     return this.abilityCheck("tech");
   }
 
-  async rollAbilityCheck(ability) {
-    const roll = new Roll(
-      `1d20 + @abilities.${ability}.value`,
+  async showAbilityCheckDialog(ability) {
+    const checkDialog = new AbilityCheckDialog();
+    checkDialog.actor = this;
+    checkDialog.ability = ability;
+    checkDialog.render(true);
+  }
+
+  formulaForRollType(rollType) {
+    let d20Formula = "1d20";
+    if (rollType === "advantage") {
+      d20Formula = "2d20kh";
+    } else if (rollType === "disadvantage") {
+      d20Formula = "2d20kl";
+    }
+    return d20Formula;
+  }
+
+  async rollAbilityCheck(ability, rollType, opposed) {
+    const d20Formula = this.formulaForRollType(rollType);
+    const abilityRoll = new Roll(
+      `${d20Formula} + @abilities.${ability}.value`,
       this.getRollData()
     );
-    roll.toMessage({
-      user: game.user.id,
+    // roll.toMessage({
+    //   user: game.user.id,
+    //   speaker: ChatMessage.getSpeaker({ actor: this }),
+    //   flavor: `${ability.toUpperCase()} check`,
+    // });
+    abilityRoll.evaluate({ async: false });
+    await showDice(abilityRoll);
+
+    const targetDR = 12;
+    const opposedWord = opposed ? `${game.i18n.localize("DIS.Opposed")} ` : "";
+    const cardTitle = `${opposedWord}${ability} ${game.i18n.localize("DIS.Check")}`;
+    const drWord = opposed ? game.i18n.localize("DIS.Opponent") : `${game.i18n.localize("DIS.DR")}${targetDR}`;
+    const abilityText = `${d20Formula}+${ability.toUpperCase()} ${game.i18n.localize("DIS.Vs")} ${drWord}`; 
+
+    let abilityOutcome;
+    if (opposed) {
+      abilityOutcome = game.i18n.localize("DIS.HighestResultWins");
+    } else {
+      const success = abilityRoll.total >= targetDR;
+      abilityOutcome = success ? game.i18n.localize("DIS.Success") : game.i18n.localize("DIS.Failure");  
+    }
+    const chatData = {
+      abilityOutcome,
+      abilityText,
+      abilityRoll,
+      cardTitle,
+    };
+    const html = await renderTemplate(
+      "systems/deathinspace/templates/chat/ability-check.html", chatData);
+    ChatMessage.create({
+      content: html,
+      sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: `${ability.toUpperCase()} check`,
-    });
+    });       
   }
+
+  // async rollAbilityCheck(ability) {
+  //   const roll = new Roll(
+  //     `1d20 + @abilities.${ability}.value`,
+  //     this.getRollData()
+  //   );
+  //   roll.toMessage({
+  //     user: game.user.id,
+  //     speaker: ChatMessage.getSpeaker({ actor: this }),
+  //     flavor: `${ability.toUpperCase()} check`,
+  //   });
+  // }
 
   async showAttackDialogWithItem(itemId) {
     const item = this.items.get(itemId);
@@ -169,12 +229,7 @@ export class DISActor extends Actor {
   }
 
   async rollAttack(attackName, attackAbility, attackDamage, defenderDR, rollType, risky) {
-    let d20Formula = "1d20";
-    if (rollType === "advantage") {
-      d20Formula = "2d20kh";
-    } else if (rollType === "disadvantage") {
-      d20Formula = "2d20kl";
-    }
+    const d20Formula = this.formulaForRollType(rollType);
     const attackTitle = `${game.i18n.localize("DIS.AttackWith")} ${attackName}`;
     const attackText = `${game.i18n.localize("DIS.ToHit")}: ${d20Formula}+${attackAbility.toUpperCase()} ${game.i18n.localize("DIS.Vs")} ${game.i18n.localize("DIS.DR")}${defenderDR}`; 
     const rollData = this.getRollData();
@@ -266,14 +321,14 @@ export class DISActor extends Actor {
     });
   }
 
-  async rollNpcAttack() {
-    const roll = new Roll(`1d20 + @attackBonus`, this.getRollData());
-    roll.toMessage({
-      user: game.user.id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: `Attack with ${this.data.data.attack}`,
-    });
-  }
+  // async rollNpcAttack() {
+  //   const roll = new Roll(`1d20 + @attackBonus`, this.getRollData());
+  //   roll.toMessage({
+  //     user: game.user.id,
+  //     speaker: ChatMessage.getSpeaker({ actor: this }),
+  //     flavor: `Attack with ${this.data.data.attack}`,
+  //   });
+  // }
 
   async rollNpcDamage() {
     if (!this.data.data.damage) {

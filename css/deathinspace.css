@@ -154,44 +154,6 @@
 .deathinspace.sheet .editor {
   padding: 0 8px;
 }
-.attack-outcome-card {
-  border: 2px solid var(--character-background-color);
-}
-.attack-outcome-card .risky-outcome {
-  font-size: 12px;
-  text-transform: none;
-}
-.roll-card {
-  border: 2px solid var(--highlight-background-color);
-  font-family: var(--text-font);
-  padding: 5px;
-}
-.roll-card .card-title {
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-.roll-card .roll-title {
-  text-align: center;
-  text-transform: uppercase;
-}
-.roll-card .roll-result {
-  border: 1px solid gray;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  text-align: center;
-}
-.roll-card .roll-result span {
-  font-size: 20px;
-}
-.roll-card .outcome-text {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-align: center;
-  text-transform: uppercase;
-}
 /* ====================== */
 /* Actor sheet */
 /* ====================== */
@@ -564,7 +526,7 @@
 .deathinspace.sheet.actor.character .situation-tab .situation-wrapper {
   display: inline-grid;
   grid-template-columns: 65% 35%;
-  grid-template-rows: 70px 174px 250px;
+  grid-template-rows: 70px 174px 223px;
   width: 100%;
 }
 .deathinspace.sheet.actor.character .situation-tab .void-points-block {
@@ -1416,6 +1378,45 @@
 .deathinspace.sheet.npc .data-wrapper .form-spacer {
   height: 20px;
 }
+
+.attack-outcome-card {
+  border: 2px solid var(--character-background-color);
+}
+.attack-outcome-card .risky-outcome {
+  font-size: 12px;
+  text-transform: none;
+}
+.roll-card {
+  border: 2px solid var(--highlight-background-color);
+  font-family: var(--text-font);
+  padding: 5px;
+}
+.roll-card .card-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.roll-card .roll-title {
+  text-align: center;
+  text-transform: uppercase;
+}
+.roll-card .roll-result {
+  border: 1px solid gray;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+.roll-card .roll-result span {
+  font-size: 20px;
+}
+.roll-card .outcome-text {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
 .deathinspace.sheet.item {
   /* Notes tab */
   /* Data tab */
@@ -1514,4 +1515,48 @@
 }
 .deathinspace.sheet.item .data-wrapper .form-spacer {
   height: 20px;
+}
+
+.custom-dialog {
+  border: 2px solid var(--character-background-color);
+  color: var(--foreground-color);
+  font-family: var(--text-font);
+  margin: 0;
+  padding: 10px;
+}
+.custom-dialog .form-group {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.custom-dialog .form-group ul {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+.custom-dialog .form-group ul li input[type=radio] {
+  float: left;
+  margin-top: 5px;
+}
+.custom-dialog .form-group ul li label div {
+  display: block;
+  margin-left: 30px;
+}
+.custom-dialog .button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+.custom-dialog .button-row button {
+  border: none;
+  border-radius: 0;
+  background-color: var(--character-background-color);
+  color: white;
+  font-size: 18px;
+  text-transform: uppercase;
+  width: 150px;
+}
+.custom-dialog .button-row button:active, .custom-dialog .button-row button:focus, .custom-dialog .button-row button:hover {
+  box-shadow: 0 0 5px var(--highlight-background-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);
 }
