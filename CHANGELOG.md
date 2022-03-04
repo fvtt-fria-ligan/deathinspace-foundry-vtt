@@ -1,3 +1,6 @@
+# 0.15.0
+- Fix hub sheet layout tab position shift bug.
+
 # 0.14.0
 - Add dialog and roll card for ability checks.
 - Add automation for using/gaining void points and void corruption.
