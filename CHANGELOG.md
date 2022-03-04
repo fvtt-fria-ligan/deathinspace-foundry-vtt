@@ -2,6 +2,8 @@
 - Wordsmith condition messages.
 - Add examples to weapon descriptions.
 - Add riot shield description.
+- Add dialog and roll card for ability checks.
+- Add automation for using void points.
 
 # 0.13.0
 - Add button and roll card for testing item condition.

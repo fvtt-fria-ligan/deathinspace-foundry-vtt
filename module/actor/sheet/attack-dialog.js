@@ -5,7 +5,7 @@ export default class AttackDialog extends Application {
     options.id = "attack-dialog";
     options.classes = ["deathinspace"];
     options.title = game.i18n.localize("DIS.Attack");
-    options.template = "systems/deathinspace/templates/actor/attack-dialog.html";
+    options.template = "systems/deathinspace/templates/dialog/attack-dialog.html";
     options.width = 420;
     options.height = "auto";
     return options;
