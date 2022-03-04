@@ -390,8 +390,9 @@
     background-position: -14px -14px;
     background-size: 30px 30px;
     display: flex;
-    height: 100%;
+    flex-direction: column;
     justify-content: center;
+    width: 100%;
     .layout-image {
       height: auto;
       margin: auto;

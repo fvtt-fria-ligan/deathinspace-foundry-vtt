@@ -1215,8 +1215,9 @@
   background-position: -14px -14px;
   background-size: 30px 30px;
   display: flex;
-  height: 100%;
+  flex-direction: column;
   justify-content: center;
+  width: 100%;
 }
 .deathinspace.sheet.actor.hub .layout-wrapper .layout-image {
   height: auto;
@@ -1370,100 +1371,6 @@
   text-align: center;
   text-transform: uppercase;
 }
-
-.deathinspace.app.window-app .window-content {
-  background: url(../assets/images/ui/seamless_paper_texture.png) repeat;
-}
-
-.attack-dialog {
-  border: 2px solid var(--character-background-color);
-  color: var(--foreground-color);
-  font-family: var(--text-font);
-  margin: 0;
-  padding: 10px;
-}
-.attack-dialog .form-group {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.attack-dialog .form-group ul {
-  list-style-type: none;
-  margin-left: 0;
-  padding-left: 0;
-}
-.attack-dialog .form-group ul li input[type=radio] {
-  float: left;
-  margin-top: 5px;
-}
-.attack-dialog .form-group ul li label div {
-  display: block;
-  margin-left: 30px;
-}
-.attack-dialog .button-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-top: 10px;
-}
-.attack-dialog .button-row button {
-  border: none;
-  border-radius: 0;
-  background-color: var(--character-background-color);
-  color: white;
-  font-size: 18px;
-  text-transform: uppercase;
-  width: 150px;
-}
-.attack-dialog .button-row button:active, .attack-dialog .button-row button:focus, .attack-dialog .button-row button:hover {
-  box-shadow: 0 0 5px var(--highlight-background-color);
-  text-shadow: 0 0 10px var(--highlight-background-color);
-}
-.custom-dialog {
-  border: 2px solid var(--character-background-color);
-  color: var(--foreground-color);
-  font-family: var(--text-font);
-  margin: 0;
-  padding: 10px;
-}
-.custom-dialog .form-group {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.custom-dialog .form-group ul {
-  list-style-type: none;
-  margin-left: 0;
-  padding-left: 0;
-}
-.custom-dialog .form-group ul li input[type=radio] {
-  float: left;
-  margin-top: 5px;
-}
-.custom-dialog .form-group ul li label div {
-  display: block;
-  margin-left: 30px;
-}
-.custom-dialog .form-group.disabled {
-  background-color: lightgray;
-}
-.custom-dialog .button-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-top: 10px;
-}
-.custom-dialog .button-row button {
-  border: none;
-  border-radius: 0;
-  background-color: var(--character-background-color);
-  color: white;
-  font-size: 18px;
-  text-transform: uppercase;
-  width: 150px;
-}
-.custom-dialog .button-row button:active, .custom-dialog .button-row button:focus, .custom-dialog .button-row button:hover {
-  box-shadow: 0 0 5px var(--highlight-background-color);
-  text-shadow: 0 0 10px var(--highlight-background-color);
-}
 .deathinspace.sheet.item {
   /* Notes tab */
   /* Data tab */
@@ -1562,4 +1469,98 @@
 }
 .deathinspace.sheet.item .data-wrapper .form-spacer {
   height: 20px;
+}
+
+.deathinspace.app.window-app .window-content {
+  background: url(../assets/images/ui/seamless_paper_texture.png) repeat;
+}
+
+.attack-dialog {
+  border: 2px solid var(--character-background-color);
+  color: var(--foreground-color);
+  font-family: var(--text-font);
+  margin: 0;
+  padding: 10px;
+}
+.attack-dialog .form-group {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.attack-dialog .form-group ul {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+.attack-dialog .form-group ul li input[type=radio] {
+  float: left;
+  margin-top: 5px;
+}
+.attack-dialog .form-group ul li label div {
+  display: block;
+  margin-left: 30px;
+}
+.attack-dialog .button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+.attack-dialog .button-row button {
+  border: none;
+  border-radius: 0;
+  background-color: var(--character-background-color);
+  color: white;
+  font-size: 18px;
+  text-transform: uppercase;
+  width: 150px;
+}
+.attack-dialog .button-row button:active, .attack-dialog .button-row button:focus, .attack-dialog .button-row button:hover {
+  box-shadow: 0 0 5px var(--highlight-background-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);
+}
+.custom-dialog {
+  border: 2px solid var(--character-background-color);
+  color: var(--foreground-color);
+  font-family: var(--text-font);
+  margin: 0;
+  padding: 10px;
+}
+.custom-dialog .form-group {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.custom-dialog .form-group ul {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+.custom-dialog .form-group ul li input[type=radio] {
+  float: left;
+  margin-top: 5px;
+}
+.custom-dialog .form-group ul li label div {
+  display: block;
+  margin-left: 30px;
+}
+.custom-dialog .form-group.disabled {
+  background-color: lightgray;
+}
+.custom-dialog .button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+.custom-dialog .button-row button {
+  border: none;
+  border-radius: 0;
+  background-color: var(--character-background-color);
+  color: white;
+  font-size: 18px;
+  text-transform: uppercase;
+  width: 150px;
+}
+.custom-dialog .button-row button:active, .custom-dialog .button-row button:focus, .custom-dialog .button-row button:hover {
+  box-shadow: 0 0 5px var(--highlight-background-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);
 }
