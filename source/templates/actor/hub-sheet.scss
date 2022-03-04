@@ -391,11 +391,13 @@
     background-size: 30px 30px;
     display: flex;
     flex-direction: column;
+    height: 100%;
     justify-content: center;
     width: 100%;
     .layout-image {
-      height: auto;
+      flex: 1;
       margin: auto;
+      width: auto;
     }
   } // layout-wrapper
 
