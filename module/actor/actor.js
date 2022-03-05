@@ -154,9 +154,8 @@ export class DISActor extends Actor {
     abilityRoll.evaluate({ async: false });
     await showDice(abilityRoll);
 
-    const targetDR = 12;
-    const opposedWord = opposed ? `${game.i18n.localize("DIS.Opposed")} ` : "";
-    const cardTitle = `${game.i18n.localize("DIS.Check")} ${opposedWord}${ability}`;
+    const targetDR = 12;    
+    const cardTitle = `${game.i18n.localize("DIS.Check")} ${ability}`;
     const drWord = opposed ? game.i18n.localize("DIS.Opponent") : `${game.i18n.localize("DIS.DR")}${targetDR}`;
     const abilityText = `${d20Formula}+${ability.toUpperCase()} ${game.i18n.localize("DIS.Vs")} ${drWord}`; 
 
