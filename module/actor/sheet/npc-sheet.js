@@ -28,7 +28,7 @@ export class DISNpcSheet extends DISActorSheet {
   _onAbilityRoll(event) {
     event.preventDefault();
     const ability = event.target.getAttribute("data-ability");
-    this.actor.rollAbilityCheck(ability);
+    this.actor.showAbilityCheckDialog(ability);
   }
 
   _onMoraleRoll(event) {
