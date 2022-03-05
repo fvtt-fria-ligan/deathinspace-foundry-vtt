@@ -41,7 +41,8 @@
     height: 16px;
     width: 30px;
   }
-  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: var(--input-border-color);
     opacity: 0.5;
   }

@@ -8,8 +8,14 @@ export class DISItemSheet extends ItemSheet {
       classes: ["deathinspace", "sheet", "item"],
       width: 730,
       height: 680,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "notes"}],
-      dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
+      tabs: [
+        {
+          navSelector: ".sheet-tabs",
+          contentSelector: ".sheet-body",
+          initial: "notes",
+        },
+      ],
+      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
     });
   }
 
@@ -25,4 +31,3 @@ export class DISItemSheet extends ItemSheet {
     super.activateListeners(html);
   }
 }
-  

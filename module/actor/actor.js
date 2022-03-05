@@ -18,26 +18,26 @@ export class DISActor extends Actor {
     if (data.type === "character") {
       defaults = {
         actorLink: true,
-        disposition: 1,  // friendly
+        disposition: 1, // friendly
         vision: true,
       };
     } else if (data.type === "npc") {
       defaults = {
         actorLink: false,
-        disposition: -1,  // hostile
+        disposition: -1, // hostile
         vision: false,
       };
     } else if (data.type === "hub") {
       defaults = {
         actorLink: true,
-        disposition: 0,  // neutral
+        disposition: 0, // neutral
         vision: true,
       };
     }
     mergeObject(data.token, defaults, { overwrite: false });
     return super.create(data, options);
   }
-  
+
   _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
     // give new Hubs the 4 core functions
@@ -48,12 +48,14 @@ export class DISActor extends Actor {
 
   get hasVoidPoints() {
     return this.data.data.voidPoints && this.data.data.voidPoints.value;
-  } 
-    
+  }
+
   async _addCoreFunctionItems() {
     const pack = game.packs.get("deathinspace.hub-modules-core-functions");
     if (!pack) {
-      console.error("Could not find compendium deathinspace.hub-modules-core-functions");
+      console.error(
+        "Could not find compendium deathinspace.hub-modules-core-functions"
+      );
       return;
     }
     const index = await pack.getIndex();
@@ -61,10 +63,10 @@ export class DISActor extends Actor {
       "(CF) Command Center",
       "(CF) Crew Quarters",
       "(CF) Life Support",
-      "(CF) Mess"
-    ];  
+      "(CF) Mess",
+    ];
     for (const coreFunctionName of coreFunctionNames) {
-      const entry = index.find(e => e.name === coreFunctionName);
+      const entry = index.find((e) => e.name === coreFunctionName);
       if (!entry) {
         console.error(`Could not find entry ${coreFunctionName}`);
         continue;
@@ -90,20 +92,26 @@ export class DISActor extends Actor {
         ["data.fuel.value"]: documents[0].data.data.fuelDepot,
       });
     }
-    super._onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId);
+    super._onCreateEmbeddedDocuments(
+      embeddedName,
+      documents,
+      result,
+      options,
+      userId
+    );
   }
 
   async _deleteItems(itemType) {
-    const itemsOfType = this.items.filter(i => i.data.type === itemType);
-    const deletions = itemsOfType.map(i => i.id);
+    const itemsOfType = this.items.filter((i) => i.data.type === itemType);
+    const deletions = itemsOfType.map((i) => i.id);
     // not awaiting this async call, just fire it off
     this.deleteEmbeddedDocuments("Item", deletions);
   }
 
   async _deleteEarlierItems(itemType) {
-    const itemsOfType = this.items.filter(i => i.data.type === itemType);
-    itemsOfType.pop();  // don't delete the last one
-    const deletions = itemsOfType.map(i => i.id);
+    const itemsOfType = this.items.filter((i) => i.data.type === itemType);
+    itemsOfType.pop(); // don't delete the last one
+    const deletions = itemsOfType.map((i) => i.id);
     // not awaiting this async call, just fire it off
     this.deleteEmbeddedDocuments("Item", deletions);
   }
@@ -154,10 +162,14 @@ export class DISActor extends Actor {
     abilityRoll.evaluate({ async: false });
     await showDice(abilityRoll);
 
-    const targetDR = 12;    
+    const targetDR = 12;
     const cardTitle = `${game.i18n.localize("DIS.Check")} ${ability}`;
-    const drWord = opposed ? game.i18n.localize("DIS.Opponent") : `${game.i18n.localize("DIS.DR")}${targetDR}`;
-    const abilityText = `${d20Formula}+${ability.toUpperCase()} ${game.i18n.localize("DIS.Vs")} ${drWord}`; 
+    const drWord = opposed
+      ? game.i18n.localize("DIS.Opponent")
+      : `${game.i18n.localize("DIS.DR")}${targetDR}`;
+    const abilityText = `${d20Formula}+${ability.toUpperCase()} ${game.i18n.localize(
+      "DIS.Vs"
+    )} ${drWord}`;
 
     let gainVoidPoint;
     let rollVoidCorruption;
@@ -170,7 +182,7 @@ export class DISActor extends Actor {
         abilityOutcome = game.i18n.localize("DIS.Success");
       } else if (useVoidPoint) {
         // failure when using a void point => void corruption
-        abilityOutcome = game.i18n.localize("DIS.FailureRollVoidCorruption");  
+        abilityOutcome = game.i18n.localize("DIS.FailureRollVoidCorruption");
         rollVoidCorruption = true;
       } else {
         // regular failure, gain a void point
@@ -185,7 +197,9 @@ export class DISActor extends Actor {
       cardTitle,
     };
     const html = await renderTemplate(
-      "systems/deathinspace/templates/chat/ability-check.html", chatData);
+      "systems/deathinspace/templates/chat/ability-check.html",
+      chatData
+    );
     ChatMessage.create({
       content: html,
       sound: diceSound(),
@@ -205,11 +219,15 @@ export class DISActor extends Actor {
       return;
     }
     if (item.broken) {
-      ui.notifications.warn(`${game.i18n.localize("DIS.WeaponBroken").toUpperCase()}!!!`);
+      ui.notifications.warn(
+        `${game.i18n.localize("DIS.WeaponBroken").toUpperCase()}!!!`
+      );
       return;
     }
     if (item.outOfAmmo) {
-      ui.notifications.warn(`${game.i18n.localize("DIS.OutOfAmmo").toUpperCase()}!!!`);
+      ui.notifications.warn(
+        `${game.i18n.localize("DIS.OutOfAmmo").toUpperCase()}!!!`
+      );
       return;
     }
     const attackDialog = new AttackDialog();
@@ -233,18 +251,39 @@ export class DISActor extends Actor {
       return;
     }
     await item.decrementAmmo();
-    const attackAbility = item.data.data.weaponType === "melee" ? "body" : "tech";
-    await this.rollAttack(item.name, attackAbility, item.data.data.damage, defenderDR, rollType, risky, useVoidPoint);
+    const attackAbility =
+      item.data.data.weaponType === "melee" ? "body" : "tech";
+    await this.rollAttack(
+      item.name,
+      attackAbility,
+      item.data.data.damage,
+      defenderDR,
+      rollType,
+      risky,
+      useVoidPoint
+    );
   }
 
-  async rollAttack(attackName, attackAbility, attackDamage, defenderDR, rollType, risky, useVoidPoint) {
+  async rollAttack(
+    attackName,
+    attackAbility,
+    attackDamage,
+    defenderDR,
+    rollType,
+    risky,
+    useVoidPoint
+  ) {
     if (useVoidPoint) {
       await this.decrementVoidPoints();
     }
 
     const d20Formula = this.formulaForRollType(rollType);
     const attackTitle = `${game.i18n.localize("DIS.AttackWith")} ${attackName}`;
-    const attackText = `${game.i18n.localize("DIS.ToHit")}: ${d20Formula}+${attackAbility.toUpperCase()} ${game.i18n.localize("DIS.Vs")} ${game.i18n.localize("DIS.DR")}${defenderDR}`; 
+    const attackText = `${game.i18n.localize(
+      "DIS.ToHit"
+    )}: ${d20Formula}+${attackAbility.toUpperCase()} ${game.i18n.localize(
+      "DIS.Vs"
+    )} ${game.i18n.localize("DIS.DR")}${defenderDR}`;
     const rollData = this.getRollData();
     const attackRoll = new Roll(
       `${d20Formula} + @abilities.${attackAbility}.value`,
@@ -263,7 +302,9 @@ export class DISActor extends Actor {
     let damageText;
     if (isCrit || attackRoll.total >= defenderDR) {
       // hit
-      attackOutcome = game.i18n.localize(isCrit ? "DIS.AttackCriticalHit" : "DIS.AttackHit");
+      attackOutcome = game.i18n.localize(
+        isCrit ? "DIS.AttackCriticalHit" : "DIS.AttackHit"
+      );
       const baseDamage = attackDamage;
       let damageFormula = baseDamage;
       if (isCrit) {
@@ -306,7 +347,9 @@ export class DISActor extends Actor {
       voidPointsDisabled: this.hasVoidPoints ? "" : "disabled",
     };
     const html = await renderTemplate(
-      "systems/deathinspace/templates/chat/attack-outcome.html", chatData);
+      "systems/deathinspace/templates/chat/attack-outcome.html",
+      chatData
+    );
     ChatMessage.create({
       content: html,
       sound: diceSound(),
@@ -362,7 +405,9 @@ export class DISActor extends Actor {
     if (!this.hasVoidPoints) {
       return;
     }
-    await this.update({ ["data.voidPoints.value"]:  this.data.data.voidPoints.value - 1 });
+    await this.update({
+      ["data.voidPoints.value"]: this.data.data.voidPoints.value - 1,
+    });
   }
 
   async incrementVoidPoints() {
@@ -379,11 +424,14 @@ export class DISActor extends Actor {
     await roll.toMessage({
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: `${game.i18n.localize('DIS.VoidCorruption')}?`,
+      flavor: `${game.i18n.localize("DIS.VoidCorruption")}?`,
     });
     if (roll.total === 1) {
-      const table = await tableFromPack("deathinspace.character-creation", "Void Corruption");
-      await table.draw();  
+      const table = await tableFromPack(
+        "deathinspace.character-creation",
+        "Void Corruption"
+      );
+      await table.draw();
     }
   }
 }

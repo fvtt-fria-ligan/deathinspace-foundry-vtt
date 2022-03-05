@@ -15,7 +15,7 @@
       "system": "deathinspace",
       "path": "./packs/addictive-substances.db",
       "entity": "Item"
-    },    
+    },
     {
       "name": "armor",
       "label": "Armor",
@@ -29,7 +29,7 @@
       "system": "deathinspace",
       "path": "./packs/character-creation.db",
       "entity": "RollTable"
-    },    
+    },
     {
       "name": "corrupted-by-the-void",
       "label": "Corrupted by the Void",
@@ -50,7 +50,7 @@
       "system": "deathinspace",
       "path": "./packs/creatures-of-the-abyss.db",
       "entity": "Actor"
-    },    
+    },
     {
       "name": "electronics",
       "label": "Electronics",
@@ -71,7 +71,7 @@
       "system": "deathinspace",
       "path": "./packs/food.db",
       "entity": "Item"
-    },    
+    },
     {
       "name": "frames",
       "label": "Frames",
@@ -155,7 +155,7 @@
       "system": "deathinspace",
       "path": "./packs/weapons.db",
       "entity": "Item"
-    }    
+    }
   ],
   "languages": [
     {
@@ -163,7 +163,7 @@
       "name": "English",
       "path": "lang/en.json"
     }
-  ],  
+  ],
   "socket": true,
   "initiative": "1d6",
   "gridDistance": 10,
@@ -172,6 +172,6 @@
   "secondaryTokenAttribute": null,
   "minimumCoreVersion": "0.8.9",
   "compatibleCoreVersion": "0.8.9",
-  "manifest": "https://github.com/fvtt-fria-ligan/deathinspace-foundry-vtt/releases/latest/download/system.json",  
+  "manifest": "https://github.com/fvtt-fria-ligan/deathinspace-foundry-vtt/releases/latest/download/system.json",
   "download": "https://github.com/fvtt-fria-ligan/deathinspace-foundry-vtt/releases/latest/download/system.zip"
 }

@@ -5,7 +5,8 @@ export default class AttackDialog extends Application {
     options.id = "attack-dialog";
     options.classes = ["deathinspace"];
     options.title = game.i18n.localize("DIS.Attack");
-    options.template = "systems/deathinspace/templates/dialog/attack-dialog.html";
+    options.template =
+      "systems/deathinspace/templates/dialog/attack-dialog.html";
     options.width = 420;
     options.height = "auto";
     return options;
@@ -15,17 +16,19 @@ export default class AttackDialog extends Application {
   activateListeners(html) {
     super.activateListeners(html);
     html.find(".attack-button").click(this._onAttack.bind(this));
-    html.find("input[name=use-void-point]").change(this._onUseVoidPointChange.bind(this));
+    html
+      .find("input[name=use-void-point]")
+      .change(this._onUseVoidPointChange.bind(this));
   }
 
   /** @override */
   getData() {
     return {
       hasVoidPoints: this.actor.hasVoidPoints,
-      voidPointsClass: this.actor.hasVoidPoints ? "enabled" : "disabled",  
+      voidPointsClass: this.actor.hasVoidPoints ? "enabled" : "disabled",
     };
   }
-  
+
   _onUseVoidPointChange(event) {
     event.preventDefault();
     const useVoidPoint = $(event.currentTarget).is(":checked");
@@ -41,16 +44,30 @@ export default class AttackDialog extends Application {
     const form = $(event.currentTarget).parents(".attack-dialog")[0];
     const defenderDRStr = $(form).find("input[name=defender-dr]").val();
     const defenderDR = parseInt(defenderDRStr);
-    const rollType = $(form)
-      .find("input[name=roll-type]:checked")
-      .val();
+    const rollType = $(form).find("input[name=roll-type]:checked").val();
     const risky = $(form).find("input[name=risky]").is(":checked");
-    const useVoidPoint = $(form).find("input[name=use-void-point]").is(":checked");
+    const useVoidPoint = $(form)
+      .find("input[name=use-void-point]")
+      .is(":checked");
     this.close();
     if (this.itemId) {
-      this.actor.rollAttackWithItem(this.itemId, defenderDR, rollType, risky, useVoidPoint);
+      this.actor.rollAttackWithItem(
+        this.itemId,
+        defenderDR,
+        rollType,
+        risky,
+        useVoidPoint
+      );
     } else {
-      this.actor.rollAttack(this.attackName, this.attackAbility, this.attackDamage, defenderDR, rollType, risky, useVoidPoint);
+      this.actor.rollAttack(
+        this.attackName,
+        this.attackAbility,
+        this.attackDamage,
+        defenderDR,
+        rollType,
+        risky,
+        useVoidPoint
+      );
     }
   }
 }

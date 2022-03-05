@@ -1,4 +1,6 @@
 css/
-node_modules
+node_modules/
+packs/
+templates/
 *.min.css
 *.min.js

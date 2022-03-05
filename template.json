@@ -1,8 +1,7 @@
 {
   "Actor": {
     "types": ["character", "hub", "npc"],
-    "templates": {
-    },
+    "templates": {},
     "character": {
       "templates": [],
       "abilities": {
@@ -89,11 +88,11 @@
       "attackName": "",
       "attackDamage": "",
       "attackType": "melee",
-      "defenseRating": 12,      
+      "defenseRating": 12,
       "hitpoints": {
         "max": 1,
         "value": 1
-      },      
+      },
       "morale": 0,
       "special": ""
     }

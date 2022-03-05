@@ -1,5 +1,10 @@
 import { DISActor } from "./actor/actor.js";
-import { documentFromPack, drawDocument, drawDocuments, drawText } from "./packutils.js";
+import {
+  documentFromPack,
+  drawDocument,
+  drawDocuments,
+  drawText,
+} from "./packutils.js";
 
 const CREATION_PACK = "deathinspace.character-creation";
 
@@ -21,7 +26,7 @@ export const regenerateCharacter = async (actor) => {
   for (const token of actor.getActiveTokens()) {
     await token.document.update({
       img: actor.data.token.img,
-      name: actor.name
+      name: actor.name,
     });
   }
 };
@@ -61,7 +66,10 @@ const randomCharacter = async () => {
   // 6. starting gear and starting bonus
   const holos = rollTotal("3d10");
   const startingKitItems = await drawDocuments(CREATION_PACK, "Starting Kits");
-  const personalTrinket = await drawDocument(CREATION_PACK, "Personal Trinkets");
+  const personalTrinket = await drawDocument(
+    CREATION_PACK,
+    "Personal Trinkets"
+  );
 
   const actorData = {
     name,
@@ -87,24 +95,26 @@ const randomCharacter = async () => {
     img: portrait,
     token: {
       img: token,
-      name
+      name,
     },
-    type: "character",    
+    type: "character",
   };
-  const items = [origin.data, originBenefit.data, personalTrinket.data].concat(startingKitItems.map(x => x.data));
+  const items = [origin.data, originBenefit.data, personalTrinket.data].concat(
+    startingKitItems.map((x) => x.data)
+  );
 
   return {
     actorData,
-    items
+    items,
   };
-}
+};
 
 const maybeGiveStartingBonus = async (actor) => {
-  const sumOfAbilityScores = (
-    actor.data.data.abilities.body.value + 
-    actor.data.data.abilities.dexterity.value + 
-    actor.data.data.abilities.savvy.value + 
-    actor.data.data.abilities.tech.value);
+  const sumOfAbilityScores =
+    actor.data.data.abilities.body.value +
+    actor.data.data.abilities.dexterity.value +
+    actor.data.data.abilities.savvy.value +
+    actor.data.data.abilities.tech.value;
   if (sumOfAbilityScores >= 0) {
     // no starting bonus
     return;
@@ -121,27 +131,36 @@ const maybeGiveStartingBonus = async (actor) => {
       bonusHitPoints = 3;
       break;
     case 3:
-      bonusItem = await documentFromPack("deathinspace.armor", "EVA Suit - Heavy");
+      bonusItem = await documentFromPack(
+        "deathinspace.armor",
+        "EVA Suit - Heavy"
+      );
       break;
     case 4:
       bonusItem = await documentFromPack("deathinspace.weapons", "Pistol");
       break;
     case 5:
-      bonusFollower = await documentFromPack("deathinspace.starting-npcs", "AI guard animal");
+      bonusFollower = await documentFromPack(
+        "deathinspace.starting-npcs",
+        "AI guard animal"
+      );
       break;
     case 6:
-      bonusFollower = await documentFromPack("deathinspace.starting-npcs", "Old Crew Member");
-      break;    
+      bonusFollower = await documentFromPack(
+        "deathinspace.starting-npcs",
+        "Old Crew Member"
+      );
+      break;
   }
 
-  if (bonusItem) {    
-    await actor.createEmbeddedDocuments("Item", [bonusItem.data])
+  if (bonusItem) {
+    await actor.createEmbeddedDocuments("Item", [bonusItem.data]);
   }
   if (bonusHitPoints) {
     const newHP = actor.data.data.hitPoints.max + bonusHitPoints;
-    await actor.update({ 
+    await actor.update({
       ["data.hitPoints.max"]: newHP,
-      ["data.hitPoints.value"]: newHP 
+      ["data.hitPoints.value"]: newHP,
     });
   }
   if (bonusFollower) {
@@ -173,10 +192,8 @@ const pickOriginBenefit = async (origin) => {
     if (names.length) {
       const randName = names[Math.floor(Math.random() * names.length)];
       const pack = game.packs.get("deathinspace.origin-benefits");
-      const docs = await pack.getDocuments();  
-      const benefit = docs.find(
-        (i) => i.name === randName
-      );
+      const docs = await pack.getDocuments();
+      const benefit = docs.find((i) => i.name === randName);
       return benefit;
     }
   }
@@ -188,14 +205,17 @@ const randomCharacterImageBase = () => {
   const randNum = Math.floor(Math.random() * maxNum) + 1;
   const padded = randNum.toString().padStart(2, "0");
   return `character_${padded}`;
-}
+};
 
 export const generateSpacecraft = async () => {
   const defenseRating = 11;
   const maxCondition = 5;
   const fuelCapacity = 6;
   const name = await drawText("deathinspace.hub-creation", "Hub Names");
-  const background = await drawText("deathinspace.hub-creation", "Spacecraft Backgrounds");
+  const background = await drawText(
+    "deathinspace.hub-creation",
+    "Spacecraft Backgrounds"
+  );
   const quirk = await drawText("deathinspace.hub-creation", "Hub Quirks");
   const actorData = {
     name,
@@ -203,21 +223,27 @@ export const generateSpacecraft = async () => {
       background,
       condition: {
         max: maxCondition,
-        value: maxCondition
+        value: maxCondition,
       },
       fuel: {
         max: fuelCapacity,
-        value: fuelCapacity
+        value: fuelCapacity,
       },
       defenseRating,
-      quirks: quirk
+      quirks: quirk,
     },
     img: "systems/deathinspace/assets/images/icons/frames/frame-spacecraft.png",
-    type: "hub"
+    type: "hub",
   };
   const actor = await DISActor.create(actorData);
-  const frame = await documentFromPack("deathinspace.frames", "Starting spacecraft");
-  const engine = await documentFromPack("deathinspace.power-systems", "Chemical engine");
+  const frame = await documentFromPack(
+    "deathinspace.frames",
+    "Starting spacecraft"
+  );
+  const engine = await documentFromPack(
+    "deathinspace.power-systems",
+    "Chemical engine"
+  );
   await actor.createEmbeddedDocuments("Item", [frame.data, engine.data]);
   actor.sheet.render(true);
 };
@@ -227,7 +253,10 @@ export const generateStation = async () => {
   const maxCondition = 5;
   const fuelCapacity = 4;
   const name = await drawText("deathinspace.hub-creation", "Hub Names");
-  const background = await drawText("deathinspace.hub-creation", "Station Backgrounds");
+  const background = await drawText(
+    "deathinspace.hub-creation",
+    "Station Backgrounds"
+  );
   const quirk = await drawText("deathinspace.hub-creation", "Hub Quirks");
   const actorData = {
     name,
@@ -235,21 +264,27 @@ export const generateStation = async () => {
       background,
       condition: {
         max: maxCondition,
-        value: maxCondition
+        value: maxCondition,
       },
       fuel: {
         max: fuelCapacity,
-        value: fuelCapacity
+        value: fuelCapacity,
       },
       defenseRating,
-      quirks: quirk
+      quirks: quirk,
     },
     img: "systems/deathinspace/assets/images/icons/frames/frame-station.png",
-    type: "hub"
+    type: "hub",
   };
   const actor = await DISActor.create(actorData);
-  const frame = await documentFromPack("deathinspace.frames", "Starting station");
-  const engine = await documentFromPack("deathinspace.power-systems", "Industrial generator");
+  const frame = await documentFromPack(
+    "deathinspace.frames",
+    "Starting station"
+  );
+  const engine = await documentFromPack(
+    "deathinspace.power-systems",
+    "Industrial generator"
+  );
   await actor.createEmbeddedDocuments("Item", [frame.data, engine.data]);
-  actor.sheet.render(true);  
+  actor.sheet.render(true);
 };

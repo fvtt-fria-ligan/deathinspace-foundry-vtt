@@ -4,7 +4,6 @@ import { diceSound, showDice } from "../dice.js";
  * @extends {Item}
  */
 export class DISItem extends Item {
-
   /** @override */
   prepareDerivedData() {
     super.prepareDerivedData();
@@ -12,12 +11,16 @@ export class DISItem extends Item {
   }
 
   get broken() {
-    return this.data.data.condition && this.data.data.condition.max && !this.data.data.condition.value;
+    return (
+      this.data.data.condition &&
+      this.data.data.condition.max &&
+      !this.data.data.condition.value
+    );
   }
 
   get equipped() {
     return this.data.data.equipped === true;
-  }  
+  }
 
   get usesAmmo() {
     return this.data.data.ammo && this.data.data.ammo.max;
@@ -41,7 +44,7 @@ export class DISItem extends Item {
     }
     const conditionRoll = new Roll("1d6");
     conditionRoll.evaluate({ async: false });
-    await showDice(conditionRoll);    
+    await showDice(conditionRoll);
 
     let conditionOutcome;
     if (conditionRoll.total === 1) {
@@ -58,10 +61,12 @@ export class DISItem extends Item {
     const chatData = {
       cardTitle: `Check condition for ${this.name}`,
       conditionOutcome,
-      conditionRoll
-    }
+      conditionRoll,
+    };
     const html = await renderTemplate(
-      "systems/deathinspace/templates/chat/test-condition.html", chatData);
+      "systems/deathinspace/templates/chat/test-condition.html",
+      chatData
+    );
     ChatMessage.create({
       content: html,
       sound: diceSound(),
@@ -73,13 +78,15 @@ export class DISItem extends Item {
     if (!this.data.data.condition.value) {
       return;
     }
-    await this.update({ ["data.condition.value"]:  this.data.data.condition.value - 1 });
+    await this.update({
+      ["data.condition.value"]: this.data.data.condition.value - 1,
+    });
   }
 
   async decrementAmmo() {
     if (!this.usesAmmo || this.outOfAmmo) {
       return;
     }
-    await this.update({ ["data.ammo.value"]:  this.data.data.ammo.value - 1 });
+    await this.update({ ["data.ammo.value"]: this.data.data.ammo.value - 1 });
   }
 }

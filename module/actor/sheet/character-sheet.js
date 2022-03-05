@@ -25,12 +25,8 @@ export class DISCharacterSheet extends DISActorSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    html
-      .find(".weapon-attack")
-      .on("click", this._onWeaponRoll.bind(this));
-    html
-      .find(".weapon-damage")
-      .on("click", this._onDamageRoll.bind(this));
+    html.find(".weapon-attack").on("click", this._onWeaponRoll.bind(this));
+    html.find(".weapon-damage").on("click", this._onDamageRoll.bind(this));
     html.find(".add-belonging").click(this._onAddBelonging.bind(this));
     html.find("a.regenerate").click(this._onRegenerate.bind(this));
     html.find("a.item-equip").click(this._onEquipToggle.bind(this));
@@ -66,26 +62,34 @@ export class DISCharacterSheet extends DISActorSheet {
     sheetData.data.armor = sheetData.items
       .filter((item) => {
         return (
-          item.type === CONFIG.DIS.itemTypes.armor && 
+          item.type === CONFIG.DIS.itemTypes.armor &&
           (!item.data.equippable || item.data.equipped)
-        )
+        );
       })
       .sort(byName);
     sheetData.data.equipment = sheetData.items
       .filter((item) => {
         return (
-          item.type === CONFIG.DIS.itemTypes.equipment || 
-          (item.type === CONFIG.DIS.itemTypes.armor && (item.data.equippable && !item.data.equipped))
+          item.type === CONFIG.DIS.itemTypes.equipment ||
+          (item.type === CONFIG.DIS.itemTypes.armor &&
+            item.data.equippable &&
+            !item.data.equipped)
         );
       })
-      .sort(byName);      
+      .sort(byName);
     const allSlotItems = [
       ...sheetData.data.weapons,
       ...sheetData.data.armor,
       ...sheetData.data.equipment,
     ];
     sheetData.data.totalSlots = allSlotItems
-      .map((item) => item.data.equippable ? (item.data.equipped ? 0 : item.data.slots) : item.data.slots)
+      .map((item) =>
+        item.data.equippable
+          ? item.data.equipped
+            ? 0
+            : item.data.slots
+          : item.data.slots
+      )
       .reduce((prev, next) => prev + next, 0);
     sheetData.data.maxSlots = 12 + sheetData.data.abilities.body.value;
   }
@@ -111,7 +115,9 @@ export class DISCharacterSheet extends DISActorSheet {
             icon: '<i class="fas fa-check"></i>',
             label: game.i18n.localize("Create New Item"),
             callback: (html) =>
-              resolve(_createBelongingItem(this.actor, html[0].querySelector("form"))),
+              resolve(
+                _createBelongingItem(this.actor, html[0].querySelector("form"))
+              ),
           },
         },
         default: "create",
@@ -152,8 +158,7 @@ export class DISCharacterSheet extends DISActorSheet {
     // confirm before regenerating
     const d = new Dialog({
       title: game.i18n.localize("DIS.Regenerate"),
-      content:
-        `<p>${game.i18n.localize("DIS.RegenerateWarning")}`,
+      content: `<p>${game.i18n.localize("DIS.RegenerateWarning")}`,
       buttons: {
         cancel: {
           label: game.i18n.localize("DIS.Cancel"),
