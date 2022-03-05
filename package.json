@@ -12,7 +12,7 @@
     "pretty": "prettier --write .",
     "pretty-check": "prettier --check .",
     "sass": "gulp sass",
-    "validate": "npm-run-all lint",
+    "validate": "npm-run-all pretty-check lint",
     "watch": "gulp watch"
   },
   "repository": "https://github.com/fvtt-fria-ligan/deathinspace-foundry-vtt.git",
