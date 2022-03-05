@@ -1,5 +1,3 @@
-import { DIS } from "../../config.js";
-
 /*
  * @extends {ItemSheet}
  */

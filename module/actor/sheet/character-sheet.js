@@ -98,7 +98,7 @@ export class DISCharacterSheet extends DISActorSheet {
     event.preventDefault();
     const template =
       "systems/deathinspace/templates/dialog/add-item-dialog.html";
-    let dialogData = {
+    const dialogData = {
       config: CONFIG.DeathInSpace,
     };
     const html = await renderTemplate(template, dialogData);
@@ -125,17 +125,6 @@ export class DISCharacterSheet extends DISActorSheet {
     const row = $(event.currentTarget).parents(".item");
     const itemId = row.data("itemId");
     this.actor.showAttackDialogWithItem(itemId);
-  }
-
-  _onItemConditionTest(event) {
-    event.preventDefault();
-    const row = $(event.currentTarget).parents(".item");
-    const itemId = row.data("itemId");
-    const item = this.actor.getItem(itemId);
-    if (item) {
-      
-    }
-
   }
 
   _onDamageRoll(event) {
