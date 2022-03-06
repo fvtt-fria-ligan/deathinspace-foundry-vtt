@@ -1,6 +1,7 @@
 # 0.15.0
 
 - Fix hub sheet layout tab position shift bug.
+- Code cleanup: enable linter and formatter, de-lint and format codebase.
 
 # 0.14.0
 
