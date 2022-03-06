@@ -171,7 +171,7 @@
   "primaryTokenAttribute": "hp",
   "secondaryTokenAttribute": null,
   "minimumCoreVersion": "0.8.9",
-  "compatibleCoreVersion": "0.8.9",
+  "compatibleCoreVersion": "9",
   "manifest": "https://github.com/fvtt-fria-ligan/deathinspace-foundry-vtt/releases/latest/download/system.json",
   "download": "https://github.com/fvtt-fria-ligan/deathinspace-foundry-vtt/releases/latest/download/system.zip"
 }
