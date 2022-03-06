@@ -3,84 +3,242 @@
   <header class="sheet-header">
     <div class="header-row">
       <div class="col1">
-        <div class="portrait"> <img src="{{data.img}}" data-edit="img" title="{{data.name}}"/></div>
+        <div class="game-title"> {{ localize 'DIS.DeathInSpace' }}</div>
+        <div class="sheet-title">{{ localize 'DIS.NpcSheetTitle' }}</div>
       </div>
       <div class="col2">
-        <div class="row1">
-          <div class="game-title">DEATH IN SPACE</div>
-          <div class="sheet-title">NPC SHEET</div>
-        </div>
-        <div class="row2">
-          <div>
-             NAME </div>
-          <div class="item-name">
-            <input class="npc-name" name="name" type="text" value="{{actor.name}}" placeholder="NPC Name" spellcheck="false"/>
-          </div>
+        <div class="section-label">
+           {{ localize 'DIS.Section0Name' }} </div>
+        <div class="character-name">
+          <input class="character-name" type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'DIS.Name' }}" spellcheck="false"/>
         </div>
       </div>
     </div>
   </header>
-  <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="notes">{{ localize 'DIS.TabNotes' }}</a><a class="item" data-tab="data">{{ localize 'DIS.TabData' }}</a></nav>
+  <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="personal">1. {{ localize 'DIS.TabPersonal' }}</a><a class="item" data-tab="belongings">2. {{ localize 'DIS.TabBelongings' }}</a><a class="item" data-tab="notes">3. {{ localize 'DIS.TabNotes' }}</a></nav>
   <section class="sheet-body"> 
-    <div class="tab notes-tab" data-group="primary" data-tab="notes">
-      <div class="notes-wrapper">{{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}</div>
-    </div>
-    <div class="tab data-tab" data-group="primary" data-tab="data">
-      <div class="data-wrapper">
-        <div class="form-group"> 
-          <label class="ability rollable" data-ability="body">BODY </label>
-          <input type="number" name="data.abilities.body.value" value="{{data.data.abilities.body.value}}" placeholder="0" data-dtype="Number"/>
-        </div>
-        <div class="form-group"> 
-          <label class="ability rollable" data-ability="dexterity">DEXTERITY</label>
-          <input type="number" name="data.abilities.dexterity.value" value="{{data.data.abilities.dexterity.value}}" placeholder="0" data-dtype="Number"/>
-        </div>
-        <div class="form-group"> 
-          <label class="ability rollable" data-ability="savvy">SAVVY</label>
-          <input type="number" name="data.abilities.savvy.value" value="{{data.data.abilities.savvy.value}}" placeholder="0" data-dtype="Number"/>
-        </div>
-        <div class="form-group"> 
-          <label class="ability rollable" data-ability="tech">TECH</label>
-          <input type="number" name="data.abilities.tech.value" value="{{data.data.abilities.tech.value}}" placeholder="0" data-dtype="Number"/>
-        </div>
-        <div class="form-group"> 
-          <label class="morale rollable">Morale </label>
-          <input type="number" name="data.morale" value="{{data.data.morale}}" placeholder="0" data-dtype="Number"/>
-        </div>
-        <div class="form-group"> 
-          <label>Hit Points (Current) </label>
-          <input type="number" name="data.hp.value" value="{{data.data.hp.value}}" placeholder="0" data-dtype="Number"/>
-        </div>
-        <div class="form-group">
-          <label>Hit Points (Max) </label>
-          <input type="number" name="data.hp.max" value="{{data.data.hp.max}}" placeholder="0" data-dtype="Number"/>
-        </div>
-        <div class="form-group">
-          <label>Defense Rating </label>
-          <input type="number" name="data.defenseRating" value="{{data.data.defenseRating}}" placeholder="12" data-dtype="Number"/>
-        </div>
-        <div class="form-group"> 
-          <label class="attack rollable">Attack Name</label>
-          <input type="text" name="data.attackName" value="{{data.data.attackName}}" data-dtype="String"/>
-        </div>
-        <div class="form-group"> 
-          <label>Attack Ability </label>
-          <select name="data.attackAbility" data-dtype="String">{{#select data.data.attackAbility}}
-            <option value="body">body</option>
-            <option value="dexterity">dexterity</option>
-            <option value="savvy">savvy</option>
-            <option value="tech">tech</option>{{/select}}
-          </select>
-        </div>
-        <div class="form-group"> 
-          <label class="damage rollable">Attack Damage </label>
-          <input type="text" name="data.attackDamage" value="{{data.data.attackDamage}}" placeholder="1d4" data-dtype="String"/>
-        </div>
-        <div class="form-group"> 
-          <label>Special</label>
-          <textarea name="data.special" rows="7">{{data.data.special}}</textarea>
+    <div class="tab personal-tab" data-group="primary" data-tab="personal">
+      <div class="personal-wrapper"> 
+        <div class="row1">
+          <div class="col1"> 
+            <div class="stat-block ability-block">
+              <label>{{localize "DIS.Ability"}}</label><br/>
+              <div class="ability-col"> 
+                <div class="ability-row"> 
+                  <div class="ability-name rollable" data-ability="body">BODY</div>
+                  <div class="ability-value"> 
+                    <input class="stat-input" type="number" name="data.abilities.body.value" value="{{data.data.abilities.body.value}}" data-dtype="Number" min="-3" max="6"/>
+                  </div>
+                </div>
+                <div class="ability-row"> 
+                  <div class="ability-name rollable" data-ability="dexterity">DEXTERITY</div>
+                  <div class="ability-value"> 
+                    <input class="stat-input" type="number" name="data.abilities.dexterity.value" value="{{data.data.abilities.dexterity.value}}" data-dtype="Number" min="-3" max="6"/>
+                  </div>
+                </div>
+                <div class="ability-row"> 
+                  <div class="ability-name rollable" data-ability="savvy">SAVVY</div>
+                  <div class="ability-value"> 
+                    <input class="stat-input" type="number" name="data.abilities.savvy.value" value="{{data.data.abilities.savvy.value}}" data-dtype="Number" min="-3" max="6"/>
+                  </div>
+                </div>
+                <div class="ability-row"> 
+                  <div class="ability-name rollable" data-ability="tech">TECH</div>
+                  <div class="ability-value"> 
+                    <input class="stat-input" type="number" name="data.abilities.tech.value" value="{{data.data.abilities.tech.value}}" data-dtype="Number" min="-3" max="6"/>
+                  </div>
+                </div>
+                <div class="morale-row">
+                  <div class="morale-name rollable">MORALE</div>
+                  <div class="morale-value"> 
+                    <input class="stat-input" type="number" name="data.morale" value="{{data.data.morale}}" data-dtype="Number" min="-1" max="12"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col2"> 
+            <div class="defense-row"> 
+              <div class="defense-text"> 
+                <label>{{localize "DIS.DefenseRating"}}</label>
+              </div>
+              <div class="defense-value"> 
+                <input class="stat-input" type="number" name="data.defenseRating" value="{{data.data.defenseRating}}" data-dtype="Number"/>
+              </div>
+            </div>
+            <div class="hit-points-row"> 
+              <div class="hit-points-text"> 
+                <label>{{localize "DIS.HitPoints"}}</label>
+              </div>
+              <div class="hit-points-current-col"> 
+                <label>{{localize "DIS.Current"}}</label>
+                <input class="stat-input" type="number" name="data.hitPoints.value" value="{{data.data.hitPoints.value}}" data-dtype="Number"/>
+              </div>
+              <div class="hit-points-max-col"> 
+                <label>{{localize "DIS.Max"}}</label>
+                <input class="stat-input" type="number" name="data.hitPoints.max" value="{{data.data.hitPoints.max}}" data-dtype="Number"/>
+              </div>
+            </div>
+            <div class="stat-block special-block"> 
+              <label>{{localize "DIS.Special"}}</label>
+              <textarea name="data.special" rows="7">{{data.data.special}}</textarea>
+            </div>
+          </div>
+          <div class="col3"> 
+            <div class="reaction-block"><a class="reaction">REACTION</a></div>
+            <div class="stat-block portrait-block"> 
+              <label>{{localize "DIS.Portrait"}}</label><br/>
+              <div class="portrait-col"> 
+                <div class="portrait"> <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="tab belongings-tab" data-group="primary" data-tab="belongings">
+      <div class="belongings-wrapper"> 
+        <div class="add-row"><a class="add-belonging" title="Add Belonging"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}</a></div>
+        <div class="equipment"> 
+          <div class="equipment-header">
+            <div class="equipment-name">{{localize "DIS.Equipment"}}</div>
+            <div class="equipment-condition">
+               {{localize "DIS.Condition"}}</div>
+            <div class="equipment-slots">
+               {{localize "DIS.Slots"}}</div>
+            <div class="item-controls">
+               &nbsp;</div>
+          </div>{{#each data.data.equipment as |item id|}}
+          <div class="equipment-row item {{item.data.brokenClass}}" data-item-id="{{item._id}}">
+            <div class="equipment-name item-edit rollable">{{add id 1}}. {{item.name}}</div>
+            <div class="equipment-condition">
+               {{#if item.data.condition.max}}<a class="item-control item-condition"> <i class="fas fa-dice-six"></i></a>
+              <input class="inline-edit" type="number" min="0" max="{{ item.data.condition.max}}" step="1" data-mod="data.condition.value" name="item.data.condition.value" value="{{item.data.condition.value}}" data-dtype="Number"/> / {{ item.data.condition.max}}
+              {{else}}
+              -
+              {{/if}}
+            </div>
+            <div class="equipment-slots">
+               {{#if item.data.equippable}}
+              {{#if item.data.equipped}}
+              -<a class="item-control item-equip equipped" title="Unequip"><i class="fas fa-shield-alt"></i></a>{{else}}
+              {{item.data.slots}}<a class="item-control item-equip unequipped" title="Equip"><i class="fas fa-shield-alt"></i></a>{{/if}}
+              {{else}}
+              {{#if item.data.slots}}
+              {{ item.data.slots}}
+              {{else}}
+              -
+              {{/if}}
+              {{/if}}
+            </div>
+            <div class="item-controls"><a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash"> </i></a></div>
+          </div>{{/each}}
+        </div>
+        <div class="weapons">
+           {{#each data.data.weapons as |item id|}}
+          <div class="weapon-header"> 
+            <div class="weapon-name">
+               {{localize "DIS.Weapon"}} {{add id 1}}</div>
+            <div class="weapon-attack">
+               &nbsp;</div>
+            <div class="weapon-damage">
+               {{localize "DIS.Damage"}} </div>
+            <div class="weapon-ammo">
+               {{localize "DIS.Ammo"}} </div>
+            <div class="weapon-condition">
+                {{localize "DIS.Condition"}}</div>
+            <div class="weapon-slots">
+               {{localize "DIS.Slots"}}</div>
+            <div class="item-controls">
+               &nbsp;</div>
+          </div>
+          <div class="weapon-row item {{item.data.brokenClass}}" data-item-id="{{item._id}}"> 
+            <div class="weapon-name item-edit rollable">{{item.name}}</div>
+            <div class="weapon-attack rollable">
+               {{localize "DIS.AttackAbbrev"}}</div>
+            <div class="weapon-damage rollable">
+               {{item.data.damage}}</div>
+            <div class="weapon-ammo">
+               {{#if item.data.ammo.max}}
+              <input class="inline-edit" type="number" min="0" max="{{ item.data.ammo.max}}" data-mod="data.ammo.value" name="item.data.ammo.value" value="{{item.data.ammo.value}}" data-dtype="Number"/> / {{ item.data.ammo.max}} 
+              {{else}}
+              -
+              {{/if}}
+            </div>
+            <div class="weapon-condition">{{#if item.data.condition.max}}<a class="item-control item-condition"> <i class="fas fa-dice-six"></i></a>
+              <input class="inline-edit" type="number" min="0" max="{{ item.data.condition.max }}" data-mod="data.condition.value" name="item.data.condition.value" value="{{item.data.condition.value}}" data-dtype="Number"/> / {{ item.data.condition.max}}
+              {{else}}
+              -
+              {{/if}}
+            </div>
+            <div class="weapon-slots">
+               {{item.data.slots}}</div>
+            <div class="item-controls"><a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash">                         </i></a></div>
+          </div>{{/each}}
+        </div>
+        <div class="armor">
+           {{#each data.data.armor as |item id|}}
+          <div class="armor-header"> 
+            <div class="armor-name">
+               {{localize "DIS.ArmorType"}}</div>
+            <div class="armor-protects-against">
+               {{localize "DIS.ProtectsAgainst"}}</div>
+            <div class="armor-dr-bonus">
+               {{localize "DIS.DRBonus"}}</div>
+            <div class="armor-slots">
+               {{localize "DIS.Slots"}}</div>
+            <div class="item-controls">
+               &nbsp;                </div>
+          </div>
+          <div class="armor-row item" data-item-id="{{item._id}}">
+            <div class="armor-name item-edit rollable">
+               {{item.name}}</div>
+            <div class="armor-protects-against">
+               {{item.data.protectsAgainst}}</div>
+            <div class="armor-dr-bonus">
+               {{item.data.defenseRatingBonus}}</div>
+            <div class="armor-slots">
+               {{#if item.data.equippable}}
+              {{#if item.data.equipped}}
+              -<a class="item-control item-equip equipped" title="Unequip"><i class="fas fa-shield-alt"></i></a>{{else}}
+              {{item.data.slots}}<a class="item-control item-equip unequipped" title="Equip"><i class="fas fa-shield-alt"></i></a>{{/if}}
+              {{else}}
+              {{item.data.slots}}
+              {{/if}}
+            </div>
+            <div class="item-controls"><a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash"> </i></a></div>
+          </div>{{/each}}
+        </div>
+        <div class="slots-total">
+          <div class="slots-total-header">
+            <div class="slots-text">
+               &nbsp;</div>
+            <div class="slots-total">
+               {{localize "DIS.Total"}}</div>
+            <div class="item-controls">&nbsp;</div>
+          </div>
+          <div class="slots-total-row">
+            <div class="slots-text">
+               &#10071; {{localize "DIS.SlotsHelp"}}</div>
+            <div class="slots-total">
+               {{data.data.totalSlots}}/{{data.data.maxSlots}}</div>
+            <div class="item-controls">&nbsp;</div>
+          </div>
+        </div>
+        <div class="holo-row"> 
+          <div class="stat-block holos"> 
+            <label>{{localize "DIS.Holos"}}</label>
+            <input class="stat-input" type="number" name="data.holos" value="{{data.data.holos}}" data-dtype="Number"/>
+          </div>
+          <div class="stat-block debt"> 
+            <label>{{localize "DIS.Debt"}}</label>
+            <input class="stat-input" type="number" name="data.debt" value="{{data.data.debt}}" data-dtype="Number"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab notes-tab" data-group="primary" data-tab="notes">
+      <div class="notes-wrapper">{{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}</div>
     </div>
   </section>
 </form>

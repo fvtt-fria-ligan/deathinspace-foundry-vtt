@@ -1,0 +1,202 @@
+.deathinspace.sheet.actor {
+  .belongings-tab {
+    .item-controls {
+      border-left: 1px dotted black;
+    }
+    .item-equip {
+      margin-left: 4px;
+    }
+    .item-equip.equipped {
+      color: red;
+    }
+    .item-equip.unequipped {
+      color: gray;
+    }
+    .belongings-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+    .add-row {
+      flex: 0 0 20px;
+      padding: 5px;
+      text-align: right;
+    }
+    .col-1 {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .col-spacer {
+      flex: 0 0 20px;
+    }
+    .col-2 {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+    .equipment {
+      display: flex;
+      flex-direction: column;
+      .equipment-header {
+        display: flex;
+        flex: 0 0 24;
+        flex-direction: row;
+        font-size: 12px;
+        padding-left: 5px;
+        text-transform: uppercase;
+        width: 100%;
+      }
+      .equipment-row {
+        border-bottom: 1px dotted black;
+        display: flex;
+        flex: 0 0 24;
+        flex-direction: row;
+        padding-left: 5px;
+      }
+      .equipment-row.broken {
+        background-color: lightgray;
+      }
+      .equipment-name {
+        flex: 1;
+        flex-basis: 75%;
+      }
+      .equipment-condition {
+        border-left: 1px dotted black;
+        flex-basis: 15%;
+        text-align: center;
+      }
+      .equipment-slots {
+        border-left: 1px dotted black;
+        flex-basis: 10%;
+        text-align: center;
+      }      
+    }
+    .weapons {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      .weapon-header {
+        border-top: 2px solid black;
+        display: flex;
+        flex: 0 0 24;
+        flex-direction: row;
+        font-size: 12px;
+        justify-content: space-between;
+        text-transform: uppercase;
+        width: 100%;
+      }
+      .weapon-row {
+        display: flex;
+        flex: 0 0 40;
+        flex-direction: row;
+      }
+      .weapon-row.broken {
+        background-color: lightgray;
+      }
+      .weapon-name {
+        flex-basis: 40%;
+        padding-left: 5px;
+      }
+      .weapon-attack {
+        flex-basis: 5%;
+      }
+      .weapon-damage {
+        border-left: 1px dotted black;
+        text-align: center;
+        flex-basis: 15%;
+      }
+      .weapon-ammo {
+        border-left: 1px dotted black;
+        flex-basis: 15%;
+        text-align: center;
+      }
+      .weapon-condition {
+        border-left: 1px dotted black;
+        text-align: center;
+        flex-basis: 15%;
+      }
+      .weapon-slots {
+        border-left: 1px dotted black;
+        flex-basis: 10%;
+        text-align: center;
+      }
+    }
+    .armor {
+      display: flex;
+      flex-direction: column;
+      .armor-header {
+        border-top: 2px solid black;
+        display: flex;
+        flex: 0 0 24;
+        flex-direction: row;
+        font-size: 12px;
+        justify-content: space-between;
+        text-transform: uppercase;
+        width: 100%;
+      }
+      .armor-row {
+        display: flex;
+        flex: 0 0 24;
+        flex-direction: row;
+      }
+      .armor-name {
+        padding-left: 5px;
+        flex-basis: 35%;
+      }
+      .armor-protects-against {
+        border-left: 1px dotted black;
+        text-align: center;
+        flex-basis: 40%;
+      }
+      .armor-dr-bonus {
+        border-left: 1px dotted black;
+        text-align: center;
+        flex-basis: 15%;
+      }
+      .armor-slots {
+        border-left: 1px dotted black;
+        flex-basis: 10%;
+        text-align: center;
+      }
+    }
+    .slots-total {
+      display: flex;
+      flex-direction: column;
+      .slots-total-header {
+        border-top: 2px solid black;
+        display: flex;
+        flex: 0 0 24;
+        font-size: 12px;
+        text-transform: uppercase;
+        width: 100%;
+      }
+      .slots-total-row {
+        display: flex;
+        flex: 0 0 24;
+        width: 100%;
+      }
+      .slots-text {
+        flex-basis: 90%;
+        font-size: 12px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      .slots-total {
+        border-left: 1px dotted black;
+        flex-basis: 10%;
+        text-align: center;
+      }
+    }
+    .holo-row {
+      border-top: 2px solid black;
+      display: flex;
+      flex: 0 0 50px;
+      .holos {
+        flex: 1;
+      }
+      .debt {
+        flex: 1;
+      }
+    }
+  }
+}

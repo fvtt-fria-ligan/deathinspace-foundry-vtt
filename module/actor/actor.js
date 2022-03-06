@@ -397,6 +397,15 @@ export class DISActor extends Actor {
     });
   }
 
+  async rollNpcReaction() {
+    const roll = new Roll("2d6");
+    roll.toMessage({
+      user: game.user.id,
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      flavor: `Reaction`,
+    });
+  }
+
   async regenerate() {
     regenerateCharacter(this);
   }

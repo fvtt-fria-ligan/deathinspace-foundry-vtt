@@ -27,7 +27,7 @@ gulp.task("sass", function () {
 
 gulp.task("html", function () {
   return gulp
-    .src("source/**/*.pug")
+    .src(["source/**/*.pug", "!source/**/includes/*.pug"])
     .pipe(
       pug({
         pretty: true,

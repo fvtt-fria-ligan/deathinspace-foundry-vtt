@@ -10,12 +10,12 @@ export class DISNpcSheet extends DISActorSheet {
       classes: ["deathinspace", "sheet", "actor", "npc"],
       template: "systems/deathinspace/templates/actor/npc-sheet.html",
       width: 730,
-      height: 742,
+      height: 648,
       tabs: [
         {
           navSelector: ".sheet-tabs",
           contentSelector: ".sheet-body",
-          initial: "data",
+          initial: "personal",
         },
       ],
       dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
@@ -25,16 +25,67 @@ export class DISNpcSheet extends DISActorSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    html.find(".ability.rollable").on("click", this._onAbilityRoll.bind(this));
-    html.find(".morale.rollable").on("click", this._onMoraleRoll.bind(this));
-    html.find(".attack.rollable").on("click", this._onAttackRoll.bind(this));
-    html.find(".damage.rollable").on("click", this._onDamageRoll.bind(this));
+    html.find(".weapon-attack").on("click", this._onWeaponRoll.bind(this));
+    html.find(".weapon-damage").on("click", this._onDamageRoll.bind(this));
+    html.find(".add-belonging").click(this._onAddBelonging.bind(this));
+    html.find("a.item-equip").click(this._onEquipToggle.bind(this));
+    html.find(".item-condition").click(this._onItemConditionCheck.bind(this));
+    html
+      .find(".morale-name.rollable")
+      .on("click", this._onMoraleRoll.bind(this));
+    html.find("a.reaction").on("click", this._onReactionRoll.bind(this));
   }
 
-  _onAbilityRoll(event) {
-    event.preventDefault();
-    const ability = event.target.getAttribute("data-ability");
-    this.actor.showAbilityCheckDialog(ability);
+  /** @override */
+  getData() {
+    const superData = super.getData();
+    const data = superData.data;
+    data.config = CONFIG.DIS;
+    this.prepareNpcItems(data);
+    return superData;
+  }
+
+  prepareNpcItems(sheetData) {
+    const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
+    sheetData.data.origin = sheetData.items
+      .filter((item) => item.type === CONFIG.DIS.itemTypes.origin)
+      .pop();
+    sheetData.data.weapons = sheetData.items
+      .filter((item) => item.type === CONFIG.DIS.itemTypes.weapon)
+      .sort(byName);
+    sheetData.data.armor = sheetData.items
+      .filter((item) => {
+        return (
+          item.type === CONFIG.DIS.itemTypes.armor &&
+          (!item.data.equippable || item.data.equipped)
+        );
+      })
+      .sort(byName);
+    sheetData.data.equipment = sheetData.items
+      .filter((item) => {
+        return (
+          item.type === CONFIG.DIS.itemTypes.equipment ||
+          (item.type === CONFIG.DIS.itemTypes.armor &&
+            item.data.equippable &&
+            !item.data.equipped)
+        );
+      })
+      .sort(byName);
+    const allSlotItems = [
+      ...sheetData.data.weapons,
+      ...sheetData.data.armor,
+      ...sheetData.data.equipment,
+    ];
+    sheetData.data.totalSlots = allSlotItems
+      .map((item) =>
+        item.data.equippable
+          ? item.data.equipped
+            ? 0
+            : item.data.slots
+          : item.data.slots
+      )
+      .reduce((prev, next) => prev + next, 0);
+    sheetData.data.maxSlots = 12 + sheetData.data.abilities.body.value;
   }
 
   _onMoraleRoll(event) {
@@ -42,17 +93,8 @@ export class DISNpcSheet extends DISActorSheet {
     this.actor.rollNpcMorale();
   }
 
-  _onAttackRoll(event) {
+  _onReactionRoll(event) {
     event.preventDefault();
-    this.actor.showAttackDialog(
-      this.actor.data.data.attackName,
-      this.actor.data.data.attackAbility,
-      this.actor.data.data.attackDamage
-    );
-  }
-
-  _onDamageRoll(event) {
-    event.preventDefault();
-    this.actor.rollNpcDamage();
+    this.actor.rollNpcReaction();
   }
 }

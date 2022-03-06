@@ -3,70 +3,202 @@
       border: 4px solid var(--item-background-color);
       padding: 0;
     }
-    .sheet-header {
-      height: 160px;
-      .header-row {
+    .header-row {
+      .col1 {
+        text-transform: uppercase;
+        .game-title {
+          color: var(--item-background-color);
+          text-transform: uppercase;
+        }
+        .sheet-title {
+          color: var(--item-background-color);
+          text-transform: uppercase;
+        }
+      }
+      .col2 {
+        .section-label {
+          text-transform: uppercase;
+        }
+        .character-name {
+          font-size: 24px;
+          input {
+            padding: 5px;
+          }
+        }
+      }
+    }    
+    .sheet-tabs {
+      background: var(--item-background-color);
+      border-bottom: 1px solid #f4f3ed;
+      border-top: 1px solid #f4f3ed;
+      color: white;
+      .item:hover {
+        color: black;
+        text-shadow: 0 0 10px white;
+      }
+      .item.active {
+        background-color: #f4f3ed;
+        color: var(--item-background-color);
+      }
+    }
+    .personal-wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      .row1 {
         display: flex;
-        height: 160px;
-        .col1 {
-          display: flex;
-          flex: 0 0 160px;
-          flex-direction: column;
-          height: 100%;
-          justify-content: space-between;
-          margin: 0;
-          padding: 0;
-          .portrait {
-            background-color: var(--input-border-color);
-            border-radius: 0;
-            height: 160px;
-            width: 160px;
-            img {
-              border: none;
-              border-radius: 0;
-              height: 160px;
-              margin: 0;
-              padding: 0;
-              width: 160px;
+      }
+      .row2 {
+        border: 1px solid blue;
+        // display: flex;
+        // flex-direction: column;
+        flex: 1;
+      }
+      .col1 {
+        border-right: 2px solid black;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        width: 100%;
+        .ability-block {
+          border-bottom: 2px solid black;
+          // TODO: something is spamming whitespace below last ability
+          flex: 0 0 250px;
+          .ability-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 5px;
+            .ability-row,
+            .morale-row {
+              display: flex;
+              height: 50px;
+              .ability-name,
+              .morale-name {
+                flex: 1;
+                font-weight: bold;
+              }
+              .ability-value,
+              .morale-value {
+                flex: 0 0 50px;
+              }
+              .ability-value input[type="number"],
+              .morale-value input[type="number"],
+              input[type="number"].stat-input {
+                text-align: center;
+              }
             }
           }
         }
-        .col2 {
-          flex: 1;
-          margin: 0;
-          padding: 10px;
-          .game-title {
-            color: var(--item-background-color);
-            font-family: var(--title-font);
-            font-size: 36px;
+      }
+      .col2 {
+        border-right: 2px solid black;
+        display: flex;
+        flex: 2 ;
+        flex-direction: column;
+        width: 100%;
+        .defense-row {
+          border-bottom: 2px solid black;
+          display: flex;
+          flex: 0 0 50px;
+          padding-left: 2px;
+          width: 100%;
+          .defense-text {
+            border-right: 1px dotted black;
+            flex: 1;
+            label {
+              text-transform: uppercase;
+            }
+            .help-text {
+              font-size: 12px;
+            }
           }
-          .sheet-title {
-            color: var(--item-background-color);
+          .defense-value {
+            display: flex;
+            flex: 0 0 50px;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            padding-left: 2px;
           }
-          .row1 {
-            border-bottom: 1px solid black;
-            height: 80px;
+        }
+        .hit-points-row {
+          border-bottom: 2px solid black;
+          display: flex;
+          flex: 0 0 70px;
+          padding-left: 2px;
+          .hit-points-text {
+            flex: 1;
+            label {
+              text-transform: uppercase;
+            }
+            .help-text {
+              font-size: 12px;
+            }
           }
-          .row2 {
-            height: 80px;
-            padding-top: 10px;
+          .hit-points-current-col {
+            border-right: 1px dotted black;
+            display: flex;
+            flex: 0 0 100px;
+            flex-direction: column;
+            text-align: center;
+            label {
+              text-transform: uppercase;
+            }
           }
+          .hit-points-max-col {
+            display: flex;
+            flex: 0 0 100px;
+            flex-direction: column;
+            padding-left: 2px;
+            text-align: center;
+            label {
+              text-transform: uppercase;
+            }
+          }
+        }
+        .special-block {
+          border-bottom: 2px solid black;
+          flex: 0 0 164px;
+        }
+      }
+      .col3 {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        width: 100%;
+        .reaction-block {
+          align-items: center;
+          border-bottom: 2px solid black;
+          display: flex;
+          flex: 0 0 50px;
+          justify-content: center;
+          a.reaction {
+            text-decoration: underline;
+            text-transform: uppercase;
+          }
+        }
+        .portrait-block {
+          background-color: none;
+          flex: 0 0 234px;
+          border-bottom: 2px solid black;
+          .portrait-col {
+            display: flex;
+            flex-direction: column;
+            height: 90%;
+            justify-content: center;
+            .portrait {
+              width: 100%;
+            }
+          }    
         }
       }
     }
-    .sheet-tabs {
-      background: #f4f3ed;
-      border-bottom: 1px solid #f4f3ed;
-      border-top: 1px solid #f4f3ed;
-      .item.active {
-        background-color: var(--item-background-color);
-        color: white;
-      }
-      .item:hover {
-        color: white;
-        text-shadow: 0 0 10px black;
-      }
+    .belongings-wrapper {
+
     }
+
     /* Notes tab */
     .notes-wrapper {
       display: flex;

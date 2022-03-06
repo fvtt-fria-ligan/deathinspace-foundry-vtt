@@ -200,15 +200,210 @@
 .deathinspace.sheet.actor .item-controls a {
   margin-right: 5px;
 }
+.deathinspace.sheet.actor .belongings-tab .item-controls {
+  border-left: 1px dotted black;
+}
+.deathinspace.sheet.actor .belongings-tab .item-equip {
+  margin-left: 4px;
+}
+.deathinspace.sheet.actor .belongings-tab .item-equip.equipped {
+  color: red;
+}
+.deathinspace.sheet.actor .belongings-tab .item-equip.unequipped {
+  color: gray;
+}
+.deathinspace.sheet.actor .belongings-tab .belongings-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.deathinspace.sheet.actor .belongings-tab .add-row {
+  flex: 0 0 20px;
+  padding: 5px;
+  text-align: right;
+}
+.deathinspace.sheet.actor .belongings-tab .col-1 {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.deathinspace.sheet.actor .belongings-tab .col-spacer {
+  flex: 0 0 20px;
+}
+.deathinspace.sheet.actor .belongings-tab .col-2 {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.deathinspace.sheet.actor .belongings-tab .equipment {
+  display: flex;
+  flex-direction: column;
+}
+.deathinspace.sheet.actor .belongings-tab .equipment .equipment-header {
+  display: flex;
+  flex: 0 0 24;
+  flex-direction: row;
+  font-size: 12px;
+  padding-left: 5px;
+  text-transform: uppercase;
+  width: 100%;
+}
+.deathinspace.sheet.actor .belongings-tab .equipment .equipment-row {
+  border-bottom: 1px dotted black;
+  display: flex;
+  flex: 0 0 24;
+  flex-direction: row;
+  padding-left: 5px;
+}
+.deathinspace.sheet.actor .belongings-tab .equipment .equipment-row.broken {
+  background-color: lightgray;
+}
+.deathinspace.sheet.actor .belongings-tab .equipment .equipment-name {
+  flex: 1;
+  flex-basis: 75%;
+}
+.deathinspace.sheet.actor .belongings-tab .equipment .equipment-condition {
+  border-left: 1px dotted black;
+  flex-basis: 15%;
+  text-align: center;
+}
+.deathinspace.sheet.actor .belongings-tab .equipment .equipment-slots {
+  border-left: 1px dotted black;
+  flex-basis: 10%;
+  text-align: center;
+}
+.deathinspace.sheet.actor .belongings-tab .weapons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.deathinspace.sheet.actor .belongings-tab .weapons .weapon-header {
+  border-top: 2px solid black;
+  display: flex;
+  flex: 0 0 24;
+  flex-direction: row;
+  font-size: 12px;
+  justify-content: space-between;
+  text-transform: uppercase;
+  width: 100%;
+}
+.deathinspace.sheet.actor .belongings-tab .weapons .weapon-row {
+  display: flex;
+  flex: 0 0 40;
+  flex-direction: row;
+}
+.deathinspace.sheet.actor .belongings-tab .weapons .weapon-row.broken {
+  background-color: lightgray;
+}
+.deathinspace.sheet.actor .belongings-tab .weapons .weapon-name {
+  flex-basis: 40%;
+  padding-left: 5px;
+}
+.deathinspace.sheet.actor .belongings-tab .weapons .weapon-attack {
+  flex-basis: 5%;
+}
+.deathinspace.sheet.actor .belongings-tab .weapons .weapon-damage {
+  border-left: 1px dotted black;
+  text-align: center;
+  flex-basis: 15%;
+}
+.deathinspace.sheet.actor .belongings-tab .weapons .weapon-ammo {
+  border-left: 1px dotted black;
+  flex-basis: 15%;
+  text-align: center;
+}
+.deathinspace.sheet.actor .belongings-tab .weapons .weapon-condition {
+  border-left: 1px dotted black;
+  text-align: center;
+  flex-basis: 15%;
+}
+.deathinspace.sheet.actor .belongings-tab .weapons .weapon-slots {
+  border-left: 1px dotted black;
+  flex-basis: 10%;
+  text-align: center;
+}
+.deathinspace.sheet.actor .belongings-tab .armor {
+  display: flex;
+  flex-direction: column;
+}
+.deathinspace.sheet.actor .belongings-tab .armor .armor-header {
+  border-top: 2px solid black;
+  display: flex;
+  flex: 0 0 24;
+  flex-direction: row;
+  font-size: 12px;
+  justify-content: space-between;
+  text-transform: uppercase;
+  width: 100%;
+}
+.deathinspace.sheet.actor .belongings-tab .armor .armor-row {
+  display: flex;
+  flex: 0 0 24;
+  flex-direction: row;
+}
+.deathinspace.sheet.actor .belongings-tab .armor .armor-name {
+  padding-left: 5px;
+  flex-basis: 35%;
+}
+.deathinspace.sheet.actor .belongings-tab .armor .armor-protects-against {
+  border-left: 1px dotted black;
+  text-align: center;
+  flex-basis: 40%;
+}
+.deathinspace.sheet.actor .belongings-tab .armor .armor-dr-bonus {
+  border-left: 1px dotted black;
+  text-align: center;
+  flex-basis: 15%;
+}
+.deathinspace.sheet.actor .belongings-tab .armor .armor-slots {
+  border-left: 1px dotted black;
+  flex-basis: 10%;
+  text-align: center;
+}
+.deathinspace.sheet.actor .belongings-tab .slots-total {
+  display: flex;
+  flex-direction: column;
+}
+.deathinspace.sheet.actor .belongings-tab .slots-total .slots-total-header {
+  border-top: 2px solid black;
+  display: flex;
+  flex: 0 0 24;
+  font-size: 12px;
+  text-transform: uppercase;
+  width: 100%;
+}
+.deathinspace.sheet.actor .belongings-tab .slots-total .slots-total-row {
+  display: flex;
+  flex: 0 0 24;
+  width: 100%;
+}
+.deathinspace.sheet.actor .belongings-tab .slots-total .slots-text {
+  flex-basis: 90%;
+  font-size: 12px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.deathinspace.sheet.actor .belongings-tab .slots-total .slots-total {
+  border-left: 1px dotted black;
+  flex-basis: 10%;
+  text-align: center;
+}
+.deathinspace.sheet.actor .belongings-tab .holo-row {
+  border-top: 2px solid black;
+  display: flex;
+  flex: 0 0 50px;
+}
+.deathinspace.sheet.actor .belongings-tab .holo-row .holos {
+  flex: 1;
+}
+.deathinspace.sheet.actor .belongings-tab .holo-row .debt {
+  flex: 1;
+}
 .deathinspace.sheet.actor.character {
   /* ====================== */
   /* Character sheet - Personal tab */
   /* ====================== */
   /* ====================== */
   /* Character sheet - Situation tab */
-  /* ====================== */
-  /* ====================== */
-  /* Character sheet - Belongings tab */
   /* ====================== */
   /* ====================== */
   /* Character sheet - Notes tab */
@@ -638,204 +833,6 @@
 .deathinspace.sheet.actor.character .situation-tab .life-support-block .tank-space {
   flex: 1;
 }
-.deathinspace.sheet.actor.character .belongings-tab .item-controls {
-  border-left: 1px dotted black;
-}
-.deathinspace.sheet.actor.character .belongings-tab .item-equip {
-  margin-left: 4px;
-}
-.deathinspace.sheet.actor.character .belongings-tab .item-equip.equipped {
-  color: red;
-}
-.deathinspace.sheet.actor.character .belongings-tab .item-equip.unequipped {
-  color: gray;
-}
-.deathinspace.sheet.actor.character .belongings-tab .belongings-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-.deathinspace.sheet.actor.character .belongings-tab .add-row {
-  flex: 0 0 20px;
-  padding: 5px;
-  text-align: right;
-}
-.deathinspace.sheet.actor.character .belongings-tab .col-1 {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-.deathinspace.sheet.actor.character .belongings-tab .col-spacer {
-  flex: 0 0 20px;
-}
-.deathinspace.sheet.actor.character .belongings-tab .col-2 {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-}
-.deathinspace.sheet.actor.character .belongings-tab .equipment {
-  display: flex;
-  flex-direction: column;
-}
-.deathinspace.sheet.actor.character .belongings-tab .equipment .equipment-header {
-  display: flex;
-  flex: 0 0 24;
-  flex-direction: row;
-  font-size: 12px;
-  padding-left: 5px;
-  text-transform: uppercase;
-  width: 100%;
-}
-.deathinspace.sheet.actor.character .belongings-tab .equipment .equipment-row {
-  border-bottom: 1px dotted black;
-  display: flex;
-  flex: 0 0 24;
-  flex-direction: row;
-  padding-left: 5px;
-}
-.deathinspace.sheet.actor.character .belongings-tab .equipment .equipment-row.broken {
-  background-color: lightgray;
-}
-.deathinspace.sheet.actor.character .belongings-tab .equipment .equipment-name {
-  flex: 1;
-  flex-basis: 75%;
-}
-.deathinspace.sheet.actor.character .belongings-tab .equipment .equipment-condition {
-  border-left: 1px dotted black;
-  flex-basis: 15%;
-  text-align: center;
-}
-.deathinspace.sheet.actor.character .belongings-tab .equipment .equipment-slots {
-  border-left: 1px dotted black;
-  flex-basis: 10%;
-  text-align: center;
-}
-.deathinspace.sheet.actor.character .belongings-tab .weapons {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-}
-.deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-header {
-  border-top: 2px solid black;
-  display: flex;
-  flex: 0 0 24;
-  flex-direction: row;
-  font-size: 12px;
-  justify-content: space-between;
-  text-transform: uppercase;
-  width: 100%;
-}
-.deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-row {
-  display: flex;
-  flex: 0 0 40;
-  flex-direction: row;
-}
-.deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-row.broken {
-  background-color: lightgray;
-}
-.deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-name {
-  flex-basis: 40%;
-  padding-left: 5px;
-}
-.deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-attack {
-  flex-basis: 5%;
-}
-.deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-damage {
-  border-left: 1px dotted black;
-  text-align: center;
-  flex-basis: 15%;
-}
-.deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-ammo {
-  border-left: 1px dotted black;
-  flex-basis: 15%;
-  text-align: center;
-}
-.deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-condition {
-  border-left: 1px dotted black;
-  text-align: center;
-  flex-basis: 15%;
-}
-.deathinspace.sheet.actor.character .belongings-tab .weapons .weapon-slots {
-  border-left: 1px dotted black;
-  flex-basis: 10%;
-  text-align: center;
-}
-.deathinspace.sheet.actor.character .belongings-tab .armor {
-  display: flex;
-  flex-direction: column;
-}
-.deathinspace.sheet.actor.character .belongings-tab .armor .armor-header {
-  border-top: 2px solid black;
-  display: flex;
-  flex: 0 0 24;
-  flex-direction: row;
-  font-size: 12px;
-  justify-content: space-between;
-  text-transform: uppercase;
-  width: 100%;
-}
-.deathinspace.sheet.actor.character .belongings-tab .armor .armor-row {
-  display: flex;
-  flex: 0 0 24;
-  flex-direction: row;
-}
-.deathinspace.sheet.actor.character .belongings-tab .armor .armor-name {
-  padding-left: 5px;
-  flex-basis: 35%;
-}
-.deathinspace.sheet.actor.character .belongings-tab .armor .armor-protects-against {
-  border-left: 1px dotted black;
-  text-align: center;
-  flex-basis: 40%;
-}
-.deathinspace.sheet.actor.character .belongings-tab .armor .armor-dr-bonus {
-  border-left: 1px dotted black;
-  text-align: center;
-  flex-basis: 15%;
-}
-.deathinspace.sheet.actor.character .belongings-tab .armor .armor-slots {
-  border-left: 1px dotted black;
-  flex-basis: 10%;
-  text-align: center;
-}
-.deathinspace.sheet.actor.character .belongings-tab .slots-total {
-  display: flex;
-  flex-direction: column;
-}
-.deathinspace.sheet.actor.character .belongings-tab .slots-total .slots-total-header {
-  border-top: 2px solid black;
-  display: flex;
-  flex: 0 0 24;
-  font-size: 12px;
-  text-transform: uppercase;
-  width: 100%;
-}
-.deathinspace.sheet.actor.character .belongings-tab .slots-total .slots-total-row {
-  display: flex;
-  flex: 0 0 24;
-  width: 100%;
-}
-.deathinspace.sheet.actor.character .belongings-tab .slots-total .slots-text {
-  flex-basis: 90%;
-  font-size: 12px;
-  text-align: center;
-  text-transform: uppercase;
-}
-.deathinspace.sheet.actor.character .belongings-tab .slots-total .slots-total {
-  border-left: 1px dotted black;
-  flex-basis: 10%;
-  text-align: center;
-}
-.deathinspace.sheet.actor.character .belongings-tab .holo-row {
-  border-top: 2px solid black;
-  display: flex;
-  flex: 0 0 50px;
-}
-.deathinspace.sheet.actor.character .belongings-tab .holo-row .holos {
-  flex: 1;
-}
-.deathinspace.sheet.actor.character .belongings-tab .holo-row .debt {
-  flex: 1;
-}
 .deathinspace.sheet.actor.character .notes-wrapper {
   display: flex;
   flex-direction: column;
@@ -1239,69 +1236,197 @@
   border: 4px solid var(--item-background-color);
   padding: 0;
 }
-.deathinspace.sheet.npc .sheet-header {
-  height: 160px;
+.deathinspace.sheet.npc .header-row .col1 {
+  text-transform: uppercase;
 }
-.deathinspace.sheet.npc .sheet-header .header-row {
-  display: flex;
-  height: 160px;
-}
-.deathinspace.sheet.npc .sheet-header .header-row .col1 {
-  display: flex;
-  flex: 0 0 160px;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-}
-.deathinspace.sheet.npc .sheet-header .header-row .col1 .portrait {
-  background-color: var(--input-border-color);
-  border-radius: 0;
-  height: 160px;
-  width: 160px;
-}
-.deathinspace.sheet.npc .sheet-header .header-row .col1 .portrait img {
-  border: none;
-  border-radius: 0;
-  height: 160px;
-  margin: 0;
-  padding: 0;
-  width: 160px;
-}
-.deathinspace.sheet.npc .sheet-header .header-row .col2 {
-  flex: 1;
-  margin: 0;
-  padding: 10px;
-}
-.deathinspace.sheet.npc .sheet-header .header-row .col2 .game-title {
+.deathinspace.sheet.npc .header-row .col1 .game-title {
   color: var(--item-background-color);
-  font-family: var(--title-font);
-  font-size: 36px;
+  text-transform: uppercase;
 }
-.deathinspace.sheet.npc .sheet-header .header-row .col2 .sheet-title {
+.deathinspace.sheet.npc .header-row .col1 .sheet-title {
   color: var(--item-background-color);
+  text-transform: uppercase;
 }
-.deathinspace.sheet.npc .sheet-header .header-row .col2 .row1 {
-  border-bottom: 1px solid black;
-  height: 80px;
+.deathinspace.sheet.npc .header-row .col2 .section-label {
+  text-transform: uppercase;
 }
-.deathinspace.sheet.npc .sheet-header .header-row .col2 .row2 {
-  height: 80px;
-  padding-top: 10px;
+.deathinspace.sheet.npc .header-row .col2 .character-name {
+  font-size: 24px;
+}
+.deathinspace.sheet.npc .header-row .col2 .character-name input {
+  padding: 5px;
 }
 .deathinspace.sheet.npc .sheet-tabs {
-  background: #f4f3ed;
+  background: var(--item-background-color);
   border-bottom: 1px solid #f4f3ed;
   border-top: 1px solid #f4f3ed;
-}
-.deathinspace.sheet.npc .sheet-tabs .item.active {
-  background-color: var(--item-background-color);
   color: white;
 }
 .deathinspace.sheet.npc .sheet-tabs .item:hover {
-  color: white;
-  text-shadow: 0 0 10px black;
+  color: black;
+  text-shadow: 0 0 10px white;
+}
+.deathinspace.sheet.npc .sheet-tabs .item.active {
+  background-color: #f4f3ed;
+  color: var(--item-background-color);
+}
+.deathinspace.sheet.npc .personal-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.deathinspace.sheet.npc .personal-wrapper .row1 {
+  display: flex;
+}
+.deathinspace.sheet.npc .personal-wrapper .row2 {
+  border: 1px solid blue;
+  flex: 1;
+}
+.deathinspace.sheet.npc .personal-wrapper .col1 {
+  border-right: 2px solid black;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+}
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block {
+  border-bottom: 2px solid black;
+  flex: 0 0 250px;
+}
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5px;
+}
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col .ability-row,
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col .morale-row {
+  display: flex;
+  height: 50px;
+}
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col .ability-row .ability-name,
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col .ability-row .morale-name,
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col .morale-row .ability-name,
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col .morale-row .morale-name {
+  flex: 1;
+  font-weight: bold;
+}
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col .ability-row .ability-value,
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col .ability-row .morale-value,
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col .morale-row .ability-value,
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col .morale-row .morale-value {
+  flex: 0 0 50px;
+}
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col .ability-row .ability-value input[type=number],
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col .ability-row .morale-value input[type=number],
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col .ability-row input[type=number].stat-input,
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col .morale-row .ability-value input[type=number],
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col .morale-row .morale-value input[type=number],
+.deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col .morale-row input[type=number].stat-input {
+  text-align: center;
+}
+.deathinspace.sheet.npc .personal-wrapper .col2 {
+  border-right: 2px solid black;
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  width: 100%;
+}
+.deathinspace.sheet.npc .personal-wrapper .col2 .defense-row {
+  border-bottom: 2px solid black;
+  display: flex;
+  flex: 0 0 50px;
+  padding-left: 2px;
+  width: 100%;
+}
+.deathinspace.sheet.npc .personal-wrapper .col2 .defense-row .defense-text {
+  border-right: 1px dotted black;
+  flex: 1;
+}
+.deathinspace.sheet.npc .personal-wrapper .col2 .defense-row .defense-text label {
+  text-transform: uppercase;
+}
+.deathinspace.sheet.npc .personal-wrapper .col2 .defense-row .defense-text .help-text {
+  font-size: 12px;
+}
+.deathinspace.sheet.npc .personal-wrapper .col2 .defense-row .defense-value {
+  display: flex;
+  flex: 0 0 50px;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding-left: 2px;
+}
+.deathinspace.sheet.npc .personal-wrapper .col2 .hit-points-row {
+  border-bottom: 2px solid black;
+  display: flex;
+  flex: 0 0 70px;
+  padding-left: 2px;
+}
+.deathinspace.sheet.npc .personal-wrapper .col2 .hit-points-row .hit-points-text {
+  flex: 1;
+}
+.deathinspace.sheet.npc .personal-wrapper .col2 .hit-points-row .hit-points-text label {
+  text-transform: uppercase;
+}
+.deathinspace.sheet.npc .personal-wrapper .col2 .hit-points-row .hit-points-text .help-text {
+  font-size: 12px;
+}
+.deathinspace.sheet.npc .personal-wrapper .col2 .hit-points-row .hit-points-current-col {
+  border-right: 1px dotted black;
+  display: flex;
+  flex: 0 0 100px;
+  flex-direction: column;
+  text-align: center;
+}
+.deathinspace.sheet.npc .personal-wrapper .col2 .hit-points-row .hit-points-current-col label {
+  text-transform: uppercase;
+}
+.deathinspace.sheet.npc .personal-wrapper .col2 .hit-points-row .hit-points-max-col {
+  display: flex;
+  flex: 0 0 100px;
+  flex-direction: column;
+  padding-left: 2px;
+  text-align: center;
+}
+.deathinspace.sheet.npc .personal-wrapper .col2 .hit-points-row .hit-points-max-col label {
+  text-transform: uppercase;
+}
+.deathinspace.sheet.npc .personal-wrapper .col2 .special-block {
+  border-bottom: 2px solid black;
+  flex: 0 0 164px;
+}
+.deathinspace.sheet.npc .personal-wrapper .col3 {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+}
+.deathinspace.sheet.npc .personal-wrapper .col3 .reaction-block {
+  align-items: center;
+  border-bottom: 2px solid black;
+  display: flex;
+  flex: 0 0 50px;
+  justify-content: center;
+}
+.deathinspace.sheet.npc .personal-wrapper .col3 .reaction-block a.reaction {
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+.deathinspace.sheet.npc .personal-wrapper .col3 .portrait-block {
+  background-color: none;
+  flex: 0 0 234px;
+  border-bottom: 2px solid black;
+}
+.deathinspace.sheet.npc .personal-wrapper .col3 .portrait-block .portrait-col {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  justify-content: center;
+}
+.deathinspace.sheet.npc .personal-wrapper .col3 .portrait-block .portrait-col .portrait {
+  width: 100%;
 }
 .deathinspace.sheet.npc .notes-wrapper {
   display: flex;
@@ -1333,6 +1458,45 @@
 }
 .deathinspace.sheet.npc .data-wrapper .form-spacer {
   height: 20px;
+}
+
+.attack-outcome-card {
+  border: 2px solid var(--character-background-color);
+}
+.attack-outcome-card .risky-outcome {
+  font-size: 12px;
+  text-transform: none;
+}
+.roll-card {
+  border: 2px solid var(--highlight-background-color);
+  font-family: var(--text-font);
+  padding: 5px;
+}
+.roll-card .card-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.roll-card .roll-title {
+  text-align: center;
+  text-transform: uppercase;
+}
+.roll-card .roll-result {
+  border: 1px solid gray;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+.roll-card .roll-result span {
+  font-size: 20px;
+}
+.roll-card .outcome-text {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .deathinspace.app.window-app .window-content {
@@ -1427,45 +1591,6 @@
 .custom-dialog .button-row button:active, .custom-dialog .button-row button:focus, .custom-dialog .button-row button:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
-}
-
-.attack-outcome-card {
-  border: 2px solid var(--character-background-color);
-}
-.attack-outcome-card .risky-outcome {
-  font-size: 12px;
-  text-transform: none;
-}
-.roll-card {
-  border: 2px solid var(--highlight-background-color);
-  font-family: var(--text-font);
-  padding: 5px;
-}
-.roll-card .card-title {
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-.roll-card .roll-title {
-  text-align: center;
-  text-transform: uppercase;
-}
-.roll-card .roll-result {
-  border: 1px solid gray;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  text-align: center;
-}
-.roll-card .roll-result span {
-  font-size: 20px;
-}
-.roll-card .outcome-text {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-align: center;
-  text-transform: uppercase;
 }
 .deathinspace.sheet.item {
   /* Notes tab */

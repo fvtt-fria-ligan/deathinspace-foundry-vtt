@@ -1,23 +1,26 @@
 {
   "Actor": {
     "types": ["character", "hub", "npc"],
-    "templates": {},
-    "character": {
-      "templates": [],
+    "templates": {
       "abilities": {
-        "body": {
-          "value": 0
-        },
-        "dexterity": {
-          "value": 0
-        },
-        "savvy": {
-          "value": 0
-        },
-        "tech": {
-          "value": 0
+        "abilities": {
+          "body": {
+            "value": 0
+          },
+          "dexterity": {
+            "value": 0
+          },
+          "savvy": {
+            "value": 0
+          },
+          "tech": {
+            "value": 0
+          }
         }
-      },
+      }
+    },
+    "character": {
+      "templates": ["abilities"],
       "background": "",
       "daysWithoutSubstance": {
         "max": 7,
@@ -71,20 +74,7 @@
       "quirks": ""
     },
     "npc": {
-      "abilities": {
-        "body": {
-          "value": 0
-        },
-        "dexterity": {
-          "value": 0
-        },
-        "savvy": {
-          "value": 0
-        },
-        "tech": {
-          "value": 0
-        }
-      },
+      "templates": ["abilities"],
       "attackName": "",
       "attackDamage": "",
       "attackType": "melee",
@@ -164,6 +154,7 @@
     },
     "weapon": {
       "templates": ["baseEquipment"],
+      "ability": "tech",
       "ammo": {
         "max": 0,
         "value": 0

@@ -1,88 +1,80 @@
 form(class="{{cssClass}}")
+
   header.sheet-header
     .header-row
       .col1
-        .portrait 
-          img(src="{{data.img}}" data-edit="img" title="{{data.name}}")
+        .game-title
+          |  {{ localize 'DIS.DeathInSpace' }}
+        .sheet-title
+          | {{ localize 'DIS.NpcSheetTitle' }}
       .col2
-        .row1
-          .game-title
-            | DEATH IN SPACE
-          .sheet-title
-            | NPC SHEET
-        .row2
-          div 
-            | NAME 
-          div.item-name
-            input(class="npc-name" name="name" type="text" value="{{actor.name}}" placeholder="NPC Name" spellcheck="false")
+        .section-label 
+          | {{ localize 'DIS.Section0Name' }} 
+        .character-name
+          input(class="character-name" type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'DIS.Name' }}" spellcheck="false")
 
   nav(class="sheet-tabs tabs" data-group="primary")
+    a(class="item" data-tab="personal")
+      | 1. {{ localize 'DIS.TabPersonal' }}
+    a(class="item" data-tab="belongings")
+      | 2. {{ localize 'DIS.TabBelongings' }}
     a(class="item" data-tab="notes")
-      | {{ localize 'DIS.TabNotes' }}
-    a(class="item" data-tab="data")
-      | {{ localize 'DIS.TabData' }}
+      | 3. {{ localize 'DIS.TabNotes' }}
   
   section.sheet-body 
+
+    div(class="tab personal-tab" data-group="primary" data-tab="personal")
+      .personal-wrapper 
+        .row1
+          .col1 
+            .stat-block.ability-block
+              label {{localize "DIS.Ability"}}
+              br
+              .ability-col 
+                each val in ["body", "dexterity", "savvy", "tech"]
+                  .ability-row 
+                    .ability-name.rollable(data-ability=val)=val.toUpperCase()
+                    .ability-value 
+                      input(type="number" class="stat-input" name="data.abilities." + val + ".value" value="{{data.data.abilities." + val + ".value}}" data-dtype="Number" min="-3" max="6")
+                .morale-row
+                  .morale-name.rollable
+                    | MORALE
+                  .morale-value 
+                    input(type="number" class="stat-input" name="data.morale" value = "{{data.data.morale}}" data-dtype="Number" min="-1" max="12")
+
+          .col2 
+            .defense-row 
+              .defense-text 
+                label {{localize "DIS.DefenseRating"}}
+              .defense-value 
+                input(type="number" class="stat-input" name="data.defenseRating" value="{{data.data.defenseRating}}" data-dtype="Number")
+            .hit-points-row 
+              .hit-points-text 
+                label {{localize "DIS.HitPoints"}}
+              .hit-points-current-col 
+                label {{localize "DIS.Current"}}
+                input(type="number" class="stat-input" name="data.hitPoints.value" value="{{data.data.hitPoints.value}}" data-dtype="Number")
+              .hit-points-max-col 
+                label {{localize "DIS.Max"}}
+                input(type="number" class="stat-input" name="data.hitPoints.max" value="{{data.data.hitPoints.max}}" data-dtype="Number")
+            .stat-block.special-block 
+              label {{localize "DIS.Special"}}
+              textarea(name="data.special", rows="7") {{data.data.special}}
+
+          .col3 
+            .reaction-block
+              a.reaction
+                | REACTION
+            .stat-block.portrait-block 
+              label {{localize "DIS.Portrait"}}
+              br
+              .portrait-col 
+                .portrait 
+                  img(class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}")
+
+    div(class="tab belongings-tab" data-group="primary" data-tab="belongings")
+      include includes/belongings.pug
 
     div(class="tab notes-tab" data-group="primary" data-tab="notes")
       .notes-wrapper
         | {{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}
-
-    div(class="tab data-tab" data-group="primary" data-tab="data")
-      .data-wrapper
-        .form-group 
-          label.ability.rollable(data-ability="body")
-            | BODY 
-          input(type="number" name="data.abilities.body.value" value="{{data.data.abilities.body.value}}" placeholder="0" data-dtype="Number")
-        .form-group 
-          label.ability.rollable(data-ability="dexterity")
-            | DEXTERITY
-          input(type="number" name="data.abilities.dexterity.value" value="{{data.data.abilities.dexterity.value}}" placeholder="0" data-dtype="Number")
-        .form-group 
-          label.ability.rollable(data-ability="savvy")
-            | SAVVY
-          input(type="number" name="data.abilities.savvy.value" value="{{data.data.abilities.savvy.value}}" placeholder="0" data-dtype="Number")
-        .form-group 
-          label.ability.rollable(data-ability="tech")
-            | TECH
-          input(type="number" name="data.abilities.tech.value" value="{{data.data.abilities.tech.value}}" placeholder="0" data-dtype="Number")
-        .form-group 
-          label.morale.rollable
-            | Morale 
-          input(type="number" name="data.morale" value="{{data.data.morale}}" placeholder="0" data-dtype="Number")
-        .form-group 
-          label
-            | Hit Points (Current) 
-          input(type="number" name="data.hp.value" value="{{data.data.hp.value}}" placeholder="0" data-dtype="Number")
-        .form-group
-          label
-            | Hit Points (Max) 
-          input(type="number" name="data.hp.max" value="{{data.data.hp.max}}" placeholder="0" data-dtype="Number")
-        .form-group
-          label
-            | Defense Rating 
-          input(type="number" name="data.defenseRating" value="{{data.data.defenseRating}}" placeholder="12" data-dtype="Number")
-        .form-group 
-          label.attack.rollable
-            | Attack Name
-          input(type="text" name="data.attackName" value="{{data.data.attackName}}" data-dtype="String")
-        .form-group 
-          label
-            | Attack Ability 
-          select(name="data.attackAbility" data-dtype="String")
-            | {{#select data.data.attackAbility}}
-            option(value="body") body
-            option(value="dexterity") dexterity
-            option(value="savvy") savvy
-            option(value="tech") tech
-            | {{/select}}
-        .form-group 
-          label.damage.rollable
-            | Attack Damage 
-          input(type="text" name="data.attackDamage" value="{{data.data.attackDamage}}" placeholder="1d4" data-dtype="String")
-        .form-group 
-          label
-            | Special
-          textarea(name="data.special", rows="7")
-            | {{data.data.special}}
-

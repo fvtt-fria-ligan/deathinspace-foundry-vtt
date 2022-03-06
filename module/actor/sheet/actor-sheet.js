@@ -60,4 +60,85 @@ export default class DISActorSheet extends ActorSheet {
     const ability = event.target.getAttribute("data-ability");
     this.actor.showAbilityCheckDialog(ability);
   }
+
+  /**
+   * +Add for belongings tab
+   */
+  async _onAddBelonging(event) {
+    console.log("_onAddBelonging ****");
+    event.preventDefault();
+    const template =
+      "systems/deathinspace/templates/dialog/add-item-dialog.html";
+    const dialogData = {
+      config: CONFIG.DeathInSpace,
+    };
+    const html = await renderTemplate(template, dialogData);
+    return new Promise((resolve) => {
+      new Dialog({
+        title: game.i18n.localize("Create New Item"),
+        content: html,
+        buttons: {
+          create: {
+            icon: '<i class="fas fa-check"></i>',
+            label: game.i18n.localize("Create New Item"),
+            callback: (html) =>
+              resolve(
+                _createBelongingItem(this.actor, html[0].querySelector("form"))
+              ),
+          },
+        },
+        default: "create",
+        close: () => resolve(null),
+      }).render(true);
+    });
+  }
+
+  _onWeaponRoll(event) {
+    event.preventDefault();
+    const row = $(event.currentTarget).parents(".item");
+    const itemId = row.data("itemId");
+    this.actor.showAttackDialogWithItem(itemId);
+  }
+
+  _onDamageRoll(event) {
+    event.preventDefault();
+    const row = $(event.currentTarget).parents(".item");
+    const itemId = row.data("itemId");
+    this.actor.rollItemDamage(itemId);
+  }
+
+  async _onEquipToggle(event) {
+    event.preventDefault();
+    const anchor = $(event.currentTarget);
+    const li = anchor.parents(".item");
+    const itemId = li.data("itemId");
+    const item = this.actor.items.get(itemId);
+    if (item.equipped) {
+      await item.unequip();
+    } else {
+      await item.equip();
+    }
+  }
+
+  _onItemConditionCheck(event) {
+    const row = $(event.currentTarget).parents(".item");
+    if (row) {
+      const item = this.actor.items.get(row.data("itemId"));
+      if (item) {
+        item.checkCondition();
+      }
+    }
+  }
 }
+
+/**
+ * Create a new Owned Item for the given actor, based on the name/type from the form.
+ */
+const _createBelongingItem = (actor, form) => {
+  const itemData = {
+    name: form.itemname.value,
+    type: form.itemtype.value,
+    data: {},
+  };
+  actor.createEmbeddedDocuments("Item", [itemData]);
+};
