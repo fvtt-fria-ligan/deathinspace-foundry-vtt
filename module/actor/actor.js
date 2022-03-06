@@ -426,7 +426,7 @@ export class DISActor extends Actor {
       speaker: ChatMessage.getSpeaker({ actor: this }),
       flavor: `${game.i18n.localize("DIS.VoidCorruption")}?`,
     });
-    if (roll.total === 1) {
+    if (roll.total <= this.data.data.voidPoints.value) {
       const table = await tableFromPack(
         "deathinspace.character-creation",
         "Void Corruption"
