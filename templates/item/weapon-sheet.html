@@ -57,10 +57,12 @@
           <input type="text" name="data.damage" value="{{data.data.damage}}" placeholder="1d4" data-dtype="String"/>
         </div>
         <div class="form-group"> 
-          <label>Weapon Type </label>
-          <select name="data.weaponType" data-dtype="String">{{#select data.data.weaponType}}
-            <option value="melee">melee</option>
-            <option value="ranged">ranged</option>{{/select}}
+          <label>Ability</label>
+          <select name="data.ability" data-dtype="String">{{#select data.data.ability}}
+            <option value="body">body</option>
+            <option value="dexterity">dexterity</option>
+            <option value="savvy">savvy</option>
+            <option value="tech">tech</option>{{/select}}
           </select>
         </div>
       </div>

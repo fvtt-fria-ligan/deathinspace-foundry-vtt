@@ -75,14 +75,13 @@
     },
     "npc": {
       "templates": ["abilities"],
-      "attackName": "",
-      "attackDamage": "",
-      "attackType": "melee",
+      "debt": 0,
       "defenseRating": 12,
-      "hitpoints": {
+      "hitPoints": {
         "max": 1,
         "value": 1
       },
+      "holos": 0,
       "morale": 0,
       "special": ""
     }
@@ -163,8 +162,7 @@
         "max": 0,
         "value": 0
       },
-      "damage": "1d4",
-      "weaponType": "ranged"
+      "damage": "1d4"
     }
   }
 }

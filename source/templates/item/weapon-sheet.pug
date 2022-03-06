@@ -61,9 +61,11 @@ form(class="{{cssClass}}")
           input(type="text" name="data.damage" value="{{data.data.damage}}" placeholder="1d4" data-dtype="String")
         .form-group 
           label
-            | Weapon Type 
-          select(name="data.weaponType" data-dtype="String")
-            | {{#select data.data.weaponType}}
-            option(value="melee") melee
-            option(value="ranged") ranged
+            | Ability
+          select(name="data.ability" data-dtype="String")
+            | {{#select data.data.ability}}
+            option(value="body") body
+            option(value="dexterity") dexterity
+            option(value="savvy") savvy
+            option(value="tech") tech
             | {{/select}}

@@ -251,8 +251,7 @@ export class DISActor extends Actor {
       return;
     }
     await item.decrementAmmo();
-    const attackAbility =
-      item.data.data.weaponType === "melee" ? "body" : "tech";
+    const attackAbility = item.data.data.ability;
     await this.rollAttack(
       item.name,
       attackAbility,
