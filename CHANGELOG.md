@@ -1,5 +1,7 @@
 # 0.15.0
 
+- New NPC sheet!
+- Add NPC generator.
 - Fix hub sheet layout tab position shift bug.
 - Code cleanup: enable linter and formatter, de-lint and format codebase.
 
