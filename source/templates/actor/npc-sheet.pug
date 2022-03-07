@@ -30,11 +30,6 @@ form(class="{{cssClass}}")
             .reaction-block
               a.reaction
                 | REACTION
-            .morale-block
-              .morale-name.rollable
-                | MORALE
-              .morale-value 
-                input(type="number" class="stat-input" name="data.morale" value = "{{data.data.morale}}" data-dtype="Number" min="-1" max="12")
             .stat-block.ability-block
               label {{localize "DIS.Ability"}}
               br
@@ -44,6 +39,11 @@ form(class="{{cssClass}}")
                     .ability-name.rollable(data-ability=val)=val.toUpperCase()
                     .ability-value 
                       input(type="number" class="stat-input" name="data.abilities." + val + ".value" value="{{data.data.abilities." + val + ".value}}" data-dtype="Number" min="-3" max="6")
+            .morale-block
+              .morale-name.rollable
+                | MORALE
+              .morale-value 
+                input(type="number" class="stat-input" name="data.morale" value = "{{data.data.morale}}" data-dtype="Number" min="-1" max="12")
 
           .col2
             .stat-block.background-block
@@ -80,13 +80,12 @@ form(class="{{cssClass}}")
               .portrait-col 
                 .portrait 
                   img(class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}")
-
-
+        .row2 
+          .stat-block.special-block 
+            label {{localize "DIS.Special"}}
+            textarea(name="data.special", rows="3") {{data.data.special}}
 
     div(class="tab belongings-tab" data-group="primary" data-tab="belongings")
-      .stat-block.special-block 
-        label {{localize "DIS.Special"}}
-        textarea(name="data.special", rows="6") {{data.data.special}}
       include includes/belongings.pug
 
     div(class="tab notes-tab" data-group="primary" data-tab="notes")

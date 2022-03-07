@@ -49,11 +49,11 @@
       width: 100%;
       .row1 {
         display: flex;
+        flex: 0 0 336px;
       }
       .row2 {
-        border: 1px solid blue;
-        // display: flex;
-        // flex-direction: column;
+        display: flex;
+        flex-direction: column;
         flex: 1;
       }
       .col1 {
@@ -93,7 +93,7 @@
         }
         .ability-block {
           border-bottom: 2px solid black;
-          flex: 0 0 246px;
+          flex: 0 0 236px;
           .ability-col {
             display: flex;
             flex-direction: column;
@@ -171,7 +171,7 @@
         .hit-points-row {
           border-bottom: 2px solid black;
           display: flex;
-          flex: 0 0 60px;
+          flex: 0 0 50px;
           padding-left: 2px;
           .hit-points-text {
             flex: 1;
@@ -235,10 +235,13 @@
           }    
         }
       }
-    }
-    .special-block {
-      border-bottom: 2px solid black;
-      flex: 0 0 164px;
+      .special-block {
+        flex: 1;
+        padding-bottom: 5px;
+        textarea {
+          font-size: 14px;
+        }
+      }  
     }
 
     /* Notes tab */

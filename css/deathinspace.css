@@ -1280,9 +1280,11 @@
 }
 .deathinspace.sheet.npc .personal-wrapper .row1 {
   display: flex;
+  flex: 0 0 336px;
 }
 .deathinspace.sheet.npc .personal-wrapper .row2 {
-  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
   flex: 1;
 }
 .deathinspace.sheet.npc .personal-wrapper .col1 {
@@ -1323,7 +1325,7 @@
 }
 .deathinspace.sheet.npc .personal-wrapper .col1 .ability-block {
   border-bottom: 2px solid black;
-  flex: 0 0 246px;
+  flex: 0 0 236px;
 }
 .deathinspace.sheet.npc .personal-wrapper .col1 .ability-block .ability-col {
   display: flex;
@@ -1401,7 +1403,7 @@
 .deathinspace.sheet.npc .personal-wrapper .col2 .hit-points-row {
   border-bottom: 2px solid black;
   display: flex;
-  flex: 0 0 60px;
+  flex: 0 0 50px;
   padding-left: 2px;
 }
 .deathinspace.sheet.npc .personal-wrapper .col2 .hit-points-row .hit-points-text {
@@ -1464,9 +1466,12 @@
 .deathinspace.sheet.npc .personal-wrapper .col3 .portrait-block .portrait-col .portrait {
   width: 100%;
 }
-.deathinspace.sheet.npc .special-block {
-  border-bottom: 2px solid black;
-  flex: 0 0 164px;
+.deathinspace.sheet.npc .personal-wrapper .special-block {
+  flex: 1;
+  padding-bottom: 5px;
+}
+.deathinspace.sheet.npc .personal-wrapper .special-block textarea {
+  font-size: 14px;
 }
 .deathinspace.sheet.npc .notes-wrapper {
   display: flex;

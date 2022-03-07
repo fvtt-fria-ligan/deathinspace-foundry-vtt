@@ -22,12 +22,6 @@
         <div class="row1">
           <div class="col1"> 
             <div class="reaction-block"><a class="reaction">REACTION</a></div>
-            <div class="morale-block">
-              <div class="morale-name rollable">MORALE</div>
-              <div class="morale-value"> 
-                <input class="stat-input" type="number" name="data.morale" value="{{data.data.morale}}" data-dtype="Number" min="-1" max="12"/>
-              </div>
-            </div>
             <div class="stat-block ability-block">
               <label>{{localize "DIS.Ability"}}</label><br/>
               <div class="ability-col"> 
@@ -55,6 +49,12 @@
                     <input class="stat-input" type="number" name="data.abilities.tech.value" value="{{data.data.abilities.tech.value}}" data-dtype="Number" min="-3" max="6"/>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div class="morale-block">
+              <div class="morale-name rollable">MORALE</div>
+              <div class="morale-value"> 
+                <input class="stat-input" type="number" name="data.morale" value="{{data.data.morale}}" data-dtype="Number" min="-1" max="12"/>
               </div>
             </div>
           </div>
@@ -103,13 +103,15 @@
             </div>
           </div>
         </div>
+        <div class="row2"> 
+          <div class="stat-block special-block"> 
+            <label>{{localize "DIS.Special"}}</label>
+            <textarea name="data.special" rows="3">{{data.data.special}}</textarea>
+          </div>
+        </div>
       </div>
     </div>
     <div class="tab belongings-tab" data-group="primary" data-tab="belongings">
-      <div class="stat-block special-block"> 
-        <label>{{localize "DIS.Special"}}</label>
-        <textarea name="data.special" rows="6">{{data.data.special}}</textarea>
-      </div>
       <div class="belongings-wrapper"> 
         <div class="add-row"><a class="add-belonging" title="Add Belonging"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}</a></div>
         <div class="equipment"> 
