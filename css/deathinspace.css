@@ -154,45 +154,6 @@
 .deathinspace.sheet .editor {
   padding: 0 8px;
 }
-
-.attack-outcome-card {
-  border: 2px solid var(--character-background-color);
-}
-.attack-outcome-card .risky-outcome {
-  font-size: 12px;
-  text-transform: none;
-}
-.roll-card {
-  border: 2px solid var(--highlight-background-color);
-  font-family: var(--text-font);
-  padding: 5px;
-}
-.roll-card .card-title {
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-.roll-card .roll-title {
-  text-align: center;
-  text-transform: uppercase;
-}
-.roll-card .roll-result {
-  border: 1px solid gray;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  text-align: center;
-}
-.roll-card .roll-result span {
-  font-size: 20px;
-}
-.roll-card .outcome-text {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-align: center;
-  text-transform: uppercase;
-}
 /* ====================== */
 /* Actor sheet */
 /* ====================== */
@@ -1431,7 +1392,7 @@
 }
 .deathinspace.sheet.npc .personal-wrapper .col2 .defense-row .defense-value {
   display: flex;
-  flex: 0 0 50px;
+  flex: 0 0 100px;
   flex-direction: column;
   justify-content: center;
   text-align: center;
@@ -1537,6 +1498,45 @@
 }
 .deathinspace.sheet.npc .data-wrapper .form-spacer {
   height: 20px;
+}
+
+.attack-outcome-card {
+  border: 2px solid var(--character-background-color);
+}
+.attack-outcome-card .risky-outcome {
+  font-size: 12px;
+  text-transform: none;
+}
+.roll-card {
+  border: 2px solid var(--highlight-background-color);
+  font-family: var(--text-font);
+  padding: 5px;
+}
+.roll-card .card-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.roll-card .roll-title {
+  text-align: center;
+  text-transform: uppercase;
+}
+.roll-card .roll-result {
+  border: 1px solid gray;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+.roll-card .roll-result span {
+  font-size: 20px;
+}
+.roll-card .outcome-text {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .deathinspace.app.window-app .window-content {
