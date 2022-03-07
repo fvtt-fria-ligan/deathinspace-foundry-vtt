@@ -27,6 +27,14 @@ form(class="{{cssClass}}")
       .personal-wrapper 
         .row1
           .col1 
+            .reaction-block
+              a.reaction
+                | REACTION
+            .morale-block
+              .morale-name.rollable
+                | MORALE
+              .morale-value 
+                input(type="number" class="stat-input" name="data.morale" value = "{{data.data.morale}}" data-dtype="Number" min="-1" max="12")
             .stat-block.ability-block
               label {{localize "DIS.Ability"}}
               br
@@ -36,13 +44,17 @@ form(class="{{cssClass}}")
                     .ability-name.rollable(data-ability=val)=val.toUpperCase()
                     .ability-value 
                       input(type="number" class="stat-input" name="data.abilities." + val + ".value" value="{{data.data.abilities." + val + ".value}}" data-dtype="Number" min="-3" max="6")
-                .morale-row
-                  .morale-name.rollable
-                    | MORALE
-                  .morale-value 
-                    input(type="number" class="stat-input" name="data.morale" value = "{{data.data.morale}}" data-dtype="Number" min="-1" max="12")
 
-          .col2 
+          .col2
+            .stat-block.background-block
+              label {{localize "DIS.Background"}}
+              input(type="text" class="stat-input" name="data.background" value="{{data.data.background}}" data-dtype="String")
+            .stat-block.first-impressions-block
+              label {{localize "DIS.FirstImpressions"}}
+              textarea(name="data.firstImpressions", rows="3") {{data.data.firstImpressions}}
+            .stat-block.looks-block
+              label {{localize "DIS.Looks"}}
+              textarea(name="data.looks", rows="3") {{data.data.looks}}
             .defense-row 
               .defense-text 
                 label {{localize "DIS.DefenseRating"}}
@@ -57,14 +69,11 @@ form(class="{{cssClass}}")
               .hit-points-max-col 
                 label {{localize "DIS.Max"}}
                 input(type="number" class="stat-input" name="data.hitPoints.max" value="{{data.data.hitPoints.max}}" data-dtype="Number")
-            .stat-block.special-block 
-              label {{localize "DIS.Special"}}
-              textarea(name="data.special", rows="7") {{data.data.special}}
 
           .col3 
-            .reaction-block
-              a.reaction
-                | REACTION
+            .regenerate-block
+              a.regenerate
+                | {{localize "DIS.Regenerate"}}
             .stat-block.portrait-block 
               label {{localize "DIS.Portrait"}}
               br
@@ -72,7 +81,12 @@ form(class="{{cssClass}}")
                 .portrait 
                   img(class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}")
 
+
+
     div(class="tab belongings-tab" data-group="primary" data-tab="belongings")
+      .stat-block.special-block 
+        label {{localize "DIS.Special"}}
+        textarea(name="data.special", rows="6") {{data.data.special}}
       include includes/belongings.pug
 
     div(class="tab notes-tab" data-group="primary" data-tab="notes")

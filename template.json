@@ -75,13 +75,16 @@
     },
     "npc": {
       "templates": ["abilities"],
+      "background": "",
       "debt": 0,
       "defenseRating": 12,
+      "firstImpressions": "",
       "hitPoints": {
         "max": 1,
         "value": 1
       },
       "holos": 0,
+      "looks": "",
       "morale": 0,
       "special": ""
     }

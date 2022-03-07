@@ -9,7 +9,8 @@ export default class DISActorSheet extends ActorSheet {
     html.find(".item-edit").click(this._onItemEdit.bind(this));
     html.find(".item-delete").click(this._onItemDelete.bind(this));
     html.find(".inline-edit").change(this._onInlineEdit.bind(this));
-    html.find(".ability-name").on("click", this._onAbilityRoll.bind(this));
+    html.find(".ability-name").click(this._onAbilityRoll.bind(this));
+    html.find("a.regenerate").click(this._onRegenerate.bind(this));
   }
 
   _onItemCreate(event) {
@@ -127,6 +128,32 @@ export default class DISActorSheet extends ActorSheet {
       if (item) {
         item.checkCondition();
       }
+    }
+  }
+
+  _onRegenerate(event) {
+    event.preventDefault();
+    if (this.actor.data.type === "npc") {
+      // don't confirm
+      this.actor.regenerate();
+    } else {
+      // confirm before regenerating
+      const d = new Dialog({
+        title: game.i18n.localize("DIS.Regenerate"),
+        content: `<p>${game.i18n.localize("DIS.RegenerateWarning")}`,
+        buttons: {
+          cancel: {
+            label: game.i18n.localize("DIS.Cancel"),
+          },
+          getbetter: {
+            icon: '<i class="fas fa-skull"></i>',
+            label: game.i18n.localize("DIS.Regenerate"),
+            callback: () => this.actor.regenerate(),
+          },
+        },
+        default: "cancel",
+      });
+      d.render(true);
     }
   }
 }

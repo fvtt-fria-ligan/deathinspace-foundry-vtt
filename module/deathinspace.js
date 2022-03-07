@@ -9,6 +9,7 @@ import { DISNpcSheet } from "./actor/sheet/npc-sheet.js";
 import { DIS } from "./config.js";
 import {
   generateCharacter,
+  generateNpc,
   generateSpacecraft,
   generateStation,
 } from "./generator.js";
@@ -67,8 +68,13 @@ Hooks.on("renderActorDirectory", (app, html) => {
       "afterbegin",
       `
       <div class="header-actions action-buttons flexrow">
-        <button class="generate-character-button"><i class="fas fa-user"></i>${game.i18n.localize(
+        <button class="generate-character-button"><i class="fas fa-user-astronaut"></i>${game.i18n.localize(
           "DIS.GenerateCharacter"
+        )}</button>
+      </div>
+      <div class="header-actions action-buttons flexrow">
+        <button class="generate-npc-button"><i class="fas fa-user"></i>${game.i18n.localize(
+          "DIS.GenerateNpc"
         )}</button>
       </div>
       <div class="header-actions action-buttons flexrow">
@@ -87,6 +93,11 @@ Hooks.on("renderActorDirectory", (app, html) => {
       .querySelector(".generate-character-button")
       .addEventListener("click", () => {
         generateCharacter();
+      });
+    section
+      .querySelector(".generate-npc-button")
+      .addEventListener("click", () => {
+        generateNpc();
       });
     section
       .querySelector(".generate-spacecraft-button")

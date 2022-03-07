@@ -61,30 +61,54 @@
         flex: 1;
         flex-direction: column;
         width: 100%;
+        .reaction-block {
+          align-items: center;
+          border-bottom: 2px solid black;
+          display: flex;
+          flex: 0 0 50px;
+          justify-content: center;
+          a.reaction {
+            text-decoration: underline;
+            text-transform: uppercase;
+          }
+        }
+        .morale-block {
+          align-items: center;
+          border-bottom: 2px solid black;
+          display: flex;
+          height: 50px;
+          justify-items: center;
+          padding: 5px;
+          .morale-name {
+            flex: 1;
+            font-weight: bold;
+          }
+          .morale-value {
+            flex: 0 0 50px;
+          }
+          .morale-value input[type="number"] {
+            text-align: center;
+          }
+        }
         .ability-block {
           border-bottom: 2px solid black;
-          // TODO: something is spamming whitespace below last ability
-          flex: 0 0 250px;
+          flex: 0 0 246px;
           .ability-col {
             display: flex;
             flex-direction: column;
             justify-content: space-around;
             padding: 5px;
-            .ability-row,
-            .morale-row {
+            .ability-row {
               display: flex;
               height: 50px;
-              .ability-name,
-              .morale-name {
+              .ability-name {
                 flex: 1;
                 font-weight: bold;
               }
-              .ability-value,
-              .morale-value {
+              .ability-value {
                 flex: 0 0 50px;
               }
               .ability-value input[type="number"],
-              .morale-value input[type="number"],
               input[type="number"].stat-input {
                 text-align: center;
               }
@@ -98,6 +122,26 @@
         flex: 2 ;
         flex-direction: column;
         width: 100%;
+        .background-block {
+          border-bottom: 2px solid black;
+          flex: 0 0 50px;
+        }
+        .first-impressions-block {
+          border-bottom: 2px solid black;
+          flex: 0 0 90px;
+          textarea {
+            font-size: 14px;
+            height: 68px;
+          }
+        }
+        .looks-block {
+          border-bottom: 2px solid black;
+          flex: 0 0 90px;
+          textarea {
+            font-size: 14px;
+            height: 68px;
+          }
+        }
         .defense-row {
           border-bottom: 2px solid black;
           display: flex;
@@ -126,7 +170,7 @@
         .hit-points-row {
           border-bottom: 2px solid black;
           display: flex;
-          flex: 0 0 70px;
+          flex: 0 0 60px;
           padding-left: 2px;
           .hit-points-text {
             flex: 1;
@@ -158,30 +202,26 @@
             }
           }
         }
-        .special-block {
-          border-bottom: 2px solid black;
-          flex: 0 0 164px;
-        }
       }
       .col3 {
         display: flex;
         flex: 1;
         flex-direction: column;
         width: 100%;
-        .reaction-block {
+        .regenerate-block {
           align-items: center;
           border-bottom: 2px solid black;
           display: flex;
           flex: 0 0 50px;
           justify-content: center;
-          a.reaction {
+          a.regenerate {
             text-decoration: underline;
             text-transform: uppercase;
           }
-        }
+        }        
         .portrait-block {
           background-color: none;
-          flex: 0 0 234px;
+          flex: 1;
           border-bottom: 2px solid black;
           .portrait-col {
             display: flex;
@@ -195,8 +235,9 @@
         }
       }
     }
-    .belongings-wrapper {
-
+    .special-block {
+      border-bottom: 2px solid black;
+      flex: 0 0 164px;
     }
 
     /* Notes tab */

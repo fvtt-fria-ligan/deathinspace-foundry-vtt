@@ -1,7 +1,7 @@
 import AbilityCheckDialog from "../dialog/ability-check-dialog.js";
 import AttackDialog from "../dialog/attack-dialog.js";
 import { diceSound, showDice } from "../dice.js";
-import { regenerateCharacter } from "../generator.js";
+import { regenerateCharacter, regenerateNpc } from "../generator.js";
 import { tableFromPack } from "../packutils.js";
 
 /**
@@ -406,7 +406,11 @@ export class DISActor extends Actor {
   }
 
   async regenerate() {
-    regenerateCharacter(this);
+    if (this.data.type === "character") {
+      regenerateCharacter(this);
+    } else if (this.data.type === "npc") {
+      regenerateNpc(this);
+    }
   }
 
   async decrementVoidPoints() {

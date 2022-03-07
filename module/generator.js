@@ -7,6 +7,7 @@ import {
 } from "./packutils.js";
 
 const CREATION_PACK = "deathinspace.character-creation";
+const NPC_CREATION_PACK = "deathinspace.npc-creation";
 
 export const generateCharacter = async () => {
   const char = await randomCharacter();
@@ -287,4 +288,92 @@ export const generateStation = async () => {
   );
   await actor.createEmbeddedDocuments("Item", [frame.data, engine.data]);
   actor.sheet.render(true);
+};
+
+export const generateNpc = async () => {
+  const npc = await randomNpc();
+  console.log(npc);
+  const actor = await DISActor.create(npc.actorData);
+  await actor.createEmbeddedDocuments("Item", npc.items);
+  actor.sheet.render(true);
+};
+
+export const regenerateNpc = async (actor) => {
+  const npc = await randomNpc();
+  await actor.deleteEmbeddedDocuments("Item", [], { deleteAll: true });
+  await actor.update(npc.actorData);
+  await actor.createEmbeddedDocuments("Item", npc.items);
+  // update any actor tokens in the scene, too
+  for (const token of actor.getActiveTokens()) {
+    await token.document.update({
+      img: actor.data.token.img,
+      name: actor.name,
+    });
+  }
+};
+
+const randomNpc = async () => {
+  const firstName = await drawText(NPC_CREATION_PACK, "NPC First Names");
+  const lastName = await drawText(NPC_CREATION_PACK, "NPC Last Names");
+  const name = `${firstName} ${lastName}`;
+  const imageBase = randomCharacterImageBase();
+  const portrait = `systems/deathinspace/assets/images/portraits/characters/${imageBase}.jpg`;
+  const token = `systems/deathinspace/assets/images/tokens/characters/${imageBase}.png`;
+
+  // 1. abilities
+  const body = generateAbilityValue();
+  const dexterity = generateAbilityValue();
+  const savvy = generateAbilityValue();
+  const tech = generateAbilityValue();
+
+  // 2. character details
+  const background = await drawText(NPC_CREATION_PACK, "NPC Backgrounds");
+  const firstImpressions = await drawText(
+    NPC_CREATION_PACK,
+    "NPC First Impressions"
+  );
+  const looks = await drawText(NPC_CREATION_PACK, "NPC Looks");
+
+  // 3. hit points and defense rating
+  const hitPoints = rollTotal("1d8");
+  const defenseRating = 12 + dexterity;
+
+  // 6. starting gear
+  const holos = rollTotal("3d10");
+
+  const actorData = {
+    name,
+    data: {
+      abilities: {
+        body: { value: body },
+        dexterity: { value: dexterity },
+        savvy: { value: savvy },
+        tech: { value: tech },
+      },
+      background,
+      defenseRating,
+      firstImpressions,
+      hitPoints: {
+        max: hitPoints,
+        value: hitPoints,
+      },
+      holos,
+      looks,
+    },
+    img: portrait,
+    token: {
+      img: token,
+      name,
+    },
+    type: "npc",
+  };
+  // const items = [origin.data, originBenefit.data, personalTrinket.data].concat(
+  //   startingKitItems.map((x) => x.data)
+  // );
+  const items = [];
+
+  return {
+    actorData,
+    items,
+  };
 };
