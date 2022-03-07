@@ -1,3 +1,7 @@
+# 0.15.2
+
+- Hide slots total help text on npc sheet.
+
 # 0.15.1
 
 - Tweak character and npc name field height to avoid cutting off letter descenders.
