@@ -4,6 +4,7 @@
 - Add NPC generator.
 - Fix hub sheet layout tab position shift bug.
 - Code cleanup: enable linter and formatter, de-lint and format codebase.
+- Mark system compatible with Foundry v9.
 
 # 0.14.0
 
