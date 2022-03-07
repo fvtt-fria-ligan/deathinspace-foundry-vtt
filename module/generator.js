@@ -325,6 +325,7 @@ const randomNpc = async () => {
   const dexterity = generateAbilityValue();
   const savvy = generateAbilityValue();
   const tech = generateAbilityValue();
+  const morale = Math.floor(Math.random() * 12) + 4;
 
   // 2. character details
   const background = await drawText(NPC_CREATION_PACK, "NPC Backgrounds");
@@ -359,6 +360,7 @@ const randomNpc = async () => {
       },
       holos,
       looks,
+      morale,
     },
     img: portrait,
     token: {
