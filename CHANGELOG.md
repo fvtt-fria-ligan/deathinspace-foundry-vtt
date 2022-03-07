@@ -1,3 +1,7 @@
+# 0.15.1
+
+- Tweak character and npc name field height to avoid cutting off letter descenders.
+
 # 0.15.0
 
 - New NPC sheet!
