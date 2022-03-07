@@ -10,8 +10,8 @@ form(class="{{cssClass}}")
       .col2
         .section-label 
           | {{ localize 'DIS.Section0Name' }} 
-        .character-name
-          input(class="character-name" type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'DIS.Name' }}" spellcheck="false")
+        .npc-name
+          input(class="npc-name" type="text" name="name" value="{{actor.name}}" placeholder="{{ localize 'DIS.Name' }}" spellcheck="false")
 
   nav(class="sheet-tabs tabs" data-group="primary")
     a(class="item" data-tab="personal")
