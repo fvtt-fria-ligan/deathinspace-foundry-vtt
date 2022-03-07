@@ -1,6 +1,8 @@
 # 0.15.1
 
 - Tweak character and npc name field height to avoid cutting off letter descenders.
+- Fix npc generator morale range.
+- Move special field to personal tab on npc sheet.
 
 # 0.15.0
 
