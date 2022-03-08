@@ -1,6 +1,7 @@
 # 0.16.0
 
 - Add reaction and morale roll cards.
+- Add custom add item/belonging dialog.
 - Hide slots total help text on npc sheet.
 
 # 0.15.1
