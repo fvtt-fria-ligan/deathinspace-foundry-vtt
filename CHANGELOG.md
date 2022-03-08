@@ -1,5 +1,6 @@
-# 0.15.2
+# 0.16.0
 
+- Add reaction and morale roll cards.
 - Hide slots total help text on npc sheet.
 
 # 0.15.1
