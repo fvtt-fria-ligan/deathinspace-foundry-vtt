@@ -1,10 +1,15 @@
-form.custom-dialog(action="")
+form.custom-dialog.add-item-dialog(action="")
   .form-group
-    label Name 
-    input(type="text" name="itemname" value="" placeholder="Name" data-dtype="String") 
+    label {{ localize "DIS.ItemName" }}
+    input(type="text" name="itemname" value="" placeholder="{{ localize 'DIS.Name' }}" data-dtype="String") 
+
   .form-group
-    label Type
+    label {{ localize "DIS.ItemType" }}
     select.add-type(name="itemtype") 
-      option armor
-      option(selected=true) equipment 
-      option weapon
+      option(value="armor") {{ localize "DIS.ItemTypeArmor" }}
+      option(value="equipment" selected=true) {{ localize "DIS.ItemTypeEquipment" }}
+      option(value="weapon") {{ localize "DIS.ItemTypeWeapon" }}
+
+  .button-row
+    button(type="button" class="add-item-button" name="add-item-button")
+      | {{ localize "DIS.Add" }}

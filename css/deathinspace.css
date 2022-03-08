@@ -1348,7 +1348,12 @@
   text-align: center;
   text-transform: uppercase;
 }
-
+.ability-check-dialog {
+  border: 2px solid var(--character-background-color);
+}
+.add-item-dialog {
+  border: 2px solid var(--character-background-color);
+}
 .deathinspace.app.window-app .window-content {
   background: url(../assets/images/ui/seamless_paper_texture.png) repeat;
 }
@@ -1396,8 +1401,11 @@
   box-shadow: 0 0 5px var(--highlight-background-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
+.deathinspace.app.window-app.dialog {
+  background: url(../assets/images/ui/seamless_paper_texture.png) repeat;
+}
+
 .custom-dialog {
-  border: 2px solid var(--character-background-color);
   color: var(--foreground-color);
   font-family: var(--text-font);
   margin: 0;

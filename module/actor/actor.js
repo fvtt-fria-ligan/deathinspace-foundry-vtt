@@ -1,4 +1,5 @@
 import AbilityCheckDialog from "../dialog/ability-check-dialog.js";
+import AddItemDialog from "../dialog/add-item-dialog.js";
 import AttackDialog from "../dialog/attack-dialog.js";
 import { diceSound, showDice } from "../dice.js";
 import { regenerateCharacter, regenerateNpc } from "../generator.js";
@@ -130,6 +131,12 @@ export class DISActor extends Actor {
 
   async techCheck() {
     return this.showAbilityCheckDialog("tech");
+  }
+
+  async showAddItemDialog() {
+    const dialog = new AddItemDialog();
+    dialog.actor = this;
+    dialog.render(true);
   }
 
   async showAbilityCheckDialog(ability) {
@@ -375,33 +382,73 @@ export class DISActor extends Actor {
     });
   }
 
-  async rollNpcDamage() {
-    if (!this.data.data.damage) {
-      return;
-    }
-    const roll = new Roll(this.data.data.damage);
-    roll.toMessage({
-      user: game.user.id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: `${this.data.data.attack} damage`,
-    });
-  }
-
   async rollNpcMorale() {
-    const roll = new Roll("2d6");
-    roll.toMessage({
-      user: game.user.id,
+    const cardTitle = `${game.i18n.localize("Morale")} ${game.i18n.localize(
+      "DIS.Check"
+    )}`;
+    const moraleText = `2D6 ${game.i18n.localize("Vs")} ${game.i18n.localize(
+      "Morale"
+    )}`;
+    const moraleRoll = new Roll("2d6");
+    moraleRoll.evaluate({ async: false });
+    await showDice(moraleRoll);
+    let moraleOutcome;
+    if (moraleRoll.total > this.data.data.morale) {
+      moraleOutcome = game.i18n.localize("DIS.MoraleFailure");
+    } else {
+      moraleOutcome = game.i18n.localize("DIS.MoraleSuccess");
+    }
+
+    const chatData = {
+      cardTitle,
+      moraleOutcome,
+      moraleText,
+      moraleRoll,
+    };
+    const html = await renderTemplate(
+      "systems/deathinspace/templates/chat/morale.html",
+      chatData
+    );
+    ChatMessage.create({
+      content: html,
+      sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: `Morale`,
     });
   }
 
   async rollNpcReaction() {
-    const roll = new Roll("2d6");
-    roll.toMessage({
-      user: game.user.id,
+    const cardTitle = `${game.i18n.localize("Reaction")}`;
+    const reactionText = "2D6";
+    const reactionRoll = new Roll("2d6");
+    reactionRoll.evaluate({ async: false });
+    await showDice(reactionRoll);
+    let reactionOutcome;
+    if (reactionRoll.total === 2) {
+      reactionOutcome = game.i18n.localize("DIS.ReactionHostile");
+    } else if (reactionRoll.total <= 5) {
+      reactionOutcome = game.i18n.localize("DIS.ReactionUnfriendly");
+    } else if (reactionRoll.total <= 8) {
+      reactionOutcome = game.i18n.localize("DIS.ReactionUncertain");
+    } else if (reactionRoll.total <= 11) {
+      reactionOutcome = game.i18n.localize("DIS.ReactionTalkative");
+    } else {
+      reactionOutcome = game.i18n.localize("DIS.ReactionHelpful");
+    }
+
+    const chatData = {
+      cardTitle,
+      reactionOutcome,
+      reactionText,
+      reactionRoll,
+    };
+    const html = await renderTemplate(
+      "systems/deathinspace/templates/chat/reaction.html",
+      chatData
+    );
+    ChatMessage.create({
+      content: html,
+      sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: `Reaction`,
     });
   }
 

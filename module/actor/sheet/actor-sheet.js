@@ -63,35 +63,11 @@ export default class DISActorSheet extends ActorSheet {
   }
 
   /**
-   * +Add for belongings tab
+   * +Add button for belongings tab
    */
   async _onAddBelonging(event) {
-    console.log("_onAddBelonging ****");
     event.preventDefault();
-    const template =
-      "systems/deathinspace/templates/dialog/add-item-dialog.html";
-    const dialogData = {
-      config: CONFIG.DeathInSpace,
-    };
-    const html = await renderTemplate(template, dialogData);
-    return new Promise((resolve) => {
-      new Dialog({
-        title: game.i18n.localize("Create New Item"),
-        content: html,
-        buttons: {
-          create: {
-            icon: '<i class="fas fa-check"></i>',
-            label: game.i18n.localize("Create New Item"),
-            callback: (html) =>
-              resolve(
-                _createBelongingItem(this.actor, html[0].querySelector("form"))
-              ),
-          },
-        },
-        default: "create",
-        close: () => resolve(null),
-      }).render(true);
-    });
+    this.actor.showAddItemDialog();
   }
 
   _onWeaponRoll(event) {
@@ -157,15 +133,3 @@ export default class DISActorSheet extends ActorSheet {
     }
   }
 }
-
-/**
- * Create a new Owned Item for the given actor, based on the name/type from the form.
- */
-const _createBelongingItem = (actor, form) => {
-  const itemData = {
-    name: form.itemname.value,
-    type: form.itemtype.value,
-    data: {},
-  };
-  actor.createEmbeddedDocuments("Item", [itemData]);
-};

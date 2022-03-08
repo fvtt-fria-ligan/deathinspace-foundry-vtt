@@ -1,15 +1,18 @@
 
-<form class="custom-dialog" action="">
+<form class="custom-dialog add-item-dialog" action="">
   <div class="form-group">
-    <label>Name </label>
-    <input type="text" name="itemname" value="" placeholder="Name" data-dtype="String"/>
+    <label>{{ localize "DIS.ItemName" }}</label>
+    <input type="text" name="itemname" value="" placeholder="{{ localize 'DIS.Name' }}" data-dtype="String"/>
   </div>
   <div class="form-group">
-    <label>Type</label>
+    <label>{{ localize "DIS.ItemType" }}</label>
     <select class="add-type" name="itemtype"> 
-      <option>armor</option>
-      <option selected="selected">equipment </option>
-      <option>weapon</option>
+      <option value="armor">{{ localize "DIS.ItemTypeArmor" }}</option>
+      <option value="equipment" selected="selected">{{ localize "DIS.ItemTypeEquipment" }}</option>
+      <option value="weapon">{{ localize "DIS.ItemTypeWeapon" }}</option>
     </select>
+  </div>
+  <div class="button-row">
+    <button class="add-item-button" type="button" name="add-item-button">{{ localize "DIS.Add" }}</button>
   </div>
 </form>

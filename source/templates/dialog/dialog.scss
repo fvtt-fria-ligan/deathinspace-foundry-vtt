@@ -1,5 +1,12 @@
+
+.deathinspace.app.window-app.dialog {
+  // background-image: url(../assets/images/ui/seamless_paper_texture.png) repeat;
+  // .window-content {
+  //   background: url(../assets/images/ui/seamless_paper_texture.png) repeat;
+  // }
+  background: url(../assets/images/ui/seamless_paper_texture.png) repeat;
+}
 .custom-dialog {
-  border: 2px solid var(--character-background-color);  
   color: var(--foreground-color);
   font-family: var(--text-font);  
   margin: 0;
