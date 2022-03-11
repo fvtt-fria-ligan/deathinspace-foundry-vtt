@@ -709,6 +709,7 @@
   font-size: 24px;
 }
 .deathinspace.sheet.actor.hub .header-row .col2 .hub-name input {
+  height: 38px;
   padding: 5px;
 }
 .deathinspace.sheet.actor.hub .specifics-tab .specifics-wrapper {
@@ -718,7 +719,7 @@
   grid-template-rows: 50px 120px 100px;
   width: 100%;
 }
-.deathinspace.sheet.actor.hub .specifics-tab .nickname-block {
+.deathinspace.sheet.actor.hub .specifics-tab .owner-name-block {
   border-bottom: 2px solid var(--hub-background-color);
   border-right: 2px solid black;
   display: flex;

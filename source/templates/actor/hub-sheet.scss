@@ -57,6 +57,7 @@
       .hub-name {
         font-size: 24px;
         input {
+          height: 38px;          
           padding: 5px;
         }
       }      
@@ -74,7 +75,7 @@
       grid-template-rows: 50px 120px 100px;
       width: 100%;
     }
-    .nickname-block {
+    .owner-name-block {
       border-bottom: 2px solid var(--hub-background-color);
       border-right: 2px solid black;
       display: flex;
