@@ -1,3 +1,7 @@
+# 0.16.1
+
+- Fix hub sheet name field to not cut off letter descenders.
+
 # 0.16.0
 
 - Add reaction and morale roll cards.
