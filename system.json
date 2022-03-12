@@ -10,13 +10,6 @@
   "styles": ["css/deathinspace.css"],
   "packs": [
     {
-      "name": "addictive-substances",
-      "label": "Addictive Substances",
-      "system": "deathinspace",
-      "path": "./packs/addictive-substances.db",
-      "entity": "Item"
-    },
-    {
       "name": "armor",
       "label": "Armor",
       "system": "deathinspace",
@@ -31,25 +24,11 @@
       "entity": "RollTable"
     },
     {
-      "name": "corrupted-by-the-void",
-      "label": "Corrupted by the Void",
-      "system": "deathinspace",
-      "path": "./packs/corrupted-by-the-void.db",
-      "entity": "Actor"
-    },
-    {
       "name": "cosmic-mutations",
       "label": "Cosmic Mutations",
       "system": "deathinspace",
       "path": "./packs/cosmic-mutations.db",
       "entity": "Item"
-    },
-    {
-      "name": "creatures-of-the-abyss",
-      "label": "Creatures of the Abyss",
-      "system": "deathinspace",
-      "path": "./packs/creatures-of-the-abyss.db",
-      "entity": "Actor"
     },
     {
       "name": "electronics",
@@ -63,13 +42,6 @@
       "label": "Equipment",
       "system": "deathinspace",
       "path": "./packs/equipment.db",
-      "entity": "Item"
-    },
-    {
-      "name": "food",
-      "label": "Food",
-      "system": "deathinspace",
-      "path": "./packs/food.db",
       "entity": "Item"
     },
     {
