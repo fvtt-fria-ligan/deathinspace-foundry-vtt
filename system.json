@@ -87,13 +87,6 @@
       "entity": "Item"
     },
     {
-      "name": "npc-creation",
-      "label": "NPC Creation",
-      "system": "deathinspace",
-      "path": "./packs/npc-creation.db",
-      "entity": "RollTable"
-    },
-    {
       "name": "origins",
       "label": "Origins",
       "system": "deathinspace",

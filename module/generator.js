@@ -7,7 +7,6 @@ import {
 } from "./packutils.js";
 
 const CREATION_PACK = "deathinspace.character-creation";
-const NPC_CREATION_PACK = "deathinspace.npc-creation";
 
 export const generateCharacter = async () => {
   const char = await randomCharacter();
@@ -328,8 +327,8 @@ const randomInt = (min, max) => {
 };
 
 const randomNpc = async () => {
-  const firstName = await drawText(NPC_CREATION_PACK, "NPC First Names");
-  const lastName = await drawText(NPC_CREATION_PACK, "NPC Last Names");
+  const firstName = await drawText(CREATION_PACK, "First Names");
+  const lastName = await drawText(CREATION_PACK, "Last Names");
   const name = `${firstName} ${lastName}`;
   const imageBase = randomCharacterImageBase();
   const portrait = `systems/deathinspace/assets/images/portraits/characters/${imageBase}.jpg`;
@@ -343,12 +342,9 @@ const randomNpc = async () => {
   const morale = randomInt(4, 11);
 
   // 2. character details
-  const background = await drawText(NPC_CREATION_PACK, "NPC Backgrounds");
-  const firstImpressions = await drawText(
-    NPC_CREATION_PACK,
-    "NPC First Impressions"
-  );
-  const looks = await drawText(NPC_CREATION_PACK, "NPC Looks");
+  const background = await drawText(CREATION_PACK, "Backgrounds");
+  const firstImpressions = await drawText(CREATION_PACK, "First Impressions");
+  const looks = await drawText(CREATION_PACK, "Looks");
 
   // 3. hit points and defense rating
   const hitPoints = rollTotal("1d8");
