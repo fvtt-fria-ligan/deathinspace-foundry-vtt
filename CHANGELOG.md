@@ -1,6 +1,6 @@
 # 0.17.0
 
-- Remove content.
+- Substitute new alternative content for player, hub, and npc generation tables.
 
 # 0.16.1
 
