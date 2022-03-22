@@ -1,3 +1,7 @@
+# 0.17.1
+
+- Fix critical roll when using advantage / disadvantage.
+
 # 0.17.0
 
 - Substitute new alternative content for player, hub, and npc generation tables.
