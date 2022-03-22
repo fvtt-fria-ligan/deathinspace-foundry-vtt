@@ -298,7 +298,9 @@ export class DISActor extends Actor {
     attackRoll.evaluate({ async: false });
     await showDice(attackRoll);
 
-    const d20Result = attackRoll.terms[0].results[0].result;
+    // use the active die result, in case of advantage/disadvantage
+    const d20Result = attackRoll.terms[0].results.filter((r) => r.active)[0]
+      .result;
     const isCrit = d20Result === 20;
     let attackOutcome;
     let rollVoidCorruption;
