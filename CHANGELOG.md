@@ -1,3 +1,7 @@
+# 0.18.0
+
+- Scrub description text from compendium packs.
+
 # 0.17.1
 
 - Fix critical roll when using advantage / disadvantage.
