@@ -13,7 +13,7 @@ https://www.kickstarter.com/projects/cnibl/death-in-space
 ## Credits
 
 - Content
-  - Limited Death in Space book content (origins, equipment, hub modules, cosmic mutations, void corruptions) provided courtesy of the authors.
+  - Limited Death in Space book content (origins/benefits, weapons/armor/equipment, hub modules, cosmic mutations, void corruptions) provided courtesy of the authors.
 - Fonts
   - [Androcles Opti Heavy](https://www.whatfontis.com/AndroclesOpti-Heavy.font) by Castcraft Software Inc and free for personal use.
   - [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono) by Mike Abbink and Bold Monday, under [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
