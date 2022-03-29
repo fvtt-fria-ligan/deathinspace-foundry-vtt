@@ -6,9 +6,9 @@ DEATH IN SPACE is © Stockholm Kartell and/or other authors.
 
 _Death in Space for Foundry VTT is an independent production by mcglintlock and is not affiliated with Stockholm Kartell. It is published under the [DEATH IN SPACE Third Party License](https://deathinspace.com/third-party-license/)_.
 
-## Follow the Kickstarter
+## Buy the game!
 
-https://www.kickstarter.com/projects/cnibl/death-in-space
+https://freeleaguepublishing.com/en/store/?product_id=7639126900994
 
 ## Credits
 
