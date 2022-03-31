@@ -1,5 +1,7 @@
 # Death in Space for Foundry VTT
 
+![Latest Release Download Count](https://img.shields.io/github/downloads/fvtt-fria-ligan/deathinspace-foundry-vtt/latest/system.zip)
+
 An unoffical, community-supported system for playing [Death in Space](https://deathinspace.com/) on [Foundry VTT](http://foundryvtt.com/).
 
 DEATH IN SPACE is © Stockholm Kartell and/or other authors.
