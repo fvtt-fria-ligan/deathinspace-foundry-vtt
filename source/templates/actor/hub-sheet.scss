@@ -130,6 +130,9 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    .from-frame-help {
+      font-size: 10px;
+    }
     .frame-integrity-row {
       border-bottom: 2px solid var(--hub-background-color);
       display: flex;

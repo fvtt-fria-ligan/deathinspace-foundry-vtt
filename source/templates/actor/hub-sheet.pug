@@ -79,6 +79,8 @@ form(class="{{cssClass}}")
           .defense-rating
             .title-row 
               | {{ localize "DIS.DefenseRating" }}
+              .from-frame-help
+                | ({{ localize "DIS.Frame" }})
             .input-row
               //- input(class="defense-rating" name="data.defenseRating" type="number" value="{{data.data.defenseRating}}" data-dtype="Number")
               input(class="defense-rating" name="data.frame.data.defenseRating" type="number" value="{{data.data.frame.data.defenseRating}}" data-dtype="Number" readonly)
@@ -109,6 +111,8 @@ form(class="{{cssClass}}")
             .label-row
               .col1
                 | {{ localize "DIS.Condition" }}
+                .from-frame-help
+                  | ({{ localize "DIS.Frame" }})
               .col2 
                 | {{ localize "DIS.Current" }}
               .col3
@@ -125,6 +129,8 @@ form(class="{{cssClass}}")
             .label-row
               .col1
                 | {{ localize "DIS.Fuel" }}
+                .from-frame-help
+                  | ({{ localize "DIS.Frame" }})
               .col2 
                 | {{ localize "DIS.Current" }}
               .col3

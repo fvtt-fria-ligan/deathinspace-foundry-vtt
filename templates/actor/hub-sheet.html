@@ -125,7 +125,9 @@
           </div>
           <div class="defense-rating">
             <div class="title-row">
-               {{ localize "DIS.DefenseRating" }}</div>
+               {{ localize "DIS.DefenseRating" }}
+              <div class="from-frame-help">({{ localize "DIS.Frame" }})</div>
+            </div>
             <div class="input-row">
               <input class="defense-rating" name="data.frame.data.defenseRating" type="number" value="{{data.data.frame.data.defenseRating}}" data-dtype="Number" readonly="readonly"/>
             </div>
@@ -150,7 +152,9 @@
         <div class="condition-row"> 
           <div class="condition">
             <div class="label-row">
-              <div class="col1">{{ localize "DIS.Condition" }}</div>
+              <div class="col1">{{ localize "DIS.Condition" }}
+                <div class="from-frame-help">({{ localize "DIS.Frame" }})</div>
+              </div>
               <div class="col2">
                  {{ localize "DIS.Current" }}</div>
               <div class="col3">{{ localize "DIS.Max" }}</div>
@@ -168,7 +172,9 @@
           </div>
           <div class="fuel"> 
             <div class="label-row">
-              <div class="col1">{{ localize "DIS.Fuel" }}</div>
+              <div class="col1">{{ localize "DIS.Fuel" }}
+                <div class="from-frame-help">({{ localize "DIS.Frame" }})</div>
+              </div>
               <div class="col2">
                  {{ localize "DIS.Current" }}</div>
               <div class="col3">{{ localize "DIS.Max" }}</div>

@@ -770,6 +770,9 @@
   flex-direction: column;
   width: 100%;
 }
+.deathinspace.sheet.actor.hub .hub-data-wrapper .from-frame-help {
+  font-size: 10px;
+}
 .deathinspace.sheet.actor.hub .hub-data-wrapper .frame-integrity-row {
   border-bottom: 2px solid var(--hub-background-color);
   display: flex;
