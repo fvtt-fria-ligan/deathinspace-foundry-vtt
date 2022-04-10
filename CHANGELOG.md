@@ -1,3 +1,7 @@
+# 0.18.1
+
+- Add (FRAME) text for non-editable frame fields shown on hub sheet.
+
 # 0.18.0
 
 - Scrub description text from compendium packs.
