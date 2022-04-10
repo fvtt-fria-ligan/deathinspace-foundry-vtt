@@ -1,6 +1,10 @@
-# 0.18.1
+# 1.0.1
 
 - Add (FRAME) text for non-editable frame fields shown on hub sheet.
+
+# 1.0.0
+
+- Public Foundry release!
 
 # 0.18.0
 
