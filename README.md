@@ -1,19 +1,23 @@
 # Death in Space for Foundry VTT
 
+![Latest Release Download Count](https://img.shields.io/github/downloads/fvtt-fria-ligan/deathinspace-foundry-vtt/latest/system.zip)
+
 An unoffical, community-supported system for playing [Death in Space](https://deathinspace.com/) on [Foundry VTT](http://foundryvtt.com/).
 
 DEATH IN SPACE is © Stockholm Kartell and/or other authors.
 
 _Death in Space for Foundry VTT is an independent production by mcglintlock and is not affiliated with Stockholm Kartell. It is published under the [DEATH IN SPACE Third Party License](https://deathinspace.com/third-party-license/)_.
 
-## Follow the Kickstarter
+Limited Death in Space book content (origins/benefits, weapons/armor/equipment, hub modules, cosmic mutations, void corruptions) provided by special permission from the authors.
 
-https://www.kickstarter.com/projects/cnibl/death-in-space
+## Buy the game!
+
+https://freeleaguepublishing.com/en/store/?product_id=7639126900994
 
 ## Credits
 
 - Content
-  - Limited Death in Space book content (origins/benefits, weapons/armor/equipment, hub modules, cosmic mutations, void corruptions) provided courtesy of the authors.
+  - Limited Death in Space book content (origins/benefits, weapons/armor/equipment, hub modules, cosmic mutations, void corruptions) provided by special permission from the authors.
 - Fonts
   - [Androcles Opti Heavy](https://www.whatfontis.com/AndroclesOpti-Heavy.font) by Castcraft Software Inc and free for personal use.
   - [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono) by Mike Abbink and Bold Monday, under [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
