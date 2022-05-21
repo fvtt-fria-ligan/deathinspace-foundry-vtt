@@ -68,6 +68,7 @@
   "DIS.LifeSupport": "Life Support",
   "DIS.Looks": "Looks",
   "DIS.Max": "Max",
+  "DIS.MaxDamageOutcome": "Max damage: reduce condition of one defender item by one",
   "DIS.Modules": "Modules",
   "DIS.Morale": "Morale",
   "DIS.MoraleFailure": "Parley or flee",

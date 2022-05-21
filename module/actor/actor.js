@@ -308,6 +308,7 @@ export class DISActor extends Actor {
     let riskyOutcome;
     let damageRoll;
     let damageText;
+    let maxDamageOutcome;
     if (isCrit || attackRoll.total >= defenderDR) {
       // hit
       attackOutcome = game.i18n.localize(
@@ -325,6 +326,15 @@ export class DISActor extends Actor {
       damageText = `Damage: ${damageFormula}`;
       damageRoll = new Roll(damageFormula, {});
       damageRoll.evaluate({ async: false });
+      // TODO: including crit die in max formula means crits are less likely to reduce target condition
+      const maxDamageRoll = new Roll(damageFormula, {});
+      maxDamageRoll.evaluate({ async: false, maximize: true });
+      const isMaxDamage = damageRoll.total == maxDamageRoll.total;
+      console.log(damageRoll);
+      console.log(maxDamageRoll);
+      if (isMaxDamage) {
+        maxDamageOutcome = game.i18n.localize("DIS.MaxDamageOutcome");
+      }
       await showDice(damageRoll);
     } else if (useVoidPoint) {
       // miss when using void point
@@ -350,6 +360,7 @@ export class DISActor extends Actor {
       attackTitle,
       damageRoll,
       damageText,
+      maxDamageOutcome,
       riskyOutcome,
       voidPointsClass: this.hasVoidPoints ? "enabled" : "disabled",
       voidPointsDisabled: this.hasVoidPoints ? "" : "disabled",

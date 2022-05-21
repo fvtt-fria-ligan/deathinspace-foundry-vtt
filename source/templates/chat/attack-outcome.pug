@@ -21,4 +21,9 @@ form.roll-card.attack-outcome-card
     .roll-result 
       span
         | {{xtotal damageRoll}}
+  | {{#if maxDamageOutcome}}
+  .outcome-text
+    .max-damage-outcome
+      | {{maxDamageOutcome}}
+  | {{/if}}
   | {{/if}}

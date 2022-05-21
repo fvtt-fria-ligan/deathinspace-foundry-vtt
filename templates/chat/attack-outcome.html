@@ -14,5 +14,9 @@
   <div class="damage-roll"> 
     <div class="roll-title">{{damageText}}</div>
     <div class="roll-result"> <span>{{xtotal damageRoll}}</span></div>
+  </div>{{#if maxDamageOutcome}}
+  <div class="outcome-text">
+    <div class="max-damage-outcome">{{maxDamageOutcome}}</div>
   </div>{{/if}}
+  {{/if}}
 </form>

@@ -1,3 +1,7 @@
+# 1.1.0
+
+- Show max damage outcome in attack roll card.
+
 # 1.0.1
 
 - Add (FRAME) text for non-editable frame fields shown on hub sheet.
