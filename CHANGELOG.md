@@ -1,6 +1,7 @@
 # 1.1.0
 
 - Show max damage outcome in attack roll card.
+- Save last-used defenderDR in an actor flag.
 
 # 1.0.1
 
