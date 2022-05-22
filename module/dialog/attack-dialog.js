@@ -22,8 +22,16 @@ export default class AttackDialog extends Application {
   }
 
   /** @override */
-  getData() {
+  async getData() {
+    let defenderDR = await this.actor.getFlag(
+      CONFIG.DIS.flagScope,
+      CONFIG.DIS.flags.DEFENDER_DR
+    );
+    if (!defenderDR) {
+      defenderDR = 12; // default
+    }
     return {
+      defenderDR,
       hasVoidPoints: this.actor.hasVoidPoints,
       voidPointsClass: this.actor.hasVoidPoints ? "enabled" : "disabled",
     };
@@ -39,7 +47,7 @@ export default class AttackDialog extends Application {
     }
   }
 
-  _onAttack(event) {
+  async _onAttack(event) {
     event.preventDefault();
     const form = $(event.currentTarget).parents(".attack-dialog")[0];
     const defenderDRStr = $(form).find("input[name=defender-dr]").val();
@@ -50,6 +58,11 @@ export default class AttackDialog extends Application {
       .find("input[name=use-void-point]")
       .is(":checked");
     this.close();
+    await this.actor.setFlag(
+      CONFIG.DIS.flagScope,
+      CONFIG.DIS.flags.DEFENDER_DR,
+      defenderDR
+    );
     if (this.itemId) {
       this.actor.rollAttackWithItem(
         this.itemId,
