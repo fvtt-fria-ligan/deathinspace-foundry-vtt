@@ -331,7 +331,6 @@ export class DISActor extends Actor {
       maxDamageRoll.evaluate({ async: false, maximize: true });
       const isMaxDamage = damageRoll.total == maxDamageRoll.total;
       console.log(damageRoll);
-      console.log(maxDamageRoll);
       if (isMaxDamage) {
         maxDamageOutcome = game.i18n.localize("DIS.MaxDamageOutcome");
       }
