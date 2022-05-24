@@ -1,3 +1,7 @@
+# 1.1.1
+
+- Fix various item and description discrepenacies identified by Kaybe.
+
 # 1.1.0
 
 - Show max damage outcome in attack roll card.
