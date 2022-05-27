@@ -4,7 +4,7 @@
       i.fas.fa-plus
       | {{localize "DIS.Add"}}
 
-  .equipment 
+  .equipment.item-list 
     .equipment-header
       .equipment-name
         | {{localize "DIS.Equipment"}}
@@ -52,7 +52,7 @@
         a.item-control.item-delete
           i.fas.fa-trash  
     | {{/each}}
-  .weapons 
+  .weapons.item-list 
     | {{#each data.data.weapons as |item id|}}
     .weapon-header 
       .weapon-name 
@@ -100,7 +100,7 @@
         a.item-control.item-delete
           i.fas.fa-trash                          
     | {{/each}}
-  .armor 
+  .armor.item-list 
     | {{#each data.data.armor as |item id|}}
     .armor-header 
         .armor-name 

@@ -1,3 +1,7 @@
+# 1.2.0
+
+- Enable drag-drop for equipment, weapons, and armor on Belongings tab, allowing non-destructive drag-drop to other character or npc sheets.
+
 # 1.1.1
 
 - Fix various item and description discrepenacies identified by Kaybe.

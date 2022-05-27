@@ -114,7 +114,7 @@
     <div class="tab belongings-tab" data-group="primary" data-tab="belongings">
       <div class="belongings-wrapper"> 
         <div class="add-row"><a class="add-belonging" title="Add Belonging"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}</a></div>
-        <div class="equipment"> 
+        <div class="equipment item-list"> 
           <div class="equipment-header">
             <div class="equipment-name">{{localize "DIS.Equipment"}}</div>
             <div class="equipment-condition">
@@ -149,7 +149,7 @@
             <div class="item-controls"><a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash"> </i></a></div>
           </div>{{/each}}
         </div>
-        <div class="weapons">
+        <div class="weapons item-list">
            {{#each data.data.weapons as |item id|}}
           <div class="weapon-header"> 
             <div class="weapon-name">
@@ -191,7 +191,7 @@
             <div class="item-controls"><a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash">                         </i></a></div>
           </div>{{/each}}
         </div>
-        <div class="armor">
+        <div class="armor item-list">
            {{#each data.data.armor as |item id|}}
           <div class="armor-header"> 
             <div class="armor-name">
