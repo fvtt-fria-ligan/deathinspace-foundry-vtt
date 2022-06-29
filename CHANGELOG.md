@@ -1,3 +1,7 @@
+# 1.2.2
+
+- Fix missing starting kit equipment items.
+
 # 1.2.0
 
 - Enable drag-drop for equipment, weapons, and armor on Belongings tab, allowing non-destructive drag-drop to other character or npc sheets.
