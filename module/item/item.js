@@ -7,39 +7,39 @@ export class DISItem extends Item {
   /** @override */
   prepareDerivedData() {
     super.prepareDerivedData();
-    this.data.data.brokenClass = this.broken ? "broken" : "";
+    this.system.brokenClass = this.broken ? "broken" : "";
   }
 
   get broken() {
     return (
-      this.data.data.condition &&
-      this.data.data.condition.max &&
-      !this.data.data.condition.value
+      this.system.condition &&
+      this.system.condition.max &&
+      !this.system.condition.value
     );
   }
 
   get equipped() {
-    return this.data.data.equipped === true;
+    return this.system.equipped === true;
   }
 
   get usesAmmo() {
-    return this.data.data.ammo && this.data.data.ammo.max;
+    return this.system.ammo && this.system.ammo.max;
   }
 
   get outOfAmmo() {
-    return this.usesAmmo && !this.data.data.ammo.value;
+    return this.usesAmmo && !this.system.ammo.value;
   }
 
   async equip() {
-    await this.update({ "data.equipped": true });
+    await this.update({ "system.equipped": true });
   }
 
   async unequip() {
-    await this.update({ "data.equipped": false });
+    await this.update({ "system.equipped": false });
   }
 
   async checkCondition() {
-    if (!this.data.data.condition.value) {
+    if (!this.system.condition.value) {
       return;
     }
     const conditionRoll = new Roll("1d6");
@@ -75,11 +75,11 @@ export class DISItem extends Item {
   }
 
   async decrementCondition() {
-    if (!this.data.data.condition.value) {
+    if (!this.system.condition.value) {
       return;
     }
     await this.update({
-      ["data.condition.value"]: this.data.data.condition.value - 1,
+      ["system.condition.value"]: this.system.condition.value - 1,
     });
   }
 
@@ -87,6 +87,6 @@ export class DISItem extends Item {
     if (!this.usesAmmo || this.outOfAmmo) {
       return;
     }
-    await this.update({ ["data.ammo.value"]: this.data.data.ammo.value - 1 });
+    await this.update({ ["system.ammo.value"]: this.system.ammo.value - 1 });
   }
 }

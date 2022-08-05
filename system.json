@@ -1,11 +1,18 @@
 {
-  "name": "deathinspace",
+  "id": "deathinspace",
   "title": "DEATH IN SPACE",
   "description": "Foundry VTT system for Death in Space.",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "templateVersion": 2,
-  "author": "mcglincy",
-  "scripts": [],
+  "compatibility": {
+    "minimum": 10,
+    "verified": 10
+  },
+  "authors": [
+    {
+      "name": "mcglintlock"
+    }
+  ],
   "esmodules": ["module/deathinspace.js"],
   "styles": ["css/deathinspace.css"],
   "packs": [
@@ -142,8 +149,6 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "hp",
   "secondaryTokenAttribute": null,
-  "minimumCoreVersion": "0.8.9",
-  "compatibleCoreVersion": "9",
   "manifest": "https://github.com/fvtt-fria-ligan/deathinspace-foundry-vtt/releases/latest/download/system.json",
   "download": "https://github.com/fvtt-fria-ligan/deathinspace-foundry-vtt/releases/latest/download/system.zip"
 }

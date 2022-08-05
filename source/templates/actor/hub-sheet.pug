@@ -29,15 +29,15 @@ form(class="{{cssClass}}")
         .owner-name-block 
           .stat-block  
             label {{ localize 'DIS.OwnerName' }}
-            input(class="owner-name" name="data.ownerName" type="text" value="{{data.data.ownerName}}" placeholder="{{ localize 'DIS.OwnerName' }}" spellcheck="false")            
+            input(class="owner-name" name="system.ownerName" type="text" value="{{data.system.ownerName}}" placeholder="{{ localize 'DIS.OwnerName' }}" spellcheck="false")            
         .hub-type-block
           .frame-label
             | {{ localize 'DIS.Frame' }}
-          .frame-row.item(data-item-id="{{data.data.frame._id}}")  
+          .frame-row.item(data-item-id="{{data.system.frame._id}}")  
             .frame-name.item-edit.rollable
-              | {{data.data.frame.name}}
+              | {{data.system.frame.name}}
             .item-controls 
-              | {{#if data.data.frame}}
+              | {{#if data.system.frame}}
               a.item-control.item-edit
                 i.fas.fa-edit                          
               a.item-control.item-delete
@@ -50,18 +50,18 @@ form(class="{{cssClass}}")
         .background-block
           .stat-block
             label  {{ localize "DIS.Background" }}
-            textarea(name="data.background", rows="4")
-              | {{data.data.background}}
+            textarea(name="system.background", rows="4")
+              | {{data.system.background}}
         .appearance-block
           .stat-block
             label {{ localize "DIS.Appearance" }}
-            textarea(name="data.appearance", rows="4")
-              | {{data.data.appearance}}
+            textarea(name="system.appearance", rows="4")
+              | {{data.system.appearance}}
         .quirks-block
           .stat-block
             label {{ localize "DIS.Quirks" }}
-            textarea(name="data.quirks", rows="3")
-              | {{data.data.quirks}}
+            textarea(name="system.quirks", rows="3")
+              | {{data.system.quirks}}
 
     div(class="tab hub-data-tab" data-group="primary" data-tab="hub-data")
       .hub-data-wrapper
@@ -73,7 +73,7 @@ form(class="{{cssClass}}")
               label
                 .integrity-radio
                   //- deal with pug checked= not working right with Foundry state
-                  | <input type="radio" name="data.frameIntegrity.value" value=#{val} data-dtype="Number" {{#ifEq data.data.frameIntegrity.value #{val}}}checked{{/ifEq}}/>
+                  | <input type="radio" name="system.frameIntegrity.value" value=#{val} data-dtype="Number" {{#ifEq data.system.frameIntegrity.value #{val}}}checked{{/ifEq}}/>
                 .integrity-percent
                   | #{val}%
           .defense-rating
@@ -82,8 +82,7 @@ form(class="{{cssClass}}")
               .from-frame-help
                 | ({{ localize "DIS.Frame" }})
             .input-row
-              //- input(class="defense-rating" name="data.defenseRating" type="number" value="{{data.data.defenseRating}}" data-dtype="Number")
-              input(class="defense-rating" name="data.frame.data.defenseRating" type="number" value="{{data.data.frame.data.defenseRating}}" data-dtype="Number" readonly)
+              input(class="defense-rating" name="system.frame.data.defenseRating" type="number" value="{{data.system.frame.data.defenseRating}}" data-dtype="Number" readonly)
         .roll-on-damage-row 
           .col1
             .arrow-row 
@@ -121,10 +120,10 @@ form(class="{{cssClass}}")
               .col1 
                 | 
               .col2
-                input(class="condition-current" name="data.condition.value" type="number" min="0" value="{{data.data.condition.value}}" data-dtype="Number")
+                input(class="condition-current" name="system.condition.value" type="number" min="0" value="{{data.system.condition.value}}" data-dtype="Number")
               .col3
-                //- input(class="condition-max" name="data.condition.max" type="number" value="{{data.data.condition.max}}" data-dtype="Number")
-                input(class="condition-max" name="data.frame.data.condition" type="number" value="{{data.data.frame.data.condition}}" data-dtype="Number" readonly)
+                //- input(class="condition-max" name="system.condition.max" type="number" value="{{data.system.condition.max}}" data-dtype="Number")
+                input(class="condition-max" name="system.frame.condition" type="number" value="{{data.system.frame.condition}}" data-dtype="Number" readonly)
           .fuel 
             .label-row
               .col1
@@ -139,21 +138,21 @@ form(class="{{cssClass}}")
               .col1 
                 | 
               .col2
-                input(class="fuel-current" name="data.fuel.value" type="number" min="0" value="{{data.data.fuel.value}}" data-dtype="Number")
+                input(class="fuel-current" name="system.fuel.value" type="number" min="0" value="{{data.system.fuel.value}}" data-dtype="Number")
               .col3
-                //- input(class="fuel-max" name="data.fuel.max" type="number" value="{{data.data.fuel.max}}" data-dtype="Number")
-                input(class="fuel-max" name="data.frame.data.fuelDepot" type="number" value="{{data.data.frame.data.fuelDepot}}" data-dtype="Number" readonly)
+                //- input(class="fuel-max" name="system.fuel.max" type="number" value="{{data.system.fuel.max}}" data-dtype="Number")
+                input(class="fuel-max" name="system.frame.fuelDepot" type="number" value="{{data.system.frame.fuelDepot}}" data-dtype="Number" readonly)
           .power-source 
             .source-label
               | {{ localize "DIS.PowerSource" }}
-            .source-row(class="item" data-item-id="{{data.data.powerSystem._id}}")
+            .source-row(class="item" data-item-id="{{data.system.powerSystem._id}}")
               .source-name.item-edit.rollable
-                | {{data.data.powerSystem.name}} 
-                | {{#if data.data.powerSystem.data.speed}}
-                | ({{data.data.powerSystem.data.speed}})
+                | {{data.system.powerSystem.name}} 
+                | {{#if data.system.powerSystem.speed}}
+                | ({{data.system.powerSystem.speed}})
                 | {{/if}}
               .item-controls 
-                | {{#if data.data.powerSystem}}
+                | {{#if data.system.powerSystem}}
                 a(class="item-control item-edit" title="Edit Item")
                   i(class="fas fa-edit")
                 a(class="item-control item-delete" title="Delete Item")
@@ -167,7 +166,7 @@ form(class="{{cssClass}}")
             .title-row
               | {{ localize "DIS.OutputPower" }}
             .input-row
-              input(class="output-power power" name="data.powerSystem.data.outputPower" type="number" value="{{data.data.powerSystem.data.outputPower}}" data-dtype="Number" readonly)
+              input(class="output-power power" name="system.powerSystem.outputPower" type="number" value="{{data.system.powerSystem.outputPower}}" data-dtype="Number" readonly)
         .modules-block
           .title-row
             .col1
@@ -179,7 +178,7 @@ form(class="{{cssClass}}")
             .col3
               | {{ localize "DIS.PowerCost" }}
           .modules-list 
-            | {{#each data.data.hubModules as |item id|}}
+            | {{#each data.system.hubModules as |item id|}}
             div(class="item module-item" data-item-id="{{item._id}}")
               .col1.item-edit.rollable
                 | {{add @index 1}}. {{item.name}}
@@ -189,7 +188,7 @@ form(class="{{cssClass}}")
                 a(class="item-control item-delete" title="Delete Item")
                   i(class="fas fa-trash")
               .col3 
-                input(class="hub-module-power-cost power" name="item.powerCost" type="number" value="{{item.data.powerCost}}" data-dtype="Number" readonly=true)
+                input(class="hub-module-power-cost power" name="item.powerCost" type="number" value="{{item.powerCost}}" data-dtype="Number" readonly=true)
             | {{/each}}
           .modules-total 
             .col1
@@ -198,7 +197,7 @@ form(class="{{cssClass}}")
               | {{ localize "DIS.PowerTotalHelp2" }}
             .col2
             .col3 
-              input(class="total-power-cost power" name="data.totalPowerCost" type="number" value="{{data.data.totalPowerCost}}" data-dtype="Number" readonly=true)
+              input(class="total-power-cost power" name="system.totalPowerCost" type="number" value="{{data.system.totalPowerCost}}" data-dtype="Number" readonly=true)
 
     div(class="tab layout-tab" data-group="primary" data-tab="layout")
       .layout-wrapper
@@ -206,4 +205,4 @@ form(class="{{cssClass}}")
 
     div(class="tab notes-tab" data-group="primary" data-tab="notes")
       .notes-wrapper
-        | {{editor content=data.data.notes target="data.notes" button=true owner=owner editable="true"}}
+        | {{editor data.system.notes target="system.notes" button=true owner=owner editable="true"}}

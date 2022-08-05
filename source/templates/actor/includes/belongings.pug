@@ -15,33 +15,33 @@
       .item-controls 
         | &nbsp;
       
-    | {{#each data.data.equipment as |item id|}}
-    .equipment-row.item(class="{{item.data.brokenClass}}" data-item-id="{{item._id}}")
+    | {{#each data.system.equipment as |item id|}}
+    .equipment-row.item(class="{{item.brokenClass}}" data-item-id="{{item._id}}")
       .equipment-name.item-edit.rollable
         | {{add id 1}}. {{item.name}}
       .equipment-condition 
-        | {{#if item.data.condition.max}}
+        | {{#if item.condition.max}}
         a.item-control.item-condition 
           i.fas.fa-dice-six
-        input(type="number" min="0" max="{{ item.data.condition.max}}" step="1" class="inline-edit" data-mod="data.condition.value" name="item.data.condition.value" value="{{item.data.condition.value}}" data-dtype="Number")
-        |  / {{ item.data.condition.max}}
+        input(type="number" min="0" max="{{item.condition.max}}" step="1" class="inline-edit" data-mod="condition.value" name="item.condition.value" value="{{item.condition.value}}" data-dtype="Number")
+        |  / {{ item.condition.max}}
         | {{else}}
         | -
         | {{/if}}
       .equipment-slots 
-        | {{#if item.data.equippable}}
-        | {{#if item.data.equipped}}
+        | {{#if item.equippable}}
+        | {{#if item.equipped}}
         | -
         a.item-control.item-equip.equipped(title="Unequip")
           i.fas.fa-shield-alt
         | {{else}}
-        | {{item.data.slots}}
+        | {{item.slots}}
         a.item-control.item-equip.unequipped(title="Equip")
           i.fas.fa-shield-alt
         | {{/if}}
         | {{else}}
-        | {{#if item.data.slots}}
-        | {{ item.data.slots}}
+        | {{#if item.slots}}
+        | {{ item.slots}}
         | {{else}}
         | -
         | {{/if}}
@@ -53,7 +53,7 @@
           i.fas.fa-trash  
     | {{/each}}
   .weapons.item-list 
-    | {{#each data.data.weapons as |item id|}}
+    | {{#each data.system.weapons as |item id|}}
     .weapon-header 
       .weapon-name 
         | {{localize "DIS.Weapon"}} {{add id 1}}
@@ -69,31 +69,31 @@
         | {{localize "DIS.Slots"}}
       .item-controls 
         | &nbsp;
-    .weapon-row.item(class="{{item.data.brokenClass}}" data-item-id="{{item._id}}") 
+    .weapon-row.item(class="{{item.brokenClass}}" data-item-id="{{item._id}}") 
       .weapon-name.item-edit.rollable
         | {{item.name}}
       .weapon-attack.rollable 
         | {{localize "DIS.AttackAbbrev"}}
       .weapon-damage.rollable 
-        | {{item.data.damage}}
+        | {{item.damage}}
       .weapon-ammo 
-        | {{#if item.data.ammo.max}}
-        input(type="number" min="0" max="{{ item.data.ammo.max}}" class="inline-edit" data-mod="data.ammo.value" name="item.data.ammo.value" value="{{item.data.ammo.value}}" data-dtype="Number")
-        |  / {{ item.data.ammo.max}} 
+        | {{#if item.ammo.max}}
+        input(type="number" min="0" max="{{ item.ammo.max}}" class="inline-edit" data-mod="ammo.value" name="item.ammo.value" value="{{item.ammo.value}}" data-dtype="Number")
+        |  / {{ item.ammo.max}} 
         | {{else}}
         | -
         | {{/if}}
       .weapon-condition
-        | {{#if item.data.condition.max}}
+        | {{#if item.condition.max}}
         a.item-control.item-condition 
           i.fas.fa-dice-six
-        input(type="number" min="0" max="{{ item.data.condition.max }}" class="inline-edit" data-mod="data.condition.value" name="item.data.condition.value" value="{{item.data.condition.value}}" data-dtype="Number")
-        |  / {{ item.data.condition.max}}
+        input(type="number" min="0" max="{{ item.condition.max }}" class="inline-edit" data-mod="condition.value" name="item.condition.value" value="{{item.condition.value}}" data-dtype="Number")
+        |  / {{ item.condition.max}}
         | {{else}}
         | -
         | {{/if}}
       .weapon-slots 
-        | {{item.data.slots}}
+        | {{item.slots}}
       .item-controls
         a.item-control.item-edit
           i.fas.fa-edit                          
@@ -101,7 +101,7 @@
           i.fas.fa-trash                          
     | {{/each}}
   .armor.item-list 
-    | {{#each data.data.armor as |item id|}}
+    | {{#each data.system.armor as |item id|}}
     .armor-header 
         .armor-name 
           | {{localize "DIS.ArmorType"}}
@@ -117,22 +117,22 @@
       .armor-name.item-edit.rollable 
         | {{item.name}}
       .armor-protects-against 
-        | {{item.data.protectsAgainst}}
+        | {{item.protectsAgainst}}
       .armor-dr-bonus 
-        | {{item.data.defenseRatingBonus}}
+        | {{item.defenseRatingBonus}}
       .armor-slots 
-        | {{#if item.data.equippable}}
-        | {{#if item.data.equipped}}
+        | {{#if item.equippable}}
+        | {{#if item.equipped}}
         | -
         a.item-control.item-equip.equipped(title="Unequip")
           i.fas.fa-shield-alt
         | {{else}}
-        | {{item.data.slots}}
+        | {{item.slots}}
         a.item-control.item-equip.unequipped(title="Equip")
           i.fas.fa-shield-alt
         | {{/if}}
         | {{else}}
-        | {{item.data.slots}}
+        | {{item.slots}}
         | {{/if}}
       .item-controls
         a.item-control.item-edit
@@ -152,13 +152,13 @@
       .slots-text 
         | &#10071; {{localize "DIS.SlotsHelp"}}
       .slots-total 
-        | {{data.data.totalSlots}}/{{data.data.maxSlots}}
+        | {{data.system.totalSlots}}/{{data.system.maxSlots}}
       .item-controls
         | &nbsp;
   .holo-row 
     .stat-block.holos 
       label {{localize "DIS.Holos"}}
-      input(type="number" class="stat-input" name="data.holos" value="{{data.data.holos}}" data-dtype="Number")
+      input(type="number" class="stat-input" name="system.holos" value="{{data.system.holos}}" data-dtype="Number")
     .stat-block.debt 
       label {{localize "DIS.Debt"}}
-      input(type="number" class="stat-input" name="data.debt" value="{{data.data.debt}}" data-dtype="Number")
+      input(type="number" class="stat-input" name="system.debt" value="{{data.system.debt}}" data-dtype="Number")

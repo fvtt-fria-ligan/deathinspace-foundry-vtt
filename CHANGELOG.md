@@ -1,3 +1,7 @@
+# 2.0.0
+
+- Make system compatible with Foundry v10.
+
 # 1.2.2
 
 - Fix missing starting kit equipment items.

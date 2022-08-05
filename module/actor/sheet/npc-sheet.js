@@ -47,13 +47,13 @@ export class DISNpcSheet extends DISActorSheet {
 
   prepareNpcItems(sheetData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
-    sheetData.data.origin = sheetData.items
+    sheetData.system.origin = sheetData.items
       .filter((item) => item.type === CONFIG.DIS.itemTypes.origin)
       .pop();
-    sheetData.data.weapons = sheetData.items
+    sheetData.system.weapons = sheetData.items
       .filter((item) => item.type === CONFIG.DIS.itemTypes.weapon)
       .sort(byName);
-    sheetData.data.armor = sheetData.items
+    sheetData.system.armor = sheetData.items
       .filter((item) => {
         return (
           item.type === CONFIG.DIS.itemTypes.armor &&
@@ -61,7 +61,7 @@ export class DISNpcSheet extends DISActorSheet {
         );
       })
       .sort(byName);
-    sheetData.data.equipment = sheetData.items
+    sheetData.system.equipment = sheetData.items
       .filter((item) => {
         return (
           item.type === CONFIG.DIS.itemTypes.equipment ||
@@ -72,20 +72,20 @@ export class DISNpcSheet extends DISActorSheet {
       })
       .sort(byName);
     const allSlotItems = [
-      ...sheetData.data.weapons,
-      ...sheetData.data.armor,
-      ...sheetData.data.equipment,
+      ...sheetData.system.weapons,
+      ...sheetData.system.armor,
+      ...sheetData.system.equipment,
     ];
-    sheetData.data.totalSlots = allSlotItems
+    sheetData.system.totalSlots = allSlotItems
       .map((item) =>
-        item.data.equippable
-          ? item.data.equipped
+        item.system.equippable
+          ? item.system.equipped
             ? 0
-            : item.data.slots
-          : item.data.slots
+            : item.system.slots
+          : item.system.slots
       )
       .reduce((prev, next) => prev + next, 0);
-    sheetData.data.maxSlots = 12 + sheetData.data.abilities.body.value;
+    sheetData.system.maxSlots = 12 + sheetData.system.abilities.body.value;
   }
 
   _onMoraleRoll(event) {

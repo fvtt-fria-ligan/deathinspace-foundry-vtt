@@ -48,7 +48,7 @@ export class DISActor extends Actor {
   }
 
   get hasVoidPoints() {
-    return this.data.data.voidPoints && this.data.data.voidPoints.value;
+    return this.system.voidPoints && this.system.voidPoints.value;
   }
 
   async _addCoreFunctionItems() {
@@ -89,8 +89,8 @@ export class DISActor extends Actor {
     if (documents[0].data.type === CONFIG.DIS.itemTypes.frame) {
       this._deleteEarlierItems(CONFIG.DIS.itemTypes.frame);
       this.update({
-        ["data.condition.value"]: documents[0].data.data.condition,
-        ["data.fuel.value"]: documents[0].data.data.fuelDepot,
+        ["system.condition.value"]: documents[0].system.condition,
+        ["system.fuel.value"]: documents[0].system.fuelDepot,
       });
     }
     super._onCreateEmbeddedDocuments(
@@ -103,14 +103,14 @@ export class DISActor extends Actor {
   }
 
   async _deleteItems(itemType) {
-    const itemsOfType = this.items.filter((i) => i.data.type === itemType);
+    const itemsOfType = this.items.filter((i) => i.type === itemType);
     const deletions = itemsOfType.map((i) => i.id);
     // not awaiting this async call, just fire it off
     this.deleteEmbeddedDocuments("Item", deletions);
   }
 
   async _deleteEarlierItems(itemType) {
-    const itemsOfType = this.items.filter((i) => i.data.type === itemType);
+    const itemsOfType = this.items.filter((i) => i.type === itemType);
     itemsOfType.pop(); // don't delete the last one
     const deletions = itemsOfType.map((i) => i.id);
     // not awaiting this async call, just fire it off
@@ -405,7 +405,7 @@ export class DISActor extends Actor {
     moraleRoll.evaluate({ async: false });
     await showDice(moraleRoll);
     let moraleOutcome;
-    if (moraleRoll.total > this.data.data.morale) {
+    if (moraleRoll.total > this.system.morale) {
       moraleOutcome = game.i18n.localize("DIS.MoraleFailure");
     } else {
       moraleOutcome = game.i18n.localize("DIS.MoraleSuccess");
@@ -477,17 +477,17 @@ export class DISActor extends Actor {
       return;
     }
     await this.update({
-      ["data.voidPoints.value"]: this.data.data.voidPoints.value - 1,
+      ["data.voidPoints.value"]: this.system.voidPoints.value - 1,
     });
   }
 
   async incrementVoidPoints() {
-    if (!this.data.data.voidPoints) {
+    if (!this.system.voidPoints) {
       return;
     }
     // max 4 void points
-    const newValue = Math.min(this.data.data.voidPoints.value + 1, 4);
-    await this.update({ ["data.voidPoints.value"]: newValue });
+    const newValue = Math.min(this.system.voidPoints.value + 1, 4);
+    await this.update({ ["system.voidPoints.value"]: newValue });
   }
 
   async rollVoidCorruption() {
@@ -497,7 +497,7 @@ export class DISActor extends Actor {
       speaker: ChatMessage.getSpeaker({ actor: this }),
       flavor: `${game.i18n.localize("DIS.VoidCorruption")}?`,
     });
-    if (roll.total <= this.data.data.voidPoints.value) {
+    if (roll.total <= this.system.voidPoints.value) {
       const table = await tableFromPack(
         "deathinspace.character-creation",
         "Void Corruption"

@@ -38,37 +38,37 @@ form(class="{{cssClass}}")
                   .ability-row 
                     .ability-name.rollable(data-ability=val)=val.toUpperCase()
                     .ability-value 
-                      input(type="number" class="stat-input" name="data.abilities." + val + ".value" value="{{data.data.abilities." + val + ".value}}" data-dtype="Number" min="-3" max="6")
+                      input(type="number" class="stat-input" name="system.abilities." + val + ".value" value="{{data.system.abilities." + val + ".value}}" data-dtype="Number" min="-3" max="6")
             .morale-block
               .morale-name.rollable
                 | MORALE
               .morale-value 
-                input(type="number" class="stat-input" name="data.morale" value = "{{data.data.morale}}" data-dtype="Number" min="-1" max="12")
+                input(type="number" class="stat-input" name="system.morale" value = "{{data.system.morale}}" data-dtype="Number" min="-1" max="12")
 
           .col2
             .stat-block.background-block
               label {{localize "DIS.Background"}}
-              input(type="text" class="stat-input" name="data.background" value="{{data.data.background}}" data-dtype="String")
+              input(type="text" class="stat-input" name="system.background" value="{{data.system.background}}" data-dtype="String")
             .stat-block.first-impressions-block
               label {{localize "DIS.FirstImpressions"}}
-              textarea(name="data.firstImpressions", rows="3") {{data.data.firstImpressions}}
+              textarea(name="system.firstImpressions", rows="3") {{data.system.firstImpressions}}
             .stat-block.looks-block
               label {{localize "DIS.Looks"}}
-              textarea(name="data.looks", rows="3") {{data.data.looks}}
+              textarea(name="system.looks", rows="3") {{data.system.looks}}
             .defense-row 
               .defense-text 
                 label {{localize "DIS.DefenseRating"}}
               .defense-value 
-                input(type="number" class="stat-input" name="data.defenseRating" value="{{data.data.defenseRating}}" data-dtype="Number")
+                input(type="number" class="stat-input" name="system.defenseRating" value="{{data.system.defenseRating}}" data-dtype="Number")
             .hit-points-row 
               .hit-points-text 
                 label {{localize "DIS.HitPoints"}}
               .hit-points-current-col 
                 label {{localize "DIS.Current"}}
-                input(type="number" class="stat-input" name="data.hitPoints.value" value="{{data.data.hitPoints.value}}" data-dtype="Number")
+                input(type="number" class="stat-input" name="system.hitPoints.value" value="{{data.system.hitPoints.value}}" data-dtype="Number")
               .hit-points-max-col 
                 label {{localize "DIS.Max"}}
-                input(type="number" class="stat-input" name="data.hitPoints.max" value="{{data.data.hitPoints.max}}" data-dtype="Number")
+                input(type="number" class="stat-input" name="system.hitPoints.max" value="{{data.system.hitPoints.max}}" data-dtype="Number")
 
           .col3 
             .regenerate-block
@@ -83,11 +83,11 @@ form(class="{{cssClass}}")
         .row2 
           .stat-block.special-block 
             label {{localize "DIS.Special"}}
-            textarea(name="data.special", rows="3") {{data.data.special}}
+            textarea(name="system.special", rows="3") {{data.system.special}}
 
     div(class="tab belongings-tab" data-group="primary" data-tab="belongings")
       include includes/belongings.pug
 
     div(class="tab notes-tab" data-group="primary" data-tab="notes")
       .notes-wrapper
-        | {{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}
+        | {{editor data.system.notes target="system.notes" button=true owner=owner editable=editable}}

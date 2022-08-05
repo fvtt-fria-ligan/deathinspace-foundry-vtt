@@ -22,33 +22,33 @@
         <div class="owner-name-block"> 
           <div class="stat-block"> 
             <label>{{ localize 'DIS.OwnerName' }}</label>
-            <input class="owner-name" name="data.ownerName" type="text" value="{{data.data.ownerName}}" placeholder="{{ localize 'DIS.OwnerName' }}" spellcheck="false"/>
+            <input class="owner-name" name="system.ownerName" type="text" value="{{data.system.ownerName}}" placeholder="{{ localize 'DIS.OwnerName' }}" spellcheck="false"/>
           </div>
         </div>
         <div class="hub-type-block">
           <div class="frame-label">{{ localize 'DIS.Frame' }}</div>
-          <div class="frame-row item" data-item-id="{{data.data.frame._id}}"> 
-            <div class="frame-name item-edit rollable">{{data.data.frame.name}}</div>
+          <div class="frame-row item" data-item-id="{{data.system.frame._id}}"> 
+            <div class="frame-name item-edit rollable">{{data.system.frame.name}}</div>
             <div class="item-controls">
-               {{#if data.data.frame}}<a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash"></i></a>{{else}}<a class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="frame"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}                 </a>{{/if}}</div>
+               {{#if data.system.frame}}<a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash"></i></a>{{else}}<a class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="frame"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}                 </a>{{/if}}</div>
           </div>
         </div>
         <div class="background-block">
           <div class="stat-block">
             <label> {{ localize "DIS.Background" }}</label>
-            <textarea name="data.background" rows="4">{{data.data.background}}</textarea>
+            <textarea name="system.background" rows="4">{{data.system.background}}</textarea>
           </div>
         </div>
         <div class="appearance-block">
           <div class="stat-block">
             <label>{{ localize "DIS.Appearance" }}</label>
-            <textarea name="data.appearance" rows="4">{{data.data.appearance}}</textarea>
+            <textarea name="system.appearance" rows="4">{{data.system.appearance}}</textarea>
           </div>
         </div>
         <div class="quirks-block">
           <div class="stat-block">
             <label>{{ localize "DIS.Quirks" }}</label>
-            <textarea name="data.quirks" rows="3">{{data.data.quirks}}</textarea>
+            <textarea name="system.quirks" rows="3">{{data.system.quirks}}</textarea>
           </div>
         </div>
       </div>
@@ -59,67 +59,67 @@
           <div class="frame-integrity">{{ localize "DIS.FrameIntegrity" }}</div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=0 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 0}}checked{{/ifEq}}/></div>
+              <div class="integrity-radio"><input type="radio" name="system.frameIntegrity.value" value=0 data-dtype="Number" {{#ifEq data.system.frameIntegrity.value 0}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">0%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=10 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 10}}checked{{/ifEq}}/></div>
+              <div class="integrity-radio"><input type="radio" name="system.frameIntegrity.value" value=10 data-dtype="Number" {{#ifEq data.system.frameIntegrity.value 10}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">10%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=20 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 20}}checked{{/ifEq}}/></div>
+              <div class="integrity-radio"><input type="radio" name="system.frameIntegrity.value" value=20 data-dtype="Number" {{#ifEq data.system.frameIntegrity.value 20}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">20%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=30 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 30}}checked{{/ifEq}}/></div>
+              <div class="integrity-radio"><input type="radio" name="system.frameIntegrity.value" value=30 data-dtype="Number" {{#ifEq data.system.frameIntegrity.value 30}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">30%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=40 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 40}}checked{{/ifEq}}/></div>
+              <div class="integrity-radio"><input type="radio" name="system.frameIntegrity.value" value=40 data-dtype="Number" {{#ifEq data.system.frameIntegrity.value 40}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">40%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=50 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 50}}checked{{/ifEq}}/></div>
+              <div class="integrity-radio"><input type="radio" name="system.frameIntegrity.value" value=50 data-dtype="Number" {{#ifEq data.system.frameIntegrity.value 50}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">50%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=60 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 60}}checked{{/ifEq}}/></div>
+              <div class="integrity-radio"><input type="radio" name="system.frameIntegrity.value" value=60 data-dtype="Number" {{#ifEq data.system.frameIntegrity.value 60}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">60%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=70 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 70}}checked{{/ifEq}}/></div>
+              <div class="integrity-radio"><input type="radio" name="system.frameIntegrity.value" value=70 data-dtype="Number" {{#ifEq data.system.frameIntegrity.value 70}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">70%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=80 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 80}}checked{{/ifEq}}/></div>
+              <div class="integrity-radio"><input type="radio" name="system.frameIntegrity.value" value=80 data-dtype="Number" {{#ifEq data.system.frameIntegrity.value 80}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">80%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=90 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 90}}checked{{/ifEq}}/></div>
+              <div class="integrity-radio"><input type="radio" name="system.frameIntegrity.value" value=90 data-dtype="Number" {{#ifEq data.system.frameIntegrity.value 90}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">90%</div>
             </label>
           </div>
           <div class="integrity-increment">
             <label>
-              <div class="integrity-radio"><input type="radio" name="data.frameIntegrity.value" value=100 data-dtype="Number" {{#ifEq data.data.frameIntegrity.value 100}}checked{{/ifEq}}/></div>
+              <div class="integrity-radio"><input type="radio" name="system.frameIntegrity.value" value=100 data-dtype="Number" {{#ifEq data.system.frameIntegrity.value 100}}checked{{/ifEq}}/></div>
               <div class="integrity-percent">100%</div>
             </label>
           </div>
@@ -129,7 +129,7 @@
               <div class="from-frame-help">({{ localize "DIS.Frame" }})</div>
             </div>
             <div class="input-row">
-              <input class="defense-rating" name="data.frame.data.defenseRating" type="number" value="{{data.data.frame.data.defenseRating}}" data-dtype="Number" readonly="readonly"/>
+              <input class="defense-rating" name="system.frame.data.defenseRating" type="number" value="{{data.system.frame.data.defenseRating}}" data-dtype="Number" readonly="readonly"/>
             </div>
           </div>
         </div>
@@ -163,10 +163,10 @@
               <div class="col1">
                   </div>
               <div class="col2">
-                <input class="condition-current" name="data.condition.value" type="number" min="0" value="{{data.data.condition.value}}" data-dtype="Number"/>
+                <input class="condition-current" name="system.condition.value" type="number" min="0" value="{{data.system.condition.value}}" data-dtype="Number"/>
               </div>
               <div class="col3">
-                <input class="condition-max" name="data.frame.data.condition" type="number" value="{{data.data.frame.data.condition}}" data-dtype="Number" readonly="readonly"/>
+                <input class="condition-max" name="system.frame.condition" type="number" value="{{data.system.frame.condition}}" data-dtype="Number" readonly="readonly"/>
               </div>
             </div>
           </div>
@@ -183,30 +183,30 @@
               <div class="col1">
                   </div>
               <div class="col2">
-                <input class="fuel-current" name="data.fuel.value" type="number" min="0" value="{{data.data.fuel.value}}" data-dtype="Number"/>
+                <input class="fuel-current" name="system.fuel.value" type="number" min="0" value="{{data.system.fuel.value}}" data-dtype="Number"/>
               </div>
               <div class="col3">
-                <input class="fuel-max" name="data.frame.data.fuelDepot" type="number" value="{{data.data.frame.data.fuelDepot}}" data-dtype="Number" readonly="readonly"/>
+                <input class="fuel-max" name="system.frame.fuelDepot" type="number" value="{{data.system.frame.fuelDepot}}" data-dtype="Number" readonly="readonly"/>
               </div>
             </div>
           </div>
           <div class="power-source"> 
             <div class="source-label">{{ localize "DIS.PowerSource" }}</div>
-            <div class="source-row item" data-item-id="{{data.data.powerSystem._id}}">
+            <div class="source-row item" data-item-id="{{data.system.powerSystem._id}}">
               <div class="source-name item-edit rollable">
-                {{data.data.powerSystem.name}} 
-                {{#if data.data.powerSystem.data.speed}}
-                ({{data.data.powerSystem.data.speed}})
+                {{data.system.powerSystem.name}} 
+                {{#if data.system.powerSystem.speed}}
+                ({{data.system.powerSystem.speed}})
                 {{/if}}
               </div>
               <div class="item-controls">
-                 {{#if data.data.powerSystem}}<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a><a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>{{else}}<a class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="powerSystem"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}   </a>{{/if}}</div>
+                 {{#if data.system.powerSystem}}<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a><a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>{{else}}<a class="item-control item-create" title="{{localize 'DIS.ItemCreate'}}" data-type="powerSystem"><i class="fas fa-plus"></i>{{localize "DIS.Add"}}   </a>{{/if}}</div>
             </div>
           </div>
           <div class="output-power">
             <div class="title-row">{{ localize "DIS.OutputPower" }}</div>
             <div class="input-row">
-              <input class="output-power power" name="data.powerSystem.data.outputPower" type="number" value="{{data.data.powerSystem.data.outputPower}}" data-dtype="Number" readonly="readonly"/>
+              <input class="output-power power" name="system.powerSystem.outputPower" type="number" value="{{data.system.powerSystem.outputPower}}" data-dtype="Number" readonly="readonly"/>
             </div>
           </div>
         </div>
@@ -217,12 +217,12 @@
             <div class="col3">{{ localize "DIS.PowerCost" }}</div>
           </div>
           <div class="modules-list">
-             {{#each data.data.hubModules as |item id|}}
+             {{#each data.system.hubModules as |item id|}}
             <div class="item module-item" data-item-id="{{item._id}}">
               <div class="col1 item-edit rollable">{{add @index 1}}. {{item.name}}</div>
               <div class="col2"><a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a><a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a></div>
               <div class="col3"> 
-                <input class="hub-module-power-cost power" name="item.powerCost" type="number" value="{{item.data.powerCost}}" data-dtype="Number" readonly="readonly"/>
+                <input class="hub-module-power-cost power" name="item.powerCost" type="number" value="{{item.powerCost}}" data-dtype="Number" readonly="readonly"/>
               </div>
             </div>{{/each}}
           </div>
@@ -230,7 +230,7 @@
             <div class="col1">{{ localize "DIS.PowerTotalHelp1" }}<br/>{{ localize "DIS.PowerTotalHelp2" }}</div>
             <div class="col2"></div>
             <div class="col3"> 
-              <input class="total-power-cost power" name="data.totalPowerCost" type="number" value="{{data.data.totalPowerCost}}" data-dtype="Number" readonly="readonly"/>
+              <input class="total-power-cost power" name="system.totalPowerCost" type="number" value="{{data.system.totalPowerCost}}" data-dtype="Number" readonly="readonly"/>
             </div>
           </div>
         </div>
@@ -240,7 +240,7 @@
       <div class="layout-wrapper"><img class="layout-image" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/></div>
     </div>
     <div class="tab notes-tab" data-group="primary" data-tab="notes">
-      <div class="notes-wrapper">{{editor content=data.data.notes target="data.notes" button=true owner=owner editable="true"}}</div>
+      <div class="notes-wrapper">{{editor data.system.notes target="system.notes" button=true owner=owner editable="true"}}</div>
     </div>
   </section>
 </form>
