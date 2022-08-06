@@ -10,7 +10,6 @@ const CREATION_PACK = "deathinspace.character-creation";
 
 export const generateCharacter = async () => {
   const char = await randomCharacter();
-  console.log(char);
   const actor = await DISActor.create(char);
   await maybeGiveStartingBonus(actor);
   actor.sheet.render(true);
