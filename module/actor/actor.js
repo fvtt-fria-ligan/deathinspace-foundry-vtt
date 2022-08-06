@@ -3,7 +3,7 @@ import AddItemDialog from "../dialog/add-item-dialog.js";
 import AttackDialog from "../dialog/attack-dialog.js";
 import { diceSound, showDice } from "../dice.js";
 import { regenerateCharacter, regenerateNpc } from "../generator.js";
-import { tableFromPack } from "../packutils.js";
+import { documentFromPack, simpleData, tableFromPack } from "../packutils.js";
 
 /**
  * @extends {Actor}
@@ -52,14 +52,7 @@ export class DISActor extends Actor {
   }
 
   async _addCoreFunctionItems() {
-    const pack = game.packs.get("deathinspace.hub-modules-core-functions");
-    if (!pack) {
-      console.error(
-        "Could not find compendium deathinspace.hub-modules-core-functions"
-      );
-      return;
-    }
-    const index = await pack.getIndex();
+    const packName = "deathinspace.hub-modules-core-functions";
     const coreFunctionNames = [
       "(CF) Command Center",
       "(CF) Crew Quarters",
@@ -67,26 +60,21 @@ export class DISActor extends Actor {
       "(CF) Mess",
     ];
     for (const coreFunctionName of coreFunctionNames) {
-      const entry = index.find((e) => e.name === coreFunctionName);
-      if (!entry) {
-        console.error(`Could not find entry ${coreFunctionName}`);
+      const doc = await documentFromPack(packName, coreFunctionName);
+      if (!doc) {
+        console.error(`Could not find ${coreFunctionName} in ${packName}`);
         continue;
       }
-      const entity = await pack.getDocument(entry._id);
-      if (!entity) {
-        console.error(`Could not get document for ${coreFunctionName}`);
-        continue;
-      }
-      await this.createEmbeddedDocuments("Item", [duplicate(entity.data)]);
+      await this.createEmbeddedDocuments("Item", [simpleData(doc)]);
     }
   }
 
   _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId) {
     // TODO: move these checks into character.js and hub.js subclasses
-    if (documents[0].data.type === CONFIG.DIS.itemTypes.origin) {
+    if (documents[0].type === CONFIG.DIS.itemTypes.origin) {
       this._deleteEarlierItems(CONFIG.DIS.itemTypes.origin);
     }
-    if (documents[0].data.type === CONFIG.DIS.itemTypes.frame) {
+    if (documents[0].type === CONFIG.DIS.itemTypes.frame) {
       this._deleteEarlierItems(CONFIG.DIS.itemTypes.frame);
       this.update({
         ["system.condition.value"]: documents[0].system.condition,
@@ -258,11 +246,11 @@ export class DISActor extends Actor {
       return;
     }
     await item.decrementAmmo();
-    const attackAbility = item.data.data.ability;
+    const attackAbility = item.system.ability;
     await this.rollAttack(
       item.name,
       attackAbility,
-      item.data.data.damage,
+      item.system.damage,
       defenderDR,
       rollType,
       risky,
@@ -386,7 +374,7 @@ export class DISActor extends Actor {
     if (!item) {
       return;
     }
-    const roll = new Roll(item.data.data.damage);
+    const roll = new Roll(item.systemdamage);
     roll.toMessage({
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
@@ -465,9 +453,9 @@ export class DISActor extends Actor {
   }
 
   async regenerate() {
-    if (this.data.type === "character") {
+    if (this.type === "character") {
       regenerateCharacter(this);
-    } else if (this.data.type === "npc") {
+    } else if (this.type === "npc") {
       regenerateNpc(this);
     }
   }
@@ -477,7 +465,7 @@ export class DISActor extends Actor {
       return;
     }
     await this.update({
-      ["data.voidPoints.value"]: this.system.voidPoints.value - 1,
+      ["system.voidPoints.value"]: this.system.voidPoints.value - 1,
     });
   }
 

@@ -4,6 +4,7 @@ import {
   drawDocument,
   drawDocuments,
   drawText,
+  simpleData,
 } from "./packutils.js";
 
 const CREATION_PACK = "deathinspace.character-creation";
@@ -105,16 +106,6 @@ const randomCharacter = async () => {
   };
 
   return actorData;
-};
-
-const simpleData = (doc) => {
-  return {
-    id: doc.id,
-    img: doc.img,
-    name: doc.name,
-    system: doc.system,
-    type: doc.type,
-  };
 };
 
 const maybeGiveStartingBonus = async (actor) => {
@@ -252,7 +243,10 @@ export const generateSpacecraft = async () => {
     "deathinspace.power-systems",
     "Chemical engine"
   );
-  await actor.createEmbeddedDocuments("Item", [frame.data, engine.data]);
+  await actor.createEmbeddedDocuments("Item", [
+    simpleData(frame),
+    simpleData(engine),
+  ]);
   actor.sheet.render(true);
 };
 
@@ -293,7 +287,10 @@ export const generateStation = async () => {
     "deathinspace.power-systems",
     "Industrial generator"
   );
-  await actor.createEmbeddedDocuments("Item", [frame.data, engine.data]);
+  await actor.createEmbeddedDocuments("Item", [
+    simpleData(frame),
+    simpleData(engine),
+  ]);
   actor.sheet.render(true);
 };
 

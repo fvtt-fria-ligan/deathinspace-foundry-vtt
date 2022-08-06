@@ -23,10 +23,7 @@
   <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="notes">{{ localize 'DIS.TabNotes' }}</a></nav>
   <section class="sheet-body"> 
     <div class="tab notes-tab" data-group="primary" data-tab="notes">
-      <div class="notes-wrapper">{{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}</div>
-    </div>
-    <div class="tab data-tab" data-group="primary" data-tab="data">
-      <div class="data-wrapper"></div>
+      <div class="notes-wrapper">{{editor data.system.notes target="system.notes" button=true owner=owner editable=editable}}</div>
     </div>
   </section>
 </form>

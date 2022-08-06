@@ -1,53 +1,22 @@
 form(class="{{cssClass}}")
-  header.sheet-header
-    .header-row
-      .col1
-        .item-image 
-          img(src="{{data.img}}" data-edit="img" title="{{data.name}}")
-      .col2
-        .row1
-          .game-title
-            | DEATH IN SPACE
-          .sheet-title
-            | ARMOR SHEET
-        .row2
-          div 
-            | NAME 
-          div.item-name
-            input(class="item-name" name="name" type="text" value="{{item.name}}" placeholder="Item Name" spellcheck="false")
-
-  nav(class="sheet-tabs tabs" data-group="primary")
-    a(class="item" data-tab="notes")
-      | {{ localize 'DIS.TabNotes' }}
-    a(class="item" data-tab="data")
-      | {{ localize 'DIS.TabData' }}
+  include includes/header.pug
+  include includes/tabs.pug
   
   section.sheet-body 
-
-    div(class="tab notes-tab" data-group="primary" data-tab="notes")
-      .notes-wrapper
-        | {{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}
+    include includes/notes-tab.pug 
 
     div(class="tab data-tab" data-group="primary" data-tab="data")
       .data-wrapper
-        .form-group 
-          label
-            | Slots 
-          input(type="number" name="data.slots" value="{{data.data.slots}}" placeholder="0" data-dtype="Number")
-        .form-group 
-          label
-            | Cost
-          input(type="number" name="data.cost" value="{{data.data.cost}}" placeholder="0" data-dtype="Number")
-        .form-spacer 
+        include includes/slots-and-cost.pug
         .form-group 
           label
             | Protects Against  
-          input(type="text" name="data.protectsAgainst" value="{{data.data.protectsAgainst}}" data-dtype="String")
+          input(type="text" name="system.protectsAgainst" value="{{data.system.protectsAgainst}}" data-dtype="String")
         .form-group 
           label
             | Defense Rating Bonus
-          input(type="number" name="data.defenseRatingBonus" value="{{data.data.defenseRatingBonus}}" placeholder="0" data-dtype="Number")
+          input(type="number" name="system.defenseRatingBonus" value="{{data.system.defenseRatingBonus}}" placeholder="0" data-dtype="Number")
         .form-group 
           label
             | Equippable
-          | <input type="checkbox" name="data.equippable" {{checked data.data.equippable}} />
+          | <input type="checkbox" name="system.equippable" {{checked data.system.equippable}} />

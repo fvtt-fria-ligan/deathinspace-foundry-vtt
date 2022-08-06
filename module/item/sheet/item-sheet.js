@@ -23,7 +23,7 @@ export class DISItemSheet extends ItemSheet {
   get template() {
     const path = "systems/deathinspace/templates/item";
     // specific item-type sheet
-    return `${path}/${this.item.data.type}-sheet.html`;
+    return `${path}/${this.item.type}-sheet.html`;
   }
 
   /** @override */

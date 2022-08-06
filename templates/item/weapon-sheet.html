@@ -8,7 +8,7 @@
       <div class="col2">
         <div class="row1">
           <div class="game-title">DEATH IN SPACE</div>
-          <div class="sheet-title">WEAPON SHEET</div>
+          <div class="sheet-title">{{item.type}} SHEET</div>
         </div>
         <div class="row2">
           <div>
@@ -23,42 +23,42 @@
   <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="notes">{{ localize 'DIS.TabNotes' }}</a><a class="item" data-tab="data">{{ localize 'DIS.TabData' }}</a></nav>
   <section class="sheet-body"> 
     <div class="tab notes-tab" data-group="primary" data-tab="notes">
-      <div class="notes-wrapper">{{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}</div>
+      <div class="notes-wrapper">{{editor data.system.notes target="system.notes" button=true owner=owner editable=editable}}</div>
     </div>
     <div class="tab data-tab" data-group="primary" data-tab="data">
       <div class="data-wrapper">
         <div class="form-group"> 
           <label>Slots </label>
-          <input type="number" name="data.slots" value="{{data.data.slots}}" placeholder="0" data-dtype="Number"/>
+          <input type="number" name="system.slots" value="{{data.system.slots}}" placeholder="0" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
           <label>Cost</label>
-          <input type="number" name="data.cost" value="{{data.data.cost}}" placeholder="0" data-dtype="Number"/>
+          <input type="number" name="system.cost" value="{{data.system.cost}}" placeholder="0" data-dtype="Number"/>
         </div>
-        <div class="form-spacer"></div>
+        <div class="form-spacer"> </div>
         <div class="form-group"> 
           <label>Condition (Current)</label>
-          <input type="number" name="data.condition.value" value="{{data.data.condition.value}}" placeholder="0" data-dtype="Number"/>
+          <input type="number" name="system.condition.value" value="{{data.system.condition.value}}" placeholder="0" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
           <label>Condition (Max)</label>
-          <input type="number" name="data.condition.max" value="{{data.data.condition.max}}" placeholder="0" data-dtype="Number"/>
+          <input type="number" name="system.condition.max" value="{{data.system.condition.max}}" placeholder="0" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
           <label>Ammo (Current)</label>
-          <input type="number" name="data.ammo.value" value="{{data.data.ammo.value}}" placeholder="0" data-dtype="Number"/>
+          <input type="number" name="system.ammo.value" value="{{data.system.ammo.value}}" placeholder="0" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
           <label>Ammo (Max)</label>
-          <input type="number" name="data.ammo.max" value="{{data.data.ammo.max}}" placeholder="0" data-dtype="Number"/>
+          <input type="number" name="system.ammo.max" value="{{data.system.ammo.max}}" placeholder="0" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
           <label>Damage</label>
-          <input type="text" name="data.damage" value="{{data.data.damage}}" placeholder="1d4" data-dtype="String"/>
+          <input type="text" name="system.damage" value="{{data.system.damage}}" placeholder="1d4" data-dtype="String"/>
         </div>
         <div class="form-group"> 
           <label>Ability</label>
-          <select name="data.ability" data-dtype="String">{{#select data.data.ability}}
+          <select name="system.ability" data-dtype="String">{{#select data.system.ability}}
             <option value="body">body</option>
             <option value="dexterity">dexterity</option>
             <option value="savvy">savvy</option>

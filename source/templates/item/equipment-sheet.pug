@@ -1,54 +1,24 @@
 form(class="{{cssClass}}")
-  header.sheet-header
-    .header-row
-      .col1
-        .item-image 
-          img(src="{{data.img}}" data-edit="img" title="{{data.name}}")
-      .col2
-        .row1
-          .game-title
-            | DEATH IN SPACE
-          .sheet-title
-            | EQUIPMENT SHEET
-        .row2
-          div 
-            | NAME 
-          div.item-name
-            input(class="item-name" name="name" type="text" value="{{item.name}}" placeholder="Item Name" spellcheck="false")
-
-  nav(class="sheet-tabs tabs" data-group="primary")
-    a(class="item" data-tab="notes")
-      | {{ localize 'DIS.TabNotes' }}
-    a(class="item" data-tab="data")
-      | {{ localize 'DIS.TabData' }}
+  include includes/header.pug
+  include includes/tabs.pug
   
   section.sheet-body 
 
-    div(class="tab notes-tab" data-group="primary" data-tab="notes")
-      .notes-wrapper
-        | {{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}
+    include includes/notes-tab.pug
 
     div(class="tab data-tab" data-group="primary" data-tab="data")
       .data-wrapper
-        .form-group 
-          label
-            | Slots 
-          input(type="number" name="data.slots" value="{{data.data.slots}}" placeholder="0" data-dtype="Number")
-        .form-group 
-          label
-            | Cost
-          input(type="number" name="data.cost" value="{{data.data.cost}}" placeholder="0" data-dtype="Number")
-        .form-spacer 
+        include includes/slots-and-cost.pug
         .form-group 
           label
             | Condition (Max)
-          input(type="number" name="data.condition.max" value="{{data.data.condition.max}}" placeholder="0" data-dtype="Number")        
+          input(type="number" name="system.condition.max" value="{{data.system.condition.max}}" placeholder="0" data-dtype="Number")        
         .form-group 
           label
             | Condition (Current)
-          input(type="number" name="data.condition.value" value="{{data.data.condition.value}}" placeholder="0" data-dtype="Number")
+          input(type="number" name="system.condition.value" value="{{data.system.condition.value}}" placeholder="0" data-dtype="Number")
         .form-group 
           label
             | Addictive
-          | <input type="checkbox" name="data.addictive" {{checked data.data.addictive}}/> 
+          | <input type="checkbox" name="system.addictive" {{checked data.system.addictive}}/> 
 

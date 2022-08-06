@@ -63,6 +63,16 @@ export const documentFromResult = async (result) => {
   return doc;
 };
 
+export const simpleData = (doc) => {
+  return {
+    id: doc.id,
+    img: doc.img,
+    name: doc.name,
+    system: doc.system,
+    type: doc.type,
+  };
+};
+
 export const dupeData = (doc) => {
   return {
     data: doc.system,

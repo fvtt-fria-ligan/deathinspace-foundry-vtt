@@ -127,20 +127,20 @@
           <div class="equipment-row item {{item.brokenClass}}" data-item-id="{{item._id}}">
             <div class="equipment-name item-edit rollable">{{add id 1}}. {{item.name}}</div>
             <div class="equipment-condition">
-               {{#if item.condition.max}}<a class="item-control item-condition"> <i class="fas fa-dice-six"></i></a>
-              <input class="inline-edit" type="number" min="0" max="{{item.condition.max}}" step="1" data-mod="condition.value" name="item.condition.value" value="{{item.condition.value}}" data-dtype="Number"/> / {{ item.condition.max}}
+               {{#if item.system.condition.max}}<a class="item-control item-condition"> <i class="fas fa-dice-six"></i></a>
+              <input class="inline-edit" type="number" min="0" max="{{item.system.condition.max}}" step="1" data-mod="condition.value" name="item.system.condition.value" value="{{item.system.condition.value}}" data-dtype="Number"/> / {{ item.system.condition.max}}
               {{else}}
               -
               {{/if}}
             </div>
             <div class="equipment-slots">
-               {{#if item.equippable}}
-              {{#if item.equipped}}
+               {{#if item.system.equippable}}
+              {{#if item.system.equipped}}
               -<a class="item-control item-equip equipped" title="Unequip"><i class="fas fa-shield-alt"></i></a>{{else}}
-              {{item.slots}}<a class="item-control item-equip unequipped" title="Equip"><i class="fas fa-shield-alt"></i></a>{{/if}}
+              {{item.system.slots}}<a class="item-control item-equip unequipped" title="Equip"><i class="fas fa-shield-alt"></i></a>{{/if}}
               {{else}}
-              {{#if item.slots}}
-              {{ item.slots}}
+              {{#if item.system.slots}}
+              {{item.system.slots}}
               {{else}}
               -
               {{/if}}
@@ -172,22 +172,22 @@
             <div class="weapon-attack rollable">
                {{localize "DIS.AttackAbbrev"}}</div>
             <div class="weapon-damage rollable">
-               {{item.damage}}</div>
+               {{item.system.damage}}</div>
             <div class="weapon-ammo">
-               {{#if item.ammo.max}}
-              <input class="inline-edit" type="number" min="0" max="{{ item.ammo.max}}" data-mod="ammo.value" name="item.ammo.value" value="{{item.ammo.value}}" data-dtype="Number"/> / {{ item.ammo.max}} 
+               {{#if item.system.ammo.max}}
+              <input class="inline-edit" type="number" min="0" max="{{ item.ammo.max}}" data-mod="ammo.value" name="item.ammo.value" value="{{item.ammo.value}}" data-dtype="Number"/> / {{ item.system.ammo.max}} 
               {{else}}
               -
               {{/if}}
             </div>
-            <div class="weapon-condition">{{#if item.condition.max}}<a class="item-control item-condition"> <i class="fas fa-dice-six"></i></a>
-              <input class="inline-edit" type="number" min="0" max="{{ item.condition.max }}" data-mod="condition.value" name="item.condition.value" value="{{item.condition.value}}" data-dtype="Number"/> / {{ item.condition.max}}
+            <div class="weapon-condition">{{#if item.system.condition.max}}<a class="item-control item-condition"> <i class="fas fa-dice-six"></i></a>
+              <input class="inline-edit" type="number" min="0" max="{{ item.condition.max }}" data-mod="condition.value" name="item.condition.value" value="{{item.condition.value}}" data-dtype="Number"/> / {{ item.system.condition.max}}
               {{else}}
               -
               {{/if}}
             </div>
             <div class="weapon-slots">
-               {{item.slots}}</div>
+               {{item.system.slots}}</div>
             <div class="item-controls"><a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash">                         </i></a></div>
           </div>{{/each}}
         </div>
@@ -209,16 +209,16 @@
             <div class="armor-name item-edit rollable">
                {{item.name}}</div>
             <div class="armor-protects-against">
-               {{item.protectsAgainst}}</div>
+               {{item.system.protectsAgainst}}</div>
             <div class="armor-dr-bonus">
-               {{item.defenseRatingBonus}}</div>
+               {{item.system.defenseRatingBonus}}</div>
             <div class="armor-slots">
-               {{#if item.equippable}}
-              {{#if item.equipped}}
+               {{#if item.system.equippable}}
+              {{#if item.system.equipped}}
               -<a class="item-control item-equip equipped" title="Unequip"><i class="fas fa-shield-alt"></i></a>{{else}}
-              {{item.slots}}<a class="item-control item-equip unequipped" title="Equip"><i class="fas fa-shield-alt"></i></a>{{/if}}
+              {{item.system.slots}}<a class="item-control item-equip unequipped" title="Equip"><i class="fas fa-shield-alt"></i></a>{{/if}}
               {{else}}
-              {{item.slots}}
+              {{item.system.slots}}
               {{/if}}
             </div>
             <div class="item-controls"><a class="item-control item-edit"><i class="fas fa-edit">                         </i></a><a class="item-control item-delete"><i class="fas fa-trash"> </i></a></div>

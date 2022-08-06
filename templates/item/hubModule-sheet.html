@@ -8,7 +8,7 @@
       <div class="col2">
         <div class="row1">
           <div class="game-title">DEATH IN SPACE</div>
-          <div class="sheet-title">HUB MODULE SHEET</div>
+          <div class="sheet-title">{{item.type}} SHEET</div>
         </div>
         <div class="row2">
           <div>
@@ -23,13 +23,13 @@
   <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="notes">{{ localize 'DIS.TabNotes' }}</a><a class="item" data-tab="data">{{ localize 'DIS.TabData' }}</a></nav>
   <section class="sheet-body"> 
     <div class="tab notes-tab" data-group="primary" data-tab="notes">
-      <div class="notes-wrapper">{{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}</div>
+      <div class="notes-wrapper">{{editor data.system.notes target="system.notes" button=true owner=owner editable=editable}}</div>
     </div>
     <div class="tab data-tab" data-group="primary" data-tab="data">
       <div class="data-wrapper">
         <div class="form-group"> 
           <label>Module Type </label>
-          <select name="data.moduleType" data-dtype="String">{{#select data.data.moduleType}}
+          <select name="data.moduleType" data-dtype="String">{{#select data.system.moduleType}}
             <option value="confrontation">confrontation</option>
             <option value="core function">core function</option>
             <option value="general">general</option>
@@ -38,7 +38,7 @@
         </div>
         <div class="form-group"> 
           <label>Range </label>
-          <select name="data.range" data-dtype="String">{{#select data.data.range}}
+          <select name="data.range" data-dtype="String">{{#select data.system.range}}
             <option value="">-</option>
             <option value="boarding">boarding</option>
             <option value="firing">firing</option>
@@ -47,7 +47,7 @@
         </div>
         <div class="form-group"> 
           <label>Power Cost </label>
-          <input type="number" name="data.powerCost" value="{{data.data.powerCost}}" placeholder="1" data-dtype="Number"/>
+          <input type="number" name="system.powerCost" value="{{data.system.powerCost}}" placeholder="1" data-dtype="Number"/>
         </div>
       </div>
     </div>

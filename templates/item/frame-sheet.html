@@ -8,7 +8,7 @@
       <div class="col2">
         <div class="row1">
           <div class="game-title">DEATH IN SPACE</div>
-          <div class="sheet-title">FRAME SHEET</div>
+          <div class="sheet-title">{{item.type}} SHEET</div>
         </div>
         <div class="row2">
           <div>
@@ -23,36 +23,36 @@
   <nav class="sheet-tabs tabs" data-group="primary"><a class="item" data-tab="notes">{{ localize 'DIS.TabNotes' }}</a><a class="item" data-tab="data">{{ localize 'DIS.TabData' }}</a></nav>
   <section class="sheet-body"> 
     <div class="tab notes-tab" data-group="primary" data-tab="notes">
-      <div class="notes-wrapper">{{editor content=data.data.notes target="data.notes" button=true owner=owner editable=editable}}</div>
+      <div class="notes-wrapper">{{editor data.system.notes target="system.notes" button=true owner=owner editable=editable}}</div>
     </div>
     <div class="tab data-tab" data-group="primary" data-tab="data">
       <div class="data-wrapper">
         <div class="form-group"> 
           <label>Hub Type</label>
-          <select name="data.hubType" data-dtype="String">{{#select data.data.hubType}}
+          <select name="system.hubType" data-dtype="String">{{#select data.system.hubType}}
             <option value="spacecraft">spacecraft</option>
             <option value="station">station</option>{{/select}}
           </select>
         </div>
         <div class="form-group"> 
           <label>Size</label>
-          <input type="number" name="data.size" value="{{data.data.size}}" placeholder="0" data-dtype="Number"/>
+          <input type="number" name="system.size" value="{{data.system.size}}" placeholder="0" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
           <label>Condition</label>
-          <input type="number" name="data.condition" value="{{data.data.condition}}" placeholder="0" data-dtype="Number"/>
+          <input type="number" name="system.condition" value="{{data.system.condition}}" placeholder="0" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
           <label>Defense Rating</label>
-          <input type="number" name="data.defenseRating" value="{{data.data.defenseRating}}" placeholder="0" data-dtype="Number"/>
+          <input type="number" name="system.defenseRating" value="{{data.system.defenseRating}}" placeholder="0" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
           <label>Fuel Depot</label>
-          <input type="number" name="data.fuelDepot" value="{{data.data.fuelDepot}}" placeholder="0" data-dtype="Number"/>
+          <input type="number" name="system.fuelDepot" value="{{data.system.fuelDepot}}" placeholder="0" data-dtype="Number"/>
         </div>
         <div class="form-group"> 
           <label>Availability </label>
-          <select name="data.availability" data-dtype="String">{{#select data.data.availability}}
+          <select name="system.availability" data-dtype="String">{{#select data.system.availability}}
             <option value="common">common</option>
             <option value="unusual">unusual</option>
             <option value="rare">rare</option>

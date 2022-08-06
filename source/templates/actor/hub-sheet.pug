@@ -82,7 +82,7 @@ form(class="{{cssClass}}")
               .from-frame-help
                 | ({{ localize "DIS.Frame" }})
             .input-row
-              input(class="defense-rating" name="system.frame.data.defenseRating" type="number" value="{{data.system.frame.data.defenseRating}}" data-dtype="Number" readonly)
+              input(class="defense-rating" name="system.frame.defenseRating" type="number" value="{{data.system.frame.defenseRating}}" data-dtype="Number" readonly)
         .roll-on-damage-row 
           .col1
             .arrow-row 
@@ -122,8 +122,7 @@ form(class="{{cssClass}}")
               .col2
                 input(class="condition-current" name="system.condition.value" type="number" min="0" value="{{data.system.condition.value}}" data-dtype="Number")
               .col3
-                //- input(class="condition-max" name="system.condition.max" type="number" value="{{data.system.condition.max}}" data-dtype="Number")
-                input(class="condition-max" name="system.frame.condition" type="number" value="{{data.system.frame.condition}}" data-dtype="Number" readonly)
+                input(class="condition-max" name="system.frame.condition" type="number" value="{{data.system.frame.system.condition}}" data-dtype="Number" readonly)
           .fuel 
             .label-row
               .col1
@@ -141,7 +140,7 @@ form(class="{{cssClass}}")
                 input(class="fuel-current" name="system.fuel.value" type="number" min="0" value="{{data.system.fuel.value}}" data-dtype="Number")
               .col3
                 //- input(class="fuel-max" name="system.fuel.max" type="number" value="{{data.system.fuel.max}}" data-dtype="Number")
-                input(class="fuel-max" name="system.frame.fuelDepot" type="number" value="{{data.system.frame.fuelDepot}}" data-dtype="Number" readonly)
+                input(class="fuel-max" name="system.frame.fuelDepot" type="number" value="{{data.system.frame.system.fuelDepot}}" data-dtype="Number" readonly)
           .power-source 
             .source-label
               | {{ localize "DIS.PowerSource" }}
@@ -166,7 +165,7 @@ form(class="{{cssClass}}")
             .title-row
               | {{ localize "DIS.OutputPower" }}
             .input-row
-              input(class="output-power power" name="system.powerSystem.outputPower" type="number" value="{{data.system.powerSystem.outputPower}}" data-dtype="Number" readonly)
+              input(class="output-power power" name="system.powerSystem.system.outputPower" type="number" value="{{data.system.powerSystem.system.outputPower}}" data-dtype="Number" readonly)
         .modules-block
           .title-row
             .col1
@@ -188,7 +187,7 @@ form(class="{{cssClass}}")
                 a(class="item-control item-delete" title="Delete Item")
                   i(class="fas fa-trash")
               .col3 
-                input(class="hub-module-power-cost power" name="item.powerCost" type="number" value="{{item.powerCost}}" data-dtype="Number" readonly=true)
+                input(class="hub-module-power-cost power" name="item.system.powerCost" type="number" value="{{item.system.powerCost}}" data-dtype="Number" readonly=true)
             | {{/each}}
           .modules-total 
             .col1
