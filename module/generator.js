@@ -10,8 +10,8 @@ const CREATION_PACK = "deathinspace.character-creation";
 
 export const generateCharacter = async () => {
   const char = await randomCharacter();
-  const actor = await DISActor.create(char.actorData);
-  await actor.createEmbeddedDocuments("Item", char.items);
+  console.log(char);
+  const actor = await DISActor.create(char);
   await maybeGiveStartingBonus(actor);
   actor.sheet.render(true);
 };
@@ -20,12 +20,11 @@ export const regenerateCharacter = async (actor) => {
   const char = await randomCharacter();
   await actor.deleteEmbeddedDocuments("Item", [], { deleteAll: true });
   await actor.update(char.actorData);
-  await actor.createEmbeddedDocuments("Item", char.items);
   await maybeGiveStartingBonus(actor);
   // update any actor tokens in the scene, too
   for (const token of actor.getActiveTokens()) {
     await token.document.update({
-      img: actor.data.token.img,
+      img: actor.token.img,
       name: actor.name,
     });
   }
@@ -71,6 +70,11 @@ const randomCharacter = async () => {
     "Personal Trinkets"
   );
 
+  const items = [origin, originBenefit, personalTrinket].concat(
+    startingKitItems
+  );
+  const itemData = items.map((d) => simpleData(d));
+
   const actorData = {
     name,
     data: {
@@ -93,28 +97,33 @@ const randomCharacter = async () => {
       trait,
     },
     img: portrait,
+    items: itemData,
     token: {
       img: token,
       name,
     },
     type: "character",
   };
-  const items = [origin.data, originBenefit.data, personalTrinket.data].concat(
-    startingKitItems.map((x) => x.data)
-  );
 
+  return actorData;
+};
+
+const simpleData = (doc) => {
   return {
-    actorData,
-    items,
+    id: doc.id,
+    img: doc.img,
+    name: doc.name,
+    system: doc.system,
+    type: doc.type,
   };
 };
 
 const maybeGiveStartingBonus = async (actor) => {
   const sumOfAbilityScores =
-    actor.data.data.abilities.body.value +
-    actor.data.data.abilities.dexterity.value +
-    actor.data.data.abilities.savvy.value +
-    actor.data.data.abilities.tech.value;
+    actor.system.abilities.body.value +
+    actor.system.abilities.dexterity.value +
+    actor.system.abilities.savvy.value +
+    actor.system.abilities.tech.value;
   if (sumOfAbilityScores >= 0) {
     // no starting bonus
     return;
@@ -154,13 +163,13 @@ const maybeGiveStartingBonus = async (actor) => {
   }
 
   if (bonusItem) {
-    await actor.createEmbeddedDocuments("Item", [bonusItem.data]);
+    await actor.createEmbeddedDocuments("Item", [simpleData(bonusItem)]);
   }
   if (bonusHitPoints) {
-    const newHP = actor.data.data.hitPoints.max + bonusHitPoints;
+    const newHP = actor.system.hitPoints.max + bonusHitPoints;
     await actor.update({
-      ["data.hitPoints.max"]: newHP,
-      ["data.hitPoints.value"]: newHP,
+      ["system.hitPoints.max"]: newHP,
+      ["system.hitPoints.value"]: newHP,
     });
   }
   if (bonusFollower) {
@@ -187,8 +196,8 @@ const generateAbilityValue = () => {
 };
 
 const pickOriginBenefit = async (origin) => {
-  if (origin.data.data.benefitNames) {
-    const names = origin.data.data.benefitNames.split(",");
+  if (origin.system.benefitNames) {
+    const names = origin.system.benefitNames.split(",");
     if (names.length) {
       const randName = names[Math.floor(Math.random() * names.length)];
       const pack = game.packs.get("deathinspace.origin-benefits");
@@ -291,9 +300,7 @@ export const generateStation = async () => {
 
 export const generateNpc = async () => {
   const npc = await randomNpc();
-  console.log(npc);
-  const actor = await DISActor.create(npc.actorData);
-  await actor.createEmbeddedDocuments("Item", npc.items);
+  const actor = await DISActor.create(npc);
   actor.sheet.render(true);
 };
 
@@ -305,7 +312,8 @@ export const regenerateNpc = async (actor) => {
   // update any actor tokens in the scene, too
   for (const token of actor.getActiveTokens()) {
     await token.document.update({
-      img: actor.data.token.img,
+      // TODO: verify path
+      img: actor.token.img,
       name: actor.name,
     });
   }
@@ -374,19 +382,13 @@ const randomNpc = async () => {
       morale,
     },
     img: portrait,
+    items: [],
     token: {
       img: token,
       name,
     },
     type: "npc",
   };
-  // const items = [origin.data, originBenefit.data, personalTrinket.data].concat(
-  //   startingKitItems.map((x) => x.data)
-  // );
-  const items = [];
 
-  return {
-    actorData,
-    items,
-  };
+  return actorData;
 };

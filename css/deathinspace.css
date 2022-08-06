@@ -130,8 +130,9 @@
   font-weight: 600;
   height: 30px;
   line-height: 32px;
-  width: 130px;
+  padding: 0;
   text-transform: uppercase;
+  width: 130px;
 }
 .deathinspace.sheet .sheet-tabs .item.active {
   text-shadow: none;
@@ -1313,6 +1314,144 @@
 .deathinspace.sheet.npc .data-wrapper .form-spacer {
   height: 20px;
 }
+.deathinspace.sheet.item {
+  /* Notes tab */
+  /* Data tab */
+}
+.deathinspace.sheet.item form {
+  border: 4px solid var(--item-background-color);
+}
+.deathinspace.sheet.item .sheet-header {
+  height: 160px;
+}
+.deathinspace.sheet.item .sheet-header .header-row {
+  display: flex;
+  height: 160px;
+}
+.deathinspace.sheet.item .sheet-header .header-row .col1 {
+  display: flex;
+  flex: 0 0 160px;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+.deathinspace.sheet.item .sheet-header .header-row .col1 .item-image {
+  background-color: var(--input-border-color);
+  border-radius: 0;
+  height: 160px;
+  padding-top: 1px;
+  width: 160px;
+}
+.deathinspace.sheet.item .sheet-header .header-row .col1 .item-image img {
+  border: none;
+  border-radius: 0;
+  height: 160px;
+  margin: 0;
+  padding: 0;
+  width: 160px;
+}
+.deathinspace.sheet.item .sheet-header .header-row .col2 {
+  flex: 1;
+  margin: 0;
+  padding: 10px;
+}
+.deathinspace.sheet.item .sheet-header .header-row .col2 .game-title {
+  color: var(--item-background-color);
+  font-family: var(--title-font);
+  font-size: 36px;
+}
+.deathinspace.sheet.item .sheet-header .header-row .col2 .sheet-title {
+  color: var(--item-background-color);
+}
+.deathinspace.sheet.item .sheet-header .header-row .col2 .row1 {
+  border-bottom: 1px solid black;
+  height: 80px;
+}
+.deathinspace.sheet.item .sheet-header .header-row .col2 .row2 {
+  height: 80px;
+  padding-top: 10px;
+}
+.deathinspace.sheet.item .sheet-tabs {
+  background: #f4f3ed;
+  border-bottom: 1px solid #f4f3ed;
+  border-top: 1px solid #f4f3ed;
+}
+.deathinspace.sheet.item .sheet-tabs .item.active {
+  background-color: var(--item-background-color);
+  color: white;
+}
+.deathinspace.sheet.item .sheet-tabs .item:hover {
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+.deathinspace.sheet.item .notes-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.deathinspace.sheet.item .data-wrapper .form-group {
+  border-bottom: 1px dotted black;
+  display: flex;
+  flex: 0 0 50px;
+  width: 100%;
+}
+.deathinspace.sheet.item .data-wrapper .form-group label {
+  flex: 1;
+  font-size: 16px;
+  padding-right: 10px;
+  text-align: right;
+}
+.deathinspace.sheet.item .data-wrapper .form-group input[type=number],
+.deathinspace.sheet.item .data-wrapper .form-group input[type=text],
+.deathinspace.sheet.item .data-wrapper .form-group select {
+  flex: 1;
+  text-align: center;
+}
+.deathinspace.sheet.item .data-wrapper .form-spacer {
+  height: 20px;
+}
+
+.attack-outcome-card {
+  border: 2px solid var(--character-background-color);
+}
+.attack-outcome-card .risky-outcome {
+  font-size: 12px;
+  text-transform: none;
+}
+.roll-card {
+  border: 2px solid var(--highlight-background-color);
+  font-family: var(--text-font);
+  padding: 5px;
+}
+.roll-card .card-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.roll-card .roll-title {
+  text-align: center;
+  text-transform: uppercase;
+}
+.roll-card .roll-result {
+  border: 1px solid gray;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+.roll-card .roll-result span {
+  font-size: 20px;
+}
+.roll-card .outcome-text {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
 .ability-check-dialog {
   border: 2px solid var(--character-background-color);
 }
@@ -1414,144 +1553,6 @@
 .custom-dialog .button-row button:active, .custom-dialog .button-row button:focus, .custom-dialog .button-row button:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
-}
-
-.attack-outcome-card {
-  border: 2px solid var(--character-background-color);
-}
-.attack-outcome-card .risky-outcome {
-  font-size: 12px;
-  text-transform: none;
-}
-.roll-card {
-  border: 2px solid var(--highlight-background-color);
-  font-family: var(--text-font);
-  padding: 5px;
-}
-.roll-card .card-title {
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-.roll-card .roll-title {
-  text-align: center;
-  text-transform: uppercase;
-}
-.roll-card .roll-result {
-  border: 1px solid gray;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  text-align: center;
-}
-.roll-card .roll-result span {
-  font-size: 20px;
-}
-.roll-card .outcome-text {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-align: center;
-  text-transform: uppercase;
-}
-.deathinspace.sheet.item {
-  /* Notes tab */
-  /* Data tab */
-}
-.deathinspace.sheet.item form {
-  border: 4px solid var(--item-background-color);
-}
-.deathinspace.sheet.item .sheet-header {
-  height: 160px;
-}
-.deathinspace.sheet.item .sheet-header .header-row {
-  display: flex;
-  height: 160px;
-}
-.deathinspace.sheet.item .sheet-header .header-row .col1 {
-  display: flex;
-  flex: 0 0 160px;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-}
-.deathinspace.sheet.item .sheet-header .header-row .col1 .item-image {
-  background-color: var(--input-border-color);
-  border-radius: 0;
-  height: 160px;
-  padding-top: 1px;
-  width: 160px;
-}
-.deathinspace.sheet.item .sheet-header .header-row .col1 .item-image img {
-  border: none;
-  border-radius: 0;
-  height: 160px;
-  margin: 0;
-  padding: 0;
-  width: 160px;
-}
-.deathinspace.sheet.item .sheet-header .header-row .col2 {
-  flex: 1;
-  margin: 0;
-  padding: 10px;
-}
-.deathinspace.sheet.item .sheet-header .header-row .col2 .game-title {
-  color: var(--item-background-color);
-  font-family: var(--title-font);
-  font-size: 36px;
-}
-.deathinspace.sheet.item .sheet-header .header-row .col2 .sheet-title {
-  color: var(--item-background-color);
-}
-.deathinspace.sheet.item .sheet-header .header-row .col2 .row1 {
-  border-bottom: 1px solid black;
-  height: 80px;
-}
-.deathinspace.sheet.item .sheet-header .header-row .col2 .row2 {
-  height: 80px;
-  padding-top: 10px;
-}
-.deathinspace.sheet.item .sheet-tabs {
-  background: #f4f3ed;
-  border-bottom: 1px solid #f4f3ed;
-  border-top: 1px solid #f4f3ed;
-}
-.deathinspace.sheet.item .sheet-tabs .item.active {
-  background-color: var(--item-background-color);
-  color: white;
-}
-.deathinspace.sheet.item .sheet-tabs .item:hover {
-  color: white;
-  text-shadow: 0 0 10px black;
-}
-.deathinspace.sheet.item .notes-wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-}
-.deathinspace.sheet.item .data-wrapper .form-group {
-  border-bottom: 1px dotted black;
-  display: flex;
-  flex: 0 0 50px;
-  width: 100%;
-}
-.deathinspace.sheet.item .data-wrapper .form-group label {
-  flex: 1;
-  font-size: 16px;
-  padding-right: 10px;
-  text-align: right;
-}
-.deathinspace.sheet.item .data-wrapper .form-group input[type=number],
-.deathinspace.sheet.item .data-wrapper .form-group input[type=text],
-.deathinspace.sheet.item .data-wrapper .form-group select {
-  flex: 1;
-  text-align: center;
-}
-.deathinspace.sheet.item .data-wrapper .form-spacer {
-  height: 20px;
 }
 .deathinspace.sheet.actor .belongings-tab .item-controls {
   border-left: 1px dotted black;

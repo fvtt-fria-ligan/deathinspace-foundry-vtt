@@ -21,7 +21,7 @@ export const drawFromTable = async (packName, tableName) => {
 
 export const drawText = async (packName, tableName) => {
   const draw = await drawFromTable(packName, tableName);
-  return draw.results[0].data.text;
+  return draw.results[0].text;
 };
 
 export const drawDocument = async (packName, tableName) => {
@@ -37,7 +37,7 @@ export const drawDocuments = async (packName, tableName) => {
 };
 
 export const documentsFromDraw = async (draw) => {
-  const docResults = draw.results.filter((r) => r.data.type === 2);
+  const docResults = draw.results.filter((r) => r.type === 2);
   return Promise.all(docResults.map((r) => documentFromResult(r)));
 };
 
@@ -47,15 +47,27 @@ export const documentFromDraw = async (draw) => {
 };
 
 export const documentFromResult = async (result) => {
-  if (!result.data.collection) {
-    console.log("No data.collection for result; skipping");
+  if (!result.documentCollection) {
+    console.log("No documentCollection for result; skipping");
     return;
   }
   const collectionName =
-    result.data.type === 2
-      ? "Compendium." + result.data.collection
-      : result.data.collection;
-  const uuid = `${collectionName}.${result.data.resultId}`;
+    result.type === 2
+      ? "Compendium." + result.documentCollection
+      : result.documentCollection;
+  const uuid = `${collectionName}.${result.documentId}`;
   const doc = await fromUuid(uuid);
+  if (!doc) {
+    console.log(`Could not find ${uuid}`);
+  }
   return doc;
+};
+
+export const dupeData = (doc) => {
+  return {
+    data: doc.system,
+    img: doc.img,
+    name: doc.name,
+    type: doc.type,
+  };
 };
