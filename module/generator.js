@@ -174,7 +174,7 @@ const maybeGiveStartingBonus = async (actor) => {
   }
   if (bonusFollower) {
     // TODO: randomize follower stats
-    const followerData = duplicate(bonusFollower.data);
+    const followerData = simpleData(bonusFollower);
     const firstName = actor.name.split(" ")[0];
     followerData.name = `${firstName}'s ${followerData.name}`;
     const follower = await DISActor.create(followerData);
