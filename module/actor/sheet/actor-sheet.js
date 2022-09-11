@@ -109,7 +109,7 @@ export default class DISActorSheet extends ActorSheet {
 
   _onRegenerate(event) {
     event.preventDefault();
-    if (this.actor.data.type === "npc") {
+    if (this.actor.type === "npc") {
       // don't confirm
       this.actor.regenerate();
     } else {

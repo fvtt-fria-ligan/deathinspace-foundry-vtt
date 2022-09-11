@@ -17,9 +17,9 @@ export const generateCharacter = async () => {
 };
 
 export const regenerateCharacter = async (actor) => {
-  const char = await randomCharacter();
+  const actorData = await randomCharacter();
   await actor.deleteEmbeddedDocuments("Item", [], { deleteAll: true });
-  await actor.update(char.actorData);
+  await actor.update(actorData);
   await maybeGiveStartingBonus(actor);
   // update any actor tokens in the scene, too
   for (const token of actor.getActiveTokens()) {
@@ -301,10 +301,9 @@ export const generateNpc = async () => {
 };
 
 export const regenerateNpc = async (actor) => {
-  const npc = await randomNpc();
+  const actorData = await randomNpc();
   await actor.deleteEmbeddedDocuments("Item", [], { deleteAll: true });
-  await actor.update(npc.actorData);
-  await actor.createEmbeddedDocuments("Item", npc.items);
+  await actor.update(actorData);
   // update any actor tokens in the scene, too
   for (const token of actor.getActiveTokens()) {
     await token.document.update({
