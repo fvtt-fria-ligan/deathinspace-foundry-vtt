@@ -1,0 +1,16 @@
+header.sheet-header
+  .header-row
+    .col1
+      .item-image 
+        img(src="{{data.img}}" data-edit="img" title="{{data.name}}")
+    .col2
+      .row1
+        .game-title
+          | DEATH IN SPACE
+        .sheet-title
+          | {{item.type}} SHEET
+      .row2
+        div 
+          | NAME 
+        div.item-name
+          input(class="item-name" name="name" type="text" value="{{item.name}}" placeholder="Item Name" spellcheck="false")
