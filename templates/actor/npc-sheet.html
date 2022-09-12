@@ -175,13 +175,13 @@
                {{item.system.damage}}</div>
             <div class="weapon-ammo">
                {{#if item.system.ammo.max}}
-              <input class="inline-edit" type="number" min="0" max="{{ item.ammo.max}}" data-mod="ammo.value" name="item.ammo.value" value="{{item.ammo.value}}" data-dtype="Number"/> / {{ item.system.ammo.max}} 
+              <input class="inline-edit" type="number" min="0" max="{{item.system.ammo.max}}" data-mod="system.ammo.value" name="item.system.ammo.value" value="{{item.system.ammo.value}}" data-dtype="Number"/> / {{ item.system.ammo.max}} 
               {{else}}
               -
               {{/if}}
             </div>
             <div class="weapon-condition">{{#if item.system.condition.max}}<a class="item-control item-condition"> <i class="fas fa-dice-six"></i></a>
-              <input class="inline-edit" type="number" min="0" max="{{ item.condition.max }}" data-mod="condition.value" name="item.condition.value" value="{{item.condition.value}}" data-dtype="Number"/> / {{ item.system.condition.max}}
+              <input class="inline-edit" type="number" min="0" max="{{item.system.condition.max }}" data-mod="system.condition.value" name="item.system.condition.value" value="{{item.system.condition.value}}" data-dtype="Number"/> / {{ item.system.condition.max}}
               {{else}}
               -
               {{/if}}

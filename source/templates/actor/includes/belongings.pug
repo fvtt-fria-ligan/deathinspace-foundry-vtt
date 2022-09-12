@@ -78,7 +78,7 @@
         | {{item.system.damage}}
       .weapon-ammo 
         | {{#if item.system.ammo.max}}
-        input(type="number" min="0" max="{{ item.ammo.max}}" class="inline-edit" data-mod="ammo.value" name="item.ammo.value" value="{{item.ammo.value}}" data-dtype="Number")
+        input(type="number" min="0" max="{{item.system.ammo.max}}" class="inline-edit" data-mod="system.ammo.value" name="item.system.ammo.value" value="{{item.system.ammo.value}}" data-dtype="Number")
         |  / {{ item.system.ammo.max}} 
         | {{else}}
         | -
@@ -87,7 +87,7 @@
         | {{#if item.system.condition.max}}
         a.item-control.item-condition 
           i.fas.fa-dice-six
-        input(type="number" min="0" max="{{ item.condition.max }}" class="inline-edit" data-mod="condition.value" name="item.condition.value" value="{{item.condition.value}}" data-dtype="Number")
+        input(type="number" min="0" max="{{item.system.condition.max }}" class="inline-edit" data-mod="system.condition.value" name="item.system.condition.value" value="{{item.system.condition.value}}" data-dtype="Number")
         |  / {{ item.system.condition.max}}
         | {{else}}
         | -

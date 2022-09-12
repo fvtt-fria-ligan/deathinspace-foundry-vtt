@@ -312,10 +312,10 @@ export class DISActor extends Actor {
         riskyOutcome = game.i18n.localize("DIS.RiskyAttackSuccess");
       }
       damageText = `Damage: ${damageFormula}`;
-      damageRoll = new Roll(damageFormula, {});
+      damageRoll = new Roll(damageFormula);
       damageRoll.evaluate({ async: false });
       // TODO: including crit die in max formula means crits are less likely to reduce target condition
-      const maxDamageRoll = new Roll(damageFormula, {});
+      const maxDamageRoll = new Roll(damageFormula);
       maxDamageRoll.evaluate({ async: false, maximize: true });
       const isMaxDamage = damageRoll.total == maxDamageRoll.total;
       console.log(damageRoll);
@@ -374,7 +374,8 @@ export class DISActor extends Actor {
     if (!item) {
       return;
     }
-    const roll = new Roll(item.systemdamage);
+    console.log(item);
+    const roll = new Roll(item.system.damage);
     roll.toMessage({
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
