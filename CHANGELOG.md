@@ -1,3 +1,11 @@
+# 2.0.2
+
+- Fix token img for generated npcs.
+
+# 2.0.1
+
+- Fix character generator for v10.
+
 # 2.0.0
 
 - Make system compatible with Foundry v10.

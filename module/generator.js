@@ -24,8 +24,10 @@ export const regenerateCharacter = async (actor) => {
   // update any actor tokens in the scene, too
   for (const token of actor.getActiveTokens()) {
     await token.document.update({
-      img: actor.token.img,
       name: actor.name,
+      texture: {
+        src: actor.prototypeToken.texture.src,
+      },
     });
   }
 };
@@ -98,9 +100,11 @@ const randomCharacter = async () => {
     },
     img: portrait,
     items: itemData,
-    token: {
-      img: token,
-      name,
+    prototypeToken: {
+      name: name,
+      texture: {
+        src: token,
+      },
     },
     type: "character",
   };
@@ -167,10 +171,15 @@ const maybeGiveStartingBonus = async (actor) => {
     const followerData = simpleData(bonusFollower);
     const firstName = actor.name.split(" ")[0];
     followerData.name = `${firstName}'s ${followerData.name}`;
-    const follower = await DISActor.create(followerData);
-    follower.sheet.render(true);
-    // TODO: set notes on char sheet?
-    // "You have a starting follower: "
+    if (game.user.can("ACTOR_CREATE")) {
+      const follower = await DISActor.create(followerData);
+      follower.sheet.render(true);
+    } else {
+      ui.notifications.info(
+        `Ask the GM to create an NPC for you: ${followerData.name}`,
+        { permanent: true }
+      );
+    }
   }
 };
 
@@ -307,9 +316,10 @@ export const regenerateNpc = async (actor) => {
   // update any actor tokens in the scene, too
   for (const token of actor.getActiveTokens()) {
     await token.document.update({
-      // TODO: verify path
-      img: actor.token.img,
       name: actor.name,
+      texture: {
+        src: actor.prototypeToken.texture.src,
+      },
     });
   }
 };
@@ -378,9 +388,11 @@ const randomNpc = async () => {
     },
     img: portrait,
     items: [],
-    token: {
-      img: token,
-      name,
+    prototypeToken: {
+      name: name,
+      texture: {
+        src: token,
+      },
     },
     type: "npc",
   };
