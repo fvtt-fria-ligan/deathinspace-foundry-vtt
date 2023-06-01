@@ -7,7 +7,7 @@ import {
   simpleData,
 } from "./packutils.js";
 
-const CREATION_PACK = "deathinspace.character-creation";
+const CREATION_PACK = "deathinspace.death-in-space-tables";
 
 export const generateCharacter = async () => {
   const char = await randomCharacter();
