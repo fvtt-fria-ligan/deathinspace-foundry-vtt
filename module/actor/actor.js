@@ -3,7 +3,13 @@ import AddItemDialog from "../dialog/add-item-dialog.js";
 import AttackDialog from "../dialog/attack-dialog.js";
 import { diceSound, showDice } from "../dice.js";
 import { regenerateCharacter, regenerateNpc } from "../generator.js";
-import { documentFromPack, simpleData, tableFromPack } from "../packutils.js";
+import {
+  ITEMS_PACK,
+  TABLES_PACK,
+  documentFromPack,
+  simpleData,
+  tableFromPack,
+} from "../packutils.js";
 
 /**
  * @extends {Actor}
@@ -52,7 +58,6 @@ export class DISActor extends Actor {
   }
 
   async _addCoreFunctionItems() {
-    const packName = "deathinspace.hub-modules-core-functions";
     const coreFunctionNames = [
       "(CF) Command Center",
       "(CF) Crew Quarters",
@@ -60,16 +65,23 @@ export class DISActor extends Actor {
       "(CF) Mess",
     ];
     for (const coreFunctionName of coreFunctionNames) {
-      const doc = await documentFromPack(packName, coreFunctionName);
+      const doc = await documentFromPack(ITEMS_PACK, coreFunctionName);
       if (!doc) {
-        console.error(`Could not find ${coreFunctionName} in ${packName}`);
+        console.error(`Could not find ${coreFunctionName} in ${ITEMS_PACK}`);
         continue;
       }
       await this.createEmbeddedDocuments("Item", [simpleData(doc)]);
     }
   }
 
-  _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId) {
+  _onCreateDescendantDocuments(
+    parent,
+    collection,
+    documents,
+    data,
+    options,
+    userId
+  ) {
     // TODO: move these checks into character.js and hub.js subclasses
     if (documents[0].type === CONFIG.DIS.itemTypes.origin) {
       this._deleteEarlierItems(CONFIG.DIS.itemTypes.origin);
@@ -81,10 +93,11 @@ export class DISActor extends Actor {
         ["system.fuel.value"]: documents[0].system.fuelDepot,
       });
     }
-    super._onCreateEmbeddedDocuments(
-      embeddedName,
+    super._onCreateDescendantDocuments(
+      parent,
+      collection,
       documents,
-      result,
+      data,
       options,
       userId
     );
@@ -486,10 +499,7 @@ export class DISActor extends Actor {
       flavor: `${game.i18n.localize("DIS.VoidCorruption")}?`,
     });
     if (roll.total <= this.system.voidPoints.value) {
-      const table = await tableFromPack(
-        "deathinspace.character-creation",
-        "Void Corruption"
-      );
+      const table = await tableFromPack(TABLES_PACK, "Void Corruption");
       await table.draw();
     }
   }

@@ -1,13 +1,14 @@
 import { DISActor } from "./actor/actor.js";
 import {
+  ACTORS_PACK,
+  ITEMS_PACK,
+  TABLES_PACK,
   documentFromPack,
   drawDocument,
   drawDocuments,
   drawText,
   simpleData,
 } from "./packutils.js";
-
-const CREATION_PACK = "deathinspace.death-in-space-tables";
 
 export const generateCharacter = async () => {
   const char = await randomCharacter();
@@ -33,8 +34,8 @@ export const regenerateCharacter = async (actor) => {
 };
 
 const randomCharacter = async () => {
-  const firstName = await drawText(CREATION_PACK, "First Names");
-  const lastName = await drawText(CREATION_PACK, "Last Names");
+  const firstName = await drawText(TABLES_PACK, "First Names");
+  const lastName = await drawText(TABLES_PACK, "Last Names");
   const name = `${firstName} ${lastName}`;
   const imageBase = randomCharacterImageBase();
   const portrait = `systems/deathinspace/assets/images/portraits/characters/${imageBase}.jpg`;
@@ -49,28 +50,25 @@ const randomCharacter = async () => {
   const defenseRating = 12 + dexterity;
 
   // 2. origin
-  const origin = await drawDocument(CREATION_PACK, "Origins");
+  const origin = await drawDocument(TABLES_PACK, "Origins");
   const originBenefit = await pickOriginBenefit(origin);
 
   // 3. character details
-  const background = await drawText(CREATION_PACK, "Backgrounds");
-  const trait = await drawText(CREATION_PACK, "Traits");
-  const drive = await drawText(CREATION_PACK, "Drives");
-  const looks = await drawText(CREATION_PACK, "Looks");
+  const background = await drawText(TABLES_PACK, "Backgrounds");
+  const trait = await drawText(TABLES_PACK, "Traits");
+  const drive = await drawText(TABLES_PACK, "Drives");
+  const looks = await drawText(TABLES_PACK, "Looks");
 
   // 4. past allegiance
-  const pastAllegiance = await drawText(CREATION_PACK, "Past Allegiances");
+  const pastAllegiance = await drawText(TABLES_PACK, "Past Allegiances");
 
   // 5. hit points and defense rating
   const hitPoints = rollTotal("1d8");
 
   // 6. starting gear and starting bonus
   const holos = rollTotal("3d10");
-  const startingKitItems = await drawDocuments(CREATION_PACK, "Starting Kits");
-  const personalTrinket = await drawDocument(
-    CREATION_PACK,
-    "Personal Trinkets"
-  );
+  const startingKitItems = await drawDocuments(TABLES_PACK, "Starting Kits");
+  const personalTrinket = await drawDocument(TABLES_PACK, "Personal Trinkets");
 
   const items = [origin, originBenefit, personalTrinket].concat(
     startingKitItems
@@ -128,31 +126,22 @@ const maybeGiveStartingBonus = async (actor) => {
   let bonusFollower = null;
   switch (bonusRoll) {
     case 1:
-      bonusItem = await drawDocument(CREATION_PACK, "Cosmic Mutations");
+      bonusItem = await drawDocument(TABLES_PACK, "Cosmic Mutations");
       break;
     case 2:
       bonusHitPoints = 3;
       break;
     case 3:
-      bonusItem = await documentFromPack(
-        "deathinspace.armor",
-        "EVA Suit - Heavy"
-      );
+      bonusItem = await documentFromPack(ITEMS_PACK, "EVA Suit - Heavy");
       break;
     case 4:
-      bonusItem = await documentFromPack("deathinspace.weapons", "Pistol");
+      bonusItem = await documentFromPack(ITEMS_PACK, "Pistol");
       break;
     case 5:
-      bonusFollower = await documentFromPack(
-        "deathinspace.starting-npcs",
-        "AI guard animal"
-      );
+      bonusFollower = await documentFromPack(ACTORS_PACK, "AI guard animal");
       break;
     case 6:
-      bonusFollower = await documentFromPack(
-        "deathinspace.starting-npcs",
-        "Old Crew Member"
-      );
+      bonusFollower = await documentFromPack(ACTORS_PACK, "Old Crew Member");
       break;
   }
 
@@ -199,7 +188,7 @@ const pickOriginBenefit = async (origin) => {
     const names = origin.system.benefitNames.split(",");
     if (names.length) {
       const randName = names[Math.floor(Math.random() * names.length)];
-      const pack = game.packs.get("deathinspace.origin-benefits");
+      const pack = game.packs.get(ITEMS_PACK);
       const docs = await pack.getDocuments();
       const benefit = docs.find((i) => i.name === randName);
       return benefit;
@@ -219,12 +208,9 @@ export const generateSpacecraft = async () => {
   const defenseRating = 11;
   const maxCondition = 5;
   const fuelCapacity = 6;
-  const name = await drawText("deathinspace.hub-creation", "Hub Names");
-  const background = await drawText(
-    "deathinspace.hub-creation",
-    "Spacecraft Backgrounds"
-  );
-  const quirk = await drawText("deathinspace.hub-creation", "Hub Quirks");
+  const name = await drawText(TABLES_PACK, "Hub Names");
+  const background = await drawText(TABLES_PACK, "Spacecraft Backgrounds");
+  const quirk = await drawText(TABLES_PACK, "Hub Quirks");
   const actorData = {
     name,
     data: {
@@ -244,14 +230,8 @@ export const generateSpacecraft = async () => {
     type: "hub",
   };
   const actor = await DISActor.create(actorData);
-  const frame = await documentFromPack(
-    "deathinspace.frames",
-    "Starting spacecraft"
-  );
-  const engine = await documentFromPack(
-    "deathinspace.power-systems",
-    "Chemical engine"
-  );
+  const frame = await documentFromPack(ITEMS_PACK, "Starting spacecraft");
+  const engine = await documentFromPack(ITEMS_PACK, "Chemical engine");
   await actor.createEmbeddedDocuments("Item", [
     simpleData(frame),
     simpleData(engine),
@@ -263,12 +243,9 @@ export const generateStation = async () => {
   const defenseRating = 11;
   const maxCondition = 5;
   const fuelCapacity = 4;
-  const name = await drawText("deathinspace.hub-creation", "Hub Names");
-  const background = await drawText(
-    "deathinspace.hub-creation",
-    "Station Backgrounds"
-  );
-  const quirk = await drawText("deathinspace.hub-creation", "Hub Quirks");
+  const name = await drawText(TABLES_PACK, "Hub Names");
+  const background = await drawText(TABLES_PACK, "Station Backgrounds");
+  const quirk = await drawText(TABLES_PACK, "Hub Quirks");
   const actorData = {
     name,
     data: {
@@ -288,14 +265,8 @@ export const generateStation = async () => {
     type: "hub",
   };
   const actor = await DISActor.create(actorData);
-  const frame = await documentFromPack(
-    "deathinspace.frames",
-    "Starting station"
-  );
-  const engine = await documentFromPack(
-    "deathinspace.power-systems",
-    "Industrial generator"
-  );
+  const frame = await documentFromPack(ITEMS_PACK, "Starting station");
+  const engine = await documentFromPack(ITEMS_PACK, "Industrial generator");
   await actor.createEmbeddedDocuments("Item", [
     simpleData(frame),
     simpleData(engine),
@@ -340,8 +311,8 @@ const randomInt = (min, max) => {
 };
 
 const randomNpc = async () => {
-  const firstName = await drawText(CREATION_PACK, "First Names");
-  const lastName = await drawText(CREATION_PACK, "Last Names");
+  const firstName = await drawText(TABLES_PACK, "First Names");
+  const lastName = await drawText(TABLES_PACK, "Last Names");
   const name = `${firstName} ${lastName}`;
   const imageBase = randomCharacterImageBase();
   const portrait = `systems/deathinspace/assets/images/portraits/characters/${imageBase}.jpg`;
@@ -355,9 +326,9 @@ const randomNpc = async () => {
   const morale = randomInt(4, 11);
 
   // 2. character details
-  const background = await drawText(CREATION_PACK, "Backgrounds");
-  const firstImpressions = await drawText(CREATION_PACK, "First Impressions");
-  const looks = await drawText(CREATION_PACK, "Looks");
+  const background = await drawText(TABLES_PACK, "Backgrounds");
+  const firstImpressions = await drawText(TABLES_PACK, "First Impressions");
+  const looks = await drawText(TABLES_PACK, "Looks");
 
   // 3. hit points and defense rating
   const hitPoints = rollTotal("1d8");
