@@ -3,14 +3,12 @@
   "name": "deathinspace",
   "title": "DEATH IN SPACE",
   "description": "Foundry VTT system for Death in Space.",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "templateVersion": 2,
   "compatibility": {
-    "minimum": 10,
-    "verified": 10
+    "minimum": "11.300",
+    "verified": "11.300"
   },
-  "minimumCoreVersion": "10",
-  "compatibleCoreVersion": "10",
   "authors": [
     {
       "name": "mcglintlock"
@@ -20,123 +18,25 @@
   "styles": ["css/deathinspace.css"],
   "packs": [
     {
-      "name": "armor",
-      "label": "Armor",
+      "name": "death-in-space-actors",
+      "label": "DEATH IN SPACE (Actors)",
       "system": "deathinspace",
-      "path": "./packs/armor.db",
-      "entity": "Item"
+      "path": "./packs/death-in-space-actors",
+      "type": "Actor"
     },
     {
-      "name": "character-creation",
-      "label": "Character Creation",
+      "name": "death-in-space-items",
+      "label": "DEATH IN SPACE (Items)",
       "system": "deathinspace",
-      "path": "./packs/character-creation.db",
-      "entity": "RollTable"
+      "path": "./packs/death-in-space-items",
+      "type": "Item"
     },
     {
-      "name": "cosmic-mutations",
-      "label": "Cosmic Mutations",
+      "name": "death-in-space-tables",
+      "label": "DEATH IN SPACE (Tables)",
       "system": "deathinspace",
-      "path": "./packs/cosmic-mutations.db",
-      "entity": "Item"
-    },
-    {
-      "name": "electronics",
-      "label": "Electronics",
-      "system": "deathinspace",
-      "path": "./packs/electronics.db",
-      "entity": "Item"
-    },
-    {
-      "name": "equipment",
-      "label": "Equipment",
-      "system": "deathinspace",
-      "path": "./packs/equipment.db",
-      "entity": "Item"
-    },
-    {
-      "name": "frames",
-      "label": "Frames",
-      "system": "deathinspace",
-      "path": "./packs/frames.db",
-      "entity": "Item"
-    },
-    {
-      "name": "hub-creation",
-      "label": "Hub Creation",
-      "system": "deathinspace",
-      "path": "./packs/hub-creation.db",
-      "entity": "RollTable"
-    },
-    {
-      "name": "hub-modules-confrontation",
-      "label": "Hub Modules - Confrontation",
-      "system": "deathinspace",
-      "path": "./packs/hub-modules-confrontation.db",
-      "entity": "Item"
-    },
-    {
-      "name": "hub-modules-core-functions",
-      "label": "Hub Modules - Core Functions",
-      "system": "deathinspace",
-      "path": "./packs/hub-modules-core-functions.db",
-      "entity": "Item"
-    },
-    {
-      "name": "hub-modules-general",
-      "label": "Hub Modules - General",
-      "system": "deathinspace",
-      "path": "./packs/hub-modules-general.db",
-      "entity": "Item"
-    },
-    {
-      "name": "hub-modules-tech",
-      "label": "Hub Modules - Tech",
-      "system": "deathinspace",
-      "path": "./packs/hub-modules-tech.db",
-      "entity": "Item"
-    },
-    {
-      "name": "origins",
-      "label": "Origins",
-      "system": "deathinspace",
-      "path": "./packs/origins.db",
-      "entity": "Item"
-    },
-    {
-      "name": "origin-benefits",
-      "label": "Origin Benefits",
-      "system": "deathinspace",
-      "path": "./packs/origin-benefits.db",
-      "entity": "Item"
-    },
-    {
-      "name": "personal-trinkets",
-      "label": "Personal Trinkets",
-      "system": "deathinspace",
-      "path": "./packs/personal-trinkets.db",
-      "entity": "Item"
-    },
-    {
-      "name": "power-systems",
-      "label": "Power Systems",
-      "system": "deathinspace",
-      "path": "./packs/power-systems.db",
-      "entity": "Item"
-    },
-    {
-      "name": "starting-npcs",
-      "label": "Starting NPCs",
-      "system": "deathinspace",
-      "path": "./packs/starting-npcs.db",
-      "entity": "Actor"
-    },
-    {
-      "name": "weapons",
-      "label": "Weapons",
-      "system": "deathinspace",
-      "path": "./packs/weapons.db",
-      "entity": "Item"
+      "path": "./packs/death-in-space-tables",
+      "type": "RollTable"
     }
   ],
   "languages": [

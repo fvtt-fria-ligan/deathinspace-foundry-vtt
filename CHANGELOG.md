@@ -1,3 +1,8 @@
+# 3.0.0
+
+- Make system compatible with Foundry v11.
+- Reorganize compendiums, leveraging v11 compendium folders.
+
 # 2.0.2
 
 - Fix token img for generated npcs.
