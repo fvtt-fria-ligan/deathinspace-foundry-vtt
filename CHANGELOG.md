@@ -1,3 +1,7 @@
+# 3.0.1
+
+- Fix hub sheet defense rating not populating from frame.
+
 # 3.0.0
 
 - Make system compatible with Foundry v11.
