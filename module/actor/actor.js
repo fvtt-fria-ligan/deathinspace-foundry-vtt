@@ -3,13 +3,8 @@ import AddItemDialog from "../dialog/add-item-dialog.js";
 import AttackDialog from "../dialog/attack-dialog.js";
 import { diceSound, showDice } from "../dice.js";
 import { regenerateCharacter, regenerateNpc } from "../generator.js";
-import {
-  ITEMS_PACK,
-  TABLES_PACK,
-  documentFromPack,
-  simpleData,
-  tableFromPack,
-} from "../packutils.js";
+import { ITEMS_PACK, TABLES_PACK } from "../packs.js";
+import { documentFromPack, simpleData } from "../packutils.js";
 
 /**
  * @extends {Actor}
@@ -41,7 +36,9 @@ export class DISActor extends Actor {
         vision: true,
       };
     }
-    mergeObject(data.prototypeToken, defaults, { overwrite: false });
+    foundry.utils.mergeObject(data.prototypeToken, defaults, {
+      overwrite: false,
+    });
     return super.create(data, options);
   }
 
@@ -167,7 +164,7 @@ export class DISActor extends Actor {
       `${d20Formula} + @abilities.${ability}.value`,
       this.getRollData()
     );
-    abilityRoll.evaluate({ async: false });
+    await abilityRoll.evaluate();
     await showDice(abilityRoll);
 
     const targetDR = 12;
@@ -296,7 +293,7 @@ export class DISActor extends Actor {
       `${d20Formula} + @abilities.${attackAbility}.value`,
       rollData
     );
-    attackRoll.evaluate({ async: false });
+    await attackRoll.evaluate();
     await showDice(attackRoll);
 
     // use the active die result, in case of advantage/disadvantage
@@ -326,10 +323,10 @@ export class DISActor extends Actor {
       }
       damageText = `Damage: ${damageFormula}`;
       damageRoll = new Roll(damageFormula);
-      damageRoll.evaluate({ async: false });
+      await damageRoll.evaluate();
       // TODO: including crit die in max formula means crits are less likely to reduce target condition
       const maxDamageRoll = new Roll(damageFormula);
-      maxDamageRoll.evaluate({ async: false, maximize: true });
+      await maxDamageRoll.evaluate({ maximize: true });
       const isMaxDamage = damageRoll.total == maxDamageRoll.total;
       if (isMaxDamage) {
         maxDamageOutcome = game.i18n.localize("DIS.MaxDamageOutcome");
@@ -403,7 +400,7 @@ export class DISActor extends Actor {
       "Morale"
     )}`;
     const moraleRoll = new Roll("2d6");
-    moraleRoll.evaluate({ async: false });
+    await moraleRoll.evaluate();
     await showDice(moraleRoll);
     let moraleOutcome;
     if (moraleRoll.total > this.system.morale) {
@@ -433,7 +430,7 @@ export class DISActor extends Actor {
     const cardTitle = `${game.i18n.localize("Reaction")}`;
     const reactionText = "2D6";
     const reactionRoll = new Roll("2d6");
-    reactionRoll.evaluate({ async: false });
+    await reactionRoll.evaluate();
     await showDice(reactionRoll);
     let reactionOutcome;
     if (reactionRoll.total === 2) {
@@ -499,7 +496,7 @@ export class DISActor extends Actor {
       flavor: `${game.i18n.localize("DIS.VoidCorruption")}?`,
     });
     if (roll.total <= this.system.voidPoints.value) {
-      const table = await tableFromPack(TABLES_PACK, "Void Corruption");
+      const table = await documentFromPack(TABLES_PACK, "Void Corruption");
       await table.draw();
     }
   }

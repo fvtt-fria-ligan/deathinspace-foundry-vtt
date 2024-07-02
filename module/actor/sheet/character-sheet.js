@@ -6,7 +6,7 @@ import DISActorSheet from "./actor-sheet.js";
 export class DISCharacterSheet extends DISActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["deathinspace", "sheet", "actor", "character"],
       template: "systems/deathinspace/templates/actor/character-sheet.html",
       width: 730,
@@ -33,8 +33,8 @@ export class DISCharacterSheet extends DISActorSheet {
   }
 
   /** @override */
-  getData() {
-    const superData = super.getData();
+  async getData() {
+    const superData = await super.getData();
     const data = superData.data;
     data.config = CONFIG.DIS;
     this.prepareCharacterItems(data);

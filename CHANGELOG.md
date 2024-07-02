@@ -1,3 +1,7 @@
+# 4.0.0
+
+- Foundry v12 compatibility.
+
 # 3.0.1
 
 - Fix hub sheet defense rating not populating from frame.

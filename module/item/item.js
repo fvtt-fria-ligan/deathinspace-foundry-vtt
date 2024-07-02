@@ -43,7 +43,7 @@ export class DISItem extends Item {
       return;
     }
     const conditionRoll = new Roll("1d6");
-    conditionRoll.evaluate({ async: false });
+    await conditionRoll.evaluate();
     await showDice(conditionRoll);
 
     let conditionOutcome;

@@ -1,73 +1,130 @@
-export const ACTORS_PACK = "deathinspace.death-in-space-actors";
-export const ITEMS_PACK = "deathinspace.death-in-space-items";
-export const TABLES_PACK = "deathinspace.death-in-space-tables";
-
-export const documentFromPack = async (packName, docName) => {
+export async function documentFromPack(packName, docName) {
   const pack = game.packs.get(packName);
+  if (!pack) {
+    console.error(`Could not find pack ${packName}.`);
+    return;
+  }
   const docs = await pack.getDocuments();
   const doc = docs.find((i) => i.name === docName);
+  if (!doc) {
+    console.error(`Could not find doc ${docName} in pack ${packName}.`);
+  }
   return doc;
-};
+}
 
-export const tableFromPack = async (packName, tableName) => {
-  const creationPack = game.packs.get(packName);
-  const creationDocs = await creationPack.getDocuments();
-  const table = creationDocs.find((i) => i.name === tableName);
-  return table;
-};
-
-export const drawFromTable = async (packName, tableName) => {
-  const table = await tableFromPack(packName, tableName);
-  const tableDraw = await table.draw({ displayChat: false });
+export async function drawFromTable(
+  packName,
+  tableName,
+  formula = null,
+  displayChat = false
+) {
+  const table = await documentFromPack(packName, tableName);
+  if (!table) {
+    console.log(`Could not load ${tableName} from pack ${packName}`);
+    return;
+  }
+  const roll = formula ? new Roll(formula) : undefined;
+  const tableDraw = await table.draw({ displayChat, roll });
   // TODO: decide if/how we want to handle multiple results
   return tableDraw;
-};
+}
 
-export const drawText = async (packName, tableName) => {
+export async function drawFromTableUuid(
+  uuid,
+  formula = null,
+  displayChat = false
+) {
+  const table = await fromUuid(uuid);
+  if (!table) {
+    console.log(`Could not find table ${uuid}`);
+    return;
+  }
+  const roll = formula ? new Roll(formula) : undefined;
+  const tableDraw = await table.draw({ displayChat, roll });
+  // TODO: decide if/how we want to handle multiple results
+  return tableDraw;
+}
+
+export async function drawText(packName, tableName) {
   const draw = await drawFromTable(packName, tableName);
-  return draw.results[0].text;
-};
+  if (draw) {
+    return draw.results[0].text;
+  }
+}
 
-export const drawDocument = async (packName, tableName) => {
+export async function drawTextFromTableUuid(uuid) {
+  const draw = await drawFromTableUuid(uuid);
+  if (draw) {
+    return draw.results[0].text;
+  }
+}
+
+export async function drawDocument(packName, tableName) {
   const draw = await drawFromTable(packName, tableName);
   const doc = await documentFromDraw(draw);
   return doc;
-};
+}
 
-export const drawDocuments = async (packName, tableName) => {
+export async function drawDocumentFromTableUuid(uuid) {
+  const draw = await drawFromTableUuid(uuid);
+  const doc = await documentFromDraw(draw);
+  return doc;
+}
+
+export async function drawDocuments(packName, tableName) {
   const draw = await drawFromTable(packName, tableName);
   const docs = await documentsFromDraw(draw);
   return docs;
-};
+}
 
-export const documentsFromDraw = async (draw) => {
-  const docResults = draw.results.filter((r) => r.type === 2);
+export async function drawDocumentsFromTableUuid(uuid) {
+  const draw = await drawFromTableUuid(uuid);
+  const docs = await documentsFromDraw(draw);
+  return docs;
+}
+
+export async function documentsFromDraw(draw) {
+  const docResults = draw.results.filter(
+    (r) => r.type === CONST.TABLE_RESULT_TYPES.COMPENDIUM
+  );
   return Promise.all(docResults.map((r) => documentFromResult(r)));
-};
+}
 
-export const documentFromDraw = async (draw) => {
+export async function documentFromDraw(draw) {
   const doc = await documentFromResult(draw.results[0]);
   return doc;
-};
+}
 
-export const documentFromResult = async (result) => {
+export async function documentFromResult(result) {
   if (!result.documentCollection) {
     console.log("No documentCollection for result; skipping");
     return;
   }
   const collectionName =
-    result.type === 2
+    result.type === CONST.TABLE_RESULT_TYPES.COMPENDIUM
       ? "Compendium." + result.documentCollection
       : result.documentCollection;
   const uuid = `${collectionName}.${result.documentId}`;
   const doc = await fromUuid(uuid);
+
   if (!doc) {
-    console.log(`Could not find ${uuid}`);
+    // console.log(`Could not find ${uuid}`);
+    console.log(`Could not find ${result.documentCollection} ${result.text}`);
+    console.log(result);
   }
   return doc;
-};
+}
 
-export const simpleData = (doc) => {
+export function dupeData(doc) {
+  return {
+    system: doc.system,
+    img: doc.img,
+    name: doc.name,
+    type: doc.type,
+  };
+}
+
+export function simpleData(doc) {
   return {
     id: doc.id,
     img: doc.img,
@@ -75,13 +132,4 @@ export const simpleData = (doc) => {
     system: doc.system,
     type: doc.type,
   };
-};
-
-export const dupeData = (doc) => {
-  return {
-    data: doc.system,
-    img: doc.img,
-    name: doc.name,
-    type: doc.type,
-  };
-};
+}

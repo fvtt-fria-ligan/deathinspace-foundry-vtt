@@ -6,7 +6,7 @@ import DISActorSheet from "./actor-sheet.js";
 export class DISHubSheet extends DISActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["deathinspace", "sheet", "actor", "hub"],
       template: "systems/deathinspace/templates/actor/hub-sheet.html",
       width: 730,
@@ -28,8 +28,8 @@ export class DISHubSheet extends DISActorSheet {
   }
 
   /** @override */
-  getData() {
-    const superData = super.getData();
+  async getData() {
+    const superData = await super.getData();
     const data = superData.data;
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
     data.system.frame = data.items

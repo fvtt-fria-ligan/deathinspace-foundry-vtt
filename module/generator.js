@@ -1,23 +1,22 @@
 import { DISActor } from "./actor/actor.js";
+import { ACTORS_PACK, ITEMS_PACK, TABLES_PACK } from "./packs.js";
 import {
-  ACTORS_PACK,
-  ITEMS_PACK,
-  TABLES_PACK,
   documentFromPack,
   drawDocument,
   drawDocuments,
   drawText,
   simpleData,
 } from "./packutils.js";
+import { rollTotal } from "./utils.js";
 
-export const generateCharacter = async () => {
+export async function generateCharacter() {
   const char = await randomCharacter();
   const actor = await DISActor.create(char);
   await maybeGiveStartingBonus(actor);
   actor.sheet.render(true);
-};
+}
 
-export const regenerateCharacter = async (actor) => {
+export async function regenerateCharacter(actor) {
   const actorData = await randomCharacter();
   await actor.deleteEmbeddedDocuments("Item", [], { deleteAll: true });
   await actor.update(actorData);
@@ -31,9 +30,9 @@ export const regenerateCharacter = async (actor) => {
       },
     });
   }
-};
+}
 
-const randomCharacter = async () => {
+async function randomCharacter() {
   const firstName = await drawText(TABLES_PACK, "First Names");
   const lastName = await drawText(TABLES_PACK, "Last Names");
   const name = `${firstName} ${lastName}`;
@@ -42,10 +41,10 @@ const randomCharacter = async () => {
   const token = `systems/deathinspace/assets/images/tokens/characters/${imageBase}.png`;
 
   // 1. abilities
-  const body = generateAbilityValue();
-  const dexterity = generateAbilityValue();
-  const savvy = generateAbilityValue();
-  const tech = generateAbilityValue();
+  const body = await generateAbilityValue();
+  const dexterity = await generateAbilityValue();
+  const savvy = await generateAbilityValue();
+  const tech = await generateAbilityValue();
 
   const defenseRating = 12 + dexterity;
 
@@ -63,10 +62,10 @@ const randomCharacter = async () => {
   const pastAllegiance = await drawText(TABLES_PACK, "Past Allegiances");
 
   // 5. hit points and defense rating
-  const hitPoints = rollTotal("1d8");
+  const hitPoints = await rollTotal("1d8");
 
   // 6. starting gear and starting bonus
-  const holos = rollTotal("3d10");
+  const holos = await rollTotal("3d10");
   const startingKitItems = await drawDocuments(TABLES_PACK, "Starting Kits");
   const personalTrinket = await drawDocument(TABLES_PACK, "Personal Trinkets");
 
@@ -77,7 +76,7 @@ const randomCharacter = async () => {
 
   const actorData = {
     name,
-    data: {
+    system: {
       abilities: {
         body: { value: body },
         dexterity: { value: dexterity },
@@ -108,9 +107,9 @@ const randomCharacter = async () => {
   };
 
   return actorData;
-};
+}
 
-const maybeGiveStartingBonus = async (actor) => {
+async function maybeGiveStartingBonus(actor) {
   const sumOfAbilityScores =
     actor.system.abilities.body.value +
     actor.system.abilities.dexterity.value +
@@ -120,7 +119,7 @@ const maybeGiveStartingBonus = async (actor) => {
     // no starting bonus
     return;
   }
-  const bonusRoll = rollTotal("1d6");
+  const bonusRoll = await rollTotal("1d6");
   let bonusItem = null;
   let bonusHitPoints = 0;
   let bonusFollower = null;
@@ -170,20 +169,15 @@ const maybeGiveStartingBonus = async (actor) => {
       );
     }
   }
-};
+}
 
-const rollTotal = (formula) => {
-  const roll = new Roll(formula).evaluate({
-    async: false,
-  });
-  return roll.total;
-};
+async function generateAbilityValue() {
+  const firstD4 = await rollTotal("1d4");
+  const secondD4 = await rollTotal("1d4");
+  return firstD4 - secondD4;
+}
 
-const generateAbilityValue = () => {
-  return rollTotal("1d4") - rollTotal("1d4");
-};
-
-const pickOriginBenefit = async (origin) => {
+async function pickOriginBenefit(origin) {
   if (origin.system.benefitNames) {
     const names = origin.system.benefitNames.split(",");
     if (names.length) {
@@ -194,17 +188,17 @@ const pickOriginBenefit = async (origin) => {
       return benefit;
     }
   }
-};
+}
 
-const randomCharacterImageBase = () => {
+function randomCharacterImageBase() {
   // prefix for our portrait jpgs and token pngs
   const maxNum = 102;
   const randNum = Math.floor(Math.random() * maxNum) + 1;
   const padded = randNum.toString().padStart(2, "0");
   return `character_${padded}`;
-};
+}
 
-export const generateSpacecraft = async () => {
+export async function generateSpacecraft() {
   const defenseRating = 11;
   const maxCondition = 5;
   const fuelCapacity = 6;
@@ -213,7 +207,7 @@ export const generateSpacecraft = async () => {
   const quirk = await drawText(TABLES_PACK, "Hub Quirks");
   const actorData = {
     name,
-    data: {
+    system: {
       background,
       condition: {
         max: maxCondition,
@@ -237,9 +231,9 @@ export const generateSpacecraft = async () => {
     simpleData(engine),
   ]);
   actor.sheet.render(true);
-};
+}
 
-export const generateStation = async () => {
+export async function generateStation() {
   const defenseRating = 11;
   const maxCondition = 5;
   const fuelCapacity = 4;
@@ -248,7 +242,7 @@ export const generateStation = async () => {
   const quirk = await drawText(TABLES_PACK, "Hub Quirks");
   const actorData = {
     name,
-    data: {
+    system: {
       background,
       condition: {
         max: maxCondition,
@@ -272,15 +266,15 @@ export const generateStation = async () => {
     simpleData(engine),
   ]);
   actor.sheet.render(true);
-};
+}
 
-export const generateNpc = async () => {
+export async function generateNpc() {
   const npc = await randomNpc();
   const actor = await DISActor.create(npc);
   actor.sheet.render(true);
-};
+}
 
-export const regenerateNpc = async (actor) => {
+export async function regenerateNpc(actor) {
   const actorData = await randomNpc();
   await actor.deleteEmbeddedDocuments("Item", [], { deleteAll: true });
   await actor.update(actorData);
@@ -293,7 +287,7 @@ export const regenerateNpc = async (actor) => {
       },
     });
   }
-};
+}
 
 /**
  * Returns a random integer between min (inclusive) and max (inclusive).
@@ -304,13 +298,13 @@ export const regenerateNpc = async (actor) => {
  *
  * https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
  */
-const randomInt = (min, max) => {
+function randomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+}
 
-const randomNpc = async () => {
+async function randomNpc() {
   const firstName = await drawText(TABLES_PACK, "First Names");
   const lastName = await drawText(TABLES_PACK, "Last Names");
   const name = `${firstName} ${lastName}`;
@@ -319,10 +313,10 @@ const randomNpc = async () => {
   const token = `systems/deathinspace/assets/images/tokens/characters/${imageBase}.png`;
 
   // 1. abilities
-  const body = generateAbilityValue();
-  const dexterity = generateAbilityValue();
-  const savvy = generateAbilityValue();
-  const tech = generateAbilityValue();
+  const body = await generateAbilityValue();
+  const dexterity = await generateAbilityValue();
+  const savvy = await generateAbilityValue();
+  const tech = await generateAbilityValue();
   const morale = randomInt(4, 11);
 
   // 2. character details
@@ -331,15 +325,15 @@ const randomNpc = async () => {
   const looks = await drawText(TABLES_PACK, "Looks");
 
   // 3. hit points and defense rating
-  const hitPoints = rollTotal("1d8");
+  const hitPoints = await rollTotal("1d8");
   const defenseRating = 12 + dexterity;
 
   // 6. starting gear
-  const holos = rollTotal("3d10");
+  const holos = await rollTotal("3d10");
 
   const actorData = {
     name,
-    data: {
+    system: {
       abilities: {
         body: { value: body },
         dexterity: { value: dexterity },
@@ -369,4 +363,4 @@ const randomNpc = async () => {
   };
 
   return actorData;
-};
+}

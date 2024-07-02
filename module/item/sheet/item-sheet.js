@@ -4,7 +4,7 @@
 export class DISItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["deathinspace", "sheet", "item"],
       width: 730,
       height: 680,

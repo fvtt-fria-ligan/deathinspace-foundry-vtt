@@ -1,4 +1,4 @@
-export const configureHandlebars = () => {
+export function configureHandlebars() {
   /**
    * Formats a Roll as either the total or x + y + z = total if the roll has multiple terms.
    */
@@ -26,4 +26,4 @@ export const configureHandlebars = () => {
   Handlebars.registerHelper("add", function (num1, num2) {
     return num1 + num2;
   });
-};
+}
