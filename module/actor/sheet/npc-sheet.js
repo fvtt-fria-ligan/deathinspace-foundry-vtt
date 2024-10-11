@@ -57,7 +57,7 @@ export class DISNpcSheet extends DISActorSheet {
       .filter((item) => {
         return (
           item.type === CONFIG.DIS.itemTypes.armor &&
-          (!item.data.equippable || item.data.equipped)
+          (!item.system.equippable || item.system.equipped)
         );
       })
       .sort(byName);
@@ -66,8 +66,8 @@ export class DISNpcSheet extends DISActorSheet {
         return (
           item.type === CONFIG.DIS.itemTypes.equipment ||
           (item.type === CONFIG.DIS.itemTypes.armor &&
-            item.data.equippable &&
-            !item.data.equipped)
+            item.system.equippable &&
+            !item.system.equipped)
         );
       })
       .sort(byName);
