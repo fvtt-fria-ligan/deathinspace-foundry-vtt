@@ -11,6 +11,7 @@ export default class DISActorSheet extends ActorSheet {
     html.find(".inline-edit").change(this._onInlineEdit.bind(this));
     html.find(".ability-name").click(this._onAbilityRoll.bind(this));
     html.find("a.regenerate").click(this._onRegenerate.bind(this));
+    html.find(".recover").click(this._onRecover.bind(this));
   }
 
   _onItemCreate(event) {
@@ -131,5 +132,10 @@ export default class DISActorSheet extends ActorSheet {
       });
       d.render(true);
     }
+  }
+
+  _onRecover(event){
+	  event.preventDefault();
+    this.actor.rollRecovery();
   }
 }
