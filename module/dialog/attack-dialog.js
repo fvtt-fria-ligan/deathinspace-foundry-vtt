@@ -28,7 +28,10 @@ export default class AttackDialog extends Application {
       CONFIG.DIS.flags.DEFENDER_DR
     );
     if (!defenderDR) {
-      defenderDR = 12; // default
+      let target = Array.from(game.user.targets)[0];
+      let targetActorId = target.document.actorId;
+      let actor = game.actors.get(targetActorId);
+      defenderDR = actor.system.defenseRating;
     }
     return {
       defenderDR,
