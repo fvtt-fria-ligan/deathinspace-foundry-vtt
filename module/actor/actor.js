@@ -500,4 +500,26 @@ export class DISActor extends Actor {
       await table.draw();
     }
   }
+
+  async rollRecovery(){
+	  //get BDY
+	  const body = this.system.abilities.body.value;
+	  //roll 1d8+BDY
+	  const roll = new Roll(`1d8 + ${body}`);
+	  await roll.evaluate();
+	  //if outcome was positive
+	  if(roll.total > 0){
+		  //do not exceed max health
+		  const newValue = Math.min(this.system.hitPoints.value + roll.total, this.system.hitPoints.max);
+		  //set value
+		  await this.update({ ["system.hitPoints.value"]: newValue});
+	  }
+	  //chat message
+	  roll.toMessage({
+		  user: game.user.id,
+		  sound: diceSound(),
+		  speaker: ChatMessage.getSpeaker({actor: this}),
+		  flavor: `Recovered ${roll.total} hit points`
+	  });
+  }
 }
