@@ -455,6 +455,10 @@
 .deathinspace.sheet.actor.character .personal-tab .hit-points-row .hit-points-text .help-text {
   font-size: 12px;
 }
+.deathinspace.sheet.actor.character .personal-tab .hit-points-row .hit-points-text .help-text:hover {
+cursor: pointer;
+  text-shadow: 0 0 10px red;
+}
 .deathinspace.sheet.actor.character .personal-tab .hit-points-row .hit-points-current-col {
   border-right: 1px dotted black;
   display: flex;
