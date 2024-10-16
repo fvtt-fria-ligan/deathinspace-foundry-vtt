@@ -22,8 +22,8 @@
     "character": {
       "templates": ["abilities"],
       "background": "",
-      "daysWithoutSubstance": {
-        "max": 7,
+      "slots": {
+        "max": 12,
         "value": 0
       },
       "debt": 0,
