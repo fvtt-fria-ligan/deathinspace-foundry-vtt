@@ -22,10 +22,6 @@
     "character": {
       "templates": ["abilities"],
       "background": "",
-      "slots": {
-        "max": 12,
-        "value": 0
-      },
       "debt": 0,
       "defenseRating": 12,
       "drive": "",
