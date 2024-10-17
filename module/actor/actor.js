@@ -45,12 +45,23 @@ export class DISActor extends Actor {
   prepareDerivedData(){
 	  const actorData = this;
 	  const systemData = actorData.system;
+	  
 	  this._prepareData(actorData);
   }
   
   _prepareData(actorData){
 	  const systemData = actorData.system;
 	  systemData.maxSlots = systemData.abilities.body.value + 12;
+	  //this next part makes the DR automatically
+	  const itemArray = Array.from(actorData.items);
+	  let totalDefense = 0;
+	  
+	  for(let i=0;i<itemArray.length;i++){
+		  if(!itemArray[i].system.defenseRatingBonus){}
+		  else{ totalDefense += itemArray[i].system.defenseRatingBonus;}
+	  }
+	  
+	  systemData.defenseRating = systemData.abilities.dexterity.value + totalDefense + 12;
   }
 
   _onCreate(data, options, userId) {
