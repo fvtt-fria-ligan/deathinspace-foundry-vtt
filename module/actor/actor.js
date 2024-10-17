@@ -41,6 +41,28 @@ export class DISActor extends Actor {
     });
     return super.create(data, options);
   }
+  //This and the function below it calculate slot max number automatically and puts it in as a variable under actor.system.maxSlots
+  prepareDerivedData(){
+	  const actorData = this;
+	  const systemData = actorData.system;
+	  
+	  this._prepareData(actorData);
+  }
+  
+  _prepareData(actorData){
+	  const systemData = actorData.system;
+	  systemData.maxSlots = systemData.abilities.body.value + 12;
+	  //this next part makes the DR automatically
+	  const itemArray = Array.from(actorData.items);
+	  let totalDefense = 0;
+	  
+	  for(let i=0;i<itemArray.length;i++){
+		  if(!itemArray[i].system.defenseRatingBonus){}
+		  else{ totalDefense += itemArray[i].system.defenseRatingBonus;}
+	  }
+	  
+	  systemData.defenseRating = systemData.abilities.dexterity.value + totalDefense + 12;
+  }
 
   _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
@@ -49,7 +71,21 @@ export class DISActor extends Actor {
       this._addCoreFunctionItems();
     }
   }
-
+  //determines if encumbered or not
+  get isEncumbered(){
+	  const itemArray = Array.from(this.items);
+	  let slotsUsed = 0;
+	  
+	  for(let i=0;i<itemArray.length;i++){
+		  if(!itemArray[i].system.slots){}
+		  else if((itemArray[i].name == "EVA Suit - Light" || itemArray[i].name == "EVA Suit - Heavy") && itemArray[i].system.equipped){}
+		  else {slotsUsed += itemArray[i].system.slots;}
+	  }
+	  
+	if(slotsUsed>this.system.maxSlots){return true;}
+	else{return false;}
+  }
+  
   get hasVoidPoints() {
     return this.system.voidPoints && this.system.voidPoints.value;
   }
@@ -130,6 +166,28 @@ export class DISActor extends Actor {
   async techCheck() {
     return this.showAbilityCheckDialog("tech");
   }
+  
+  async rollRecovery(){
+	  //get BDY
+	  const body = this.system.abilities.body.value;
+	  //roll 1d8+BDY
+	  const roll = new Roll(`1d8 + ${body}`);
+	  await roll.evaluate();
+	  //if outcome was positive
+	  if(roll.total > 0){
+		  //do not exceed max health
+		  const newValue = Math.min(this.system.hitPoints.value + roll.total, this.system.hitPoints.max);
+		  //set value
+		  await this.update({ ["system.hitPoints.value"]: newValue});
+	  }
+	  //chat message
+	  roll.toMessage({
+		  user: game.user.id,
+		  sound: diceSound(),
+		  speaker: ChatMessage.getSpeaker({actor: this}),
+		  flavor: `Recovered ${roll.total} hit points`
+	  });
+  }
 
   async showAddItemDialog() {
     const dialog = new AddItemDialog();
@@ -146,10 +204,10 @@ export class DISActor extends Actor {
 
   formulaForRollType(rollType) {
     let d20Formula = "1d20";
-    if (rollType === "advantage") {
-      d20Formula = "2d20kh";
-    } else if (rollType === "disadvantage") {
+    if (rollType === "disadvantage" || this.isEncumbered) {
       d20Formula = "2d20kl";
+    } else if (rollType === "advantage" && !this.isEncumbered) {
+      d20Formula = "2d20kh";
     }
     return d20Formula;
   }

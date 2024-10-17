@@ -23,10 +23,21 @@ export default class AttackDialog extends Application {
 
   /** @override */
   async getData() {
-    let defenderDR = await this.actor.getFlag(
+	  let target = Array.from(game.user.targets)[0];
+
+	    //Checks if target is selected, if not throws a message
+	    if(target == null || target == undefined){
+		ui.notifications.error("Please select a target.")
+	}
+	
+	let targetActorId = target.document.actorId;
+	let actor = game.actors.get(targetActorId);
+	let defenderDR = await this.actor.getFlag(
       CONFIG.DIS.flagScope,
       CONFIG.DIS.flags.DEFENDER_DR
     );
+	defenderDR = actor.system.defenseRating;
+    
     if (!defenderDR) {
       defenderDR = 12; // default
     }
