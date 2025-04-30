@@ -1,8 +1,12 @@
+# 4.0.2
+
+- Attack targeting fix by @coderunner.
+- Polish translation by @rklos.
+
 # 4.0.1
 
-- Attack targeting fixed by @coderunner.
-- Polish translation by @rklos.
 - Implement recovery button, encumbrance, and automatic DR by @MulliganStu.
+- Fix NPC armor, by @coderunner.
 
 # 4.0.0
 
