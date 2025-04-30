@@ -1,10 +1,7 @@
 // Namespace Configuration Values
 export const DIS = {};
 
-DIS.flagScope = "deathinspace"; // must match system namw
-DIS.flags = {
-  DEFENDER_DR: "defenderDR",
-};
+DIS.flagScope = "deathinspace"; // must match system name
 
 DIS.itemTypes = {
   armor: "armor",

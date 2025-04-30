@@ -23,24 +23,16 @@ export default class AttackDialog extends Application {
 
   /** @override */
   async getData() {
-	  let target = Array.from(game.user.targets)[0];
+    let defenderDR = 12; // default
 
-	    //Checks if target is selected, if not throws a message
-	    if(target == null || target == undefined){
-		ui.notifications.error("Please select a target.")
-	}
-	
-	let targetActorId = target.document.actorId;
-	let actor = game.actors.get(targetActorId);
-	let defenderDR = await this.actor.getFlag(
-      CONFIG.DIS.flagScope,
-      CONFIG.DIS.flags.DEFENDER_DR
-    );
-	defenderDR = actor.system.defenseRating;
-    
-    if (!defenderDR) {
-      defenderDR = 12; // default
+    let target = Array.from(game.user.targets)[0];
+    if (target) {
+      //If target is selected, use target defense rating
+      let targetActorId = target.document.actorId;
+      let targetActor = game.actors.get(targetActorId);
+      defenderDR = targetActor.system.defenseRating;
     }
+	
     return {
       defenderDR,
       hasVoidPoints: this.actor.hasVoidPoints,
@@ -69,11 +61,7 @@ export default class AttackDialog extends Application {
       .find("input[name=use-void-point]")
       .is(":checked");
     this.close();
-    await this.actor.setFlag(
-      CONFIG.DIS.flagScope,
-      CONFIG.DIS.flags.DEFENDER_DR,
-      defenderDR
-    );
+
     if (this.itemId) {
       this.actor.rollAttackWithItem(
         this.itemId,
