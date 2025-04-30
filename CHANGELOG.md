@@ -1,3 +1,9 @@
+# 4.0.1
+
+- Attack targeting fixed by @coderunner.
+- Polish translation by @rklos.
+- Implement recovery button, encumbrance, and automatic DR by @MulliganStu.
+
 # 4.0.0
 
 - Foundry v12 compatibility.
