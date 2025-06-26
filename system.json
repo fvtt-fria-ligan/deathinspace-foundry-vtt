@@ -3,11 +3,11 @@
   "name": "deathinspace",
   "title": "DEATH IN SPACE",
   "description": "Foundry VTT system for Death in Space.",
-  "version": "3.0.0",
+  "version": "5.0.0",
   "templateVersion": 2,
   "compatibility": {
-    "minimum": "11.300",
-    "verified": "12.331"
+    "minimum": 13,
+    "verified": 13
   },
   "authors": [
     {

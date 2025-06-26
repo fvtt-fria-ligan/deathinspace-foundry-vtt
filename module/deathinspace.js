@@ -33,24 +33,46 @@ Hooks.once("init", async function () {
   game.gen = generateCharacter; // DEBUGGING
 
   CONFIG.DIS = DIS;
-  Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("deathinspace", DISCharacterSheet, {
-    types: ["character"],
-    makeDefault: true,
-    label: "DIS.SheetClassCharacter",
-  });
-  Actors.registerSheet("deathinspace", DISHubSheet, {
-    types: ["hub"],
-    makeDefault: true,
-    label: "DIS.SheetClassHub",
-  });
-  Actors.registerSheet("deathinspace", DISNpcSheet, {
-    types: ["npc"],
-    makeDefault: true,
-    label: "DIS.SheetClassNpc",
-  });
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("deathinspace", DISItemSheet, { makeDefault: true });
+  foundry.documents.collections.Actors.unregisterSheet(
+    "core",
+    foundry.appv1.sheets.ActorSheet,
+  );
+  foundry.documents.collections.Actors.registerSheet(
+    "deathinspace",
+    DISCharacterSheet,
+    {
+      types: ["character"],
+      makeDefault: true,
+      label: "DIS.SheetClassCharacter",
+    },
+  );
+  foundry.documents.collections.Actors.registerSheet(
+    "deathinspace",
+    DISHubSheet,
+    {
+      types: ["hub"],
+      makeDefault: true,
+      label: "DIS.SheetClassHub",
+    },
+  );
+  foundry.documents.collections.Actors.registerSheet(
+    "deathinspace",
+    DISNpcSheet,
+    {
+      types: ["npc"],
+      makeDefault: true,
+      label: "DIS.SheetClassNpc",
+    },
+  );
+  foundry.documents.collections.Items.unregisterSheet(
+    "core",
+    foundry.appv1.sheets.ItemSheet,
+  );
+  foundry.documents.collections.Items.registerSheet(
+    "deathinspace",
+    DISItemSheet,
+    { makeDefault: true },
+  );
 
   configureHandlebars();
 });
@@ -62,32 +84,32 @@ Hooks.on("renderActorDirectory", (app, html) => {
     section.classList.add("generate-character");
     section.classList.add("directory-header");
     // Add menu before directory header
-    const dirHeader = html[0].querySelector(".directory-header");
+    const dirHeader = $(html)[0].querySelector(".directory-header");
     dirHeader.parentNode.insertBefore(section, dirHeader);
     section.insertAdjacentHTML(
       "afterbegin",
       `
       <div class="header-actions action-buttons flexrow">
         <button class="generate-character-button"><i class="fas fa-user-astronaut"></i>${game.i18n.localize(
-          "DIS.GenerateCharacter"
+          "DIS.GenerateCharacter",
         )}</button>
       </div>
       <div class="header-actions action-buttons flexrow">
         <button class="generate-npc-button"><i class="fas fa-user"></i>${game.i18n.localize(
-          "DIS.GenerateNpc"
+          "DIS.GenerateNpc",
         )}</button>
       </div>
       <div class="header-actions action-buttons flexrow">
         <button class="generate-spacecraft-button"><i class="fas fa-rocket"></i>${game.i18n.localize(
-          "DIS.GenerateSpacecraft"
+          "DIS.GenerateSpacecraft",
         )}</button>
       </div>
       <div class="header-actions action-buttons flexrow">
         <button class="generate-station-button"><i class="fas fa-satellite"></i>${game.i18n.localize(
-          "DIS.GenerateStation"
+          "DIS.GenerateStation",
         )}</button>
       </div>
-      `
+      `,
     );
     section
       .querySelector(".generate-character-button")

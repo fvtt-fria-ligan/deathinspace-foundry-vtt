@@ -1,7 +1,7 @@
 /*
  * @extends {ItemSheet}
  */
-export class DISItemSheet extends ItemSheet {
+export class DISItemSheet extends foundry.appv1.sheets.ItemSheet {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {

@@ -1,7 +1,7 @@
 /**
  * @extends {ActorSheet}
  */
-export default class DISActorSheet extends ActorSheet {
+export default class DISActorSheet extends foundry.appv1.sheets.ActorSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
@@ -134,8 +134,8 @@ export default class DISActorSheet extends ActorSheet {
     }
   }
 
-  _onRecover(event){
-	  event.preventDefault();
+  _onRecover(event) {
+    event.preventDefault();
     this.actor.rollRecovery();
   }
 }
