@@ -42,26 +42,31 @@ export class DISActor extends Actor {
     return super.create(data, options);
   }
   //This and the function below it calculate slot max number automatically and puts it in as a variable under actor.system.maxSlots
-  prepareDerivedData(){
-	  const actorData = this;
-	  const systemData = actorData.system;
-	  
-	  this._prepareData(actorData);
+  prepareDerivedData() {
+    const actorData = this;
+    const systemData = actorData.system;
+
+    this._prepareData(actorData);
   }
-  
-  _prepareData(actorData){
-	  const systemData = actorData.system;
-	  systemData.maxSlots = systemData.abilities.body.value + 12;
-	  //this next part makes the DR automatically
-	  const itemArray = Array.from(actorData.items);
-	  let totalDefense = 0;
-	  
-	  for(let i=0;i<itemArray.length;i++){
-		  if(!itemArray[i].system.defenseRatingBonus){}
-		  else{ totalDefense += itemArray[i].system.defenseRatingBonus;}
-	  }
-	  
-	  systemData.defenseRating = systemData.abilities.dexterity.value + totalDefense + 12;
+
+  _prepareData(actorData) {
+    const systemData = actorData.system;
+    if (systemData.type == "character" || systemData.type == "npc") {
+      systemData.maxSlots = systemData.abilities.body.value + 12;
+      //this next part makes the DR automatically
+      const itemArray = Array.from(actorData.items);
+      let totalDefense = 0;
+
+      for (let i = 0; i < itemArray.length; i++) {
+        if (!itemArray[i].system.defenseRatingBonus) {
+        } else {
+          totalDefense += itemArray[i].system.defenseRatingBonus;
+        }
+      }
+
+      systemData.defenseRating =
+        systemData.abilities.dexterity.value + totalDefense + 12;
+    }
   }
 
   _onCreate(data, options, userId) {
@@ -72,20 +77,29 @@ export class DISActor extends Actor {
     }
   }
   //determines if encumbered or not
-  get isEncumbered(){
-	  const itemArray = Array.from(this.items);
-	  let slotsUsed = 0;
-	  
-	  for(let i=0;i<itemArray.length;i++){
-		  if(!itemArray[i].system.slots){}
-		  else if((itemArray[i].name == "EVA Suit - Light" || itemArray[i].name == "EVA Suit - Heavy") && itemArray[i].system.equipped){}
-		  else {slotsUsed += itemArray[i].system.slots;}
-	  }
-	  
-	if(slotsUsed>this.system.maxSlots){return true;}
-	else{return false;}
+  get isEncumbered() {
+    const itemArray = Array.from(this.items);
+    let slotsUsed = 0;
+
+    for (let i = 0; i < itemArray.length; i++) {
+      if (!itemArray[i].system.slots) {
+      } else if (
+        (itemArray[i].name == "EVA Suit - Light" ||
+          itemArray[i].name == "EVA Suit - Heavy") &&
+        itemArray[i].system.equipped
+      ) {
+      } else {
+        slotsUsed += itemArray[i].system.slots;
+      }
+    }
+
+    if (slotsUsed > this.system.maxSlots) {
+      return true;
+    } else {
+      return false;
+    }
   }
-  
+
   get hasVoidPoints() {
     return this.system.voidPoints && this.system.voidPoints.value;
   }
@@ -113,7 +127,7 @@ export class DISActor extends Actor {
     documents,
     data,
     options,
-    userId
+    userId,
   ) {
     // TODO: move these checks into character.js and hub.js subclasses
     if (documents[0].type === CONFIG.DIS.itemTypes.origin) {
@@ -132,7 +146,7 @@ export class DISActor extends Actor {
       documents,
       data,
       options,
-      userId
+      userId,
     );
   }
 
@@ -166,27 +180,30 @@ export class DISActor extends Actor {
   async techCheck() {
     return this.showAbilityCheckDialog("tech");
   }
-  
-  async rollRecovery(){
-	  //get BDY
-	  const body = this.system.abilities.body.value;
-	  //roll 1d8+BDY
-	  const roll = new Roll(`1d8 + ${body}`);
-	  await roll.evaluate();
-	  //if outcome was positive
-	  if(roll.total > 0){
-		  //do not exceed max health
-		  const newValue = Math.min(this.system.hitPoints.value + roll.total, this.system.hitPoints.max);
-		  //set value
-		  await this.update({ ["system.hitPoints.value"]: newValue});
-	  }
-	  //chat message
-	  roll.toMessage({
-		  user: game.user.id,
-		  sound: diceSound(),
-		  speaker: ChatMessage.getSpeaker({actor: this}),
-		  flavor: `Recovered ${roll.total} hit points`
-	  });
+
+  async rollRecovery() {
+    //get BDY
+    const body = this.system.abilities.body.value;
+    //roll 1d8+BDY
+    const roll = new Roll(`1d8 + ${body}`);
+    await roll.evaluate();
+    //if outcome was positive
+    if (roll.total > 0) {
+      //do not exceed max health
+      const newValue = Math.min(
+        this.system.hitPoints.value + roll.total,
+        this.system.hitPoints.max,
+      );
+      //set value
+      await this.update({ ["system.hitPoints.value"]: newValue });
+    }
+    //chat message
+    roll.toMessage({
+      user: game.user.id,
+      sound: diceSound(),
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      flavor: `Recovered ${roll.total} hit points`,
+    });
   }
 
   async showAddItemDialog() {
@@ -220,7 +237,7 @@ export class DISActor extends Actor {
     const d20Formula = this.formulaForRollType(rollType);
     const abilityRoll = new Roll(
       `${d20Formula} + @abilities.${ability}.value`,
-      this.getRollData()
+      this.getRollData(),
     );
     await abilityRoll.evaluate();
     await showDice(abilityRoll);
@@ -231,7 +248,7 @@ export class DISActor extends Actor {
       ? game.i18n.localize("DIS.Opponent")
       : `${game.i18n.localize("DIS.DR")}${targetDR}`;
     const abilityText = `${d20Formula}+${ability.toUpperCase()} ${game.i18n.localize(
-      "DIS.Vs"
+      "DIS.Vs",
     )} ${drWord}`;
 
     let gainVoidPoint;
@@ -261,7 +278,7 @@ export class DISActor extends Actor {
     };
     const html = await renderTemplate(
       "systems/deathinspace/templates/chat/ability-check.html",
-      chatData
+      chatData,
     );
     ChatMessage.create({
       content: html,
@@ -283,13 +300,13 @@ export class DISActor extends Actor {
     }
     if (item.broken) {
       ui.notifications.warn(
-        `${game.i18n.localize("DIS.WeaponBroken").toUpperCase()}!!!`
+        `${game.i18n.localize("DIS.WeaponBroken").toUpperCase()}!!!`,
       );
       return;
     }
     if (item.outOfAmmo) {
       ui.notifications.warn(
-        `${game.i18n.localize("DIS.OutOfAmmo").toUpperCase()}!!!`
+        `${game.i18n.localize("DIS.OutOfAmmo").toUpperCase()}!!!`,
       );
       return;
     }
@@ -322,7 +339,7 @@ export class DISActor extends Actor {
       defenderDR,
       rollType,
       risky,
-      useVoidPoint
+      useVoidPoint,
     );
   }
 
@@ -333,7 +350,7 @@ export class DISActor extends Actor {
     defenderDR,
     rollType,
     risky,
-    useVoidPoint
+    useVoidPoint,
   ) {
     if (useVoidPoint) {
       await this.decrementVoidPoints();
@@ -342,14 +359,14 @@ export class DISActor extends Actor {
     const d20Formula = this.formulaForRollType(rollType);
     const attackTitle = `${game.i18n.localize("DIS.AttackWith")} ${attackName}`;
     const attackText = `${game.i18n.localize(
-      "DIS.ToHit"
+      "DIS.ToHit",
     )}: ${d20Formula}+${attackAbility.toUpperCase()} ${game.i18n.localize(
-      "DIS.Vs"
+      "DIS.Vs",
     )} ${game.i18n.localize("DIS.DR")}${defenderDR}`;
     const rollData = this.getRollData();
     const attackRoll = new Roll(
       `${d20Formula} + @abilities.${attackAbility}.value`,
-      rollData
+      rollData,
     );
     await attackRoll.evaluate();
     await showDice(attackRoll);
@@ -368,7 +385,7 @@ export class DISActor extends Actor {
     if (isCrit || attackRoll.total >= defenderDR) {
       // hit
       attackOutcome = game.i18n.localize(
-        isCrit ? "DIS.AttackCriticalHit" : "DIS.AttackHit"
+        isCrit ? "DIS.AttackCriticalHit" : "DIS.AttackHit",
       );
       const baseDamage = attackDamage;
       let damageFormula = baseDamage;
@@ -421,7 +438,7 @@ export class DISActor extends Actor {
     };
     const html = await renderTemplate(
       "systems/deathinspace/templates/chat/attack-outcome.html",
-      chatData
+      chatData,
     );
     ChatMessage.create({
       content: html,
@@ -452,10 +469,10 @@ export class DISActor extends Actor {
 
   async rollNpcMorale() {
     const cardTitle = `${game.i18n.localize("Morale")} ${game.i18n.localize(
-      "DIS.Check"
+      "DIS.Check",
     )}`;
     const moraleText = `2D6 ${game.i18n.localize("Vs")} ${game.i18n.localize(
-      "Morale"
+      "Morale",
     )}`;
     const moraleRoll = new Roll("2d6");
     await moraleRoll.evaluate();
@@ -475,7 +492,7 @@ export class DISActor extends Actor {
     };
     const html = await renderTemplate(
       "systems/deathinspace/templates/chat/morale.html",
-      chatData
+      chatData,
     );
     ChatMessage.create({
       content: html,
@@ -511,7 +528,7 @@ export class DISActor extends Actor {
     };
     const html = await renderTemplate(
       "systems/deathinspace/templates/chat/reaction.html",
-      chatData
+      chatData,
     );
     ChatMessage.create({
       content: html,
