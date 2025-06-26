@@ -77,8 +77,8 @@ Hooks.once("init", async function () {
   configureHandlebars();
 });
 
-Hooks.on("renderActorDirectory", (app, html) => {
-  if (game.user.can("ACTOR_CREATE")) {
+Hooks.on("renderActorDirectory", (tab, html, context, options) => {
+  if (options.isFirstRender && game.user.can("ACTOR_CREATE")) {
     // only show the Create Scvm button to users who can create actors
     const section = document.createElement("header");
     section.classList.add("generate-character");
