@@ -104,19 +104,20 @@ export class DISActor extends Actor {
     return this.system.voidPoints && this.system.voidPoints.value;
   }
 
+
   async _addCoreFunctionItems() {
-    const coreFunctionNames = [
-      "(CF) Command Center",
-      "(CF) Crew Quarters",
-      "(CF) Life Support",
-      "(CF) Mess",
+    const coreFunctionItems = [
+      // command center
+      "Compendium.deathinspace.death-in-space-items.Item.Tq836lsbkyvIQo9E",
+      // crew quarters
+      "Compendium.deathinspace.death-in-space-items.Item.VAS5eu3BW0FQvzn7",
+      // life support
+      "Compendium.deathinspace.death-in-space-items.Item.cP7OqAw31K89npjx",
+      // mess
+      "Compendium.deathinspace.death-in-space-items.Item.kRMJn7FN5mKXo25s",
     ];
-    for (const coreFunctionName of coreFunctionNames) {
-      const doc = await documentFromPack(ITEMS_PACK, coreFunctionName);
-      if (!doc) {
-        console.error(`Could not find ${coreFunctionName} in ${ITEMS_PACK}`);
-        continue;
-      }
+    for (const uuid of coreFunctionItems) {
+      const doc = await fromUuid(uuid);
       await this.createEmbeddedDocuments("Item", [simpleData(doc)]);
     }
   }

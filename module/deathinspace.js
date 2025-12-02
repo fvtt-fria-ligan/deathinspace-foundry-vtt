@@ -21,7 +21,7 @@ import { DISItemSheet } from "./item/sheet/item-sheet.js";
  * Init hook.
  */
 Hooks.once("init", async function () {
-  console.log(`Initializing Death in Space System`);
+  console.log(`Initializing DEATH IN SPACE system`);
   game.deathinspace = {
     config: DIS,
     DISActor,
@@ -76,7 +76,7 @@ Hooks.once("init", async function () {
 
   configureHandlebars();
 });
-
+                                                                                                           
 Hooks.on("renderActorDirectory", (tab, html, context, options) => {
   if (options.isFirstRender && game.user.can("ACTOR_CREATE")) {
     // only show the Create Scvm button to users who can create actors

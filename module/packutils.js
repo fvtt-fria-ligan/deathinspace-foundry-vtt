@@ -37,6 +37,7 @@ export async function drawFromTableUuid(
   const table = await fromUuid(uuid);
   if (!table) {
     console.log(`Could not find table ${uuid}`);
+    console.trace();
     return;
   }
   const roll = formula ? new Roll(formula) : undefined;
@@ -48,14 +49,14 @@ export async function drawFromTableUuid(
 export async function drawText(packName, tableName) {
   const draw = await drawFromTable(packName, tableName);
   if (draw) {
-    return draw.results[0].text;
+    return draw.results[0].description;
   }
 }
 
 export async function drawTextFromTableUuid(uuid) {
   const draw = await drawFromTableUuid(uuid);
   if (draw) {
-    return draw.results[0].text;
+    return draw.results[0].description;
   }
 }
 
@@ -71,12 +72,6 @@ export async function drawDocumentFromTableUuid(uuid) {
   return doc;
 }
 
-export async function drawDocuments(packName, tableName) {
-  const draw = await drawFromTable(packName, tableName);
-  const docs = await documentsFromDraw(draw);
-  return docs;
-}
-
 export async function drawDocumentsFromTableUuid(uuid) {
   const draw = await drawFromTableUuid(uuid);
   const docs = await documentsFromDraw(draw);
@@ -85,7 +80,7 @@ export async function drawDocumentsFromTableUuid(uuid) {
 
 export async function documentsFromDraw(draw) {
   const docResults = draw.results.filter(
-    (r) => r.type === CONST.TABLE_RESULT_TYPES.COMPENDIUM
+    (r) => r.type === CONST.TABLE_RESULT_TYPES.DOCUMENT
   );
   return Promise.all(docResults.map((r) => documentFromResult(r)));
 }
@@ -97,7 +92,8 @@ export async function documentFromDraw(draw) {
 
 export async function documentFromResult(result) {
   if (!result.documentCollection) {
-    console.log("No documentCollection for result; skipping");
+    console.log("No documentCollection for result; skipping", result);
+    console.trace();
     return;
   }
   const collectionName =
@@ -106,28 +102,16 @@ export async function documentFromResult(result) {
       : result.documentCollection;
   const uuid = `${collectionName}.${result.documentId}`;
   const doc = await fromUuid(uuid);
-
   if (!doc) {
-    // console.log(`Could not find ${uuid}`);
-    console.log(`Could not find ${result.documentCollection} ${result.text}`);
-    console.log(result);
+    console.log(`Could not find ${uuid} from result`, result);
   }
   return doc;
 }
 
-export function dupeData(doc) {
-  return {
-    system: doc.system,
-    img: doc.img,
-    name: doc.name,
-    type: doc.type,
-  };
-}
-
 export function simpleData(doc) {
   return {
-    id: doc.id,
     img: doc.img,
+    // items: e.items?.map(i => simpleData(i)),
     name: doc.name,
     system: doc.system,
     type: doc.type,

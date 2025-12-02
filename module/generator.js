@@ -2,12 +2,52 @@ import { DISActor } from "./actor/actor.js";
 import { ACTORS_PACK, ITEMS_PACK, TABLES_PACK } from "./packs.js";
 import {
   documentFromPack,
-  drawDocument,
-  drawDocuments,
-  drawText,
-  simpleData,
+  drawDocumentFromTableUuid,
+  drawDocumentsFromTableUuid,
+  drawTextFromTableUuid,
+  simpleData
 } from "./packutils.js";
 import { rollTotal } from "./utils.js";
+
+const playerTables = {
+  backgrounds: "Compendium.deathinspace.death-in-space-tables.RollTable.VQt6wl9vTRCMR6sp",
+  cosmicMutations: "Compendium.deathinspace.death-in-space-tables.RollTable.QetsxgpbcwDyG6Qv",
+  drives: "Compendium.deathinspace.death-in-space-tables.RollTable.ZBUQ67XZeGHypwZo",
+  firstImpressions: "Compendium.deathinspace.death-in-space-tables.RollTable.JWTU6mENX6cdUEni",
+  firstNames: "Compendium.deathinspace.death-in-space-tables.RollTable.T84lZU5390mYMvwZ",
+  lastNames: "Compendium.deathinspace.death-in-space-tables.RollTable.P3lER80MbPdRDPDC",
+  looks: "Compendium.deathinspace.death-in-space-tables.RollTable.C8QtASDc7ktWbk4k",
+  origins: "Compendium.deathinspace.death-in-space-tables.RollTable.nxkWKuqDww6isGRM",
+  pastAllegiances: "Compendium.deathinspace.death-in-space-tables.RollTable.DHAo1FNU1cRJytA3",
+  personalTrinkets: "Compendium.deathinspace.death-in-space-tables.RollTable.6qG7ovmnlgTlxSL5",
+  startingKits: "Compendium.deathinspace.death-in-space-tables.RollTable.8MUhuEy08AtEb57q",
+  traits: "Compendium.deathinspace.death-in-space-tables.RollTable.m4TJkhkwoStofy9t",
+  voidCorruptions: "Compendium.deathinspace.death-in-space-tables.RollTable.I4S63MuPQLeXxYS8",
+};
+
+const playerItems = {
+  evaSuitHeavy: "Compendium.deathinspace.death-in-space-items.Item.9XJfAnUe6U02vLbk",
+  pistol: "Compendium.deathinspace.death-in-space-items.Item.m4ljG8bXPL3bNy2B",
+};
+
+const playerCompanions = {
+  aiGuardAnimal: "Compendium.deathinspace.death-in-space-actors.Actor.Q4JmzUXY2YX9tajm",
+  oldCrewMember: "Compendium.deathinspace.death-in-space-actors.Actor.TLBpnoBfOt3ilQwZ",
+};
+
+const hubTables = {
+  hubNames: "Compendium.deathinspace.death-in-space-tables.RollTable.A72aYCwjYyvanBQ1",
+  hubQuirks: "Compendium.deathinspace.death-in-space-tables.RollTable.netMPWbwtcRaeZQv",
+  spacecraftBackgrounds: "Compendium.deathinspace.death-in-space-tables.RollTable.0OFqCQWrstfppyKk",
+  stationBackgrounds: "Compendium.deathinspace.death-in-space-tables.RollTable.U9XisR4xvhUKe67X",
+};
+
+const hubItems = {
+  chemicalEngine: "Compendium.deathinspace.death-in-space-items.Item.kfF1FW0INeCFAsT3",
+  industrialGenerator: "Compendium.deathinspace.death-in-space-items.Item.dHN6uJgAx1N7efX5",
+  startingSpacecraftFrame: "Compendium.deathinspace.death-in-space-items.Item.xjP9HUPlkfAsfkrw",
+  startingStationFrame: "Compendium.deathinspace.death-in-space-items.Item.UUV3NTRwyFmiaKQF",
+};
 
 export async function generateCharacter() {
   const char = await randomCharacter();
@@ -33,8 +73,8 @@ export async function regenerateCharacter(actor) {
 }
 
 async function randomCharacter() {
-  const firstName = await drawText(TABLES_PACK, "First Names");
-  const lastName = await drawText(TABLES_PACK, "Last Names");
+  const firstName = await drawTextFromTableUuid(playerTables.firstNames);
+  const lastName = await drawTextFromTableUuid(playerTables.lastNames);
   const name = `${firstName} ${lastName}`;
   const imageBase = randomCharacterImageBase();
   const portrait = `systems/deathinspace/assets/images/portraits/characters/${imageBase}.jpg`;
@@ -49,25 +89,25 @@ async function randomCharacter() {
   const defenseRating = 12 + dexterity;
 
   // 2. origin
-  const origin = await drawDocument(TABLES_PACK, "Origins");
+  const origin = await drawDocumentFromTableUuid(playerTables.origins);
   const originBenefit = await pickOriginBenefit(origin);
 
   // 3. character details
-  const background = await drawText(TABLES_PACK, "Backgrounds");
-  const trait = await drawText(TABLES_PACK, "Traits");
-  const drive = await drawText(TABLES_PACK, "Drives");
-  const looks = await drawText(TABLES_PACK, "Looks");
+  const background = await drawTextFromTableUuid(playerTables.backgrounds);
+  const trait = await drawTextFromTableUuid(playerTables.traits);
+  const drive = await drawTextFromTableUuid(playerTables.drives);
+  const looks = await drawTextFromTableUuid(playerTables.looks);
 
   // 4. past allegiance
-  const pastAllegiance = await drawText(TABLES_PACK, "Past Allegiances");
+  const pastAllegiance = await drawTextFromTableUuid(playerTables.pastAllegiances);
 
   // 5. hit points and defense rating
   const hitPoints = await rollTotal("1d8");
 
   // 6. starting gear and starting bonus
   const holos = await rollTotal("3d10");
-  const startingKitItems = await drawDocuments(TABLES_PACK, "Starting Kits");
-  const personalTrinket = await drawDocument(TABLES_PACK, "Personal Trinkets");
+  const startingKitItems = await drawDocumentsFromTableUuid(playerTables.startingKits);
+  const personalTrinket = await drawDocumentFromTableUuid(playerTables.personalTrinkets);
 
   const items = [origin, originBenefit, personalTrinket].concat(
     startingKitItems
@@ -125,22 +165,22 @@ async function maybeGiveStartingBonus(actor) {
   let bonusFollower = null;
   switch (bonusRoll) {
     case 1:
-      bonusItem = await drawDocument(TABLES_PACK, "Cosmic Mutations");
+      bonusItem = await drawDocumentFromTableUuid(playerTables.cosmicMutations);
       break;
     case 2:
       bonusHitPoints = 3;
       break;
     case 3:
-      bonusItem = await documentFromPack(ITEMS_PACK, "EVA Suit - Heavy");
+      bonusItem = await fromUuid(playerItems.evaSuitHeavy);
       break;
     case 4:
-      bonusItem = await documentFromPack(ITEMS_PACK, "Pistol");
+      bonusItem = await fromUuid(playerItems.pistol);
       break;
     case 5:
-      bonusFollower = await documentFromPack(ACTORS_PACK, "AI guard animal");
+      bonusFollower = await fromUuid(playerCompanions.aiGuardAnimal);
       break;
     case 6:
-      bonusFollower = await documentFromPack(ACTORS_PACK, "Old Crew Member");
+      bonusFollower = await fromUuid(playerCompanions.oldCrewMember);
       break;
   }
 
@@ -202,9 +242,9 @@ export async function generateSpacecraft() {
   const defenseRating = 11;
   const maxCondition = 5;
   const fuelCapacity = 6;
-  const name = await drawText(TABLES_PACK, "Hub Names");
-  const background = await drawText(TABLES_PACK, "Spacecraft Backgrounds");
-  const quirk = await drawText(TABLES_PACK, "Hub Quirks");
+  const name = await drawTextFromTableUuid(hubTables.hubNames);
+  const background = await drawTextFromTableUuid(hubTables.spacecraftBackgrounds);
+  const quirk = await drawTextFromTableUuid(hubTables.hubQuirks);
   const actorData = {
     name,
     system: {
@@ -224,8 +264,8 @@ export async function generateSpacecraft() {
     type: "hub",
   };
   const actor = await DISActor.create(actorData);
-  const frame = await documentFromPack(ITEMS_PACK, "Starting spacecraft");
-  const engine = await documentFromPack(ITEMS_PACK, "Chemical engine");
+  const frame = await fromUuid(hubItems.startingSpacecraftFrame);
+  const engine = await fromUuid(hubItems.chemicalEngine);
   await actor.createEmbeddedDocuments("Item", [
     simpleData(frame),
     simpleData(engine),
@@ -237,9 +277,9 @@ export async function generateStation() {
   const defenseRating = 11;
   const maxCondition = 5;
   const fuelCapacity = 4;
-  const name = await drawText(TABLES_PACK, "Hub Names");
-  const background = await drawText(TABLES_PACK, "Station Backgrounds");
-  const quirk = await drawText(TABLES_PACK, "Hub Quirks");
+  const name = await drawTextFromTableUuid(hubTables.hubNames);
+  const background = await drawTextFromTableUuid(hubTables.stationBackgrounds);
+  const quirk = await drawTextFromTableUuid(hubTables.hubQuirks);
   const actorData = {
     name,
     system: {
@@ -259,8 +299,8 @@ export async function generateStation() {
     type: "hub",
   };
   const actor = await DISActor.create(actorData);
-  const frame = await documentFromPack(ITEMS_PACK, "Starting station");
-  const engine = await documentFromPack(ITEMS_PACK, "Industrial generator");
+  const frame = await fromUuid(hubItems.startingStationFrame);
+  const engine = await fromUuid(hubItems.industrialGenerator);
   await actor.createEmbeddedDocuments("Item", [
     simpleData(frame),
     simpleData(engine),
@@ -305,8 +345,8 @@ function randomInt(min, max) {
 }
 
 async function randomNpc() {
-  const firstName = await drawText(TABLES_PACK, "First Names");
-  const lastName = await drawText(TABLES_PACK, "Last Names");
+  const firstName = await drawTextFromTableUuid(playerTables.firstNames);
+  const lastName = await drawTextFromTableUuid(playerTables.lastNames);
   const name = `${firstName} ${lastName}`;
   const imageBase = randomCharacterImageBase();
   const portrait = `systems/deathinspace/assets/images/portraits/characters/${imageBase}.jpg`;
@@ -320,9 +360,9 @@ async function randomNpc() {
   const morale = randomInt(4, 11);
 
   // 2. character details
-  const background = await drawText(TABLES_PACK, "Backgrounds");
-  const firstImpressions = await drawText(TABLES_PACK, "First Impressions");
-  const looks = await drawText(TABLES_PACK, "Looks");
+  const background = await drawTextFromTableUuid(playerTables.backgrounds);
+  const firstImpressions = await drawTextFromTableUuid(playerTables.firstImpressions);
+  const looks = await drawTextFromTableUuid(playerTables.looks);
 
   // 3. hit points and defense rating
   const hitPoints = await rollTotal("1d8");
